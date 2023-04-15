@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Spinner layout styles
+   ========================================================================== */
+
+#qodef-page-spinner {
+
+    &.qodef-layout--predefined {
+        transform-origin: bottom;
+        --qodef-stars-overlay-color : black;
+        --qodef-clip: 0;
+        clip-path: inset(0 0 calc(var(--qodef-clip) * 1%) 0);
+
+        @include qodefScreenSize680 {
+
+            .qodef-m-inner {
+                width: 101%;
+            }
+        }
+
+        .qodef-m-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 101%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .qodef-m-predefined {
+            position: relative;
+        }
+
+        .qodef-m-spinner-bg-image {
+            @include qodefAbsoluteLayout();
+            background-size: cover;
+
+            &:after {
+                content: '';
+                @include qodefAbsoluteLayout();
+                background-color: var(--qodef-stars-overlay-color);
+                opacity: .7;
+            }
+        }
+
+        .qodef-m-spinner-bg-image-overlay {
+            z-index: 1;
+            @include qodefAbsoluteLayout();
+            background-image: url(../../inc/spinner/layouts/predefined/assets/img/stars-image.png);
+            mix-blend-mode: lighten;
+            animation: qodef-scale-infinite 10s infinite alternate linear;
+
+            &:after {
+                content: '';
+                @include qodefAbsoluteLayout();
+                animation: qodef-twinkling 250s linear infinite;
+                background:
+                        radial-gradient(18px at 24% 25%,var(--qodef-stars-overlay-color) 0,#0000),
+                        radial-gradient(22px at 77% 39%,var(--qodef-stars-overlay-color) 0,#0000),
+                        radial-gradient(25px at 31% 69%,var(--qodef-stars-overlay-color),#0000 103%);
+                background-size: 100px 100px;
+            }
+        }
+
+        svg {
+            fill: none;
+            stroke: currentColor;
+            min-width: 200px;
+            max-width: 90vW;
+            height: auto;
+            opacity: 0;
+        }
+
+        .qodef--theme-logo-svg {
+
+            .qodef--stroke-width-1,
+            .qodef--stroke-width-2{
+                stroke-miterlimit:10;
+            }
+
+            .qodef--stroke-width-1,
+            .qodef--stroke-width-3{
+                stroke-width:6px;
+            }
+
+            .qodef--stroke-width-2{
+                stroke-width:7px;
+            }
+
+            .qodef--stroke-width-3{
+                stroke-linejoin:round;
+            }
+        }
+
+        .qodef-m-spinner-logo-holder {
+            display: block;
+        }
+
+        &.qodef--finished {
+            .qodef-m-spinner-bg-image-overlay,
+            .qodef-m-spinner-bg-image-overlay:after {
+                animation: none;
+            }
+        }
+    }
+}
+
+

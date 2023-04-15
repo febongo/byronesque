@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Fixed Indent Slider shortcode responsive style - begin
+   ========================================================================== */
+
+$side-spacing-mobile: 50px;
+
+.qodef-fixed-indent-slider-holder-outer {
+
+	@include qodefScreenSize1024 {
+
+		&.qodef-title-break--disabled {
+
+			.qodef-e-title {
+
+				br {
+					display: none;
+				}
+			}
+		}
+
+		&.qodef-text-break--disabled {
+
+			.qodef-e-text {
+
+				br {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@include qodefScreenSize1024 {
+
+		&.qodef-slider--left {
+
+			.qodef-left-info {
+
+				.qodef-left-info-content {
+					padding: 0 $side-spacing-mobile 0 70px;
+				}
+			}
+		}
+
+		.qodef-left-info {
+
+			.qodef-left-info-content {
+				padding: 0 70px 0 $side-spacing-mobile;
+			}
+		}
+	}
+
+	@include qodefScreenSize834 {
+		flex-direction: column;
+
+		.qodef-left-info,
+		.qodef-right-slider {
+			width: 100%
+		}
+
+		.qodef-right-slider {
+			padding-top: 30px;
+			padding-left: $side-spacing-mobile;
+		}
+
+		&.qodef-slider--left {
+
+			.qodef-right-slider {
+				padding-left: 0;
+				padding-right: $side-spacing-mobile;
+			}
+
+			.qodef-left-info {
+
+				.qodef-left-info-content {
+					padding: 100px $side-spacing-mobile 100px 70px;
+				}
+			}
+		}
+
+		.qodef-left-info {
+
+			.qodef-left-info-content {
+				padding: 100px 70px 100px $side-spacing-mobile;
+			}
+		}
+	}
+
+	@include qodefScreenSize680 {
+
+		&.qodef-slider--left {
+
+			.qodef-right-slider {
+				padding-right: 28px;
+			}
+		}
+
+		.qodef-right-slider {
+			padding-top: 30px;
+			padding-left: 28px;
+		}
+
+		.qodef-left-info {
+			.qodef-left-info-content {
+				padding: 0 28px 32px 28px;
+			}
+		}
+
+		&.qodef-slider--left {
+
+			.qodef-left-info {
+				.qodef-left-info-content {
+					padding: 0 28px 32px 28px;
+				}
+			}
+		}
+	}
+}
+/* ==========================================================================
+   Fixed Indent Slider shortcode responsive style - end
+   ========================================================================== */

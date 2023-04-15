@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Banner shortcode styles
+   ========================================================================== */
+
+.qodef-banner {
+	@include qodefRelativeLayout();
+
+	.qodef-m-banner-link {
+		@include qodefAbsoluteLayout();
+		display: block;
+		z-index: 1;
+	}
+
+	.qodef-m-content {
+		@include qodefAbsoluteLayout();
+		display: block;
+	}
+
+	.qodef-m-content-inner {
+		@include qodefAbsoluteLayout();
+		display: flex;
+	}
+
+	.qodef-m-title-holder {
+		text-align: center;
+		display: inline-flex;
+	}
+
+	.qodef-m-title, .qodef-m-additional-title {
+		margin: 0;
+	}
+
+	.qodef-m-title-inner {
+		display: inline-flex;
+	}
+
+	.qodef-title-decoration-svg {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 28px;
+
+		svg {
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+	.qodef-m-subtitle {
+		font-family: $heading-font;
+		margin: 0;
+		letter-spacing: 0;
+	}
+
+	.qodef-m-text-field {
+		font-size: 15px;
+		color: var(--qode-main-color);
+		margin: 0 0 10px;
+		font-style: italic;
+	}
+
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+		overflow: hidden;
+
+		img {
+			display: block;
+			transition: all .35s ease-out;
+		}
+	}
+
+	.qodef-button {
+
+		&.qodef-layout--outlined {
+			margin-top: 9px;
+		}
+	}
+
+	&.qodef-banner--light {
+
+		.qodef-m-title, .qodef-m-additional-title, > .qodef-m-text, .qodef-m-subtitle {
+			color: #fff;
+		}
+
+		.qodef-button {
+			color: #fff;
+
+			&.qodef-layout--textual {
+
+				&:before, &:after {
+					background-color: #fff;
+				}
+			}
+
+			&.qodef-layout--outlined {
+				border-color: #fff;
+
+				&:hover {
+					border-color: var(--qode-main-color);
+				}
+			}
+		}
+	}
+
+	&.qodef--enable-border {
+
+		.qodef-m-image {
+			border: 1px solid var(--qode-main-color);
+		}
+	}
+
+	&.qodef--has-appear {
+
+		.qodef-m-image {
+			overflow: hidden;
+
+			img {
+				@include qodefImageScale();
+			}
+		}
+
+		&.qodef--appeared {
+			.qodef-m-image {
+				img {
+					@include qodefImageScale($scale:1, $with-transition: false);
+				}
+			}
+		}
+	}
+}

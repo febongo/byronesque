@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Author Info shortcode styles
+   ========================================================================== */
+
+.qodef-author-info {
+
+    .qodef-author-info-inner {
+        position: relative;
+        text-align: left;
+
+        img {
+            border: 1px solid var(--qode-main-color);
+            margin: 0 auto;
+        }
+
+        .qodef-author-info-name {
+            margin-bottom: 13px;
+        }
+    }
+
+    .qodef-author-info-image {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 2px;
+    }
+
+    .qodef-author-info-description {
+        text-align: left;
+    }
+}

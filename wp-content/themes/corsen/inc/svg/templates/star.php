@@ -1,0 +1,1 @@
+<svg class="<?php echo esc_attr( $class ); ?>" xmlns="http://www.w3.org/2000/svg" width="15.407" height="14.378" viewBox="0 0 15.407 14.378"><path d="M14.907 5.645H9.375L7.7.5 6.028 5.645H.5L5 8.732l-1.737 5.145L7.7 10.662l4.438 3.216L10.4 8.732Z" stroke-linejoin="round"/></svg>

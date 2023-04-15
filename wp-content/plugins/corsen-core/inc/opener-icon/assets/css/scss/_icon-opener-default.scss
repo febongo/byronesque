@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Opener icon styles
+   ========================================================================== */
+
+.qodef-opener-icon {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+
+	.qodef-m-icon {
+		position: relative;
+		visibility: visible;
+
+		&.qodef--close {
+			position: absolute;
+			top: 0;
+			left: 0;
+			visibility: hidden;
+		}
+	}
+
+	&.qodef-source--icon-pack {
+		font-size: 35px;
+
+		* {
+			display: inline-block;
+			line-height: inherit;
+
+			&:before {
+				display: inline-block;
+				line-height: inherit;
+			}
+		}
+
+		&.qodef--opened {
+
+			.qodef-m-icon {
+
+				&.qodef--open {
+					visibility: hidden;
+				}
+
+				&.qodef--close {
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	&.qodef-source--svg-path {
+
+		span {
+			position: relative;
+
+			> * {
+				vertical-align: middle;
+			}
+
+			> *,
+			path {
+				fill: currentColor;
+			}
+		}
+
+		&.qodef--opened {
+
+			.qodef-m-icon {
+
+				&.qodef--open {
+					visibility: hidden;
+				}
+
+				&.qodef--close {
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	&.qodef-source--predefined {
+		svg {
+            path {
+				@include qodefMenuOpener($width: 41, $duration: .65s, $with-delay: true);
+			}
+
+			&.qodef-svg--menu-three-lines {
+				path {
+					--qodef-line-width: 21px;
+				}
+			}
+		}
+
+		&.qodef-svg--menu-close {
+			svg  {
+				path {
+					transition-duration: 1s;
+				}
+			}
+		}
+
+		&:hover {
+			svg {
+				path {
+					@include qodefMenuOpenerHover($with-delay: true);
+				}
+			}
+		}
+
+		&.qodef--opened {
+
+			.qodef-m-icon {
+
+				&.qodef--open {
+					visibility: hidden;
+				}
+
+				&.qodef--close {
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	&.qodef-side-area-opener {
+		bottom: 2px;
+	}
+}

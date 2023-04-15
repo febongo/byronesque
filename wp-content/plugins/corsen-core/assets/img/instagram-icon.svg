@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
+  <g transform="translate(-549.047 -7843.047)">
+    <g transform="translate(549.047 7843.047)" fill="#fff" stroke="#000" stroke-width="1">
+      <rect width="31" height="31" stroke="none"/>
+      <rect x="0.5" y="0.5" width="30" height="30" fill="none"/>
+    </g>
+    <g transform="translate(555.618 7849.618)" fill="none" stroke="#000" stroke-width="1">
+      <rect width="16.008" height="16.008" rx="4" stroke="none"/>
+      <rect x="1.5" y="1.5" width="15.008" height="15.008" rx="3.5" fill="none"/>
+    </g>
+    <g transform="translate(559.62 7853.62)" fill="none" stroke="#000" stroke-width="1">
+      <circle cx="5.002" cy="5.002" r="4.002" stroke="none"/>
+      <circle cx="5.002" cy="5.002" r="3.502" fill="none"/>
+    </g>
+    <circle cx="0.501" cy="0.501" r="0.501" transform="translate(567.624 7852.619)"/>
+  </g>
+</svg>

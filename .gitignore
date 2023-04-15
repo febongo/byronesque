@@ -1,0 +1,14 @@
+.DS_Store
+wp-config.php
+.htaccess
+.user.ini
+error_*
+php.ini
+wp-config.php.bak
+wp-config.php2
+
+wp-content/*
+!wp-content/plugins
+!wp-content/themes
+!wp-content/uploads/elementor
+64395e061fd048001c8377aa.txt

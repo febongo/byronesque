@@ -1,0 +1,192 @@
+$content-top-bottom-padding: 20.07%;
+
+body.qodef-header--minimal {
+
+	// custom css class on page
+	&.qodef-reposition-logo {
+
+		#qodef-page-header {
+
+			.qodef-header-logo-link {
+
+				img {
+					position: relative;
+					left: calc(50vw + 17px);
+
+					&:not(.qodef--main) {
+						position: absolute;
+						top: initial;
+						left: calc(50vw + 17px);
+						transform: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.qodef-vertical-split-slider--init {
+	height: 100vh !important;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+
+	@at-root .admin-bar#{&} {
+		margin-top: 32px;
+		height: calc(100vh - 32px) !important;
+	}
+
+	.qodef-vertical-split-slider {
+		visibility: visible;
+	}
+}
+
+.qodef-vertical-split-slider {
+	height: 100vh;
+	position: relative;
+	visibility: hidden;
+
+	@at-root .admin-bar & {
+		height: calc(100vh - 32px);
+	}
+
+	.ms-right {
+		right: 0 !important; // remove 1px added inline by script
+	}
+
+	.ms-tableCell {
+		height: calc(100% - (2 * #{$content-top-bottom-padding})) !important; // to override inline from js and make sure it will be full height
+
+		@at-root .admin-bar & {
+			height: calc(100% - (2 * #{$content-top-bottom-padding}) - 32px) !important; // to override inline from js and make sure it will be full height
+		}
+	}
+
+	.qodef-vertical-split-slider-responsive {
+		display: none;
+	}
+}
+
+.qodef-vertical-split-slider,
+.qodef-vertical-split-slider-responsive {
+	$label-size: 200px;
+
+	.qodef-m-slide-image {
+		background-position: center;
+		background-size: cover;
+		position: relative;
+	}
+
+	.qodef-m-slide-content {
+		padding: $content-top-bottom-padding 22.6%;
+		position: relative;
+
+		> div {
+
+			> *:not(.qodef-m-image) {
+				position: relative;
+				z-index: 1;
+			}
+		}
+	}
+
+	.qodef-m-image {
+		bottom: 0;
+		height: $label-size;
+		overflow: hidden;
+		position: absolute;
+		width: $label-size;
+		z-index: 0;
+
+		img {
+			height: $label-size;
+			object-fit: cover;
+			width: $label-size;
+		}
+	}
+
+	.qodef-slide-layout--image-left {
+
+		.qodef-m-image {
+			left: 0;
+		}
+	}
+
+	.qodef-slide-layout--image-right {
+
+		.qodef-m-image {
+			right: 0;
+		}
+	}
+}
+
+#multiscroll-nav {
+	display: none;
+
+	li {
+		height: 12px !important;
+		margin: 4px 0 !important;
+		width: 12px !important;
+
+		a {
+
+			span {
+				background-color: transparent;
+				width: 6px;
+				height: 6px;
+				border-radius: 0;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			&.active {
+
+				span {
+					background-color: var(--qode-main-color);
+				}
+			}
+		}
+	}
+
+	&.right {
+		right: 69px !important;
+	}
+
+	@at-root .qodef-vertical-split-slider--init & {
+		display: block;
+
+		$skins: ('light', 'dark');
+		$skins-color: ('#fff', '#000');
+		@each $skin in $skins {
+
+			&.qodef-skin--#{$skin} {
+
+				a:not(.active) {
+
+					span {
+						border-color: #{nth($skins-color, index($skins, $skin))};
+					}
+				}
+
+				a.active {
+
+					span {
+						background-color: #{nth($skins-color, index($skins, $skin))};
+						border-color: #{nth($skins-color, index($skins, $skin))};
+					}
+				}
+			}
+		}
+	}
+
+	@at-root .qodef-fullscreen-menu--opened & {
+		z-index: 98;
+	}
+
+	// html element in elementor iframe
+	// buggy js, pagination gets multiplied
+	@at-root html.elementor-html & {
+		display: none !important;
+	}
+}

@@ -1,0 +1,259 @@
+.wcuCurrencySwitcher.dropdown {
+    font-size:14px;
+	font-family:sans-serif;
+}
+.wcuCurrencySwitcher.dropdown {
+	position: fixed;
+	z-index: 999999;
+}
+.wcuCurrencySwitcher.dropdown.top {
+	top: 0;
+}
+.wcuCurrencySwitcher.dropdown.left {
+	left: 0;
+}
+.wcuCurrencySwitcher.dropdown.right {
+	right: 0;
+}
+.wcuCurrencySwitcher.dropdown.bottom {
+	bottom: 0;
+}
+/* .wcuCurrencySwitcher.dropdown.left, .wcuCurrencySwitcher.dropdown.right {
+	transform: translate(0, -50%);
+} */
+.wcuCurrencySwitcher.dropdown.vertical {
+	transform: translate(0%, -50%);
+}
+
+
+
+.wcuCurrencySwitcher.dropdown ul {
+	list-style: none;
+	margin: 0;
+}
+.wcuCurrencySwitcher.dropdown li {
+	text-align:center;
+	cursor: pointer;
+}
+.wcuCurrencySwitcher.dropdown.horizontal li, .wcuCurrencySwitcher.dropdown.horizontal li {
+	display: inline-block;
+	float: left;
+}
+.wcuCurrencySwitcher.dropdown.horizontal li {
+	border-right:none;
+}
+
+.wcuCurrencySwitcher.dropdown.left li:not(:last-child), .wcuCurrencySwitcher.dropdown.right li:not(:last-child) {
+	border-bottom: none;
+}
+.wcuCurrencySwitcher.dropdown.top li:not(:last-child), .wcuCurrencySwitcher.dropdown.bottom li:not(:last-child) {
+	border-right: none;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconType_circle li {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.wcuCurrencySwitcher.dropdown ul li {
+    visibility:hidden;
+    opacity:0;
+    font-size:0px;
+    transition:.3s ease-in;
+    z-index:-1 !important;
+    color:rgba(0,0,0,.0);
+}
+.wcuCurrencySwitcher.dropdown.left.horizontal ul li:nth-child(2), .wcuCurrencySwitcher.dropdown.left.vertical ul li:nth-child(2), .wcuCurrencySwitcher.dropdown.right.vertical ul li:nth-child(2) {
+    visibility:visible;
+    opacity:1;
+    z-index:9 !important;
+    width:auto;
+}
+
+
+.wcuCurrencySwitcher.dropdown.vertical ul li {
+    height:0px;
+    margin-top:-30px;
+}
+.wcuCurrencySwitcher.dropdown.vertical ul li:nth-child(2) {
+    height:auto;
+    margin-top:0px;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdToggleSwitcher_on_hover.vertical ul:hover li {
+    height:auto;
+    margin-top:0px;
+}
+
+
+.wcuCurrencySwitcher.dropdown.left.horizontal ul li {
+    width:auto;
+    margin-left:-50px;
+}
+.wcuCurrencySwitcher.dropdown.left.horizontal ul li:nth-child(2) {
+    width:auto;
+    margin-left:0px;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdToggleSwitcher_on_hover.left.horizontal ul:hover li {
+    width:auto;
+    margin-left:0px;
+}
+
+
+.wcuCurrencySwitcher.dropdown.right.horizontal ul li {
+    width:auto;
+    margin-right:-50px;
+}
+.wcuCurrencySwitcher.dropdown.right.horizontal ul li:nth-last-child(2) {
+    width:auto;
+    margin-right:0px;
+    visibility:visible;
+    opacity:1;
+    z-index:9 !important;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdToggleSwitcher_on_hover.right.horizontal ul:hover li {
+    width:auto;
+    margin-right:0px;
+}
+
+
+
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_s ul li {
+    font-size:10px;
+    padding: 4px 8px;
+    line-height: 16px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_s.wcuCsdIconType_circle ul li {
+    line-height: 30px !important;
+}
+
+
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_s ul:hover li {
+    font-size:10px;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_m ul li {
+    font-size:12px;
+    padding: 5px 10px;
+    line-height: 22px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_m.wcuCsdIconType_circle ul li {
+    line-height: 35px !important;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_m ul:hover li {
+    font-size:12px;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_l ul li {
+    font-size:14px;
+    padding: 6px 12px;
+    line-height: 26px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_l.wcuCsdIconType_circle ul li {
+    line-height: 40px !important;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_l ul:hover li {
+    font-size:14px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdToggleSwitcher_on_hover .wcuCurrencySwitcherSimpleDropdownClose {
+    display:none;
+}
+.wcuCurrencySwitcherSimpleDropdownClose .dashicons, .wcuCurrencySwitcherSimpleDropdownClose .dashicons-before:before {
+    line-height:inherit;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdToggleSwitcher_on_hover ul:hover li {
+    visibility:visible;
+    opacity:1;
+    z-index:9 !important;
+}
+
+.wcuCsdToggleSwitcherClick.dropdown ul li{
+    visibility:visible;
+    opacity:1;
+    z-index:9 !important;
+}
+.wcuCsdToggleSwitcherClick.dropdown.vertical ul li{
+    height:auto;
+    margin-top:0px;
+}
+.wcuCsdToggleSwitcherClick.dropdown.right.horizontal ul li{
+    width:auto;
+    margin-right:0px;
+}
+.wcuCsdToggleSwitcherClick.dropdown.left.horizontal ul li{
+    width:auto;
+    margin-left:0px;
+}
+
+.wcuCurrencySwitcher.dropdown.horizontal.wcuCsdIconSize_s.wcuCsdIconType_circle ul li {
+	min-width: 40px;
+}
+.wcuCurrencySwitcher.dropdown.horizontal.wcuCsdIconSize_m.wcuCsdIconType_circle ul li {
+	min-width: 45px;
+}
+.wcuCurrencySwitcher.dropdown.horizontal.wcuCsdIconSize_l.wcuCsdIconType_circle ul li {
+	min-width: 55px;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_s.wcuCsdShow_flags ul li {
+	font-size: 16px;
+	line-height:16px !important;
+	padding: 4px;
+	width:26px !important;
+	height:26px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_m.wcuCsdShow_flags ul li {
+	font-size: 18px;
+	line-height: 22px !important;
+	padding: 5px;
+	width:34px !important;
+	height:34px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_l.wcuCsdShow_flags ul li {
+	font-size: 20px;
+	line-height: 31px !important;
+	padding: 6px;
+	width:44px !important;
+	height:44px;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_s.wcuCsdShow_flags ul li img {
+	width:16px;
+	height:16px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_m.wcuCsdShow_flags ul li img {
+	width:24px;
+	height:24px;
+}
+.wcuCurrencySwitcher.dropdown.wcuCsdIconSize_l.wcuCsdShow_flags ul li img {
+	width:32px;
+	height:32px;
+}
+
+.wcuCurrencySwitcher.dropdown.horizontal.wcuCsdIconSize_s.wcuCsdIconType_circle.wcuCsdShow_flags ul li {
+	min-width: auto;
+}
+.wcuCurrencySwitcher.dropdown.horizontal.wcuCsdIconSize_m.wcuCsdIconType_circle.wcuCsdShow_flags ul li {
+	min-width: auto;
+}
+.wcuCurrencySwitcher.dropdown.horizontal.wcuCsdIconSize_l.wcuCsdIconType_circle.wcuCsdShow_flags ul li {
+	min-width: auto;
+}
+
+.wcuCurrencySwitcher.dropdown.wcuShortcodeView.extended {
+     position: absolute !important;
+     transform: none !important;
+     top: auto !important;
+     left: auto !important;
+     right: auto !important;
+     bottom: auto !important;
+ }
+.wcuCurrencySwitcher.dropdown.wcuShortcodeView.extended li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wcuCurrencySwitcher.dropdown.wcuShortcodeView.extended li span {
+    padding: 0 5px;
+}

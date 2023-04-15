@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Author Info styles
+   ========================================================================== */
+
+#qodef-author-info {
+	@include qodefRelativeLayout();
+	margin-top: 36px;
+	border: 1px solid var(--qode-main-color);
+
+	.qodef-m-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: 38px 41px;
+	}
+
+	.qodef-m-content {
+		margin-top: -2px;
+	}
+
+	.qodef-m-image {
+		flex-shrink: 0;
+		margin-right: 29px;
+
+		a, img {
+			display: block;
+		}
+
+		a {
+
+			img {
+				border: 1px solid var(--qode-main-color);
+			}
+		}
+	}
+
+	.qodef-m-author {
+		margin: 0;
+	}
+
+	.qodef-m-email {
+		margin: 5px 0 0;
+	}
+
+	.qodef-m-description {
+		margin: 6px 0 24px;
+		font-size: 17px;
+		line-height: 23px;
+	}
+
+	.qodef-m-social-icons {
+		margin-top: 18px;
+
+		a {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 16px;
+			margin-left: 12px;
+			@include qodefHeadingStyle(h6);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+
+			@include qodefInlineUnderline(100%);
+
+			&:hover {
+				@include qodefInlineUnderlineHover();
+			}
+
+			&:after {
+				content: "";
+				width: 1px;
+				height: 9px;
+				background-color: currentColor;
+				position: absolute;
+				right: -16px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}

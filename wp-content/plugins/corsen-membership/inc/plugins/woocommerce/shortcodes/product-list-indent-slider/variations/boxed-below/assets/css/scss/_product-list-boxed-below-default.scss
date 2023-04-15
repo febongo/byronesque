@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Product List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-list {
+
+	&.qodef-layout--indent-slider {
+
+		&.qodef-item-layout--boxed-below {
+
+			&.qodef-enable-border--no {
+
+				> .qodef-grid-inner > .qodef-grid-item {
+					border: 0;
+				}
+			}
+
+			&.qodef-gutter--no {
+
+				&.qodef-enable-border--yes {
+
+					> .qodef-grid-inner {
+						border-top: 1px solid var(--qode-main-color);
+
+						> .qodef-grid-item {
+							border: 0;
+							border-right: 1px solid var(--qode-main-color);
+							border-bottom: 1px solid var(--qode-main-color);
+						}
+					}
+				}
+			}
+
+			> .qodef-grid-inner > .qodef-grid-item {
+				border: 1px solid var(--qode-main-color);
+			}
+
+			.qodef-e-inner {
+
+				.qodef-woo-product-image-inner {
+					border: 0;
+					opacity: 1;
+				}
+
+				&:hover {
+
+					.qodef-woo-product-image-inner {
+						border: 0;
+					}
+				}
+			}
+
+			.qodef-woo-product-image {
+
+				.qodef-woo-product-image-inner {
+
+					.add_to_cart_button, .added_to_cart, .product_type_grouped, .product_type_external {
+						background: #fff;
+						color: var(--qode-main-color);
+						border: 1px solid #fff;
+					}
+				}
+			}
+
+			.qodef-woo-product-content {
+				margin: 5px 0 0 0;
+				min-height: 68px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				padding: 0;
+				border-top: none;
+
+				.added_to_cart,
+				.button:not(.yith-wcqv-button) {
+					font-size: 0 !important;
+					padding: 0 !important;
+					width: 16px !important;
+					height: 69px !important;
+					position: absolute !important;
+					bottom: -1px !important;
+					right: 0 !important;
+					margin-right: -1px;
+					display: flex !important;
+					align-items: center;
+					justify-content: center;
+					border-color: transparent;
+
+					&:hover {
+						background-color: transparent;
+
+						&:before {
+							color: var(--qode-main-color);
+						}
+
+						&:before {
+							filter: none;
+						}
+					}
+				}
+
+				.qodef-woo-product-title {
+					max-width: 100% !important;
+					text-align: left;
+					width: 100%;
+				}
+
+				.price {
+					position: relative !important;
+					text-align: left;
+					width: 100%;
+					top: 0;
+					margin: 2px 0 0;
+				}
+			}
+		}
+	}
+}

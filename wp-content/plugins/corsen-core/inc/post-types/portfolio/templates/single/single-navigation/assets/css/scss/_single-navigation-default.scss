@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Single Post Navigation styles
+   ========================================================================== */
+
+#qodef-single-portfolio-navigation {
+	@include qodefRelativeLayout();
+	margin: 124px 0 3px;
+
+	.qodef-m-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.qodef-m-nav {
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		> * {
+			display: block;
+			line-height: inherit;
+		}
+
+		&.qodef--prev {
+
+			.qodef-m-nav-icon {
+				margin-right: 5px;
+			}
+		}
+
+		&.qodef--next {
+			flex-direction: row-reverse;
+			text-align: right;
+			margin-left: auto;
+
+			.qodef-m-nav-icon {
+				margin-left: 5px;
+			}
+		}
+
+		&.qodef--back-link {
+			position: absolute;
+			top: 0;
+			left: calc(50% - 16px); // 16 is half size of icon size
+
+			.qodef-m-nav-icon {
+				font-size: 32px;
+			}
+
+			svg {
+				path {
+					stroke: currentColor;
+					fill: transparent;
+					transition: fill $transition-timing;
+				}
+			}
+
+			&:hover {
+				path {
+					fill: currentColor;
+				}
+			}
+		}
+	}
+
+	.qodef-m-nav-icon {
+		font-size: 30px;
+	}
+
+	.qodef-m-nav-label {
+		font-family: $heading-font;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		line-height: 17px;
+		text-transform: uppercase;
+		color: var(--qode-main-color);
+		position: relative;
+		overflow: hidden;
+
+		@include qodefUnderlineDraw();
+
+		&:hover {
+			@include qodefUnderlineDrawHover();
+		}
+	}
+}

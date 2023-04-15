@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Portfolio List shortcode variation hover styles
+   ========================================================================== */
+
+.qodef-item-layout--info-below.qodef-hover-animation--overlay {
+	.qodef-e-image {
+		overflow: hidden;
+	}
+	.qodef-e-media-image {
+		width: 100%;
+		@include qodefImageScale($scale: 1.01, $duration: .7s);
+
+		> a {
+			position: relative;
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.qodef-e:hover {
+		.qodef-e-media-image {
+			@include qodefImageScale($scale: 1.04, $with-transition: false);
+
+			> a {
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Contact Form 7 widget styles
+   ========================================================================== */
+
+.rs-layer,
+.qodef-contact-form-7 {
+	@include qodefRelativeLayout();
+
+	// code cleanup - start
+	p {
+		margin: 0;
+	}
+
+	br {
+		display: none;
+	}
+
+	// code cleanup - end
+
+	.ajax-loader {
+		display: none;
+	}
+
+	.wpcf7-form-control-wrap {
+		display: block;
+		max-width: 100%;
+	}
+
+	.wpcf7-not-valid-tip {
+		margin: 10px 0 0 0;
+	}
+
+	.wpcf7-response-output {
+		border-width: 1px !important;
+		margin: 2em 0 0 0 !important;
+		padding: 1em 1.5em !important;
+	}
+
+	.wpcf7-form {
+		position: relative;
+
+		&:before {
+			@include qodefAbsoluteLayout();
+
+			background-color: transparent;
+			content: '';
+			visibility: hidden;
+			z-index: 98;
+		}
+
+		&:after {
+			$loader-size: 24px;
+
+			animation: qode-rotate 2s linear infinite;
+			background-color: transparent;
+			border: 2px solid $additional-background-color;
+			border-radius: 50%;
+			border-top: 2px solid var(--qode-main-color);
+			content: '';
+			height: $loader-size;
+			left: calc(50% - #{$loader-size / 2});
+			opacity: 1;
+			position: absolute;
+			top: calc(50% - #{$loader-size / 2});
+			visibility: hidden;
+			width: $loader-size;
+			z-index: 99;
+		}
+
+		&.submitting {
+
+			> * {
+				opacity: 0.3;
+			}
+
+			&:before,
+			&:after {
+				visibility: visible;
+			}
+		}
+	}
+}

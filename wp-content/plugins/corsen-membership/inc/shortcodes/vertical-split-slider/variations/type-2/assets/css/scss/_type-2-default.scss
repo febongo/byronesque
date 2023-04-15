@@ -1,0 +1,39 @@
+.qodef-vertical-split-slider,
+.qodef-vertical-split-slider-responsive {
+
+	.qodef-content-layout--type-2 {
+
+		.qodef-woo-product-list {
+			height: 100%;
+
+			.qodef-grid-inner,
+			.qodef-e-inner,
+			.qodef-woo-product-image {
+				height: 100%;
+			}
+
+			.qodef-woo-product-image {
+
+				img {
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+
+		.qodef-m-product-image {
+			position: absolute !important;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0 !important;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}

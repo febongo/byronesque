@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Product Category List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-category-list.qodef-item-layout--info-on-image, // our shortcode wrapper
+.qodef-woo-product-list { // woo shortcode wrapper
+    .product-category {
+
+        a {
+            margin: 37px 0;
+        }
+
+        .woocommerce-loop-category__title-holder {
+            left: 50%;
+            margin: 0;
+            padding: 12px 41px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            text-align: center;
+
+            .woocommerce-loop-category__title {
+                margin: 0;
+            }
+            @include qodefScreenSize1024 {
+                width: 100%;
+            }
+        }
+    }
+
+    .count {
+        display: none;
+    }
+}
+
+.qodef-woo-product-category-list {
+
+    > .qodef-grid-inner {
+        margin-right: -1px;
+
+        > .qodef-e {
+            border: 0;
+            border-top: 1px solid var(--qode-main-color);
+            border-right: 1px solid var(--qode-main-color);
+            border-bottom: 1px solid var(--qode-main-color);
+
+            @include qodefScreenSize680 {
+                border-bottom: 0;
+
+                &:last-child {
+                    border-bottom: 1px solid var(--qode-main-color);
+                }
+            }
+        }
+    }
+
+    .qodef-e {
+        &.qodef--has-appear {
+
+            .qodef-e-inner {
+                overflow: hidden;
+
+                img {
+                    @include qodefImageScale();
+                }
+            }
+
+            &.qodef--appeared {
+                .qodef-e-inner {
+                    img {
+                        @include qodefImageScale($scale:1, $with-transition: false);
+                    }
+                }
+            }
+        }
+    }
+}

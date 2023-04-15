@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Text Marquee shortcode styles
+   ========================================================================== */
+
+@include keyframes(qode-text-marquee-left) {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@include keyframes(qode-text-marquee-right) {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.qodef-text-marquee {
+	$marquee-timing: var(--qode-marquee-duration, 25s) linear infinite;
+
+	.qodef-m-content {
+		display: flex;
+		font-family: $heading-font;
+		font-size: 13px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		line-height: 1em;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	.qodef-m-content-inner {
+		@at-root .qodef--init.qodef-direction--left#{&} {
+			animation: qode-text-marquee-left $marquee-timing;
+		}
+
+		@at-root .qodef--init.qodef-direction--right#{&} {
+			animation: qode-text-marquee-right $marquee-timing;
+		}
+
+		padding-right: 4px;
+	}
+
+	.qodef-m-text-1 {
+		color: #000;
+	}
+
+	.qodef-m-text-2 {
+		color: #000;
+	}
+
+	.qodef-m-text-3 {
+		color: #000;
+	}
+
+	.qodef-m-separator {
+		color: #000;
+		position: relative;
+		padding: 0 14px 0 13px;
+		letter-spacing: 0;
+
+		&:after {
+			content: "";
+			width: 1px;
+			height: 0.538em;
+			background-color: currentColor;
+			display: inline-block;
+		}
+	}
+}

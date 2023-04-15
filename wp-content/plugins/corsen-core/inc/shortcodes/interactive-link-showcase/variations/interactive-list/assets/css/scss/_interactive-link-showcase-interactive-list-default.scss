@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Interactive Link Showcase Interactive List styles
+   ========================================================================== */
+
+.qodef-interactive-link-showcase {
+
+	&.qodef-layout--interactive-list {
+		height: 100%;
+
+		.qodef-m-items {
+			position: relative;
+			flex-direction: column;
+		}
+
+		.qodef-m-item {
+			padding: 60px 141px;
+			margin: 0;
+			color: $heading-color;
+			background-color: transparent;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			border-top: 1px solid var(--qode-main-color);
+			overflow: hidden;
+			@include qodefScreenSize1024 {
+				flex-direction: column;
+				text-align: center;
+				padding: 60px 72px;
+			}
+			@include qodefScreenSize768 {
+				padding: 60px 54px;
+			}
+			@include qodefScreenSize680 {
+				padding: 60px 7%;
+			}
+
+			.qodef-e-title {
+				display: block;
+				z-index: 10;
+				transition: color .5s ease-out;
+				width: 25%;
+				@include qodefScreenSize1024 {
+					width: 100%;
+				}
+			}
+
+			.qodef-e-text {
+				font-family: $text-font;
+				font-size: 16px;
+				font-weight: 400;
+				letter-spacing: 0;
+				line-height: 22px;
+				color: var(--qode-main-color);
+				z-index: 10;
+				transition: color .5s ease-out;
+				width: 36%;
+				padding-right: 11%;
+
+				@include qodefScreenSize1440 {
+					padding-right: 0;
+				}
+
+				@include qodefScreenSize1024 {
+					margin: 30px 0 23px;
+					width: 100%;
+				}
+			}
+
+			.qodef-e-hover-image {
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			.qodef-e-hover-content {
+				@include qodefAbsoluteLayout();
+
+				transform: translateX(-341px);
+				opacity: 0;
+				transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .35s ease-out;
+
+				@include qodefScreenSize1024 {
+					display: none;
+				}
+			}
+
+			&:last-child {
+				border-bottom: 1px solid var(--qode-main-color);
+			}
+
+			.qodef-e-arrow {
+				transform: translateX(0);
+				transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			}
+
+			&:hover {
+
+				.qodef-e-hover-content {
+					transform: translateX(-141px);
+					opacity: 1;
+				}
+
+				.qodef-e-arrow {
+					transform: translateX(94px);
+					@include qodefScreenSize1024 {
+						transform: translateX(0);
+					}
+				}
+
+				.qodef-e-text, .qodef-e-title {
+					color: #fff;
+					@include qodefScreenSize1024 {
+						color: var(--qode-main-color);
+					}
+				}
+			}
+		}
+	}
+}

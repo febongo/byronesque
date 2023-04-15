@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Team lists shortcode styles
+   ========================================================================== */
+
+.qodef-team-list {
+
+	.qodef-e-role {
+		margin: 0;
+		font-family: $heading-font;
+		font-size: 13px;
+		font-weight: 400;
+		letter-spacing: 0.05em;
+		line-height: 18px;
+	}
+
+	.qodef-e-title {
+		margin: 2px 0 1px;
+	}
+
+	.qodef-team-member-social-icons {
+		margin: 0;
+	}
+
+	.qodef-e-team-social-holder {
+		display: inline-flex;
+		justify-content: flex-end;
+		padding: 20px;
+
+		.qodef-team-member-social-icons {
+			background: #fff;
+			line-height: 30px;
+			position: relative;
+
+			&:after {
+				content: '';
+				display: block;
+				@include qodefAbsoluteLayout();
+				@include qodefDrawBorder($with-separator: false);
+				z-index: 1;
+			}
+
+			.qodef-team-member-social-icon {
+				padding: 5px 13px 6px 17px;
+
+				&:last-child {
+					padding: 5px 17px 6px 17px;
+				}
+
+				&.icon-text {
+					font-family: $heading-font;
+					font-size: 14px;
+					font-weight: 400;
+					letter-spacing: 0;
+					line-height: 19px;
+				}
+
+				&:not(:last-child){
+					border: none;
+					position: relative;
+
+					&:after {
+						content: '';
+						display: block;
+						@include qodefAbsoluteLayout();
+						transition: transform .8s cubic-bezier(0.54, 0.07, 0.11, 0.95);
+						background-color: currentColor;
+						width: 1px;
+						left: unset;
+						right: 0;
+						transform: scaleY(0);
+						transform-origin: top;
+					}
+				}
+			}
+		}
+
+	}
+
+	.qodef-e-team-info-holder {
+		background: #fff;
+		width: 100%;
+		border: 1px solid var(--qode-main-color);
+		padding: 5px 20px 16px;
+	}
+
+	.qodef-e-inner {
+		&:hover {
+			.qodef-e-team-social-holder {
+				.qodef-team-member-social-icons {
+					&:after {
+						@include qodefDrawBorderHover();
+					}
+
+					.qodef-team-member-social-icon {
+						&:not(:last-child){
+							&:after {
+								transform: scaleY(1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

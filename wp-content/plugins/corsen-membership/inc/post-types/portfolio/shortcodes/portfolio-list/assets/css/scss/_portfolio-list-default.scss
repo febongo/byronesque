@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Portfolio List shortcode styles
+   ========================================================================== */
+
+.qodef-portfolio-list {
+	
+	.qodef-e-inner {
+		position: relative;
+	}
+
+	.qodef-e-info {
+
+		> *, a {
+			font-family: $text-font;
+			font-size: 13px;
+			font-weight: 400;
+			letter-spacing: 0.05em;
+			line-height: 18px;
+			color: var(--qode-main-color);
+		}
+
+		.qodef-info-separator {
+			position: relative;
+			top: 0;
+			margin:  0 7px 0 6px;
+			font-size: 10px;
+		}
+	}
+
+	.qodef-e-inner,
+	.qodef-e-media,
+	.qodef-e-content {
+		@include qodefRelativeLayout();
+	}
+
+	.qodef-e-media {
+
+		> * {
+			margin-bottom: 30px;
+		}
+
+		iframe {
+			display: block;
+			height: 100%;
+		}
+	}
+
+	.qodef-e-media-image {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		max-width: 100%;
+
+		a, img {
+			display: block;
+			width: 100%;
+		}
+
+		&.qodef--background {
+			width: 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			img {
+				visibility: hidden;
+			}
+		}
+	}
+
+	.qodef-e-title {
+		margin: 0;
+	}
+
+	.qodef-e-excerpt {
+		margin: 15px 0 0;
+	}
+
+	.qodef-e-read-more {
+		margin: 15px 0 0;
+	}
+
+	.qodef-e-top-holder {
+		margin-bottom: 2px;
+	}
+
+	.qodef-e-post-link {
+		@include qodefAbsoluteLayout();
+	}
+	
+	.qodef-m-pagination {
+		margin-top: 120px;
+	}
+
+	&.qodef-items--fixed {
+		
+		.qodef-e-image {
+			//because of the custom padding around item
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		.qodef-e-media-image {
+			height: 100%;
+			
+			a {
+				@include qodefRelativeLayout();
+				height: 100%;
+			}
+		}
+	}
+
+	.qodef-custom-margin {
+
+		.qodef-e-inner {
+			width: auto;
+		}
+	}
+}

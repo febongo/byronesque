@@ -1,0 +1,501 @@
+.wcuCurrencyRates {
+    font-size: 14px !important;
+    font-family: sans-serif !important;
+	backface-visibility: inherit !important;
+	-webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+.wcuCurrencyRates * {
+	backface-visibility: inherit !important;
+	-webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+.wcuCurrencyRates table tr {
+    border: none;
+}
+
+.selecter-selected {
+	display:none !important;
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesButtonClose .fa-times {
+	display:block;
+	position:absolute;
+	left:50%;
+	top:50%;
+	-webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.wcuCurrencyRates .wcuHeader {
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+    font-size: 12px
+}
+
+.wcuCurrencyRates table {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    table-layout: fixed;
+    font-size: inherit;
+    overflow-y: auto;
+}
+
+.wcuCurrencyRatesTrActive td.wcuCurrencyRatesTdRate:last-child {
+	padding-right:15px !important;
+}
+
+.wcuCurrencyRates td,
+.wcuCurrencyRates th {
+    border: none !important;
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesTableButton {
+    cursor: pointer;
+    width: auto;
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesDiv {
+    text-align: center;
+}
+
+.wcuCurrencyRates td {
+    text-align: left;
+    padding: 5px 5px;
+}
+
+.wcuCurrencyRates .wcuHeader  td:first-child {
+    padding-left: 15px
+}
+
+.wcuCurrencyRates .wcuHeader  td:last-child {
+    padding-right: 15px
+}
+
+.wcuCurrencyRatesFloating_rate {
+    font-size: 9px;
+    text-align: left
+}
+.wcuCurrencyRates .wcuCurrencyRatesDiv {
+	text-align:center;
+}
+.wcuCurrencyRates .wcuCurrencyRatesDiv img{
+	display:inline-block;
+	position:relative;
+	text-align:center;
+}
+.wcuCurrencyRates.top .wcuCurrencyRatesButton td,
+.wcuCurrencyRates.bottom .wcuCurrencyRatesButton td {
+    border-right: 1px solid rgba(255, 255, 255, .2)
+}
+
+.wcuCurrencyRates.top .wcuCurrencyRatesButton td:last-child,
+.wcuCurrencyRates.bottom .wcuCurrencyRatesButton td:last-child {
+    border-right: none
+}
+
+.wcuCurrencyRates.left .wcuCurrencyRatesButton td,
+.wcuCurrencyRates.right .wcuCurrencyRatesButton td {
+    border-bottom: 1px solid rgba(255, 255, 255, .2)
+}
+
+.wcuCurrencyRates.left .wcuCurrencyRatesButton td:last-child,
+.wcuCurrencyRates.right .wcuCurrencyRatesButton td:last-child {
+    border-bottom: none
+}
+
+.wcuCurrencyRates.left {
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+    left: 0
+}
+
+.wcuCurrencyRates.right {
+    -webkit-transform: translate(100%, -50%);
+    -ms-transform: translate(100%, -50%);
+    transform: translate(100%, -50%);
+    right: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.left:hover,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.right:hover {
+    -webkit-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    transform: translate(0%, -50%)
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.left,
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.right {
+    -webkit-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    transform: translate(0%, -50%)
+}
+
+.wcuCurrencyRates.top {
+    -webkit-transform: translate(-50%, -100%);
+    -ms-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+    top: 0
+}
+
+.wcuCurrencyRates.bottom {
+    -webkit-transform: translate(-50%, -100%);
+    -ms-transform: translate(-50%, -100%);
+    transform: translate(-50%, 100%);
+    bottom: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.top,
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.bottom {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%)
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.left,
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.right {
+    -webkit-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    transform: translate(-0%, -50%)
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.top:hover,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.bottom:hover {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%)
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.left:hover,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.right:hover {
+    -webkit-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    transform: translate(-0%, -50%)
+}
+
+.wcuCurrencyRatesButton {
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease
+}
+
+.wcuCurrencyRates.left .wcuCurrencyRatesButton td,
+.wcuCurrencyRates.right .wcuCurrencyRatesButton td {
+    float: left;
+    width: 100%;
+    padding: 5px!important
+}
+
+.wcuCurrencyRates.left .wcuCurrencyRatesButton {
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    left: 100%;
+    top: 50%
+}
+
+.wcuCurrencyRates.right .wcuCurrencyRatesButton {
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    right: 100%;
+    top: 50%
+}
+
+.wcuCurrencyRates.top .wcuCurrencyRatesButton {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%);
+    top: 100%;
+    left: 50%
+}
+
+.wcuCurrencyRates.bottom .wcuCurrencyRatesButton {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%);
+    bottom: 100%;
+    left: 50%
+}
+
+.wcuCurrencyRates {
+    display: inline-block;
+    position: fixed;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    z-index: 9999 !important;
+    width: auto
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.left:hover .wcuCurrencyRatesButton {
+    -webkit-transform: translate(0%, -0%);
+    -ms-transform: translate(0%, -0%);
+    transform: translate(0%, -0%);
+    left: 0;
+    top: 38px;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.right:hover .wcuCurrencyRatesButton {
+    -webkit-transform: translate(0%, -0%);
+    -ms-transform: translate(0%, -0%);
+    transform: translate(0%, -0%);
+    right: 0;
+    top: 38px;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.top:hover .wcuCurrencyRatesButton {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%);
+    top: 0;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_hover.bottom:hover .wcuCurrencyRatesButton {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%);
+    bottom: 0;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.left .wcuCurrencyRatesButton {
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    left: 0;
+    top: 50%;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.right .wcuCurrencyRatesButton {
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    right: 0;
+    top: 50%;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.top .wcuCurrencyRatesButton {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%);
+    top: 0;
+    opacity: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick.bottom .wcuCurrencyRatesButton {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%);
+    bottom: 0;
+    opacity: 0
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesFloatingTableCurrencies {
+    z-index: 99
+}
+
+.wcuCurrencyRatesButtonStaticText {
+    width: 100%;
+    text-align: center;
+    display: block;
+    position: relative
+}
+
+.wcuCurrencyRates.bottom .wcuCurrencyRatesFloatingTableButton td:first-child,
+.wcuCurrencyRates.top .wcuCurrencyRatesFloatingTableButton td:first-child {
+    padding-left: 5px
+}
+
+.wcuCurrencyRates.bottom .wcuCurrencyRatesFloatingTableButton td:last-child,
+.wcuCurrencyRates.top .wcuCurrencyRatesFloatingTableButton td:last-child {
+    padding-right: 5px
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggleClick .wcuCurrencyRatesButtonClose {
+    display: inline-block!important;
+    position: absolute;
+    cursor: pointer;
+    background-color: inherit;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_click .wcuCurrencyRatesButtonClose span {
+    text-align: center;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 28px
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_click.left .wcuCurrencyRatesButtonClose,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_click.top .wcuCurrencyRatesButtonClose,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_click.bottom .wcuCurrencyRatesButtonClose {
+    top: 5px;
+    right: 0;
+    -webkit-transform: translate(115%, 0%);
+    -ms-transform: translate(115%, 0%);
+    transform: translate(115%, 0%)
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_on_click.right .wcuCurrencyRatesButtonClose {
+    top: 5px;
+    left: 0;
+    -webkit-transform: translate(115%, 0%);
+    -ms-transform: translate(115%, 0%);
+    transform: translate(-115%, 0%)
+}
+
+.wcuCurrencyRates_flag {
+    display: block;
+    position: relative
+}
+
+.wcuCurrencyRates_flag img {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, -0%)
+}
+
+.wcuCurrencyRates div {
+    line-height: initial
+}
+
+.wcuCurrencyRates .wcuHeader {
+    z-index: 99
+}
+
+.wcuCurrencyRates .wcuHeader .wcuHeaderTitle {
+    position: relative;
+    text-transform: none
+}
+
+.wcuCurrencyRates .wcuHeader .wcuCurrencyRatesSelectFlagDropdownWrapper {
+    position: relative
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesSelectFlagDropdownWrapper img.fnone {
+    width: 24px;
+    height: auto
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesSelectFlagDropdownWrapper {
+    text-align: left
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesListRate {
+	text-align: right;
+	overflow-wrap: normal;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	min-width: 50px;
+	width:auto;
+}
+.wcuCurrencyRates .wcuCurrencyRatesTdRate {
+	padding:0px !important;
+}
+
+
+.wcuCurrencyRates .ddTitle {
+    padding-left: 2px
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesShowOuterBorder_1 .wcuCurrencyRatesTableCurrencies {
+    border-collapse: separate;
+    border-spacing: 0
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesShowInnerBorder_1.wcuCurrencyRatesShowOuterBorder_0 .wcuCurrencyRatesTableCurrencies td,
+.wcuCurrencyRates.wcuCurrencyRatesShowInnerBorder_1.wcuCurrencyRatesShowOuterBorder_0 .wcuCurrencyRatesTableCurrencies th {
+    border-top: 0;
+    border-right: 0
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesTableCurrencies tr td {
+    border-right: 0
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesTableCurrencies tr:last-child td {
+    border-bottom: 0
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesTableCurrencies tr td:first-child,
+.wcuCurrencyRates .wcuCurrencyRatesTableCurrencies tr th:first-child {
+    border-left: 0
+}
+
+.wcuCurrencyRates .wcuCurrencyRatesTableCurrencies tr td {
+    border-top: 0
+}
+
+.wcuCurrencyRates {
+    width: 100%;
+}
+
+.wcuCurrencyRates .wcuHeader table,
+.wcuCurrencyRates .wcuCurrencyRatesButton table {
+    background: none !important;
+}
+
+.wcuCurrencyRates .wcuHeader .ddcommon {
+    text-transform: none;
+}
+
+.wcuCurrencyRates input,
+.wcuCurrencyRates select {
+    line-height: 33px;
+    font-size: 14px;
+    padding:0px 10px;
+}
+
+.wcuCurrencyRatesIconSize_s .wcuCurrencyRatesButton td {
+	padding:5px !important;
+}
+.wcuCurrencyRatesIconSize_m .wcuCurrencyRatesButton td {
+	padding:8px !important;
+}
+.wcuCurrencyRatesIconSize_l .wcuCurrencyRatesButton td {
+	padding:12px !important;
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_full_size.top,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_full_size.bottom {
+    -webkit-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
+    transform: translate(-50%, 0%)
+}
+
+.wcuCurrencyRates.wcuCurrencyRatesToggle_full_size.left,
+.wcuCurrencyRates.wcuCurrencyRatesToggle_full_size.right {
+    -webkit-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    transform: translate(-0%, -50%)
+}
+.wcuCurrencyRates img {
+    max-width:32px !important;
+}

@@ -1,0 +1,167 @@
+/* ==========================================================================
+   Blog List styles
+   ========================================================================== */
+
+.qodef-blog {
+
+	&.qodef-item-layout--classic {
+
+		&.qodef-col-num--1 {
+
+			article:not(:last-child) {
+				margin: 0 0 80px;
+
+				.qodef-e-info {
+
+					&.qodef-info--bottom {
+						margin-bottom: 36px;
+					}
+				}
+
+				&.format-link {
+
+					.qodef-e-link {
+						margin-bottom: 50px;
+					}
+				}
+
+				&.format-quote {
+
+					.qodef-e-quote {
+						margin-bottom: 50px;
+					}
+				}
+			}
+		}
+
+		&:not(.qodef-col-num--1) {
+
+			article {
+				margin: 0 0 48px;
+
+				&.format-link {
+
+					.qodef-e-link {
+						padding: 151px 10% 194px;
+					}
+
+					.qodef-e-link-icon {
+						margin-bottom: 25px;
+					}
+				}
+
+				&.format-quote {
+
+					.qodef-e-quote {
+						padding: 105px 10% 137px;
+					}
+
+					.qodef-e-quote-icon-svg {
+						margin-bottom: 35px;
+					}
+
+					.qodef-e-quote-author {
+						margin: 52px 0 0;
+					}
+				}
+
+				.qodef-e-media-image {
+					width: 100%;
+					overflow: hidden;
+
+                    img {
+						@include qodefImageScale($scale: 1.01, $duration: .7s);
+                    }
+				}
+
+				&:hover {
+					.qodef-e-media-image {
+						img {
+							@include qodefImageScale($scale: 1.04, $with-transition: false);
+						}
+					}
+				}
+			}
+		}
+
+		.qodef-e-media {
+
+			>* {
+				margin-bottom: 7px;
+			}
+
+			.qodef-e-media-image img {
+				border: 0;
+			}
+		}
+
+		.qodef-e-top-holder {
+			border-bottom: 1px solid var(--qode-main-color);
+			text-align: center;
+			margin-bottom: 14px;
+
+			.qodef-e-info {
+				margin-bottom: 7px;
+			}
+		}
+
+		.qodef-e-text {
+			text-align: center;
+		}
+
+		.qodef-e-read-more {
+			margin-top: 33px;
+		}
+
+		&.qodef--list-border {
+
+			article {
+				border: 1px solid var(--qode-main-color);
+				border-right: 0;
+				padding: 84px 62px 80px;
+
+				@include qodefScreenSize768 {
+					border: 0;
+					padding: 24px 62px 20px;
+				}
+
+				&:first-child {
+					border-left: 0;
+				}
+			}
+
+			&.qodef-col-num--4 {
+
+				article {
+
+					@include qodefScreenSize1024 {
+						border: 0;
+						padding: 24px 62px 20px;
+					}
+				}
+			}
+
+			&.qodef-col-num--5 {
+
+				article {
+
+					@include qodefScreenSize1366 {
+						border: 0;
+						padding: 24px 62px 20px;
+					}
+				}
+			}
+
+			&.qodef-col-num--6 {
+
+				article {
+
+					@include qodefScreenSize1440 {
+						border: 0;
+						padding: 24px 62px 20px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Image With Text shortcode styles
+   ========================================================================== */
+
+.qodef-image-with-text {
+	@include qodefRelativeLayout();
+
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+
+		a, img {
+			display: block;
+		}
+	}
+
+	.qodef-m-content {
+		@include qodefRelativeLayout();
+	}
+
+	span.qodef-m-title {
+		display: block;
+		font-family: $heading-font;
+		font-size: 13px;
+		line-height: 1.385em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.qodef-m-title {
+		margin: 18px 0 0;
+	}
+
+	.qodef-m-text {
+		margin: 10px 0 0;
+	}
+
+	&.qodef-show-image-border--yes {
+
+		.qodef-m-image {
+			border: 1px solid #ECECEC;
+		}
+	}
+
+	&.qodef-image-action--scrolling-image {
+
+		.qodef-m-image-inner-holder {
+			position: relative;
+
+			.qodef-m-image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+
+				a {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					z-index: 100;
+				}
+			}
+
+			.qodef-m-iwt-frame {
+				vertical-align: middle;
+			}
+		}
+
+		&.qodef-scrolling-direction--vertical {
+
+			.qodef-m-image img {
+				width: 100%;
+			}
+		}
+
+		&.qodef-scrolling-direction--horizontal {
+
+			.qodef-m-image img {
+				max-width: unset;
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	&.qodef--has-hover {
+		.qodef-m-image-inner-holder {
+			transform: translateY(0px);
+			transition: transform .5s cubic-bezier(.33,.02,0,.93);
+		}
+
+        h6.qodef-m-title a {
+            @include qodefInlineUnderline(100%);
+        }
+
+		&:hover {
+			.qodef-m-image-inner-holder {
+				transform: translateY(-6px);
+			}
+
+			h6.qodef-m-title a {
+				@include qodefInlineUnderlineHover();
+			}
+		}
+	}
+
+    &.qodef--has-appear {
+		opacity: 0;
+		transition: opacity 1s;
+
+		&.qodef--appeared {
+			opacity: 1;
+		}
+	}
+}

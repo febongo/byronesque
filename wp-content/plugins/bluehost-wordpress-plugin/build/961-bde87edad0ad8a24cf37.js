@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbluehostPlugin=globalThis.webpackChunkbluehostPlugin||[]).push([[961],{6961:(l,e,s)=>{s.r(e),s.d(e,{default:()=>a});var u=s(9307),o=s(3127),t=s(5736);const a=()=>(0,u.createElement)(o.r,null,(0,t.__)("Tools Page","bluehost-wordpress-plugin"))}}]);

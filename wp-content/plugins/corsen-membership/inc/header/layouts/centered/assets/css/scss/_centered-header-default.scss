@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Header layout styles
+   ========================================================================== */
+
+$left-right-spacing: 12px; // Same size needs to be as in corsen-core/inc/header/assets/css/scss/_common-default.scss
+
+.qodef-header--centered {
+	
+	#qodef-page-header {
+		height: 138px;
+
+		.qodef-header-logo-link {
+			height: 94px;
+		}
+	}
+	
+	#qodef-page-header-inner {
+		flex-direction: column;
+		justify-content: center;
+		margin: 0;
+		
+		> div {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			justify-content: space-between;
+			border-top: 1px solid var(--qode-main-color);
+			border-bottom: 1px solid var(--qode-main-color);
+			padding: 0 25px;
+			
+			.qodef-widget-holder {
+				margin-left: 0;
+			}
+			
+			.qodef-header-navigation {
+				margin: 0 $left-right-spacing * 2;
+			}
+		}
+
+		.qodef-widget-holder {
+
+			&.qodef--one {
+
+				> .widget {
+					border-left: 1px solid var(--qode-main-color);
+					padding-left: 23px;
+					height: 100%;
+					align-items: center;
+					display: flex;
+				}
+			}
+
+			&.qodef--two {
+
+				.widget {
+					border-right: 1px solid var(--qode-main-color);
+					padding-right: 23px;
+
+					&:first-child {
+						height: 100%;
+					}
+				}
+			}
+
+			.widget_search {
+
+				.qodef-search-form-button.qodef--has-icon svg {
+					width: 13px;
+					bottom: -1px;
+				}
+
+				.qodef-search-form-field {
+					height: 42px;
+					max-width: 66px;
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Accordion shortcode styles
+   ========================================================================== */
+
+.qodef-accordion.qodef-layout--simple {
+	
+	.qodef-accordion-title {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 24px 0 0;
+		padding: 2px 23px 33px 23px;
+		transition: all .3s ease;
+		cursor: pointer;
+		border-bottom: 1px solid var(--qode-main-color);
+		
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.qodef-accordion-mark {
+			position: relative;
+			flex-shrink: 0;
+			width: 24px;
+			height: 24px;
+			line-height: 1;
+			text-align: center;
+			top: 4px;
+
+			span {
+				position: absolute;
+				display: block;
+				width: 100%;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: opacity .3s ease-out;
+
+				&:before {
+					display: block;
+					line-height: inherit;
+				}
+
+				&.qodef-icon--plus {
+					opacity: 1;
+				}
+
+				&.qodef-icon--minus {
+					opacity: 0;
+				}
+			}
+		}
+
+		&.ui-state-active {
+			border-bottom: 0;
+			padding: 2px 23px 16px 23px;
+		}
+
+		&.ui-state-active,
+		&.ui-state-hover {
+
+			.qodef-accordion-mark {
+
+				span {
+
+					&.qodef-icon--minus {
+						opacity: 1;
+					}
+
+					&.qodef-icon--plus {
+						opacity: 0;
+					}
+				}
+			}
+		}
+	}
+	
+	.qodef-accordion-content {
+		padding: 0 9% 40px 23px;
+		margin: 0 0 0;
+		border-bottom: 1px solid var(--qode-main-color);
+		
+		p {
+			margin: 0;
+			line-height: 20px;
+		}
+	}
+
+	&.qodef-behavior--toggle {
+
+		.qodef-accordion-content {
+			display: none;
+		}
+	}
+}

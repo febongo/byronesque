@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Instagram List shortcode styles
+   ========================================================================== */
+
+.qodef-instagram-list {
+
+    #sb_instagram {
+        padding: 0 !important;
+        overflow: hidden !important;
+
+        .sb_instagram_header, .sbi_load {
+            display: none;
+        }
+
+
+        #sbi_load {
+            display: none;
+        }
+
+        #sbi_images {
+
+            .sbi_item {
+
+                &.sbi_transition {
+
+                    html.elementor-html & {
+                        opacity: 1 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .sbi_photo_wrap {
+
+        a {
+            background-image: none !important;
+            height: auto !important;
+            padding-bottom: 0 !important;
+            opacity: 1!important;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+
+            img {
+                transition: filter .6s;
+                filter: blur(0px);
+                transform: scale(1.1);
+            }
+
+            &:after {
+                content: '';
+                background: url(../img/instagram-icon.svg) center center no-repeat;
+                background-size: cover;
+                width: 29px;
+                height: 29px;
+                opacity: 0;
+                position: absolute;
+                left: 11px;
+                top: 11px;
+                transition: $opacity-transition;
+            }
+
+            &:hover {
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+
+            img {
+                display: inline-block !important;
+                filter: blur(5px);
+            }
+        }
+    }
+
+    &.qodef-swiper-container {
+
+        #sb_instagram {
+
+            #sbi_images {
+
+                .sbi_item {
+                    margin: inherit !important;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Instagram List shortcode styles
+   ========================================================================== */

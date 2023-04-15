@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Twitter List shortcode styles
+   ========================================================================== */
+.qodef-twitter-list {
+
+	&.qodef-layout--columns {
+
+		&.qodef--no-bottom-info {
+
+			#ctf {
+
+				.ctf-tweet-actions {
+					display: none;
+				}
+			}
+		}
+
+		#ctf {
+			overflow: hidden;
+
+			.ctf-item {
+				@include qodefRelativeLayout();
+				border: 0;
+			}
+
+			.ctf-author-box {
+				margin-left: 0;
+				display: block;
+				margin-bottom: 8px;
+			}
+
+			.ctf-author-box-link {
+				line-height: 1 !important;
+				display: flex;
+				align-items: center;
+				flex-flow: row wrap;
+			}
+
+			.ctf-author-avatar {
+				width: 37px;
+				height: 37px;
+				margin: 0 7px 0 0;
+				float: none;
+				border-radius: 0;
+			}
+
+			.ctf-author-name {
+				@include qodefHeadingStyle(h5);
+				font-weight: 600 !important;
+				margin: 0 4px 0 0;
+			}
+
+			.ctf-screename-sep {
+				display: none;
+			}
+
+			.ctf-context,
+			.ctf-twitterlink,
+			.ctf-tweet-meta {
+				@include qodefParagraphStyle();
+				margin-right: 4px;
+				margin-left: 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			.ctf-tweet-meta {
+				margin-top: 4px;
+			}
+
+			.ctf-author-screenname {
+				display: none;
+			}
+
+			.ctf-tweet-content {
+				display: flex;
+				align-items: baseline;
+				margin-left: 0;
+				padding: 0;
+				margin-top: -5px;
+
+				&:before {
+					content: '\e094';
+					font-family: ElegantIcons;
+					padding-right: 10px;
+					font-size: 18px;
+					position: relative;
+					top: 5px;
+				}
+			}
+
+			.ctf-tweet-actions {
+				display: flex;
+				align-items: baseline;
+				margin-left: 0;
+				margin-top: -3px;
+
+				&:before {
+					content: '\e094';
+					font-family: ElegantIcons;
+					padding-right: 10px;
+					font-size: 18px;
+					visibility: hidden;
+				}
+
+				a {
+					padding: 0;
+					font-size: 14px;
+					margin-right: 8px;
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					&.ctf-reply {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+
+		.ctf-tweets {
+			--qode-columns: 3;
+			--qode-columns-gap: #{$default-grid-gutter-size}px;
+			position: relative;
+			display: grid;
+			grid-template-columns: repeat(#{var(--qode-columns)}, minmax(0, 1fr));
+			gap: #{var(--qode-columns-gap)};
+		}
+
+		@for $i from 0 to $grid-columns-layout-size {
+			$step: $i + 1;
+
+			&.qodef-col-num--#{$step} {
+
+				.ctf-tweets {
+					--qode-columns: #{$step};
+				}
+			}
+		}
+	}
+
+	@for $i from 0 to length($grid-columns-gutter-label) {
+		&.qodef-gutter--#{nth($grid-columns-gutter-label,$i+1)} {
+			$gutter-size: nth($grid-columns-gutter-size, $i+1);
+
+			.ctf-tweets {
+				--qode-columns-gap: #{$gutter-size}px;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Twitter List shortcode styles
+   ========================================================================== */

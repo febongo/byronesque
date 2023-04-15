@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Fixed Indent Slider shortcode style - begin
+   ========================================================================== */
+
+$bottom-distance: 0;
+$side-spacing: 50px;
+
+.qodef-fixed-indent-slider-holder-outer {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	height: fit-content;
+	padding: 20px 0;
+
+	&.qodef-slider--left {
+		flex-direction: row-reverse;
+
+		.qodef-left-info {
+			align-items: flex-start;
+			text-align: left;
+
+			.qodef-left-info-content {
+				padding: 0 $side-spacing 0 110px;
+			}
+		}
+	}
+
+	.qodef-left-info {
+		width: 39.9%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: center;
+		text-align: right;
+
+		.qodef-left-info-content {
+			padding: 0 110px 0 $side-spacing;
+
+			.qodef-e-title {
+				margin: 0;
+			}
+
+			.qodef-e-text {
+				margin: 13px 0 0;
+			}
+
+			.qodef-m-button {
+				margin-top: 29px;
+			}
+		}
+	}
+
+	.qodef-right-slider {
+		position: relative;
+		width: 60.1%;
+
+		.qodef-e-title {
+			margin: 0;
+		}
+
+		.qodef-fixed-indent-slider-holder {
+			margin-bottom: $bottom-distance;
+
+			.qodef-m-swiper {
+				overflow: hidden;
+				backface-visibility: hidden;
+			}
+
+			.qodef-m-item {
+
+				img {
+					border: 1px solid #ECECEC;
+				}
+			}
+
+			.swiper-pagination-bullets {
+				display: none;
+				bottom: -$bottom-distance !important;
+			}
+		}
+
+		.qodef-m-item-overlay {
+			left: 1px;
+			top: 1px;
+			height: calc(100% - 2px);
+			width: calc(100% - 2px);
+			transform: translateZ(0px);
+		}
+	}
+
+	.qodef-m-item-link {
+		display: inline-block;
+	}
+}
+
+/* ==========================================================================
+   Fixed Indent Slider shortcode style - end
+   ========================================================================== */

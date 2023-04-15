@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Icon With Text shortcode styles
+   ========================================================================== */
+
+.qodef-icon-with-text {
+	
+	.qodef-m-title {
+		margin: 0;
+		
+		a {
+			display: block;
+		}
+	}
+	
+	.qodef-m-text {
+		margin: 15px 0 0;
+		line-height: 19px;
+	}
+	
+	.qodef-m-icon-wrapper {
+		line-height: 1;
+		display: inline-flex;
+	}
+
+	.qodef-m-svg {
+		display:  flex;
+		margin-top: 5px;
+	}
+	
+	.qodef-icon-holder {
+		float: none;
+	}
+	
+	.qodef-m-content {
+		@include qodefRelativeLayout();
+
+		@include qodefScreenSize680 {
+			max-width: 80%;
+			margin-left: auto;
+		}
+	}
+	
+	&.qodef--custom-icon {
+		
+		.qodef-m-icon-wrapper {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			
+			a, img {
+				display: block;
+			}
+		}
+	}
+}

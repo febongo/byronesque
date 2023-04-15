@@ -1,0 +1,761 @@
+.search-area .fa-search{
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.fa .fa-search {
+  /*  background-image: url("img/seach_w.png"); 
+    background-repeat: no-repeat; */
+}
+
+.search-area .fa-close{
+    cursor: pointer;
+}
+
+.filters-list{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.filters-list ul{
+    padding-right: 20px;
+    max-width: 36%;
+}
+
+.close-filter{
+    cursor: pointer;
+    background-image: url('/wp-content/plugins/byronesque-functions/assets/img/close.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 20px;
+    right: 82px;
+}
+
+#close-top-head{
+    cursor: pointer;
+    background-image: url('/wp-content/plugins/byronesque-functions/assets/img/close_w.svg');
+    display: inline-block;
+    width: 20px;
+    height: 9px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#bn-search-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-area i:hover{
+    color: #f7f22d;
+}
+
+.bn-search-form{
+    position: absolute;
+    height: 100%;
+    width: 0;
+    right: 0;
+    top: 0;
+    border: none;
+    transition: width 0.8s;
+    opacity: 0;
+    /* visibility: hidden; */
+    
+    /*display:none;*/
+    z-index: -1;
+}
+
+.bn-search-form.bn-show{
+    width: 100%;
+    opacity: 1;
+    z-index: 0;
+    /* visibility: visible; */
+}
+
+.bn-search-form #bn-search-value {
+    background: #111;
+    border: 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.54);
+    color: #fff;
+    margin: 0;
+    width: 70%;
+    padding: 0 0 8px 30px;
+    letter-spacing: 0;
+}
+
+.bn-search-form #bn-search-value input {
+    letter-spacing:0;
+}
+
+.bn-show{
+    display: block !important;
+}
+
+#bn-search-wrap{
+    display: block;
+    width: 75%;
+    position: absolute;
+    right: 0;
+    padding: 29px 0px 0px 0px;
+    background: #111;
+    z-index: 1;
+}
+
+#byro-search-result{
+    /*.bn-search-form #bn-search-value*/
+    background: #fff;
+    min-height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    padding : 0;
+    visibility: hidden;
+}
+
+#byro-search-result .product-search {
+    background-color: #F8F5EA;
+}
+
+#byro-search-result .editorial-search,  #byro-search-result .designers-search{
+    background-color: #fff;
+}
+
+#byro-search-result h3{
+    font-family: 'Termina';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    /* identical to box height, or 140% */
+    margin: 0 0 28px 0;
+    text-transform: uppercase;
+}
+
+#byro-search-result .designers-search ul li a{
+    font-family: 'neue-haas-unica';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #111111;
+}
+
+#byro-search-result .searchedBlock{
+    padding: 80px 42px 80px 42px;
+    /*border-bottom: 2px solid rgba(17, 17, 17, 0.05);*/
+}
+
+
+
+#byro-search-result .btn-search{
+    display: block;
+    font-family: "Termina";
+    text-align: center;
+    font-size: 12px;
+  /*  border: 1px solid #656565; */
+    padding: 14px;
+    margin-top: 45px;
+	background-color: #111;
+	color: #fff;
+	letter-spacing: 0.01em;
+}
+
+#byro-search-result .btn-search:hover{
+  /*  border: 1px solid #656565; */
+    background: #808080;
+    color: #fff;
+}
+
+#search-btn{
+    position: relative;
+    top: 2px;
+    left: 20px;
+    z-index: 1;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+
+/* theme override to be transfer */
+#qodef-side-area{
+    top: 191px !important;
+    padding: 45px !important;
+}
+#qodef-side-area-close{
+    display: none !important;
+}
+
+.menu-nav, .bn-close-btn{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: #f7f7f7;
+    font-size: 12px;
+}
+
+.menu-nav:hover{
+    background-color: #f7f7f7;
+    color: #111;
+}
+.menu-nav.show-side-menu{
+    background-color: #fff;
+    color: #111;
+}
+
+#bn-cart-ico .menu-nav:hover {
+    background-image:url("https://wxy.iee.mybluehost.me/wp-content/plugins/byronesque-functions/assets/img/cart_w.svg")!important;
+}
+
+#bn-curr-switcher .menu-nav:hover{
+   background-image:url("https://wxy.iee.mybluehost.me/wp-content/plugins/byronesque-functions/assets/img/region_w.svg")!important;
+}
+
+#bn-search .menu-nav:hover{
+   background-image:url("https://wxy.iee.mybluehost.me/wp-content/plugins/byronesque-functions/assets/img/search_w.svg")!important;
+}
+
+#bn-account-ico .menu-nav:hover{
+   background-image:url("https://wxy.iee.mybluehost.me/wp-content/plugins/byronesque-functions/assets/img/person_w.svg")!important;
+}
+
+#bn-menu-ico .menu-nav:hover{
+   background-image:url("https://wxy.iee.mybluehost.me/wp-content/plugins/byronesque-functions/assets/img/menu_ico.svg")!important;
+}
+
+#byro-side-content{
+    display: flex;
+    width: 0%;
+    position: absolute;
+    right: 0;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+
+    background: #fff;
+   /* border-left: 8px solid #1F1D21;*/
+    transition: width 1s;
+    padding: 45px;
+    font-family: 'Termina';
+    flex-direction: column;
+    opacity: 0;
+    z-index:-1;
+}
+
+#byro-side-content h3 {
+    margin: 0 0 48px 0;
+}
+
+.open-side-menu #byro-side-content{
+    opacity: 1;
+    width:35%;
+    z-index:0;
+    padding: 60px 32px;
+    background-color: #fff;
+}
+
+#qodef-page-header .qodef-widget-holder .widget{
+    margin: 0;
+}
+
+#byronesque-side-nav ul{
+    margin-bottom: 25%;
+}
+
+#byro-side-content ul li {
+    list-style: none;
+}
+
+.byro-side-nav li{
+    list-style: none;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.byro-side-nav li a{
+    font-family: 'Termina';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    text-transform: uppercase;
+    color: #111111;
+}
+
+#byronesque-side-nav{
+    position: relative;
+}
+
+#byronesque-side-nav .bottom-links{
+    position: relative;
+  /*  top: 70px;*/
+    display: flex;
+	column-gap: 42px;
+}
+
+#byronesque-side-nav .bottom-links a {
+	color: #545454;
+    font-size: 14px;
+}
+
+#byronesque-side-nav .newsletter-form{
+    height: 100%;
+    position: absolute;
+    bottom: 100%;
+    transition: bottom .3s;
+    background-color: #fff;
+}
+
+#byronesque-side-nav .newsletter-form.show-form{
+    bottom: 0;
+}
+
+.byro-mini-cart{
+    font-size: 12px;
+}
+
+.byro-mini-cart ul li{
+    list-style: none;
+    
+}
+
+.byro-mini-cart ul li img{
+    max-width: 100px;
+    
+}
+
+.cart-table td{
+    border: none;
+    vertical-align: top;
+}
+
+.cart-table td.item-price{
+    width: 15%;
+}
+.cart-table td.item-summary{
+    width: 65%;
+}
+.cart-table td.item-summary span{
+    display: block;
+}
+
+.cart-table tr{
+    border: none;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.15);
+}
+.woocommerce-mini-cart__buttons .button{
+    
+}
+.woocommerce-mini-cart__buttons .button{
+    display: block;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.woocommerce-Price-amount{
+    float:right;
+}
+
+.bn-shop-container{
+     /*display: none; */
+}
+
+/* SHOP BY */
+
+.shopby-area .menu-label {
+	font-family: "Termina";
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0.01em;
+	margin-bottom: 28px;
+}
+
+.byro-shop-nav li a{
+	margin-bottom: 8px;
+}
+
+.feat-contents b {
+	font-family: "Termina";
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 700;
+}
+
+.feat-contents, .byro-shop-nav li a {
+	font-family: "neue-haas-unica";
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 500;
+}
+
+
+#byro-shopby-filters .feat-wrap{
+    margin-right: auto;
+    display: flex;
+    justify-content: end;
+}
+
+#byro-shopby-filters{
+    position: absolute;
+    width: 100%;
+    right: -110%;
+    background: #fff;
+    padding: 45px;
+    transition: right 0.8s;
+    opacity: 0;
+    z-index: -1;
+    height: auto;
+    /*box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.12);*/
+}
+
+.bn-show #byro-shopby-filters{
+    opacity: 1;
+    z-index: 0;
+    right: 0;
+}
+
+.menu-nav .shop-by-label {
+    font-family: 'Termina';
+}
+/* END SHOP BY */
+
+/* grid styles start
+ * for common use spacing 
+*/
+.row{
+    display: flex;
+    width: 100%;
+}
+
+.row .r-6{
+    width: 50%;
+}
+
+.row .r-3{
+    width: 25%;
+}
+
+.row .r-4{
+    width: 33.3%;
+}
+
+.b-r{
+   /* border-right: 2px solid rgba(17, 17, 17, 0.05); */
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+.pr-1{
+    padding-right: 20px;
+}
+
+/* end grid styles */
+.feat-wrap{
+    position: relative;
+}
+.feat-contents{
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.feat-contents p b{
+    text-transform: uppercase;
+}
+
+.woocommerce-message{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #f7f7f7;
+    z-index: 99999;
+    max-width: 25%;
+    border: none !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+.woocommerce-message table td{
+    padding: 10px;
+    border: none;
+    vertical-align: top;
+}
+
+.woocommerce-message table tr{
+    border: none;
+    
+}
+
+.woocommerce-message .woocommerce-Price-amount{
+    float: none;
+}
+
+.woocommerce-message .added-notif{
+    padding: 0 20px;
+    color: #545454;
+}
+
+.woocommerce-message .added-notif span{
+    float: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 4px;
+    font-size: 12px;
+    line-height: 9px;
+    color: #545454;
+}
+
+.filter-icon{
+    background-image: url(/wp-content/plugins/byronesque-functions/assets/img/filter_ico.svg);
+    background-size: contain;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 15px;
+    right: 8px;
+}
+
+.filter-container{
+    position: relative;
+    background: #e9e9e9;
+    padding: 10px 47px;
+}
+
+.btn-filter{
+    font-family: 'Termina';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #111111;
+    padding: 15px 20px;
+    z-index: 100;
+    display: inline-block;
+    background: #f7f7f7;
+    border: 1px solid #7B7B7B;
+    margin-right: 15px;
+}
+
+.btn-filter.active{
+    border: none;
+}
+
+.filter-container .browseBy{
+    cursor: pointer;
+    font-family: 'Termina';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #111111;
+    padding: 15px 35px 15px 20px;
+    z-index: 99;
+    display: inline-block;
+    background: #f7f7f7;
+    margin-right: 8%;
+    position: relative;
+    float: right;
+}
+
+.filter-container .browseBy .fa-angle-down{
+    display:inline-block;
+}
+.filter-container .browseBy .fa-angle-up{
+    display:none;
+}
+
+.filter-container.opened .browseBy .fa-angle-down{
+    display:none;
+}
+.filter-container.opened .browseBy .fa-angle-up{
+    display:inline-block;
+}
+
+.filter-container.opened .filter-list-container{
+    height: 588px;
+}
+
+.close-wrap{
+    display: block;
+    width: 100%;
+}
+
+.filter-container .filter-list-container{
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    background: #f7f7f7;
+    width: 100%;
+    transition: height 0.8s;
+    position: absolute;
+    z-index: 101;
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    padding: 0 47px;
+}
+
+.filter-list-container .filters{
+    width: 50%;
+}
+
+.filter-btns{
+    width: 100%;
+}
+
+.filter-btns .btn-filter-products{
+    background: #111;
+    color: #fff;
+    width: 100%;
+    display: block;
+    padding: 14px;
+    text-align: center;
+    font-family: 'termina';
+    font-size: 12px;
+}
+
+.filter-list-container .filters.bordered{
+    border-left: 2px solid rgba(17, 17, 17, 0.05);
+}
+
+.filter-list-container .filters ul li{
+    list-style: none;
+}
+
+/* SINGLE PRODUCT HIDE UNWANTED ELEMENT --START >> */
+.related.products{
+    display:none;
+}
+
+/* SINGLE PRODUCT HIDE UNWANTED ELEMENT --END << */
+
+/* check mark styles */
+/* The container */
+.chk-container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+    /*font-family: 'Neue Haas Unica W1G';*/
+    /*font-style: normal;*/
+    /*font-weight: 500;*/
+    font-size: 17px;
+    line-height: 22px;
+}
+
+/* Hide the browser's default checkbox */
+.chk-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  border: 1px solid #111;
+}
+
+/* On mouse-over, add a grey background color */
+/*.chk-container:hover input ~ .checkmark {*/
+/*  background-color: #111;*/
+/*}*/
+
+/* When the checkbox is checked, add a blue background */
+.chk-container input:checked ~ .checkmark {
+  background-color: #111;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.chk-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.chk-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.chk-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #111;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.woocommerce-result-count{
+    display: none;
+}
+
+.open-side-menu .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000099;
+    z-index: -1;
+}
+
+
+/* EDITORIAL BLOCKS */
+
+.qodef-addons-blog-list.qodef-item-layout--standard .qodef-e-media, .qodef-addons-blog-list.qodef-item-layout--standard .qodef-e-media {
+    margin-bottom:0;
+}
+
+

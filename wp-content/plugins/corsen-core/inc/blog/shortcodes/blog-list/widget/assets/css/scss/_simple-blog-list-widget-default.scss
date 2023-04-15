@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Blog List Widget variable styles
+   ========================================================================== */
+
+@import '../../../../../../../../../../themes/corsen/assets/css/scss/widgets-map';
+
+@each $key, $values in $wp-widgets-area-map {
+	$wp-widgets-map-merged: map-merge($wp-widgets-map, $values);
+
+	#{$key} .widget {
+
+		&.widget_corsen_core_simple_blog_list {
+
+			.qodef-blog {
+
+				&.qodef-item-layout--simple {
+
+					article {
+
+						&:not(:last-child) {
+							margin-bottom: #{map-get($wp-widgets-map-merged, 'list-item-with-thumbnail-bottom-margin')}px;
+						}
+
+						&:first-child {
+							margin-top: #{map-get($wp-widgets-map-merged, 'widget-title-adjusted-margin')};
+						}
+
+						.qodef-e-media-image {
+							margin-right: #{map-get($wp-widgets-map-merged, 'thumbnail-right-margin')}px;
+							width: #{map-get($wp-widgets-map-merged, 'thumbnail-width')}px !important; // to override shortcode layout
+						}
+
+						.qodef-e-title {
+
+							a {
+								@if (map-get($wp-widgets-map-merged, 'item-title-color') != null) {
+									color: map-get($wp-widgets-map-merged, 'item-title-color');
+								}
+
+								&:hover {
+									@if (map-get($wp-widgets-map-merged, 'item-title-hover-color') != null) {
+										color: map-get($wp-widgets-map-merged, 'item-title-hover-color');
+									}
+								}
+							}
+						}
+					}
+				}
+
+				&.qodef-item-layout--minimal {
+
+					article {
+
+						&:not(:last-child) {
+							margin: 0 0 #{map-get($wp-widgets-map-merged, 'list-item-bottom-margin')}px;
+						}
+
+						.qodef-e-title {
+
+							a {
+								@if (map-get($wp-widgets-map-merged, 'list-link-color') != null) {
+									color: map-get($wp-widgets-map-merged, 'list-link-color');
+								}
+
+								&:hover {
+									@if (map-get($wp-widgets-map-merged, 'list-link-hover-color') != null) {
+										color: map-get($wp-widgets-map-merged, 'list-link-hover-color');
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+.qodef-team-list {
+
+	&.qodef-item-layout--info-below {
+
+		.qodef-e-content {
+			margin: 14px 0 0;
+
+			.qodef-e-team-info-holder {
+				border: 0;
+				padding: 5px 0 16px;
+			}
+		}
+
+		.qodef-e-image {
+			position: relative;
+
+			.qodef-e-team-social-holder {
+				@include qodefAbsoluteLayout();
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				opacity: 0;
+				transition: opacity .5s cubic-bezier(.12,.48,.05,.96);
+			}
+		}
+
+		.qodef-e-inner {
+			&:hover {
+				.qodef-e-image {
+					.qodef-e-team-social-holder {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}

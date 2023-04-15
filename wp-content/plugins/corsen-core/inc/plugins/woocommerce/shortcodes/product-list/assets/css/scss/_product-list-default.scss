@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Product List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-list {
+    list-style-type: none;
+
+    li {
+        list-style: none;
+    }
+
+    ul.qodef-grid-inner {
+        margin: 0;
+    }
+
+    .qodef-filter-holder {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 0;
+        height: 45px;
+
+        @include qodefScreenSize680 {
+            display: inline-flex;
+            height: auto;
+            flex-direction: row;
+
+            .qodef-category-filter .qodef-category-filter-list .qodef-category-list {
+                flex-direction: column;
+
+                li {
+                    margin-left: 0!important;
+                    margin-bottom: 6px!important;
+
+                    .qodef-category-filter-link:not(.qodef--active) {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+
+        .qodef-order-price-filter {
+            position: relative;
+            z-index: 99;
+            margin-left: auto;
+            height: 100%;
+
+            .qodef-filter-title-holder {
+                display: flex;
+                align-items: center;
+                margin-top: 3px;
+
+                .qodef-filter-icon {
+                    display: flex;
+                }
+            }
+
+            &:hover {
+
+                .qodef-filter-holder-inner {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .qodef-filter-title {
+            @include qodefMenuStyle();
+            font-family: $heading-font;
+            display: block;
+            cursor: pointer;
+            padding-right: 11px;
+        }
+
+        .qodef-filter-holder-inner {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 10;
+            border: 1px solid #000;
+        }
+
+        .qodef-filter-ordering,
+        .qodef-filter-price {
+            flex-basis: 100%;
+            cursor: pointer;
+            background-color: $background-color;
+            min-width: 95px;
+
+            > h6 {
+                margin: 0 0 12px 0;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+        }
+
+        .qodef-filter-ordering {
+            padding: 25px 28px 16px 35px;
+        }
+
+        .qodef-filter-price {
+            padding: 25px 33px 16px 22px;
+
+            .qodef-e-checkbox.qodef--price {
+                position: relative;
+
+                input[type="checkbox"] {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    margin: 0;
+                }
+            }
+        }
+
+        .qodef-filter-list {
+
+            ul {
+                list-style: none;
+                margin: 0;
+
+                li {
+                    margin: 8px 0;
+                }
+            }
+
+            a,
+            label {
+                @include qodefMenuLevelTwoInitialTypographyStyle();
+                @include qodefMenuLevelTwoInitialStyle();
+                margin: 6px 0;
+                padding-right: 0;
+                letter-spacing: 0;
+                white-space: nowrap;
+                @include qodefInlineUnderline($position-y: 1.2em);
+
+                &:hover,
+                &.qodef--active {
+                    @include qodefMenuLevelTwoHoverStyle();
+                    @include qodefInlineUnderlineHover();
+                }
+            }
+        }
+
+        .qodef-category-filter {
+
+            .qodef-category-title {
+                display: block;
+                padding: 7px 0;
+            }
+
+            .qodef-category-filter-list {
+
+                .qodef-category-list {
+                    list-style: none;
+                    display: flex;
+                    margin: 0;
+
+                    li {
+                        margin: 0 15px;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+
+                    a {
+                        position: relative;
+                        display: inline-block;
+                        vertical-align: top;
+                        margin: 0 19px;
+                        padding: 2px 5px 2px 6px;
+                        transition: border 0.3s ease, background-color 0.3s ease;
+                        @include qodefHeadingStyle(h5, false);
+                        border: 1px solid transparent;
+                        font-size: 11px;
+                        font-weight: 600;
+                        letter-spacing: 0.1em;
+                        line-height: 15px;
+                        color: var(--qode-main-color);
+                        text-transform: uppercase;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            @include qodefAbsoluteLayout();
+                            @include qodefDrawBorder($with-separator: false);
+                        }
+
+                        &:hover,
+                        &.qodef--active {
+                            &:after {
+                                @include qodefDrawBorderHover();
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:only-child {
+
+                .qodef-category-filter-list {
+
+                    .qodef-category-list {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+    &.qodef--hover-image {
+        .qodef-woo-product-image {
+            position: relative;
+
+            .qodef-e-image-hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity $transition-timing;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .qodef-e-inner {
+            &:hover {
+                .qodef-e-image-hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &:not(.qodef--hover-image) {
+        .qodef-woo-product-image {
+            overflow: hidden;
+
+            img {
+                @include qodefImageMove();
+            }
+        }
+
+        .qodef-e-inner {
+            &:hover {
+                .qodef-woo-product-image {
+                    img {
+                        @include qodefImageMoveHover();
+                    }
+                }
+            }
+        }
+    }
+    
+    .qodef-m-posts-not-found {
+        margin: 0;
+        padding: 10px;
+    }
+}

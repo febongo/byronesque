@@ -1,0 +1,170 @@
+/* ==========================================================================
+   WooCommerce Side Area Cart styles
+   ========================================================================== */
+
+$content-width: 360px;
+$content-padding: 100px 0 74px; // 74 is action button height + 20
+$side-padding: 0 35px;
+
+.widget_corsen_core_woo_side_area_cart {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
+	.qodef-widget-side-area-cart-inner {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+
+		.qodef-m-inner {
+			@include qodefRelativeLayout();
+			height: 100%;
+		}
+
+		.qodef-m-opener {
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
+
+		.qodef-widget-side-area-cart-content {
+			position: fixed;
+			top: 0;
+			right: -$content-width;
+			height: 100vh;
+			width: $content-width;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: $content-padding;
+			background-color: $background-color;
+			border-left: 1px solid $border-color;
+			overflow: hidden;
+			visibility: hidden;
+			z-index: 9999;
+			transition: $sliding-area-transition;
+
+			.admin-bar & {
+				top: 32px;
+				height: calc(100vh - 32px);
+			}
+		}
+
+		.qodef-m-close {
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			display: block;
+			font-size: 34px;
+			z-index: 1000;
+		}
+
+		.qodef-m-posts-not-found {
+			padding: $side-padding;
+		}
+
+		.qodef-woo-side-area-cart {
+			@include qodefRelativeLayout();
+			padding: $side-padding !important;
+		}
+
+		.qodef-woo-side-area-cart-item {
+			position: relative;
+			display: flex;
+			align-items: flex-start;
+			margin-top: 20px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		.qodef-e-image {
+			flex-shrink: 0;
+			width: 80px;
+			margin-right: 20px;
+
+			a, img {
+				display: block;
+			}
+		}
+
+		.qodef-e-content {
+			width: 100%;
+			padding-right: 20px;
+		}
+
+		.qodef-e-title {
+			margin: 0;
+		}
+
+		.qodef-e-price {
+			margin: 3px 0 0;
+		}
+
+		.qodef-e-quantity {
+			margin: 3px 0 0;
+		}
+
+		.remove {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 20px;
+			line-height: 1;
+			z-index: 5;
+		}
+
+		.qodef-m-order-details {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 25px;
+			padding: $side-padding;
+
+			> * {
+				margin: 0;
+			}
+		}
+
+		.qodef-m-action {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.qodef-m-action-link {
+			@include qodefButtonDefaultStyle();
+			@include qodefButtonSize(full-width);
+			@include qodefButtonFilledColor();
+
+			&:hover {
+				@include qodefButtonFilledHoverColor();
+			}
+		}
+
+		&.qodef--opened {
+
+			.qodef-widget-side-area-cart-content {
+				right: 0;
+				visibility: visible;
+			}
+		}
+	}
+}
+
+.qodef-woo-side-area-cart-cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: calc(100% - #{$content-width});
+	height: 100vh;
+	overflow: hidden;
+	z-index: 1002;
+}

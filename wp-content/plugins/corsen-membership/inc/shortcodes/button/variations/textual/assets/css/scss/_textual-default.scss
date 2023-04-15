@@ -1,0 +1,27 @@
+.qodef-button {
+    &.qodef-layout--textual {
+        padding: 0 !important;
+        color: $heading-color;
+        background-color: transparent;
+        border: 0;
+        position: relative;
+        overflow: hidden;
+
+        .qodef-m-text {
+            display: inline-block;
+            padding-bottom: 1px;
+        }
+
+        @include qodefUnderlineDraw();
+
+        .qodef-m-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &:hover {
+
+            @include qodefUnderlineDrawHover();
+        }
+    }
+}

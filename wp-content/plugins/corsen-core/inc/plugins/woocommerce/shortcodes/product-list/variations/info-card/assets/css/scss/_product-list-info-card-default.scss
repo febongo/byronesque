@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Product List Info on Image styles
+   ========================================================================== */
+
+.qodef-woo-product-list {
+	
+	&.qodef-item-layout--info-card {
+		
+		.qodef-woo-product-image {
+
+			.qodef-woo-product-image-inner {
+				
+				.yith-wcwl-add-to-wishlist, .yith-wcqv-button {
+					display: none;
+				}
+
+				.add_to_cart_button, .added_to_cart, .product_type_grouped, .product_type_external {
+					background: #fff;
+					color: var(--qode-main-color);
+					border: 1px solid var(--qode-main-color);
+					transition: color .25s ease-out,background-color .25s ease-out,border-color .25s ease-out;
+
+					&:hover {
+						color: #fff;
+						background-color: var(--qode-main-color);
+						border-color: var(--qode-main-color);
+					}
+				}
+			}
+		}
+
+		.qodef-woo-product-content {
+			margin-top: 22px;
+
+			.qodef-woo-product-title {
+				max-width: 100% !important;
+				text-align: center;
+			}
+
+			.price {
+				position: relative!important;
+				text-align: center;
+				width: 100%;
+				top: 0;
+				margin: 3px 0 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Spinner layout styles
+   ========================================================================== */
+
+#qodef-page-spinner {
+
+    &.qodef-layout--textual {
+
+        .qodef-m-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .qodef-m-textual {
+            opacity: 0;
+        }
+
+        .qodef-m-text {
+            display: flex;
+            font-family: $heading-font;
+            font-size: 30px;
+            line-height: 1;
+            font-weight: 500;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .qodef-m-char {
+            display: inline-block;
+            opacity: 0;
+            will-change: opacity;
+
+            &.qodef-m-empty-char {
+                white-space: pre;
+            }
+        }
+
+        &.qodef--init {
+
+            .qodef-m-textual {
+                opacity: 1;
+            }
+        }
+    }
+}

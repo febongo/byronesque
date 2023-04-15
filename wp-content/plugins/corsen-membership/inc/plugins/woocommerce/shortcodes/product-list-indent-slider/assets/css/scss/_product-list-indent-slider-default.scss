@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Product List Info on Image styles
+   ========================================================================== */
+
+$bottom-distance: 0;
+$side-spacing: 50px;
+
+.qodef-woo-product-list {
+
+    &.qodef-layout--indent-slider {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        height: fit-content;
+        padding: 0 0;
+
+        &.qodef-slider--left {
+            flex-direction: row-reverse;
+
+            .qodef-left-info {
+                align-items: flex-end;
+                text-align: right;
+
+                .qodef-left-info-content {
+                    text-align: right;
+                    padding: 87px 141px 0 $side-spacing;
+
+                    @include qodefScreenSize1368 {
+                        padding: 47px 100px 0 $side-spacing;
+                    }
+
+                    @include qodefScreenSize1024 {
+                        padding: 87px 40px 0 30px;
+                    }
+
+                    @include qodefScreenSize768 {
+                        padding: 0 40px 0 10px;
+                    }
+
+                    @include qodefScreenSize680 {
+                        position: relative;
+                        padding: 0 0 80px;
+                    }
+
+                    .qodef-swiper-navigation-holder {
+                        right: 141px;
+
+                        @include qodefScreenSize1368 {
+                            right: 100px;
+                        }
+
+                        @include qodefScreenSize1024 {
+                            right: 40px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .qodef-left-info {
+            width: 35.4%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            text-align: right;
+
+            @include qodefScreenSize768 {
+                width: 45%;
+            }
+
+            @include qodefScreenSize680 {
+                width: 100%;
+            }
+
+            .qodef-left-info-content {
+                padding: 87px $side-spacing 0 141px;
+                text-align: left;
+                height: 100%;
+
+                @include qodefScreenSize1368 {
+                    padding: 47px $side-spacing 0 100px;
+                }
+
+                @include qodefScreenSize1024 {
+                    padding: 87px 15px 0 40px;
+                }
+
+                @include qodefScreenSize768 {
+                    padding: 0 0 0 40px;
+                }
+
+                @include qodefScreenSize680 {
+                    position: relative;
+                    padding: 0 0 80px;
+                }
+
+                .qodef-e-title {
+                    margin: 0;
+                }
+
+                .qodef-e-text {
+                    margin: 13px 0 0;
+                }
+
+                .qodef-m-button {
+                    margin-top: 29px;
+                    @include qodefScreenSize1024 {
+                        margin-top: 63px;
+                    }
+                }
+
+                .qodef-swiper-navigation-holder {
+                    position: absolute;
+                    left: initial;
+                    bottom: 73px;
+                    display: flex;
+                    flex-direction: row;
+
+                    @include qodefScreenSize680 {
+                        bottom: 25px;
+                    }
+
+                    .swiper-button-prev,
+                    .swiper-button-next {
+                        position: relative;
+                        top: initial;
+                        left: initial !important;
+                        right: initial !important;
+                        bottom: initial;
+                        transform: none;
+
+                        svg {
+                            width: 35.15px;
+                            height: 17.27px;
+                        }
+                    }
+
+                    .swiper-button-prev {
+                        margin-right: 61px !important;
+                    }
+                }
+            }
+        }
+
+        .qodef-right-slider {
+            position: relative;
+            width: 64.6%;
+
+            .swiper-wrapper {
+                margin: 0;
+            }
+
+            @include qodefScreenSize768 {
+                width: 50%;
+                margin-left: 5%;
+            }
+
+            @include qodefScreenSize680 {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .qodef-e-title {
+                margin: 0;
+            }
+
+            .qodef-fixed-indent-slider-holder {
+                margin-bottom: $bottom-distance;
+
+                .qodef-m-swiper {
+                    overflow: hidden;
+                    backface-visibility: hidden;
+                }
+
+                .qodef-m-item {
+
+                    img {
+                        border: 1px solid #ECECEC;
+                    }
+                }
+
+                .swiper-pagination-bullets {
+                    display: none;
+                    bottom: -$bottom-distance !important;
+                }
+            }
+
+            .qodef-m-item-overlay {
+                left: 1px;
+                top: 1px;
+                height: calc(100% - 2px);
+                width: calc(100% - 2px);
+                transform: translateZ(0px);
+            }
+        }
+
+        .qodef-m-item-link {
+            display: inline-block;
+        }
+    }
+}

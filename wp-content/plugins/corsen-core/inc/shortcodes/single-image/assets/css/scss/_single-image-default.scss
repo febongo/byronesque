@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Single Images shortcode styles
+   ========================================================================== */
+
+.qodef-single-image {
+
+	&.qodef-center-align-image--yes {
+
+		img {
+			margin: 0 auto;
+		}
+	}
+
+	img {
+		display: block;
+	}
+
+	&.qodef--has-appear {
+
+		.qodef-m-image {
+			overflow: hidden;
+
+			img {
+				@include qodefImageScale();
+			}
+		}
+
+		&.qodef--appeared {
+			.qodef-m-image {
+				img {
+					@include qodefImageScale($scale:1, $with-transition: false);
+				}
+			}
+		}
+	}
+}
+

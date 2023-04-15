@@ -1,0 +1,136 @@
+.qodef-yith-wccl--predefined {
+
+    .select_box {
+        display: inline-block;
+
+        &:after {
+            display: none;
+        }
+
+        .select_option {
+            vertical-align: middle;
+            border: 0;
+            margin: 0 9px 0 0;
+            display: inline-block;
+            float: none;
+            position: relative;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            > span:not(.yith_wccl_tooltip) {
+                border: 0;
+                min-width: auto;
+                width: auto;
+                height: auto;
+                line-height: inherit;
+            }
+
+            .yith_wccl_tooltip {
+                width: 100px;
+
+                > span {
+                    background: #fff;
+                    border-radius: 0;
+                    border: 1px solid $border-color !important;
+                    padding: 10px;
+                    color: $text-color;
+                }
+
+                &.top {
+
+                    span {
+
+                        &:after {
+                            top: 100%;
+                            bottom: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.select_box_colorpicker {
+
+            .select_option {
+                border: 1px solid transparent;
+                padding: 2px;
+
+                > span:not(.yith_wccl_tooltip) {
+                    width: 17px;
+                    height: 17px;
+                }
+
+                &.selected {
+                    border-color: $heading-color;
+                }
+            }
+        }
+
+        &.select_box_image {
+
+            .select_option {
+                border: 1px solid transparent;
+                padding: 1px;
+
+                > img:not(.yith_wccl_tooltip) {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                }
+
+                &.selected {
+                    border-color: $heading-color;
+                }
+            }
+        }
+
+        &.select_box_label {
+
+            > * {
+                display: inline-flex;
+                flex-wrap: wrap;
+                @include qodefInfoStyle();
+            }
+
+            .select_option {
+                transition: $color-transition;
+                margin: 0;
+
+                &:after {
+                    content: ',';
+                    margin-right: 5px;
+                }
+
+                &:last-of-type {
+
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                &.selected {
+                    color: var(--qode-main-color);
+                }
+            }
+        }
+    }
+
+    // product list
+    li.product {
+
+        .variations_form.cart {
+            margin: 0 0 0 20px;
+
+            div.variations {
+                margin-bottom: 10px;
+                text-align: right;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

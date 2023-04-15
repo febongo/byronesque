@@ -1,0 +1,182 @@
+#yith-quick-view-modal {
+
+    &.loading {
+        visibility: visible;
+        opacity: .5;
+    }
+
+    .yith-quick-view-overlay {
+        background: rgba(#fff, .79) !important;
+    }
+
+    .yith-wcqv-wrapper {
+        height: auto !important;
+        width: 964px !important;
+        max-width: 90vw !important;
+    }
+
+    .yith-wcqv-main {
+        overflow-y: hidden !important;
+        max-height: 90vh !important;
+        border: 1px solid #000;
+    }
+
+    #yith-quick-view-content.single-product {
+
+        .qodef-woo-single-inner {
+            margin: 0;
+            @include qodefScreenSize680 {
+                flex-direction: column;
+            }
+
+            > * {
+                padding: 0;
+            }
+        }
+
+        .qodef-woo-single-image {
+            width: 50%;
+            @include qodefScreenSize768 {
+                width: 25%;
+            }
+            @include qodefScreenSize680 {
+                width: 100%;
+            }
+
+            .qodef-woo-product-mark {
+                transform: translateX(0);
+            }
+
+            *:not(.qodef-woo-product-mark) {
+                height: 100%;
+            }
+
+            .woocommerce-product-gallery {
+
+                figure {
+                    margin: 0 !important;
+
+                    img {
+                        object-fit: cover;
+
+                        @include qodefScreenSize680 {
+                            object-position: top;
+                        }
+                    }
+
+                    > .woocommerce-product-gallery__image {
+                        width: 100% !important;
+                        margin: 0 !important;
+                    }
+
+                    > .qodef-woo-thumbnails-wrapper {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+
+        .entry-summary {
+            position: static;
+            padding: 75px 47px 28px 28px;
+            width: 50%;
+            @include qodefScreenSize768 {
+                padding: 35px 20px 28px 28px;
+                width: 75%;
+            }
+
+            @include qodefScreenSize680 {
+                padding: 30px 27px 30px;
+                width: 100%;
+            }
+        }
+    }
+
+    #yith-quick-view-close {
+        border: 0 !important;
+        font-size: 0;
+        line-height: 1;
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        width: 28px;
+        height: 28px;
+        color: #000;
+        opacity: 1;
+
+        @include qodefScreenSize680 {
+            right: 23px;
+            top: 19px;
+        }
+
+        &:after {
+            display: block;
+            line-height: 28px;
+            padding: 0 3px;
+            position: relative;
+            @include qodefIconType('remove', 28px);
+        }
+    }
+
+    .qodef-yith-wcqv-link {
+        position: absolute;
+        right: 28px;
+        bottom: 29px;
+        @include qodefScreenSize680 {
+            position: relative;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
+.qodef-yith-wcqv--predefined {
+
+    .yith-wcqv-button {
+        font-size: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        border: 0!important;
+        background-color: transparent !important;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            background-size: cover;
+            width: 16px;
+            height: 9px;
+            margin-right: 13px;
+
+            color: transparent;
+            background-image: radial-gradient(
+                                at 50% 50%,
+                                currentColor 2px,
+                                #0000 2px
+                              ),
+                              url(../img/quick-view.svg);
+            transition: $color-transition;
+        }
+
+        &:hover {
+            &:before {
+               color: var(--qode-main-color);
+            }
+        }
+    }
+
+    .qodef-woo-product-image-inner {
+
+        .yith-wcqv-button {
+            color: #fff !important;
+
+            &:hover {
+                color: var(--qode-main-color) !important;
+            }
+
+            .blockUI {
+                display: none !important;
+            }
+        }
+    }
+}

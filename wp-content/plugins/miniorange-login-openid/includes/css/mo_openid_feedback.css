@@ -1,0 +1,19 @@
+.mo_openid_close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.mo_openid_close:hover,
+.mo_openid_close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+.alert{
+	padding:5px;
+	margin-bottom:10px;
+	border:1px solid transparent;
+	border-radius:4px
+}

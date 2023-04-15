@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Social Icons Group widget static style start
+   ========================================================================== */
+
+.qodef-social-icons-group {
+
+    .qodef-icon-holder {
+        padding: 0 17px;
+        margin: 0;
+
+        a {
+            transition: $color-transition;
+        }
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &.qodef--textual {
+            @include qodefInfoStyle();
+
+            a {
+                color: inherit;
+                @include qodefInlineUnderline(100%);
+
+                &:hover {
+                    @include qodefInlineUnderlineHover();
+                }
+            }
+
+            &:after {
+                content: "";
+                width: 1px;
+                height: 9px;
+                background-color: currentColor;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &:last-child {
+
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Social Icons Group widget variable style start
+   ========================================================================== */
+
+$local-widgets-area-map: (
+        '':(
+                link-color: null,
+                link-hover-color: null,
+                textual-link-color: null,
+                textual-link-hover-color: null,
+                icon-background-color: $additional-background-color,
+                icon-background-hover-color: $heading-color,
+                icon-with-background-link-hover-color: #fff,
+        ),
+);
+
+@each $key, $values in $local-widgets-area-map {
+    #{$key} .widget {
+        &.widget_corsen_core_social_icons_group {
+
+            .qodef-icon-holder {
+
+                a {
+                    @if (map-get($values, 'link-color') != null) {
+                        color: map-get($values, 'link-color');
+                    }
+
+                    &:hover {
+                        @if (map-get($values, 'link-hover-color') != null) {
+                            color: map-get($values, 'link-hover-color');
+                        }
+                    }
+                }
+
+                &.qodef--textual {
+
+                    a {
+                        @if (map-get($values, 'textual-link-color') != null) {
+                            color: map-get($values, 'textual-link-color');
+                        }
+
+                        &:hover {
+                            @if (map-get($values, 'textual-link-hover-color') != null) {
+                                color: map-get($values, 'textual-link-hover-color');
+                            }
+                        }
+                    }
+                }
+
+                &.qodef-layout--circle,
+                &.qodef-layout--square {
+                    @if (map-get($values, 'icon-background-color') != null) {
+                        background-color: map-get($values, 'icon-background-color');
+                    }
+
+                    &:hover {
+                        @if (map-get($values, 'icon-background-hover-color') != null) {
+                            color: map-get($values, 'icon-background-hover-color');
+                        }
+
+                        a {
+
+                            @if (map-get($values, 'icon-with-background-link-hover-color') != null) {
+                                color: map-get($values, 'icon-with-background-link-hover-color');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Pricing Table shortcode styles
+   ========================================================================== */
+
+.qodef-pricing-table {
+	@include qodefRelativeLayout();
+	text-align: center;
+
+	&.qodef-status--featured {
+		background: url("../../inc/shortcodes/pricing-table/assets/img/featured.jpg") center center;
+		-webkit-background-size: cover!important;
+		background-size: cover!important;
+	}
+
+	.qodef-m-label {
+
+		.qodef-m-label-wrapper {
+
+			.qodef-m-label-value {
+				font-family: $text-font;
+				font-size: 12px;
+				font-weight: 400;
+				letter-spacing: 0.05em;
+				line-height: 16px;
+				text-transform: uppercase;
+
+			}
+		}
+	}
+
+	.qodef-price-list {
+		list-style: none;
+	}
+	
+	.qodef-m-inner {
+		padding: 20px 30px 68px;
+		border: 1px solid var(--qode-main-color);
+	}
+	
+	.qodef-m-title {
+		
+		p {
+			margin: 0;
+			color: $heading-color;
+		}
+	}
+	
+	.qodef-m-price {
+		margin-bottom: 5px;
+
+		.qodef-m-price-wrapper {
+			display: flex;
+			margin: 0;
+			line-height: 1;
+			justify-content: center;
+		}
+	}
+	
+	.qodef-m-content {
+		margin: 53px 0 0;
+		
+		ul {
+			list-style: none;
+			margin: 0;
+			
+			li {
+				color: $heading-color;
+				margin-bottom: 7px;
+				font-size: 18px;
+				letter-spacing: 0;
+				line-height: 27px;
+				
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	
+	.qodef-m-button {
+		
+		.qodef-button {
+			margin: 59px 0 0;
+		}
+	}
+}

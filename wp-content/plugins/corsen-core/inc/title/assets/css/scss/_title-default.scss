@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Title styles
+   ========================================================================== */
+
+.qodef-page-title {
+	background-position: center 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&.qodef-image--responsive {
+		height: auto !important; // because of inline style
+
+		.qodef-m-content {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			&.qodef-content-grid {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+
+	&.qodef-alignment--center {
+		text-align: center;
+	}
+
+	&.qodef-alignment--right {
+		text-align: right;
+	}
+
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.qodef-m-content {
+
+		&.qodef-content-full-width {
+			padding-left: 70px;
+			padding-right: 70px;
+			width: 100%;
+
+			@include qodefScreenSize1024 {
+				padding: 0 7%;
+			}
+
+			@include qodefScreenSize680 {
+				padding: 0 24px;
+			}
+		}
+	}
+
+	.qodef-breadcrumbs {
+
+		a, span {
+			font-family: $text-font;
+			font-size: 12px;
+			font-weight: 400;
+			letter-spacing: 0.05em;
+			line-height: 16px;
+			text-transform: uppercase;
+			color: var(--qode-main-color);
+		}
+
+		.qodef-breadcrumbs-separator {
+			margin: 0 15px 0 14px;
+			position: relative;
+
+			&:after {
+				content: '';
+				display: inline-block;
+				height: 9px;
+				width: 1px;
+				background-color: var(--qode-main-color);
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+
+		a {
+			@include qodefInlineUnderline($position-y: 1.25em);
+
+			&:hover {
+				@include qodefInlineUnderlineHover();
+			}
+		}
+	}
+}
+
+.qodef-title--breadcrumbs {
+	height: 96px;
+}

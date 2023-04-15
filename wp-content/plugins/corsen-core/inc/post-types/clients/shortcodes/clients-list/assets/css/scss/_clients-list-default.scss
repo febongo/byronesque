@@ -1,0 +1,90 @@
+/* Clients list shortcode style - start */
+.qodef-clients-list {
+
+	.qodef-e {
+		@include qodefRelativeLayout();
+		@include qodefScreenSize680 {
+			margin-bottom: 30px;
+		}
+	}
+
+	&.qodef-layout--video-info-slider {
+
+		&.qodef-item-layout--image-only {
+
+			.qodef-video-button {
+
+				.qodef-m-play {
+					display: flex !important; // !important to override hover animation inline-block
+				}
+			}
+		}
+
+		.qodef-images-holder,
+		.qodef-thumbnails-holder {
+			position: relative;
+			margin: 0 auto;
+			padding: 0;
+			list-style: none;
+			z-index: 1;
+			visibility: hidden;
+			overflow: hidden;
+		}
+
+		.qodef-images-holder {
+			margin-bottom: 38px;
+		}
+
+		.qodef-thumbnails-holder {
+			margin: 0 141px;
+
+			@include qodefScreenSize680 {
+				margin: 0 40px;
+			}
+
+			.swiper-slide {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				.qodef-e-image {
+					transition: $opacity-transition;
+				}
+
+				&.swiper-slide-active {
+
+					.qodef-e-image {
+						opacity: .5;
+
+						@include qodefScreenSize680 {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+
+		&.qodef-swiper--initialized {
+
+			.qodef-images-holder,
+			.qodef-thumbnails-holder {
+				visibility: visible;
+			}
+		}
+	}
+
+	&.qodef--retina {
+
+		.qodef-e-image {
+
+			img {
+				display: block;
+				max-width: 50%;
+				margin: 0 auto;
+				will-change: transform;
+			}
+		}
+	}
+}
+/* Clients list shortcode style - end */

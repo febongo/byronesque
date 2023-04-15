@@ -1,0 +1,27 @@
+#yith-quick-view-modal {
+
+    #yith-quick-view-content.single-product {
+
+        @include qodefScreenSize680 {
+
+            .qodef-woo-single-inner {
+                flex-wrap: wrap;
+            }
+        }
+
+        @include qodefScreenSize680 {
+
+            .qodef-woo-single-image {
+                max-height: 50vh;
+                height: 50vh;
+            }
+        }
+
+        @include qodefScreenSize680 {
+
+            .woocommerce-product-details__short-description {
+                display: none;
+            }
+        }
+    }
+}

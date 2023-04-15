@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Custom Font shortcode styles
+   ========================================================================== */
+
+.widget {
+
+	&.widget_corsen_core_custom_font {
+		margin-bottom: 0 !important;
+	}
+}
+
+.qodef-custom-font {
+	position: relative;
+	margin: 0;
+
+	@include qodefScreenSize1024 {
+
+		&.qodef-title-break--disabled {
+
+			br {
+				display: none;
+			}
+		}
+	}
+}

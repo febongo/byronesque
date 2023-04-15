@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install>
+    <modules>
+		<mod code = "license" active = "1" type_id = "6"  label = "license" />
+		<mod code = "options_pro" active = "1" type_id = "6"  label = "Options Pro" />
+		<mod code = "custom_symbols" active = "1" type_id = "6"  label = "Custom Symbols" />
+		<mod code = "update_rates" active = "1" type_id = "6"  label = "Update Rates" />
+		<mod code = "custom_css" active = "1" type_id = "6"  label = "custom_css" />
+		<mod code = "flags" active = "1" type_id = "6"  label = "flags" />
+		<mod code = "currency_rates" active = "1" type_id = "6"  label = "Currency Rates" />
+		<mod code = "currency_converter" active = "1" type_id = "6"  label = "Currency Converter" />
+		<mod code = "currency_tooltip" active = "1" type_id = "6"  label = "Currency Tooltip" />
+		<mod code = "geoip_rules" active = "1" type_id = "6"  label = "GeoIp Rules" />
+		<mod code = "custom_currency" active = "1" type_id = "6"  label = "Custom Currency" />
+		<mod code = "manual_prices" active = "1" type_id = "6"  label = "Manual Prices" />
+	</modules>
+</install>

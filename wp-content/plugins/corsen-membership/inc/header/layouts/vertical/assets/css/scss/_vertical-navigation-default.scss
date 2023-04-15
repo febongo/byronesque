@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Header Vertical navigation style - begin
+   ========================================================================== */
+$menu-top-bottom-spacing: 10px 0 5px;
+$menu-level-two-left-spacing: 22px;
+$menu-item-top-bottom-spacing: 12px;
+
+.qodef-header--vertical {
+
+	.qodef-header-vertical-navigation {
+		margin-bottom: auto;
+		z-index: 100;
+		width: 100%;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				position: relative;
+				padding: 0;
+				margin: $menu-item-top-bottom-spacing 0;
+
+				.qodef-menu-item-arrow {
+					position: absolute;
+					top: -2px;
+					width: 22px;
+					height: auto;
+					right: 0;
+					z-index: -1;
+					transition: all .3s ease;
+				}
+
+				&.qodef-menu-item--open {
+
+					.qodef-menu-item-arrow {
+						transform: rotate(90deg);
+					}
+				}
+
+				a {
+					position: relative;
+					display: block;
+				}
+
+				.qodef-drop-down-second {
+					transform: translateZ(0);
+				}
+
+				.qodef-drop-down-second-inner {
+					position: relative;
+					display: block;
+					padding: 0;
+					z-index: 997;
+				}
+
+				&.qodef--hide-link {
+
+					> a {
+						cursor: default;
+					}
+				}
+			}
+		}
+
+		.qodef-menu-item-icon {
+			margin-right: 5px;
+		}
+
+		.qodef-mega-menu-widget-holder {
+			display: none;
+		}
+
+		> ul {
+
+			> li {
+
+				> a {
+					font-family: $heading-font;
+					color: #000;
+					font-size: 12px;
+					font-weight: 600;
+					line-height: 1.455em;
+					letter-spacing: .1em;
+					text-transform: uppercase;
+
+					.qodef-menu-item-text {
+						padding-bottom: 2px;
+						@include qodefInlineUnderline($position-y: 100%);
+					}
+
+					&:hover {
+						@include qodefMenuLevelOneHoverStyle();
+
+						.qodef-menu-item-text {
+							@include qodefInlineUnderlineHover();
+						}
+					}
+				}
+
+				.qodef-drop-down-second-inner {
+
+					> ul {
+						display: inline-block;
+						margin: 1px 0 -10px;
+					}
+
+					ul {
+						padding-left: $menu-level-two-left-spacing;
+
+						li {
+
+							> a {
+								@include qodefMenuLevelTwoInitialStyle();
+								@include qodefMenuLevelTwoInitialTypographyStyle();
+							}
+
+							&:hover,
+							&.current-menu-ancestor,
+							&.current-menu-item {
+
+								> a {
+									@include qodefMenuLevelTwoHoverStyle();
+								}
+							}
+						}
+					}
+				}
+
+				&.current-menu-ancestor,
+				&.current-menu-item {
+
+					> a {
+						@include qodefMenuLevelOneHoverStyle();
+
+						.qodef-menu-item-text {
+							@include qodefInlineUnderlineHover();
+						}
+					}
+				}
+			}
+		}
+
+		&.qodef-vertical-drop-down--below {
+
+			ul li {
+
+				a {
+
+					.qodef-menu-item-arrow {
+						transform: rotate(0);
+						transition: transform .3s ease;
+					}
+				}
+
+				.qodef-drop-down-second {
+					display: none;
+				}
+
+				&.qodef-menu-item--open {
+
+					> a {
+
+						.qodef-menu-item-arrow {
+							transform: rotate(90deg);
+						}
+					}
+				}
+			}
+		}
+
+		&.qodef-vertical-drop-down--side {
+
+			.qodef-drop-down-second {
+				position: absolute;
+				top: 0;
+				width: 100%;
+
+				ul {
+					position: absolute;
+					top: -23px;
+					left: calc(100% + 40px); //because of the padding right
+					width: 254px;
+					background-color: #fff;
+					padding: 25px 20px;
+					margin-left: 50px;
+					visibility: hidden;
+					opacity: 0;
+					transition: all $transition-timing;
+
+					&.qodef-float--open {
+						margin-left: 0;
+						opacity: 1;
+						visibility: visible;
+						z-index: 900;
+					}
+
+					ul {
+						top: -25px; //because of the padding top
+						left: calc(100% + 20px); //because of the padding right
+						visibility: hidden;
+						transition: all .2s ease;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Header Vertical navigation style - end
+   ========================================================================== */

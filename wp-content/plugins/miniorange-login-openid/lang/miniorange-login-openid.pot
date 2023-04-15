@@ -1,0 +1,2522 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: miniorange-login-openid\n"
+"POT-Creation-Date: 2020-03-13 15:54+0530\n"
+"PO-Revision-Date: 2017-08-12 19:12+0530\n"
+"Last-Translator: \n"
+"Language-Team: miniOrange\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: mo_sl;__;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class-mo-openid-login-widget.php:46
+msgid "Login using Social Apps like Google, Facebook, LinkedIn, Microsoft, Instagram."
+msgstr ""
+
+#: class-mo-openid-login-widget.php:806 class-mo-openid-login-widget.php:814
+msgid "Logout"
+msgstr ""
+
+#: class-mo-openid-login-widget.php:2246
+msgid "Share using horizontal widget. Lets you share with Social Apps like Google, Facebook, LinkedIn, Pinterest, Reddit."
+msgstr ""
+
+#: class-mo-openid-login-widget.php:2291
+msgid "Share using a vertical floating widget. Lets you share with Social Apps like Google, Facebook, LinkedIn, Pinterest, Reddit."
+msgstr ""
+
+#: miniorange_openid_sso_settings.php:366
+msgid "Configure OpenID"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:54
+#: miniorange_openid_sso_settings_page.php:493
+#: miniorange_openid_sso_settings_page.php:633
+msgid "miniOrange Social Login"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:55
+#: miniorange_openid_sso_settings_page.php:494
+#: miniorange_openid_sso_settings_page.php:634
+#: view/privacy_policy/mo_openid_priv_pol.php:152
+msgid "Privacy Policy"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:56
+#: miniorange_openid_sso_settings_page.php:495
+#: miniorange_openid_sso_settings_page.php:635
+msgid "FAQs"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:57
+#: miniorange_openid_sso_settings_page.php:496
+#: miniorange_openid_sso_settings_page.php:636
+msgid "Forum"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:58
+#: miniorange_openid_sso_settings_page.php:94
+#: miniorange_openid_sso_settings_page.php:497
+#: miniorange_openid_sso_settings_page.php:637
+msgid "Add On"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:59
+#: miniorange_openid_sso_settings_page.php:498
+#: miniorange_openid_sso_settings_page.php:638
+msgid "Upgrade Now"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:61
+msgid "Rate us"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:64
+msgid "Restart Tour"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:77
+#: miniorange_openid_sso_settings_page.php:510
+#: miniorange_openid_sso_settings_page.php:650
+msgid "miniOrange"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:80
+msgid "Configure Apps"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:81
+msgid "Customise Social Login Icons"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:82
+#: view/disp_options/mo_openid_dispopt.php:126
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:10
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:12
+#: view/soc_com/com_display_options/mo_openid_comm_disp_opt.php:41
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:214
+msgid "Display Options"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:83
+msgid "Redirect Options"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:84
+msgid "Registration"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:85
+msgid "GDPR"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:86
+#: view/restrict_domain/mo_openid_restrict_dom.php:15
+msgid "Domain Restriction"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:87
+#: view/link_social_account/mo_openid_Acclink.php:58
+msgid "Link Social Account"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:88
+#: view/profile_completion/mo_openid_prof_comp.php:76
+msgid "Profile Completion"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:89
+#: view/email_settings/mo_openid_set_email.php:88
+msgid "Email Notification"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:90
+msgid "Recaptcha"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:91
+msgid "Premium Features"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:92
+#: view/integration/mo_openid_integrate.php:6
+msgid "Integrations"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:93
+#: miniorange_openid_sso_settings_page.php:526
+#: miniorange_openid_sso_settings_page.php:657
+msgid "Shortcodes"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:95
+msgid "User Profile"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:515
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:18
+msgid "Select Social Apps"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:518
+#: miniorange_openid_sso_settings_page.php:655
+msgid "Customization"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:521
+msgid "Social Share Counts"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:524 view/faq/mo_openid_faq.php:108
+#: view/faq/mo_openid_faq.php:117
+msgid "Display Option"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:578
+#: miniorange_openid_sso_settings_page.php:713
+msgid "NEED HELP"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:653
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:10
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:20
+msgid "Select Applications"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:654
+msgid "Display options"
+msgstr ""
+
+#: miniorange_openid_sso_settings_page.php:656
+msgid "Enable and Add Social Comments"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:9
+msgid "Custom Registration Form"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:10
+msgid "Purchase"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:15
+msgid "Verify Key"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:21
+msgid ""
+"Custom Registration Form Add-On helps you to integrate details of new as well as existing users. You\n"
+"                        can add as many fields as you want including the one which are returned by\n"
+"                        social sites at time of registration"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:46
+msgid "Customization Fields"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:49
+msgid "Enable Auto Field Registration Form"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:71
+msgid "Registration page link"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:77
+msgid "Existing Field"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:78
+#: view/add_on/custom_registration_form.php:145
+msgid "Field"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:79
+#: view/add_on/custom_registration_form.php:150
+msgid "Custom name"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:80
+#: view/add_on/custom_registration_form.php:146
+#: view/add_on/custom_registration_form.php:151
+msgid "Field Type"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:81
+msgid "Field Options"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:82
+#: view/add_on/custom_registration_form.php:156
+msgid "Required Field"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:94
+msgid "Select Field"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:102
+msgid "Select Type"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:109
+msgid "No"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:124
+#: view/integration/mo_openid_integrate.php:102
+#: view/integration/mo_openid_integrate.php:278
+msgid "Cancel"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:129
+msgid "Instructions to setup"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:132
+#: view/integration/mo_openid_integrate.php:266
+msgid "Create a page and use shortcode"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:133
+msgid "where you want your form to be displayed"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:135
+msgid ""
+"Copy the page link and paste it in the above field <b>Registration page\n"
+"                                                    link"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:138
+msgid "If you have any existing wp_usermeta field then enter that field's name in"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:139
+msgid ""
+"Existing\n"
+"                                                    Field"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:140
+msgid "column. For example, if you are saving"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:140
+#: view/integration/mo_openid_integrate.php:35
+#: view/integration/mo_openid_integrate.php:69
+msgid "First Name"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:140
+#: view/add_on/custom_registration_form.php:156
+msgid "as"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:141
+msgid "fname"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:142
+msgid ""
+"in wp_usermeta field then enter fname in Existing Field\n"
+"                                                column."
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:145
+msgid "Select field name under the "
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:145
+msgid "dropdown"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:146
+msgid "If selected field is other than custom, then"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:146
+msgid ""
+"will\n"
+"                                                automatically be"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:147
+msgid "Textbox"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:147
+msgid "and there is no need to enter"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:147
+msgid ""
+"Custom\n"
+"                                                    name"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:148 view/faq/mo_openid_faq.php:81
+msgid "and"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:148
+msgid "Field options"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:150
+msgid "If selected field is custom, then enter"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:151
+#: view/add_on/custom_registration_form.php:156
+msgid "Select"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:151
+msgid "if selected"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:151
+msgid "is"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:152
+msgid "Checkbox"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:152
+msgid "or"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:152
+msgid "Dropdown"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:152
+#: view/add_on/custom_registration_form.php:153
+msgid ""
+"Field\n"
+"                                                    Options"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:153
+msgid "seprated by semicolon "
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:153
+msgid "otherwise leave"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:154
+msgid "blank."
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:156
+msgid "Yes"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:156
+msgid ""
+"if you want to make that field\n"
+"                                                compulsory for user"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:159
+msgid "If you want to add more than 1 fields at a time click on"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:160
+msgid "Last click on"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:160
+#: view/customise_social_icons/mo_openid_cust_icons.php:119
+#: view/disp_options/mo_openid_dispopt.php:89
+#: view/email_settings/mo_openid_set_email.php:80
+#: view/gdpr/mo_openid_gdpr.php:25 view/integration/mo_openid_integrate.php:277
+#: view/integration/mo_openid_integrate.php:348
+#: view/integration/mo_openid_integrate.php:414
+#: view/link_social_account/mo_openid_Acclink.php:51
+#: view/redirect_options/mo_openid_redirect_op.php:182
+#: view/registration/mo_openid_registration.php:67
+#: view/restrict_domain/mo_openid_restrict_dom.php:38
+#: view/soc_com/com_Cust/mo_openid_comm_cust.php:23
+#: view/soc_com/com_display_options/mo_openid_comm_disp_opt.php:36
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:49
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:227
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:205
+msgid "Save"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:160
+msgid "button"
+msgstr ""
+
+#: view/add_on/custom_registration_form.php:192
+msgid "Social Login Add On"
+msgstr ""
+
+#: view/config_apps/mo_openid_config_apps.php:65
+msgid "Configure Applications"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:13
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:28
+msgid "Shape"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:14
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:39
+msgid "Round"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:17
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:45
+msgid "Rounded Edges"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:21
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:50
+msgid "Square"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:24
+msgid "Long Button"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:31
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:29
+msgid "Theme"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:34
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:59
+msgid "Default"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:40
+msgid "Custom background*"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:49
+msgid "*Custom background:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:49
+msgid "This will change the background color of login icons."
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:52
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:31
+msgid "Size of Icons"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:54
+msgid "Width:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:57
+msgid "Height:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:60
+msgid "Curve:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:71
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:30
+msgid "Space between Icons"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:79
+msgid "Customize Text For Social Login Buttons / Icons"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:82
+msgid "Select color for customize text:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:90
+msgid "Enter text to show above login widget:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:96
+msgid "Enter text to show on your login buttons:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:103
+msgid "Customize Text to show user after Login"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:106
+msgid "Enter text to show before the logout link. Use ##username## to display current username:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:113
+msgid "Enter text to show as logout link:"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:126
+msgid "Preview :"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:216
+msgid "No activated apps found"
+msgstr ""
+
+#: view/customise_social_icons/mo_openid_cust_icons.php:227
+msgid "Customize Login Icons"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:10
+msgid "Select the options where you want to display the social login icons"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:11
+msgid "Default Login Form [wp-admin]"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:16
+msgid "Default Registration Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:21
+msgid "Comment Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:25
+msgid "Don't find your login page in above options use"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:25
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:25
+msgid "to display social icons or"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:25
+msgid "Contact Us"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:27
+msgid "BuddyPress display options"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:30
+msgid "Before BuddyPress Registration Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:34
+msgid "Before BuddyPress Account Details"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:38
+msgid "After BuddyPress Registration Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:46
+msgid "Woocommerce display options"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:49
+msgid "Before WooCommerce Login Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:53
+msgid "Before 'Remember Me' of WooCommerce Login Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:57
+msgid "After WooCommerce Login Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:61
+msgid "Before WooCommerce Registration Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:65
+msgid "Before 'Register button' of WooCommerce Registration Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:69
+msgid "After WooCommerce Registration Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:73
+msgid "Before WooCommerce Checkout Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:77
+msgid "After WooCommerce Checkout Form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:84
+msgid "Display miniOrange logo with social login icons on selected form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:92
+msgid "Add Login Icons"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:95
+msgid "You can add login icons in the following areas from <strong>Display Options</strong>. For other areas(widget areas), use Login widget"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:97
+msgid "Default Login Form: This option places login icons below the default login form on wp-login"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:98
+msgid "Default Registration Form: This option places login icons below the default registration form"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:99
+msgid "Comment Form: This option places login icons above the comment section of all your posts"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:104
+msgid "Add Login Icons as Widget"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:107
+msgid ""
+"Go to Widgets. Among the available widgets you\n"
+"                            will find miniOrange Social Login Widget, drag it to the widget area where\n"
+"                            you want it to appear"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:110
+msgid "Now logout and go to your site. You will see Social Login icon for which you enabled login"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:111
+msgid "Click that app icon and login with your existing app account to wordpress"
+msgstr ""
+
+#: view/disp_options/mo_openid_dispopt.php:115
+msgid "Using Shortcode"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:11
+msgid "Send mail to Admin"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:21
+#: view/email_settings/mo_openid_set_email.php:61
+msgid "NOTE: This feature requires SMTP to be setup"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:22
+msgid "Enable Email Notification to Admin - on User Registration"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:27
+msgid "If you want to send Email Notification to multiple admins, enter emails of all admins here"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:27
+msgid "If left empty only administrator gets email"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:36
+#: view/email_settings/mo_openid_set_email.php:68
+msgid "Email Subject"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:50
+msgid "Send mail to User"
+msgstr ""
+
+#: view/email_settings/mo_openid_set_email.php:62
+msgid "Email Notification to User on User Registration"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:9
+msgid "If you are unable to open any section, press CTRL + F5 to clear cache"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:10
+msgid "Site Issue"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:12
+msgid "I installed the plugin and my website stopped working. How can I recover my site?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:14
+msgid "There must have been a server error on your website. To get your website back online:"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:16
+msgid "Open FTP access and look for plugins folder under wp-content."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:17
+msgid "Change the extension folder name miniorange-login-openid to miniorange-login-openid"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:18
+msgid "Check your website. It must have started working"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:19
+msgid "Change the folder name back to miniorange-login-openid."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:22 view/faq/mo_openid_faq.php:35
+#: view/faq/mo_openid_faq.php:52
+msgid "For any further queries, please submit a query on right hand side in our"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:22 view/faq/mo_openid_faq.php:35
+#: view/faq/mo_openid_faq.php:52
+msgid "Support Section"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:29
+msgid "Change email"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:31
+msgid "I want to change the email address with which I access my account. How can I do that?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:33
+msgid "You will have to register in miniOrange again with your new email id."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:34
+msgid "Please deactivate and activate the plugin by going to"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:34
+msgid "Plugins -> Installed Plugins"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:34
+msgid "and then go to the Social Login Plugin to register again. This will enable you to access miniOrange dashboard with new email address."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:42
+msgid "cURL"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:44
+msgid "How to enable PHP cURL extension? (Pre-requisite)"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:46
+msgid "cURL is enabled by default but in case you have disabled it, follow the steps to enable it"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:48
+msgid "Open php.ini(it's usually in /etc/ or in php folder on the server)."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:49
+msgid "Search for extension=php_curl.dll. Uncomment it by removing the semi-colon( ; ) in front of it."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:50
+msgid "Restart the Apache Server."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:55
+msgid "I am getting error - curl_setopt(): CURLOPT_FOLLOWLOCATION cannot be activated when an open_basedir is set"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:57
+msgid "Just setsafe_mode = Off in your php.ini file (it's usually in /etc/ on the server). If that's already off, then look around for the open_basedir in the php.ini file, and change it to open_basedir = ."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:65
+msgid "OTP and Forgot Password"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:67
+msgid "I did not recieve OTP. What should I do?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:69
+msgid "The OTP is sent as an email to your email address with which you have registered with miniOrange. If you can't see the email from miniOrange in your mails, please make sure to check your SPAM folder."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:69
+msgid "If you don't see an email even in SPAM folder, please verify your account using your mobile number. You will get an OTP on your mobile number which you need to enter on the page. If none of the above works, please contact us using the Support form on the right."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:72
+msgid "After entering OTP, I get Invalid OTP. What should I do?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:74
+msgid "Use the "
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:74
+msgid "Resend OTP"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:74
+msgid "option to get an additional OTP. Plese make sure you did not enter the first OTP you recieved if you selected"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:74
+msgid "option to get an additional OTP. Enter the latest OTP since the previous ones expire once you click on Resend OTP."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:74
+msgid "If OTP sent on your email address are not working, please verify your account using your mobile number. You will get an OTP on your mobile number which you need to enter on the page. If none of the above works, please contact us using the Support form on the right."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:77
+msgid "I forgot the password of my miniOrange account. How can I reset it?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:79
+msgid "There are two cases according to the page you see"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:80 view/faq/mo_openid_faq.php:81
+msgid "Login with miniOrange"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:80
+msgid "screen: You should click on"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:80
+msgid "forgot password"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:80
+msgid "link. You will get your new password on your email address which you have registered with miniOrange . Now you can login with the new password"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:81
+msgid "Register with miniOrange"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:81
+msgid "screen: Enter your email ID and any random password in "
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:81
+msgid "password"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:81
+msgid "confirm password"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:81
+msgid "input box. This will redirect you to"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:81
+msgid "screen. Now follow first step"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:89
+msgid "Social login"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:91
+msgid "How to add login icons to frontend login page?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:93
+msgid "You can add social login icons to frontend login page using our shortcode [miniorange_social_login]. Refer to 'Shortcode' tab to add customizations to Shortcode."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:96
+msgid "How can I put social login icons on a page without using widgets?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:98
+msgid "You can add social login icons to any page or custom login page using 'social login shortcode' [miniorange_social_login]. Refer to 'Shortcode' tab to add customizations to Shortcode."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:101
+msgid "Social Login icons are not added to login/registration form."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:103
+msgid "Your login/registration form may not be wordpress's default login/registration form. In this case you can add social login icons to custom login/registration form using 'social login shortcode' [miniorange_social_login]. Refer to 'Shortcode' tab to add customizations to Shortcode."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:106
+msgid "How can I redirect to my blog page after login?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:108
+msgid "You can select one of the options from"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:108
+msgid "Redirect URL after login"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:108 view/faq/mo_openid_faq.php:117
+msgid "of"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:108
+msgid " section under"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:108 view/faq/mo_openid_faq.php:117
+msgid "Social Login"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:108
+msgid "tab."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:109
+#: view/redirect_options/mo_openid_redirect_op.php:13
+#: view/redirect_options/mo_openid_redirect_op.php:134
+msgid "Same page where user logged in"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:110
+#: view/redirect_options/mo_openid_redirect_op.php:21
+#: view/redirect_options/mo_openid_redirect_op.php:142
+msgid "Homepage"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:111
+msgid "Account Dsahboard"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:115
+msgid "After logout I am redirected to blank page"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:117
+msgid "Your theme and Social Login plugin may conflict during logout. To resolve it you need to uncheck"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:117
+msgid "Enable Logout Redirection"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:117
+msgid "checkbox under"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:117
+msgid "tab"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:120
+msgid "My users get the following message -\"Registration has been disabled for this site. Please contact your administrator.\" What should I do?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:122
+msgid "This means you must have unchecked the check-box of auto-register in the Social Login tab. Please check it. This will allow new users to be able to register to your site."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:125
+msgid "Why do my users get a message that it is not secure to proceed?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:126
+msgid "Your website must be starting with http://. Now generally that's not an issue but our service uses https://( s stands for secure). You get a warning from the browser that the information is being passed insecurely. This happens after you log in to social media application and are coming back to your website. The warning is triggered from the browser since the data passes from https:// to http://, i.e. from a secure site to non-secure site.<br><br>We make sure that the information(email, name, username) getting passed from social media application to your website is encrypted with a key which is unique to you. So, even if the there is a warning of sending information without security, that information is encrypted."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:127
+msgid "To remove this warning, you can add an SSL certificate to your website to change it to https OR use your own"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:127 view/shrtco/mo_openid_shrtco.php:111
+#: view/shrtco/mo_openid_shrtco.php:112
+msgid "Custom App"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:130
+msgid "My users get the following message -\"There was an error in registration. Please contact your administrator.\" What should I do?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:132
+msgid "This message is thrown by WordPress when there is an error in user-registration"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:133
+msgid "To see the actual error thrown by WordPress, go to \\wordpress\\wp-content\\plugins\\miniorange-login-openid\\class-mo-openid-login-widget.php file"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:134
+msgid "Search for the line"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:135
+msgid "Change it to"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:136
+msgid "Save the file and try logging again. Please send us the error you see while logging in through the support forum to your right."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:138
+msgid "How do I centre the social login icons?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:140
+msgid "If you are making changes to a PHP file"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:141
+msgid "Go to the PHP file which invokes your page/post and insert the following html snippet. Also, increase the margin-left value as per your requirement. Save the file."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:144
+msgid "If you are making changes to an HTML file."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:145
+msgid "Go to the HTML file which invokes your page/post and insert the following html snippet. Also, increase the margin-left value as per your requirement. Save the file."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:155
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:570
+msgid "Social Sharing"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:157
+msgid "Is it possible to show sharing icons below the post content?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:159
+msgid "You can put social sharing icons before the content, after the content or both before and after the content."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:159
+msgid "Go to"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:159
+msgid "Sharing tab"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:159
+msgid "check"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:159
+msgid "Blog post"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:159
+msgid "checkbox and select one of three(before, after, both) options available. Save settings"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:162
+msgid "Why is sharing with some applications not working?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:164
+msgid "This issue arises if your website is not publicly hosted. Facebook, for example looks for the URL to generate its preview for sharing. That does not work on localhost or any privately hosted URL."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:167
+msgid "Facebook sharing is showing the wrong image. How do I change the image?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:169
+msgid "The image is selected by Facebook and it is a part of Facebook sharing feature. We provide Facebook with webpage URL. It generates the entire preview of webpage using that URL."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:170
+msgid "To set an image for the page, set it as a meta tag in"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:170
+msgid "of your webpage."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:172
+msgid "You can further debug the issue with Facebook's tool"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:174
+msgid "If the problem still persists, please contact us using the Support form on the right."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:177
+msgid "There is no option of Instagram in Social Sharing. Why?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:179
+msgid "Instagram has made a conscious effort to not allow sharing from external sources to fight spam and low quality photos."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:180
+msgid "At this point of time, uploading via Instagram's API from external sources is not possible"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:184
+msgid "Email share is not working. Why?"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:186
+msgid "Email share in the plugin is enabled through"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:186
+msgid "mailto"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:186
+msgid "mailto is generally configured through desktop or browser so if it is not working, mailto is not setup or improperly configured"
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:187
+msgid "To set it up properly, search for mailto settings followed by your Operating System's name where you have your browser installed."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:190
+msgid "I cannot see some icons in preview or on blog even though I have selected them in the plugin settings."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:192
+msgid "Please check if you have an Adblock extension installed on your browser where you are checking the plugin. If you do, the Adblock extension will have a setting to block Social buttons. Uncheck this option."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:194
+msgid "If you don't have Adblock installed and still face this issue, please contact us using the Support form on the right or mail us at info@xecurify.com."
+msgstr ""
+
+#: view/faq/mo_openid_faq.php:206
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: view/gdpr/mo_openid_gdpr.php:9
+msgid "If GDPR check is enabled, users will be asked to give consent before using Social Login. Users who will not give consent will not be able to log in. This setting stands true only when users are registering using Social Login. This will not interfere with users registering through the regular WordPress"
+msgstr ""
+
+#: view/gdpr/mo_openid_gdpr.php:11
+msgid "Take consent from users"
+msgstr ""
+
+#: view/gdpr/mo_openid_gdpr.php:17
+msgid "Enter the Consent message"
+msgstr ""
+
+#: view/gdpr/mo_openid_gdpr.php:20
+msgid "Enter the text to be displayed for the Privacy Policy URL"
+msgstr ""
+
+#: view/gdpr/mo_openid_gdpr.php:23
+msgid "Enter Privacy Policy URL"
+msgstr ""
+
+#: view/gdpr/mo_openid_gdpr.php:30
+msgid "GDPR Settings"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:12
+msgid "Custom Attributes Mapping"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:34
+#: view/integration/mo_openid_integrate.php:68
+msgid "User Name"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:36
+#: view/integration/mo_openid_integrate.php:70
+msgid "Last Name"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:37
+#: view/integration/mo_openid_integrate.php:71
+msgid "User Email ID"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:38
+#: view/integration/mo_openid_integrate.php:72
+msgid "Age"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:39
+#: view/integration/mo_openid_integrate.php:73
+msgid "Gender"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:40
+#: view/integration/mo_openid_integrate.php:74
+msgid "Birth Date"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:41
+#: view/integration/mo_openid_integrate.php:75
+msgid "No of Friends"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:42
+#: view/integration/mo_openid_integrate.php:76
+msgid "Website"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:43
+#: view/integration/mo_openid_integrate.php:77
+msgid "User ID"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:44
+#: view/integration/mo_openid_integrate.php:78
+msgid "User Nicename"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:45
+#: view/integration/mo_openid_integrate.php:79
+msgid "Location (City)"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:46
+#: view/integration/mo_openid_integrate.php:80
+msgid "Location (Country)"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:47
+#: view/integration/mo_openid_integrate.php:81
+msgid "About me/Summary/Biography"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:48
+#: view/integration/mo_openid_integrate.php:82
+msgid "Company Name"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:49
+#: view/integration/mo_openid_integrate.php:83
+msgid "Major/Field of study"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:50
+#: view/integration/mo_openid_integrate.php:84
+msgid "University Name"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:51
+#: view/integration/mo_openid_integrate.php:85
+msgid "Places Lived"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:52
+#: view/integration/mo_openid_integrate.php:86
+msgid "Industry"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:53
+#: view/integration/mo_openid_integrate.php:87
+msgid "Headline"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:54
+#: view/integration/mo_openid_integrate.php:88
+msgid "Contact No"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:55
+#: view/integration/mo_openid_integrate.php:89
+msgid "relationship"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:56
+#: view/integration/mo_openid_integrate.php:90
+msgid "Position/Title"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:57
+msgid "Delete"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:67
+msgid "Select Attribute"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:166
+#: view/integration/mo_openid_integrate.php:168
+msgid "BuddyPress Extended Attributes Mapping"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:170
+msgid "It seems BuddyPress plugin is not installed or activated. To use this feature, please download & activate the BuddyPress plugin and check the <u>Extended Profiles</u> checkbox in Settings -> BuddyPress -> Components -> Extended Profiles"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:217
+#: view/integration/mo_openid_integrate.php:225
+msgid "Paid Memberships Pro"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:219
+msgid "It seems Paid Memberships Pro plugin is not installed or activated. To use this feature, please download & activate the Paid Memberships Pro plugin"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:231
+msgid "Use Default Level"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:248
+msgid "By selecting default level the user will be assigned with a level selected in above dropdown"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:254
+#: view/integration/mo_openid_integrate.php:310
+msgid "User's Choice"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:259
+msgid "Level's Page Link"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:262
+msgid "By selecting this option every user can select their own level which will be assigned to them"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:263
+msgid "Instructions to setup Paid Memberships Pro User's Choice option"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:266
+msgid "where you want your <b>Membership Levels Page"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:268
+msgid "Copy the page link and paste it in the above field <b>Level's Page Link"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:270
+msgid "Click on <b>Save</b> button"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:300
+msgid "MailChimp Integration"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:303
+msgid ""
+"A user is added as a subscriber to a mailing list in MailChimp when that user registers using social login. First name, last name and email are also captured for that user in the Mailing List.</b></p>\n"
+"                        (List ID in MailChimp : Lists -> Select your List -> Settings -> List Name and Defaults -> List ID) <br>\n"
+"                        (API Key in MailChimp : Profile -> Extras -> API Keys -> Your API Key"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:306
+msgid "List Id"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:307
+msgid "API Key"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:315
+msgid "Ask user for permission to be added in MailChimp Subscriber list"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:316
+msgid "(If unchecked, user will get subscribed during registration.)"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:320
+msgid "Edit MailChimp subscription form"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:324
+msgid "Enter title of Subscription form"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:328
+#: view/profile_completion/mo_openid_prof_comp.php:29
+msgid "Enter Username Label text"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:332
+msgid "Enter Yes button text"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:336
+msgid "Enter No button text"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:345
+msgid "Click on Download button to get a list of emails of WordPress users registered on your site. You can import this file in MailChimp"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:350
+msgid "Download emails of users"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:402
+msgid "Woocommerce Integration"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:406
+msgid "If enabled, first name, last name and email are pre-filled in billing details of a user and on the Woocommerce checkout page"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:407
+msgid "Sync Woocommerce checkout fields"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:453
+#: view/integration/mo_openid_integrate.php:552
+#: view/integration/mo_openid_integrate.php:555
+msgid "Select Application"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:521
+#: view/integration/mo_openid_integrate.php:626
+msgid "Back"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:544
+msgid "Please activate/install the BuddyPress plugin to continue with attribute mapping"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:556
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:47
+msgid "Google"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:557
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:28
+msgid "Facebook"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:558
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:36
+msgid "Twitter"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:559
+msgid "Windows Account"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:560
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:61
+msgid "Vkontakte"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:561
+msgid "Linkedin"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:562
+msgid "Instagram"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:563
+msgid "Amazon"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:564
+msgid "Salesforce"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:565
+msgid "Yahoo"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:566
+msgid "Wordpress"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:567
+msgid "Disqus"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:568
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:134
+msgid "Pinterest"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:569
+msgid "Twitch"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:570
+msgid "Vimeo"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:571
+msgid "Kakao"
+msgstr ""
+
+#: view/integration/mo_openid_integrate.php:625
+msgid "Save settings"
+msgstr ""
+
+#: view/licensing_plans/mo_openid_lic_plans.php:1868
+msgid "Licensing Plan For Social Login"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:14
+msgid "Enable account linking to let your users link their Social accounts with existing WordPress account. Users will be prompted with the option to either link to any existing account using WordPress login page or register as a new user"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:15
+msgid "Enable linking of Social Accounts"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:23
+msgid "Customize Text for Account Linking"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:25
+msgid "Enter title of Account linking form"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:26
+msgid "Enter button text for create new user"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:29
+msgid "Enter button text for Link to existing user"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:31
+msgid "Enter instruction to Create New Account"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:37
+msgid "Enter instructions to link to an existing account"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:41
+msgid "Enter extra instructions for account linking"
+msgstr ""
+
+#: view/link_social_account/mo_openid_Acclink.php:45
+msgid "Display miniOrange logo with social login icons on account completion forms"
+msgstr ""
+
+#: view/premium_features/mo_openid_prem_feat.php:89
+msgid "Force Admin To Login Using Password"
+msgstr ""
+
+#: view/premium_features/mo_openid_prem_feat.php:90
+msgid "Admin user tries to login using social login then he will need to enter WordPress admin login credentials to login"
+msgstr ""
+
+#: view/premium_features/mo_openid_prem_feat.php:103
+msgid "Redirect to social in a new window"
+msgstr ""
+
+#: view/premium_features/mo_openid_prem_feat.php:104
+msgid "While login with social login. The login page opens in a new tab. After the login process the tab gets closed"
+msgstr ""
+
+#: view/profile/mo_openid_profile.php:14
+msgid "Thank you for registering with miniOrange"
+msgstr ""
+
+#: view/profile/mo_openid_profile.php:17
+msgid "miniOrange Account Email"
+msgstr ""
+
+#: view/profile/mo_openid_profile.php:21
+msgid "Customer ID"
+msgstr ""
+
+#: view/profile/mo_openid_profile.php:26
+msgid "Click here</a> to check our"
+msgstr ""
+
+#: view/profile/mo_openid_profile.php:26
+msgid "plans"
+msgstr ""
+
+#: view/profile/mo_openid_profile.php:33
+msgid "User Profile Details"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:10
+msgid "Prompt users for username &amp; email when unavailable (profile completion)"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:11
+msgid "In case of unavailability of username or email from the social media application, user is prompted to input the same"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:16
+msgid "Prompt user for username and email without email verification. (profile completion)"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:17
+msgid "For getting profile completion without Otp verification through your email,you need to enable the both the checkboxes"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:21
+msgid "*NOTE:"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:21
+msgid "Disabling profile completion is not recommended. Instagram and Twitter don't return email address. Please keep this enabled if you are using Instagram or Twitter. This feature requires SMTP to be setup for your WordPress website since we send a code to users over email to verify their email address."
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:26
+msgid "Customize Text for Profile Completion"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:26
+msgid "Preview Profile Completion form"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:28
+msgid "Enter title of Profle Completion"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:30
+msgid "Enter Email Label text"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:31
+msgid "Enter Submit button text"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:32
+msgid "Enter instruction for Profile Completion"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:34
+msgid "Enter extra instruction for Profile Completion "
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:36
+msgid "Enter username already exists warning message text "
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:42
+msgid "Customize Text for Email Verification"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:44
+msgid "Enter title of Email Verification form"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:45
+msgid "Enter Resend OTP button text"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:46
+msgid "Enter Back button text"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:47
+msgid "Enter instruction for Email Verification form"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:49
+msgid "Enter verification code in Email Verification form"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:50
+msgid "Enter Message for wrong OTP"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:51
+msgid "Customized E-mail Message"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:52
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:107
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:201
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:556
+msgid "NOTE"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:52
+msgid "Please enter"
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:52
+msgid "in message where you want to show one time password."
+msgstr ""
+
+#: view/profile_completion/mo_openid_prof_comp.php:59
+msgid "Display miniOrange logo with social login icons on profile completion forms"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:11
+msgid "Enable reCAPTCHA"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:17
+msgid "<b>Prerequisite</b>: Before you can use reCAPTCHA, you need to register your domain/website"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:17
+msgid "Click here"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:18
+msgid "Enter Site key and Secret key that you get after registration"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:23
+msgid "Select type of reCAPTCHA"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:25
+msgid "reCAPTCHA v3"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:32
+msgid "reCAPTCHA v2"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:40
+msgid "Site key"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:44
+msgid "Secret key"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:48
+msgid "Enable reCAPTCHA for"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:52
+msgid "WordPress Login form"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:61
+msgid "WordPress Registration form"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:73
+msgid "Save Settings"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recap.php:74
+msgid "Test reCAPTCHA Configuration"
+msgstr ""
+
+#: view/recaptcha/mo_openid_recaptcha_functions.php:126
+msgid "<strong>ERROR</strong>: Username field is empty."
+msgstr ""
+
+#: view/recaptcha/mo_openid_recaptcha_functions.php:129
+msgid "<strong>ERROR</strong>: Password field is empty."
+msgstr ""
+
+#: view/recaptcha/mo_openid_recaptcha_functions.php:141
+msgid "<strong>ERROR</strong> : Invalid captcha. Please verify captcha again."
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:9
+msgid "Redirect URL after login:"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:32
+#: view/redirect_options/mo_openid_redirect_op.php:154
+msgid "Account dashboard"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:40
+#: view/redirect_options/mo_openid_redirect_op.php:160
+msgid "Custom URL"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:51
+#: view/redirect_options/mo_openid_redirect_op.php:110
+#: view/redirect_options/mo_openid_redirect_op.php:173
+msgid "Relative URL"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:62
+msgid "*NOTE: If you login through WordPress default login page after login you will be redirected to Homepage"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:69
+msgid "Redirect URL after logout:"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:78
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:51
+msgid "Home Page"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:90
+msgid "Current Page"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:100
+msgid "Login Page"
+msgstr ""
+
+#: view/redirect_options/mo_openid_redirect_op.php:125
+msgid "Enable Registration Redirection"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:9
+msgid "Auto Registration"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:11
+msgid "Auto-register users"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:15
+msgid "Registration disabled message"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:17
+msgid "If Auto-register users is unchecked, users will not be able to register using Social Login. The users who already have an account will be able to login.  This setting stands true only when users are registering using Social Login. This will not interfere with users registering through the regular WordPress registration form."
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:20
+msgid "Role Mapping"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:22
+msgid "Universal Role"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:30
+msgid "Use Role Mapping to assign this role to the all users registering through Social Login. According to the role mapped user will be granted role on the website."
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:32
+msgid "Set Display Picture for User"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:34
+msgid "Set Display Picture for User - on User Registration"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:40
+#: view/registration/mo_openid_registration.php:42
+msgid "Disable admin bar"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:49
+msgid "Select type of Roles"
+msgstr ""
+
+#: view/registration/mo_openid_registration.php:72
+msgid "Registration Options"
+msgstr ""
+
+#: view/restrict_domain/mo_openid_restrict_dom.php:21
+msgid "Users with these domains will not be able to register"
+msgstr ""
+
+#: view/restrict_domain/mo_openid_restrict_dom.php:28
+msgid "Allow Domain"
+msgstr ""
+
+#: view/restrict_domain/mo_openid_restrict_dom.php:33
+msgid "Only users with these domains will be able to register"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:9
+msgid "Use social login Shortcode in the content of required page/post where you want to display Social Login Icons."
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:10
+msgid "Default Social Login Shortcode"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:11
+msgid "This will display Social Login Icons with same default settings"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:14
+msgid "For Icons"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:15
+msgid "You can use  different attribute to customize social login icons. All attributes are optional except view."
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:16
+msgid "Square Shape Example"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:23
+msgid "Round Shape Example"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:30
+msgid "For Long-Buttons"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:31
+msgid "You can use different attribute to customize social login buttons. All attributes are optional"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:32
+msgid "Vertical View Example"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:37
+msgid "Horizontal View Example"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:41
+msgid "Note:"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:41
+msgid "By default Long-Button view is"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:41
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:11
+msgid "Vertical"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:43
+msgid "For Selected Applications"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:44
+msgid "If you want to show selected applications without setting up default settings then use this shortcode. You can use different attribute to customize social login buttons. All attributes are optional"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:45
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:17
+msgid "Example"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:110
+msgid "Note"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:111
+msgid "1. If you are not registered with miniOrange and "
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:111
+msgid "is also not set up then please register with us first or set up"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:111
+msgid "otherwise the buttons will be"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:111 view/shrtco/mo_openid_shrtco.php:112
+msgid "disabled"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:112
+msgid "2. If Facebook is selected then please set up "
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:112
+msgid "first otherwise the buttons will be "
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:123
+msgid "Available values for attributes"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:127
+msgid "view"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:128
+msgid "horizontal, vertical"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:132
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:21
+msgid "shape"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:133
+msgid "round, roundededges, square, longbuttonwithtext"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:137
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:22
+msgid "theme"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:138
+msgid "default, custombackground"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:142
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:23
+msgid "size"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:143
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:23
+msgid "Any value between 20 to 100"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:147
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:24
+msgid "space"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:148
+msgid "Any value between 0 to 100"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:152
+msgid "width"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:153
+msgid "Any value between 200 to 1000"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:157
+msgid "height"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:158
+msgid "Any value between 35 to 50"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:162
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:30
+msgid "color"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:163
+msgid "Enter color code for example"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:167
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:29
+msgid "heading"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:168
+msgid "Enter custom heading"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:172
+msgid "appcnt"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:173
+msgid "Any value for number of icons in one row"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:181
+msgid "Shortcode in php file"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:182
+msgid "You can use shortcode in PHP file as following: "
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:184
+msgid "Replace SHORTCODE in above code with the required shortcode like <code>[miniorange_social_login theme=\"default\"]</code>, so the final code looks like following :"
+msgstr ""
+
+#: view/shrtco/mo_openid_shrtco.php:192
+msgid "Social Login Shortcodes"
+msgstr ""
+
+#: view/soc_com/com_Cust/mo_openid_comm_cust.php:11
+msgid "Comment Section Heading"
+msgstr ""
+
+#: view/soc_com/com_Cust/mo_openid_comm_cust.php:15
+msgid "Comments - Default Label"
+msgstr ""
+
+#: view/soc_com/com_Cust/mo_openid_comm_cust.php:19
+msgid "Comments - Facebook Label"
+msgstr ""
+
+#: view/soc_com/com_Cust/mo_openid_comm_cust.php:30
+msgid "Customize Text For Social Comment Labels"
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:9
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:23
+msgid "Enable Social Comments"
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:10
+msgid "To enable Social Comments, please select Facebook Comments from"
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:10
+msgid " Also select one or both of the options from"
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:11
+msgid "Add Social Comments"
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:12
+msgid "You can add social comments in the following areas from "
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:12
+msgid "If you require a shortcode, please contact us from the Support form on the right."
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:14
+msgid "Blog Post: This option enables Social Comments on Posts / Blog Post"
+msgstr ""
+
+#: view/soc_com/com_Enable/mo_openid_comm_enable.php:15
+msgid "Static pages: This option places Social Comments on Pages / Static Pages with comments enabled"
+msgstr ""
+
+#: view/soc_com/com_display_options/mo_openid_comm_disp_opt.php:14
+msgid "Select the options where you want to add social comments"
+msgstr ""
+
+#: view/soc_com/com_display_options/mo_openid_comm_disp_opt.php:20
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:74
+msgid "Blog Post"
+msgstr ""
+
+#: view/soc_com/com_display_options/mo_openid_comm_disp_opt.php:28
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:98
+msgid "Static Pages"
+msgstr ""
+
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:9
+msgid "Select applications to add Social Comments. These commenting applications will be added to your blog post pages at the location of your comments."
+msgstr ""
+
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:21
+msgid "If none of the below are selected, default WordPress comments will only be visible. Only selecting Default WordPress Comments will not result in any changes"
+msgstr ""
+
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:28
+msgid "Default WordPress Comments"
+msgstr ""
+
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:39
+msgid "Facebook Comments"
+msgstr ""
+
+#: view/soc_com/com_select_app/mo_openid_comm_select_app.php:55
+msgid "Social Comments"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:9
+msgid "Configure Social Comments in the Social Comments tab of the plugin"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:10
+msgid "Keep both the display options checked and Save"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:11
+msgid "Enable Comments for the post/page you want to add"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:12
+msgid "Pages-> Quick Edit-> Allow Comments"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:12
+msgid "(Skip this step if you already have Comments enabled.)"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:13
+msgid "Add the shortcode "
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:13
+msgid "to an individual page/post"
+msgstr ""
+
+#: view/soc_com/com_shrtco/comm_shrtco.php:16
+msgid "Social Comments Shortcodes"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:20
+msgid "Customize Sharing Icons"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:21
+msgid "Customize shape, size and background for sharing icons"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:71
+msgid "Custom background"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:81
+msgid "No background"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:107
+msgid "Custom background: This will change the background color of share icons"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:107
+msgid "No background:This will remove the background color of share icons"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:112
+msgid "Preview"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:199
+msgid "Customize Text For Social Share Icons"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:207
+msgid "Select color for share heading"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:210
+msgid "Enter text to show above share widget"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:213
+msgid "Enter your twitter Username (without @)"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:217
+msgid "Enter the Email subject (email share)"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:221
+msgid "Enter the Email body (add ##url## to place the URL)"
+msgstr ""
+
+#: view/soc_sha/cust_text/mo_openid_cust_shricon.php:385
+msgid "Customize text for Social Share Icons"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:46
+msgid "Select the options where you want to display social share icons"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:57
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:81
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:105
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:140
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:160
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:185
+msgid "Before content"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:61
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:85
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:109
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:144
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:164
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:189
+msgid "After content"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:65
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:91
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:114
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:149
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:169
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:194
+msgid "Both before and after content"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:120
+msgid " WooCommerce Individual Product Page(Top)"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:130
+msgid "WooCommerce Individual Product Page"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:135
+msgid "BBPress Forums Page"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:155
+msgid "BBPress Topic Page"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:178
+msgid "BBPress Reply Page"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:201
+msgid "The icons in above pages will be placed horizontally. For vertical icons, add "
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:201
+msgid "miniOrange Sharing - Vertical"
+msgstr ""
+
+#: view/soc_sha/disp_shropt/mo_openid_disp_shropt.php:201
+msgid "widget from Appearance->Widgets."
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:10
+msgid "Horizontal"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:15
+msgid "For Sharing Icons"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:16
+msgid " You can use  different attribute to customize social sharing icons. All attributes are optional"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:20
+msgid "Common attributes - Horizontal and Vertical"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:21
+msgid " round, roundededges, square"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:22
+msgid "default, custombackground, nobackground"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:24
+msgid "Any value between 0 to 50"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:25
+msgid "url"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:25
+msgid "Enter custom URL for sharing"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:26
+msgid "fontcolor"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:26
+msgid "Enter custom color for icons (only works with no background theme"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:27
+msgid "sharecnt"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:27
+msgid " yes, no "
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:27
+msgid "To see social share count*"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:28
+msgid "Horizontal attributes"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:29
+msgid "Enter custom heading text"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:30
+msgid " Enter custom text color for heading eg: cyan, red, blue, orange, yellow"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:32
+msgid "Vertical attributes"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:33
+msgid "alignment"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:33
+msgid "left,right"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:34
+msgid "topoffset"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:34
+msgid "Any value(height from top) between 0 to 1000"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:35
+msgid "rightoffset(Applicable if alignment is right)"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:35
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:36
+msgid "Any value between 0 to 200"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:36
+msgid "leftoffset(Applicable if alignment is left)"
+msgstr ""
+
+#: view/soc_sha/shrt_co/mo_openid_shrtco.php:45
+msgid "Social Sharing Shortcode"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:20
+msgid "Select applications to enable social sharing"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:74
+msgid "Tumblr"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:91
+msgid "StumbleUpon"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:105
+msgid "LinkedIn"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:148
+msgid "Pocket"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:165
+msgid "Digg"
+msgstr ""
+
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:191
+msgid "Odnoklassniki"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:202
+msgid "Email"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:214
+msgid "Print"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:228
+msgid "Whatsapp"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:249
+msgid "No apps selected"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:556
+msgid ""
+"Custom background: This will\n"
+"                        change the background color of sharing icons"
+msgstr ""
+
+#: view/soc_sha/soc_apps/mo_openid_sharing.php:558
+msgid "No background: This will change the font color of icons without background"
+msgstr ""

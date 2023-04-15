@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Yith Wishlist Widget styles
+   ========================================================================== */
+
+.widget_corsen_core_yith_wishlist {
+
+    .qodef-wishlist-widget-holder {
+
+        .qodef-wishlist-inner {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+
+            .qodef-wishlist-widget-link {
+                display: flex;
+                align-items: center;
+
+                .qodef-skin--light & {
+                    color: #fff;
+                }
+
+                .qodef-skin--dark & {
+                    color: #000;
+                }
+
+                .qodef-wishlist-icon-count-holder {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    margin: 0;
+                    font-family: $heading-font;
+                    font-size: 11px;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                }
+
+                .qodef-wishlist-widget-icon,
+                .qodef-wishlist-count {
+                }
+
+                .qodef-wishlist-count {
+                    margin-left: 5px;
+                }
+
+                .qodef-wishlist-widget-icon {
+                    margin-bottom: 2px;
+                    line-height: 1;
+                }
+
+                /* ajax count update message */
+                .qodef-wishlist-count {
+
+                    .blockUI {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
