@@ -378,14 +378,14 @@ add_filter( 'woocommerce_account_menu_items', 'add_customer_request_links_my_acc
 // 4. Add content to the new tab
   
 function add_request_contents() {
-   echo '<h3>Customer Request</h3>';
+   echo '<h3>Requests</h3>';
    echo do_shortcode( ' [customer-request type="request"] ' );
 }
   
 add_action( 'woocommerce_account_customer-request_endpoint', 'add_request_contents' );
 
 function add_selling_contents() {
-    echo '<h3>Customer Selling</h3>';
+    echo '<h3>Selling</h3>';
     echo do_shortcode( ' [customer-request type="selling"]' );
  }
    
@@ -414,6 +414,11 @@ function customerRequest( $attr ) {
     // echo "this is " . $a['type'];
     // var_dump($posts);
     if ($posts) {
+
+        if ($a['type'] && $a['type'] == 'request'){
+            echo "<p>We are currently working on sourcing your requested item(s).</p>";
+        }
+
         ?><ul><?php
         foreach($posts as $post) {
 
@@ -443,6 +448,13 @@ function customerRequest( $attr ) {
             <?php
         }
         ?></ul><?php
+    } else {
+        if ($a['type'] && $a['type'] == 'request'){
+            echo "<p>You haven't made any requests yet.</p>";
+            echo "<p>If you're looking for something specific and it's Byronesque enough, we have a large global network of buyers and sellers and we can find it. please contact our personal shoppping team <a href='/contact'>here</a></p>";
+        } else {
+            echo "<p>You haven't made any selling yet.</p>";
+        }
     }
 }
 
