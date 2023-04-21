@@ -331,11 +331,121 @@ function get_image_meta() {
 add_action( 'wp_ajax_get_image_meta', 'get_image_meta' );
 add_action( 'wp_ajax_nopriv_get_image_meta', 'get_image_meta' );
 
-// function add_placeholder_text_to_tml_fields() {
-//     if ( $user_login = tml_get_form_field( 'register', 'user_login' ) ) {
-//         $user_login->add_attribute( 'placeholder', 'Email address*' );
-//     }
-// }
-// add_action( 'init', 'add_placeholder_text_to_tml_fields' );
+
+// ------------------
+// 1. Add request EndPoint
+function add_request_selling_request() {
+    add_rewrite_endpoint( 'customer-request', EP_ROOT | EP_PAGES );
+    add_rewrite_endpoint( 'customer-selling', EP_ROOT | EP_PAGES );
+}
+  
+add_action( 'init', 'add_request_selling_request' );
+  
+// ------------------
+// 2. Add new query var
+  
+function request_query_vars( $vars ) {
+    $vars[] = 'customer-request';
+    $vars[] = 'customer-selling';
+    return $vars;
+}
+  
+add_filter( 'query_vars', 'request_query_vars', 0 );
+  
+// ------------------
+// 3. Insert the new endpoint into the My Account menu
+  
+function add_customer_request_links_my_account( $items ) {
+    // $items['customer-request'] = 'Request';
+    // $items['customer-selling'] = 'Selling';
+    // var_dump($items);
+    $list = [
+        'dashboard' => 'Account',
+        'edit-account' => 'Preferences',
+        'orders' => 'Orders & Returns',
+        'customer-request' => 'Requests',
+        'customer-selling' => 'Selling',
+        'edit-address' => 'Address Book',
+        'customer-logout' => 'Logout'
+    ];
+
+    return $list;
+}
+  
+add_filter( 'woocommerce_account_menu_items', 'add_customer_request_links_my_account' );
+  
+// ------------------
+// 4. Add content to the new tab
+  
+function add_request_contents() {
+   echo '<h3>Customer Request</h3>';
+   echo do_shortcode( ' [customer-request type="request"] ' );
+}
+  
+add_action( 'woocommerce_account_customer-request_endpoint', 'add_request_contents' );
+
+function add_selling_contents() {
+    echo '<h3>Customer Selling</h3>';
+    echo do_shortcode( ' [customer-request type="selling"]' );
+ }
+   
+ add_action( 'woocommerce_account_customer-selling_endpoint', 'add_selling_contents' );
+
+function customerRequest( $attr ) {
+
+    $default = array(
+        'type' => 'request',
+    );
+    $a = shortcode_atts($default, $attr);
+
+    // get post
+    $posts = get_posts(array(
+        'numberposts'   => -1,
+        'post_type'     => 'product_'.$a['type'],
+        'meta_query'    => array(
+            'relation'      => 'AND',
+            array(
+                'key'       => 'customer',
+                'value'     => get_current_user_id(),
+                'compare'   => '=',
+            ),
+        ),
+    ));
+    // echo "this is " . $a['type'];
+    // var_dump($posts);
+    if ($posts) {
+        ?><ul><?php
+        foreach($posts as $post) {
+
+            // setup_postdata( $post );
+            $size = get_field('size',$post->ID);
+            $price = get_field('price', $post->ID);
+            ?>
+            <li>
+            <table class="table table-request">
+                <tr>
+                    <td>
+                        <?= get_the_post_thumbnail($post->ID); ?>
+                    </td>
+                    <td>
+                        <p><?= $post->post_title ?></p>
+                        <p><?= $post->post_content ?></p>
+                        <p><?= $size ?></p>
+                        <p><?= $price ?></p>
+                    </td>
+                    <td>
+                        <p><a href="#">Email us for update</a></p>
+                        <p><a href="#">cancel request</a></p>
+                    </td>
+                </tr>
+            </table>
+            </li>
+            <?php
+        }
+        ?></ul><?php
+    }
+}
+
+add_shortcode('customer-request', 'customerRequest');
 
 ?>

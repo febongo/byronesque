@@ -12,7 +12,7 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'product-request'),
             'show_in_rest' => true,
-            'supports' => array( 'title', 'editor', 'custom-fields','thumbnail' ),
+            'supports' => array( 'title', 'editor', 'custom-fields','thumbnail', 'author' ),
             'menu_icon' => 'dashicons-format-aside',
         )
     );
@@ -27,7 +27,7 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'product-selling'),
             'show_in_rest' => true,
-            'supports' => array( 'title', 'editor', 'custom-fields','thumbnail' ),
+            'supports' => array( 'title', 'editor', 'custom-fields','thumbnail', 'author' ),
             'menu_icon' => 'dashicons-format-aside',
         )
     );

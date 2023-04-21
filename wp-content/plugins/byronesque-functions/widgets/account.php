@@ -26,12 +26,23 @@ class wpb_widget_account extends WP_Widget {
         echo $args['before_widget'];
         ?>
             <div id="bn-account-ico" class="account-area">
-                <span class="menu-nav menu-nav-side" 
-                    data-action="get_account"
-                    data-img-hover="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_b.svg'?>" 
-                    data-img="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.svg'?>" 
-                    style="background-image:url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.svg'?>')">
-                </span>
+                <?php if(is_user_logged_in()) : ?>
+                    <a href="/my-account/">
+                        <span class="menu-nav" 
+                            data-action="get_account"
+                            data-img-hover="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_b.svg'?>" 
+                            data-img="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.svg'?>" 
+                            style="background-image:url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.svg'?>')">
+                        </span>
+                    </a>
+                <?php else : ?>
+                    <span class="menu-nav menu-nav-side" 
+                        data-action="get_account"
+                        data-img-hover="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_b.svg'?>" 
+                        data-img="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.svg'?>" 
+                        style="background-image:url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.svg'?>')">
+                    </span>
+                <?php endif; ?>
             </div>
             <div id="get_account" style="display:none">
                 
