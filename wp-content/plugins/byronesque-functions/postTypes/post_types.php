@@ -2,16 +2,33 @@
 // Our custom post type function
 function create_posttype() {
   
-    register_post_type( 'editorials',
+    register_post_type( 'product_request',
         array(
             'labels' => array(
-                'name' => __( 'Editorials' ),
-                'singular_name' => __( 'Editorial' )
+                'name' => __( 'Product Request' ),
+                'singular_name' => __( 'Request' )
             ),
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'editorials'),
+            'rewrite' => array('slug' => 'product-request'),
             'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'custom-fields','thumbnail' ),
+            'menu_icon' => 'dashicons-format-aside',
+        )
+    );
+
+    register_post_type( 'product_selling',
+        array(
+            'labels' => array(
+                'name' => __( 'Product Selling' ),
+                'singular_name' => __( 'Selling' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'product-selling'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'custom-fields','thumbnail' ),
+            'menu_icon' => 'dashicons-format-aside',
         )
     );
 
@@ -121,7 +138,7 @@ function side_menu_nav() {
 add_action( 'init', 'side_menu_nav' );
 
 // Hooking up theme setup
-// add_action( 'init', 'create_posttype' );
+add_action( 'init', 'create_posttype' );
 // add_action( 'init', 'create_brand_taxonomy');
 add_action( 'init', 'create_designer_taxonomy');
 // add_action( 'init', 'create_editorial_taxonomy');
