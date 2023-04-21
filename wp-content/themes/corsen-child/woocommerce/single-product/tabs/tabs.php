@@ -56,9 +56,9 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		<?php if ($byronesque_say) : ?>
 		<div class="card">
 			<div class="card-header" id="headingByroSay">
-				<h5 class="mb-0" data-toggle="collapse" data-target="#productDescriptionByroSay" aria-expanded="true" aria-controls="productDescriptionByroSay">
+				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionByroSay" aria-expanded="true" aria-controls="productDescriptionByroSay">
 					Byronesque says
-				</h5>
+				</p>
 			</div>
 
 			<div id="productDescriptionByroSay" class="collapse" aria-labelledby="headingByroSay" data-parent="#productDescriptionByroSay">
@@ -73,9 +73,9 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		<?php if ($product_details) : ?>
 		<div class="card">
 			<div class="card-header" id="headingMadeIn">
-				<h5 class="mb-0" data-toggle="collapse" data-target="#productDescriptionMadeIn" aria-expanded="true" aria-controls="productDescriptionMadeIn">
+				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionMadeIn" aria-expanded="true" aria-controls="productDescriptionMadeIn">
 					Product details
-				</h5>
+				</p>
 			</div>
 
 			<div id="productDescriptionMadeIn" class="collapse" aria-labelledby="headingMadeIn" data-parent="#productDescriptionMadeIn">
@@ -90,9 +90,9 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		<?php if ($measurements) : ?>
 		<div class="card">
 			<div class="card-header" id="headingMadeFrom">
-				<h5 class="mb-0" data-toggle="collapse" data-target="#productDescriptionMadeFrom" aria-expanded="true" aria-controls="productDescriptionMadeFrom">
+				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionMadeFrom" aria-expanded="true" aria-controls="productDescriptionMadeFrom">
 					Measurements
-				</h5>
+				</p>
 			</div>
 
 			<div id="productDescriptionMadeFrom" class="collapse" aria-labelledby="headingMadeFrom" data-parent="#productDescriptionMadeFrom">
@@ -107,9 +107,9 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		<?php if ($condition_and_) : ?>
 		<div class="card">
 			<div class="card-header" id="headingCondition">
-				<h5 class="mb-0" data-toggle="collapse" data-target="#productDescriptionCondition" aria-expanded="true" aria-controls="productDescriptionCondition">
+				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionCondition" aria-expanded="true" aria-controls="productDescriptionCondition">
 				Condition and care notes
-				</h5>
+				</p>
 			</div>
 
 			<div id="productDescriptionCondition" class="collapse" aria-labelledby="headingCondition" data-parent="#productDescriptionCondition">
@@ -124,9 +124,9 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		<?php if ($shipping_and_return_policy) : ?>
 		<div class="card">
 			<div class="card-header" id="headingShipping">
-				<h5 class="mb-0" data-toggle="collapse" data-target="#productDescriptionShipping" aria-expanded="true" aria-controls="productDescriptionShipping">
+				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionShipping" aria-expanded="true" aria-controls="productDescriptionShipping">
 					Shipping & returns policy
-				</h5>
+				</p>
 			</div>
 
 			<div id="productDescriptionShipping" class="collapse" aria-labelledby="headingShipping" data-parent="#productDescriptionShipping">
@@ -173,12 +173,12 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 
 <!-- ref  -->
 <?php if ($ref) : ?>
-<p class="product-ref">Ref: <span><?= $ref ?></span></p>
+<div class="product-ref">Ref: <?= $ref ?></div>
 <?php endif; ?>
 
 <!-- ref  -->
 <?php if ($runaway_photo_credit) : ?>
-<p class="product-ref">Runway photo credit: <span><?= $runaway_photo_credit ?></span></p>
+<div class="product-ref">Runway photo credit: <?= $runaway_photo_credit ?></div>
 <?php endif; ?>
 
 

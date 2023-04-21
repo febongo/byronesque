@@ -263,7 +263,7 @@
     z-index:-1;
 }
 
-#byro-side-content h3 {
+#byro-side-content h4, #byronesque-currency-nav h4 {
     margin: 0 0 48px 0;
 }
 
@@ -277,6 +277,10 @@
 
 #qodef-page-header .qodef-widget-holder .widget{
     margin: 0;
+}
+
+.widget a:hover {
+	color: inherit; 
 }
 
 #byronesque-side-nav ul{
@@ -364,17 +368,16 @@
     border: none;
     border-bottom: 1px solid rgba(17, 17, 17, 0.15);
 }
-.woocommerce-mini-cart__buttons .button{
-    
-}
+
 .woocommerce-mini-cart__buttons .button{
     display: block;
     width: 100%;
     background: #111;
     color: #fff;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
+
 
 .woocommerce-Price-amount{
     float:right;
@@ -546,8 +549,9 @@
 
 .filter-container{
     position: relative;
-    background: #e9e9e9;
-    padding: 10px 47px;
+    background: #F8F5EA;
+	padding: 24px 42px;
+	height: 96px;
 }
 
 .btn-filter{
@@ -559,7 +563,7 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: #111111;
-    padding: 15px 20px;
+	padding: 14px 20px;
     z-index: 100;
     display: inline-block;
     background: #f7f7f7;
@@ -584,8 +588,8 @@
     padding: 15px 35px 15px 20px;
     z-index: 99;
     display: inline-block;
-    background: #f7f7f7;
-    margin-right: 8%;
+    background: inherit;
+    margin-right: 0;
     position: relative;
     float: right;
 }

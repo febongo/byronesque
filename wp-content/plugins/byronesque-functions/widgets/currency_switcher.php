@@ -53,7 +53,7 @@ class wpb_widget_currency extends WP_Widget {
                 $currentCountry = $key ? $countries[$key] : '';
                 ?>
                 <div id="byronesque-currency-nav">
-                    <h3>Region</h3>
+                    <h4>Region</h4>
                     <p>You are currently shipping to <?= $currencyName ?> and order will be billed in <?= $currentCurrencyObj ? $currentCurrencyObj['symbol'] : '' ?>-<?= $currentCurrency ?></p>
                     
                     <div class="search-form">
@@ -159,7 +159,7 @@ function get_currency() {
     $currentCountry = $key ? $countries[$key] : '';
     ?>
     <div id="byronesque-currency-nav">
-        <h3>Region</h3>
+        <h4>Region</h4>
         <p>You are currently shipping to <?= $currencyName ?> and order will be billed in <?= $currentCurrencyObj ? $currentCurrencyObj['symbol'] : '' ?>-<?= $currentCurrency ?></p>
         
         <div class="search-form">

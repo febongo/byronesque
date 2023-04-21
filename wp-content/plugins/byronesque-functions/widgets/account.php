@@ -127,8 +127,8 @@ if(!function_exists('byro_login_form'))
         'id_submit'      => 'wp-submit',
         'label_username' => __( 'Username or Email Address' ),
         'label_password' => __( 'Password' ),
-        'label_remember' => __( 'Remember Me' ),
-        'label_log_in'   => __( 'Log In' ),
+        'label_remember' => __( 'Keep me signed in' ),
+        'label_log_in'   => __( 'Continue' ),
         'value_username' => '',
         'value_remember' => false
     );

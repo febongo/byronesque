@@ -37,7 +37,15 @@ get_header( 'shop' ); ?>
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 		<?php endwhile; // end of the loop. ?>
-			this 1
+			<div class="single-product-button-bottom">
+    <a class="qodef-qi-button qodef-html--link qodef-layout--filled qodef-size--full" href="javascript:history.go(-1)" target="_self">
+      <span class="qodef-m-text">Return to previous page</span>
+    </a>
+  
+      <a class="qodef-qi-button qodef-html--link qodef-layout--filled qodef-size--full" href="#" target="_self ">
+      <span class="qodef-m-text">Request Full Runway Look</span>
+    </a>
+</div>
 	<?php
 		/**
 		 * woocommerce_after_main_content hook.
@@ -46,7 +54,7 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_after_main_content' );
 	?>
-	this part 2
+	<!--this part 2->
 	<?php
 		/**
 		 * woocommerce_sidebar hook.
