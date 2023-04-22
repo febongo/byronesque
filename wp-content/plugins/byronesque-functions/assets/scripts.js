@@ -20,7 +20,17 @@
 
         // NAVIGATION FUNCTIONS
         $("#qodef-page-header").append("<div id='menu-overlay' class='overlay'></div><div id='byro-side-content'></div>")
-
+        $.ajax({
+            url:opt.ajaxUrl,
+            type: 'get',
+            data: { action:  'get_customer_addresses', type: 'shipping' },
+            contentType:"application/json; charset=utf-8",
+            dataType:"json",
+            success: function(data) {
+                
+                console.log(data);
+            }
+        });
 
         // fetch cart contents 
         $.ajax({

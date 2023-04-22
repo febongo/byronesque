@@ -460,4 +460,62 @@ function customerRequest( $attr ) {
 
 add_shortcode('customer-request', 'customerRequest');
 
+
+add_filter( 'woocommerce_default_address_fields', 'modified_addresses' );
+function modified_addresses( $fields ) {
+	// echo "this";
+	// $fields[ 'first_name' ][ 'label' ] = 'Name';
+	$fields[ 'first_name' ][ 'placeholder' ] = 'Name*';
+	$fields[ 'last_name' ][ 'placeholder' ] = 'Last name*';
+	$fields[ 'address_1' ][ 'placeholder' ] = 'Street address*';
+	$fields[ 'city' ][ 'placeholder' ] = 'City*';
+	$fields[ 'country' ][ 'placeholder' ] = 'Country*';
+	$fields[ 'postcode' ][ 'placeholder' ] = 'Zip Code*';
+	$fields[ 'phone' ][ 'placeholder' ] = 'Phone(ex. +33 123 45 67)*';
+	$fields[ 'phone' ][ 'required' ] = true;
+
+    unset( $fields[ 'state' ] );
+    unset( $fields[ 'address_2' ] );
+    unset( $fields[ 'company' ] );
+
+	return $fields;
+	
+}
+// var_dump("a:11:{s:15:\"reference_field\";s:4:\"test\";s:19:\"shipping_first_name\";s:4:\"test\";s:18:\"shipping_last_name\";s:5:\"bongo\";s:16:\"shipping_company\";s:0:\"\";s:16:\"shipping_country\";s:2:\"PH\";s:18:\"shipping_address_1\";s:5:\"sadas\";s:18:\"shipping_address_2\";s:0:\"\";s:17:\"shipping_postcode\";s:4:\"6000\";s:13:\"shipping_city\";s:9:\"Cebu City\";s:14:\"shipping_state\";s:3:\"CEB\";s:14:\"shipping_phone\";s:0:\"\";}");
+
+// this function is dependent on multiple address plugin 
+function get_customer_addresses( ) {
+    // TYPE IS EITHER shipping | billing
+    $type = $_GET['type'];
+    
+    $data = get_customer_addresses_default($type);
+
+    echo wp_json_encode($data);
+
+    die();
+}
+
+add_action( 'wp_ajax_get_customer_addresses', 'get_customer_addresses' );
+add_action( 'wp_ajax_nopriv_get_customer_addresses', 'get_customer_addresses' );
+
+function get_customer_addresses_default( $type='shipping' ) {
+    global $wpdb;
+
+    // echo $type;
+    $querystr = "
+                SELECT *
+                FROM QYp_dsabafw_billingadress
+                WHERE userid=".get_current_user_id()."
+                AND type='".$type."'
+                AND Defalut=1
+                ";
+    $query_results = $wpdb->get_results($querystr);
+    $data=null;
+    if ($query_results) {
+        $data = $query_results[0];
+        $data->userdata = unserialize($data->userdata);
+    }
+
+    return $data;
+}
 ?>

@@ -1,0 +1,223 @@
+# Copyright (C) 2022 
+# This file is distributed under the same license as the Different Shipping And Billing Address For Woocommerce plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Different Shipping And Billing Address For Woocommerce 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/different-shipping-and-billing-address-for-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-05-27T12:51:07+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: different-shipping-and-billing-address-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+msgid "Different Shipping And Billing Address For Woocommerce"
+msgstr ""
+
+#. Description of the plugin
+msgid "This plugin allows create Different Shipping And Billing Address For Woocommerce plugin."
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:18
+msgid "Different Shipping And Billing Address Setting"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:21
+msgid "Record updated successfully."
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:30
+msgid "Different Billing Address Setting"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:35
+msgid "Enable Different Billing Address"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:41
+msgid "MAX Billing Address"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:47
+msgid "Select Billing Address Type On Checkout Page"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:50
+#: main/backend/dsabafw-backend.php:104
+msgid "Dropdown"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:51
+#: main/backend/dsabafw-backend.php:105
+msgid "Popup"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:56
+msgid "Select Billing Address position Checkout Page"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:59
+msgid "Before Billing Form Data"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:60
+msgid "After Billing Form Data"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:65
+msgid "Select Billing Popup Button Style Checkout Page"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:68
+#: main/backend/dsabafw-backend.php:122
+msgid "Button"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:69
+#: main/backend/dsabafw-backend.php:123
+msgid "Link"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:74
+msgid "Button Title for Billing"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:84
+msgid "Different Shipping Address Setting"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:89
+msgid "Enable Different Shipping Address"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:95
+msgid "MAX Shipping Address"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:101
+msgid "Select Shipping Address Type On Checkout Page"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:110
+msgid "Select Shipping Address position Checkout Page"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:113
+msgid "Before Shipping Form Data"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:114
+msgid "After Shipping Form Data"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:119
+msgid "Select Shipping Popup Button Style Checkout Page"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:128
+msgid "Button Title for Shipping"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:138
+msgid "Different Shipping And Billing Button Style"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:143
+msgid "Font size"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:149
+msgid "Font color"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:155
+msgid "Background Color"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:161
+msgid "Button Padding"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:164
+msgid "give value in px(ex.6px 8px)"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:172
+msgid "User Role Selection Setting"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:177
+msgid "User Role Selection Enable/Disable"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:183
+msgid "User Role Selection"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:367
+#: main/backend/dsabafw-backend.php:402
+#: main/frontend/dsabafw-front.php:140
+#: main/frontend/dsabafw-front.php:179
+msgid "edit"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:368
+#: main/backend/dsabafw-backend.php:403
+#: main/frontend/dsabafw-front.php:141
+#: main/frontend/dsabafw-front.php:180
+msgid "Delete"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:521
+#: main/backend/dsabafw-backend.php:579
+#: main/frontend/dsabafw-front.php:254
+#: main/frontend/dsabafw-front.php:295
+#: main/frontend/dsabafw-front.php:357
+#: main/frontend/dsabafw-front.php:401
+msgid "Reference Name:"
+msgstr ""
+
+#: main/backend/dsabafw-backend.php:535
+#: main/backend/dsabafw-backend.php:593
+#: main/frontend/dsabafw-front.php:309
+#: main/frontend/dsabafw-front.php:415
+msgid "Update Address"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:40
+#: main/frontend/dsabafw-front.php:479
+#: main/frontend/dsabafw-front.php:484
+msgid "Choice Billing Address"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:43
+msgid "×"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:63
+#: main/frontend/dsabafw-front.php:103
+msgid "Choice This Address"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:80
+msgid "Choice Shipping Address"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:140
+#: main/frontend/dsabafw-front.php:179
+msgid "DefalutAddress"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:268
+#: main/frontend/dsabafw-front.php:371
+msgid "Save Address"
+msgstr ""
+
+#: main/frontend/dsabafw-front.php:522
+#: main/frontend/dsabafw-front.php:527
+msgid "Choice shipping Address"
+msgstr ""
