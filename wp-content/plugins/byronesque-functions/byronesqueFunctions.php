@@ -72,6 +72,7 @@ include('widgets/burger_menu.php');
 include('widgets/account.php');
 include('widgets/cart.php');
 include('widgets/my_shop.php');
+// include('account-pages/customAccountpages.php');
 
 // register widgets
 // Register and load the widget
@@ -337,6 +338,9 @@ add_action( 'wp_ajax_nopriv_get_image_meta', 'get_image_meta' );
 function add_request_selling_request() {
     add_rewrite_endpoint( 'customer-request', EP_ROOT | EP_PAGES );
     add_rewrite_endpoint( 'customer-selling', EP_ROOT | EP_PAGES );
+    add_rewrite_endpoint( 'address-book', EP_ROOT | EP_PAGES );
+    add_rewrite_endpoint( 'address-book-add', EP_ROOT | EP_PAGES );
+    add_rewrite_endpoint( 'address-book-edit', EP_ROOT | EP_PAGES );
 }
   
 add_action( 'init', 'add_request_selling_request' );
@@ -347,6 +351,9 @@ add_action( 'init', 'add_request_selling_request' );
 function request_query_vars( $vars ) {
     $vars[] = 'customer-request';
     $vars[] = 'customer-selling';
+    $vars[] = 'address-book';
+    $vars[] = 'address-book-add';
+    $vars[] = 'address-book-edit';
     return $vars;
 }
   
@@ -365,7 +372,7 @@ function add_customer_request_links_my_account( $items ) {
         'orders' => 'Orders & Returns',
         'customer-request' => 'Requests',
         'customer-selling' => 'Selling',
-        'edit-address' => 'Address Book',
+        'address-book' => 'Address Book',
         'customer-logout' => 'Logout'
     ];
 
@@ -389,7 +396,306 @@ function add_selling_contents() {
     echo do_shortcode( ' [customer-request type="selling"]' );
  }
    
- add_action( 'woocommerce_account_customer-selling_endpoint', 'add_selling_contents' );
+add_action( 'woocommerce_account_customer-selling_endpoint', 'add_selling_contents' );
+
+function address_book_contents() {
+    global $wpdb;
+
+    echo '<h3>Address Book</h3>';
+   
+    $querystr = "
+                SELECT *
+                FROM QYp_dsabafw_billingadress
+                WHERE userid=".get_current_user_id()."
+                ORDER BY Defalut DESC
+                ";
+    $query_results = $wpdb->get_results($querystr);
+
+
+    if ($query_results) {
+        // var_dump($data);
+        echo "<ul class='address-book-list'>";
+        foreach($query_results as $address){ 
+            $address->userdata = unserialize($address->userdata);
+            // echo "<pre>";
+            // var_dump($address);
+            // echo "</pre>";
+            echo "<div class='address-wrap'>";
+            if ($address->Defalut == 1) echo "<p class='default'>".($address->type == "shipping" ? "Prefered delivery address" : "Prefered billing address")."</p>"; 
+                echo "<div class='addresses-contents'>";
+                    echo "<p>".$address->userdata[$address->type.'_first_name']. " " .$address->userdata[$address->type.'_last_name']. "</p>";
+                    echo "<p>".$address->userdata[$address->type.'_address_1']."</p>";
+                    echo "<p>".$address->userdata[$address->type.'_postcode']. " " .$address->userdata[$address->type.'_state'] . ", "  .$address->userdata[$address->type.'_country'] .  "</p>";
+                echo "</div>";
+                echo "<div class='addresses-actions'>";
+                    echo "<p class='actions-links'><span><a href='/my-account/address-book-edit/?address-id=".$address->id."'>Edit</a>".
+                        "<span class='removeAddress' data-address-id='".$address->id."' data-action='remove'>Remove</span>" . 
+                        (!$address->Defalut ? "<span class='setDefault' data-address-id='".$address->id."' data-address-type='".$address->type."'>Set as default ".($address->type == "shipping" ? "delivery" : "billing")."</span>" : "")
+                        ."</p>";
+                echo "</div>";
+            echo "</div>";
+        }
+        echo "</ul>";
+
+        echo "<a href='/my-account/address-book-add/' class='button wc-forward wp-element-button'>Add Addresses</a>";
+    } else {
+        echo "<p>Please add prefered address.</p>";
+
+        echo "<a href='/my-account/address-book-add/' class='button wc-forward wp-element-button'>Add Addresses</a>";
+    }
+ }
+   
+add_action( 'woocommerce_account_address-book_endpoint', 'address_book_contents' );
+
+function address_book_add() {
+
+    global $wpdb;
+
+            // $wpdb->update('QYp_dsabafw_billingadress', array('Defalut' => 0), array('userid' => '2', 'type' => 'billing'));
+
+
+    echo '<h3>Address Book</h3>';
+
+    if ($_POST) {
+        echo "post request";
+        echo "Billing ".$_POST['defaultBilling'];
+        echo "Shipping ".$_POST['defaultShipping'];
+        // save fields
+        $isdBilling=($_POST['defaultBilling'] ? 1 : 0 );
+        $isdShipping=($_POST['defaultShipping'] ? 1 : 0 );
+        $addressFields = [
+            '_first_name'=>'',
+            '_last_name'=>'',
+            '_country'=>'',
+            '_address_1'=>'',
+            '_city'=>'',
+            '_postcode'=>'',
+            '_phone'=>'',
+        ];
+
+        $shippingData=["reference_field"=>$_POST['_first_name'].' '.$_POST['_last_name']]; 
+        $billingdata=["reference_field"=>$_POST['_first_name'].' '.$_POST['_last_name']]; 
+        foreach($addressFields as $key=>$field){
+            $value = $_POST[$key] ? $_POST[$key] : '';
+            $shippingData['shipping'.$key] = $value;
+            $billingdata['billing'.$key] = $value;
+        }
+        
+        // if set to default
+        // remove old default
+        if ($isdBilling) {
+            $wpdb->update('QYp_dsabafw_billingadress', array('Defalut' => 0), array('userid' => get_current_user_id(), 'type' => 'billing'));
+        }
+        if ($isdShipping) {
+            $wpdb->update('QYp_dsabafw_billingadress', array('Defalut' => 0), array('userid' => get_current_user_id(), 'type' => 'shipping'));
+        }
+
+        // save shipping and billing address
+
+        $wpdb->insert('QYp_dsabafw_billingadress', array(
+            'userid' => get_current_user_id(),
+            'userdata' => serialize($shippingData),
+            'type' => 'shipping', 
+            'Defalut' => $isdShipping, 
+        ));
+        // $shippingId = $wpdb->insert_id;
+        $wpdb->insert('QYp_dsabafw_billingadress', array(
+            'userid' => get_current_user_id(),
+            'userdata' => serialize($billingdata),
+            'type' => 'billing', 
+            'Defalut' => $isdBilling, 
+        ));
+        // $billingId = $wpdb->insert_id;
+
+        
+    // } catch (Exception $e) {
+    //     var_dump($e);
+    // }
+        header('Location: /my-account/address-book/');
+        die;
+    }
+
+    $countries_obj   = new WC_Countries();
+    $countries   = $countries_obj->__get('countries');
+    // var_dump($countries);
+    ?>
+    <form method="post">
+        <h4>Add address (shipping/billing)</h4>
+    <div class="address-book">
+        <p class="form-row form-row-first" id="_first_name_field" data-priority="10">
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_first_name" id="_first_name" placeholder="Name*" value="" required>
+            </span>
+        </p>
+        <p class="form-row form-row-last" id="_last_name_field" data-priority="20">
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_last_name" id="_last_name" placeholder="Last name*" value="" required>
+            </span>
+        </p>
+        <p class="form-row form-row-wide" id="_country_field" data-priority="40">
+            <span class="woocommerce-input-wrapper">
+                <select name="_country" id="_country" class="country_to_state country_select " data-placeholder="Country*" data-label="Country / Region" tabindex="-1" aria-hidden="true" required>
+                    <option value="">Select a country / region…</option>
+                    <?php foreach ($countries as $key => $country) : ?>
+                        <option value="<?= $key ?>"><?= $country ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </span>
+        </p>
+        <p class="form-row form-row-wide" id="_address_1_field" data-priority="50">
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_address_1" id="_address_1" placeholder="Street address*" value="" data-placeholder="Street address*" required>
+            </span>
+        </p>
+        <p class="form-row form-row-wide" id="_city_field" >
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_city" id="_city" placeholder="City*" value="" data-placeholder="City*" required>
+            </span>
+        </p>
+        <p class="form-row form-row-wide" id="_postcode_field">
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_postcode" id="_postcode" placeholder="Zip Code*" value="" data-placeholder="Zip Code*" required>
+            </span>
+        </p>
+        <p class="form-row form-row-wide" id="_phone_field" data-priority="">
+            <span class="woocommerce-input-wrapper">
+                <input type="tel" class="input-text " name="_phone" id="_phone" placeholder="Phone(ex. +33 123 45 67)*" value="" required>
+            </span>
+        </p>
+    </div>
+    <div class="submit-btn">
+        <div>
+        <label class='chk-container'>Save as default shipping address
+            <input type='checkbox' name='defaultShipping' value="1">
+            <span class='checkmark'></span>
+        </label>
+                    </div>
+                    <div>
+        <label class='chk-container'>Save as default billing address
+            <input type='checkbox' name='defaultBilling' value="1">
+            <span class='checkmark'></span>
+        </label></div>
+    </div>
+    <div class="submit-btn">
+        <input class="btn " type="submit" value="Save changees">
+        <a href="/my-account/address-book/" class="btn">Exit without saving changes</a>
+    </div>
+    </form>
+    <?php
+ }
+   
+add_action( 'woocommerce_account_address-book-add_endpoint', 'address_book_add' );
+
+function address_book_edit() {
+    global $wpdb;
+
+    $id = $_GET['address-id'];
+    $address = get_customer_addresses_id($id);
+
+    echo '<h3>Address Book</h3>';
+
+    $addressFields = [
+        '_first_name'=>$address->type.'_first_name',
+        '_last_name'=>$address->type.'_last_name',
+        '_country'=>$address->type.'_country',
+        '_address_1'=>$address->type.'_address_1',
+        '_city'=>$address->type.'_city',
+        '_postcode'=>$address->type.'_postcode',
+        '_phone'=>$address->type.'_phone',
+    ];
+
+    if ($_POST) {
+
+        $isDefault=($_POST['setDefault'] ? 1 : 0 );
+
+
+        
+        // if set to default
+        // remove old default
+        if ($isDefault) {
+            $wpdb->update('QYp_dsabafw_billingadress', array('Defalut' => 0), array('userid' => get_current_user_id(), 'type' => $address->type));
+        }
+
+        // save shipping and billing address
+
+        $wpdb->insert('QYp_dsabafw_billingadress', array(
+            'userid' => get_current_user_id(),
+            'userdata' => serialize($_POST),
+            'type' => $address->type, 
+            'Defalut' => $isDefault, 
+        ));
+
+
+        header('Location: /my-account/address-book/');
+        die;
+    }
+
+    $countries_obj   = new WC_Countries();
+    $countries   = $countries_obj->__get('countries');
+    // var_dump($countries);
+    ?>
+    <form method="post">
+        <h4>Edit address <?= $address->type ?></h4>
+        <div class="address-book">
+            <p class="form-row form-row-first" id="_first_name_field" data-priority="10">
+                <span class="woocommerce-input-wrapper">
+                    <input type="text" class="input-text " name="<?= $address->type ?>_first_name" id="_first_name" placeholder="Name*" value="<?= $address->userdata[$addressFields['_first_name']] ?>" required>
+                    <input type="hidden" class="input-text " name="reference_field" id="reference_field" value="<?= $address->userdata['reference_field'] ?>">
+                </span>
+            </p>
+            <p class="form-row form-row-last" id="_last_name_field" data-priority="20">
+                <span class="woocommerce-input-wrapper">
+                    <input type="text" class="input-text " name="<?= $address->type ?>_last_name" id="<?= $address->type ?>_last_name" placeholder="Last name*" value="<?= $address->userdata[$addressFields['_last_name']] ?>" required>
+                </span>
+            </p>
+            <p class="form-row form-row-wide" id="_country_field" data-priority="40">
+                <span class="woocommerce-input-wrapper">
+                    <select name="<?= $address->type ?>_country" id="<?= $address->type ?>_country" class="country_to_state country_select " data-placeholder="Country*" data-label="Country / Region" tabindex="-1" aria-hidden="true" required>
+                        <option value="">Select a country / region…</option>
+                        <?php foreach ($countries as $key => $country) : ?>
+                            <option value="<?= $key ?>" <?= ($address->userdata[$addressFields['_country']] == $key ? 'selected' : '') ?>><?= $country ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </span>
+            </p>
+            <p class="form-row form-row-wide" id="_address_1_field" data-priority="50">
+                <span class="woocommerce-input-wrapper">
+                    <input type="text" class="input-text " name="<?= $address->type ?>_address_1" id="<?= $address->type ?>_address_1" placeholder="Street address*" value="<?= $address->userdata[$addressFields['_address_1']] ?>" data-placeholder="Street address*" required>
+                </span>
+            </p>
+            <p class="form-row form-row-wide" id="_city_field" >
+                <span class="woocommerce-input-wrapper">
+                    <input type="text" class="input-text " name="<?= $address->type ?>_city" id="<?= $address->type ?>_city" placeholder="City*" value="<?= $address->userdata[$addressFields['_city']] ?>" data-placeholder="City*" required>
+                </span>
+            </p>
+            <p class="form-row form-row-wide" id="_postcode_field">
+                <span class="woocommerce-input-wrapper">
+                    <input type="text" class="input-text " name="<?= $address->type ?>_postcode" id="<?= $address->type ?>_postcode" placeholder="Zip Code*" value="<?= $address->userdata[$addressFields['_postcode']] ?>" data-placeholder="Zip Code*" required>
+                </span>
+            </p>
+            <p class="form-row form-row-wide" id="_phone_field" data-priority="">
+                <span class="woocommerce-input-wrapper">
+                    <input type="tel" class="input-text " name="<?= $address->type ?>_phone" id="<?= $address->type ?>_phone" placeholder="Phone(ex. +33 123 45 67)*" value="<?= $address->userdata[$addressFields['_phone']] ?>" required>
+                </span>
+            </p>
+        </div>
+        <div class="submit-btn">
+        <div>
+            <label class='chk-container'>Save as default <?= $address->type ?> address
+                <input type='checkbox' name='setDefault' value="1">
+                <span class='checkmark'></span>
+            </label></div>
+        </div>
+        <div class="submit-btn">
+            <input class="btn " type="submit" value="Save changes">
+            <a href="/my-account/address-book/" class="btn">Exit without saving changes</a>
+        </div>
+    </form>
+    <?php
+ }
+   
+add_action( 'woocommerce_account_address-book-edit_endpoint', 'address_book_edit' );
+
 
 function customerRequest( $attr ) {
 
@@ -481,7 +787,6 @@ function modified_addresses( $fields ) {
 	return $fields;
 	
 }
-// var_dump("a:11:{s:15:\"reference_field\";s:4:\"test\";s:19:\"shipping_first_name\";s:4:\"test\";s:18:\"shipping_last_name\";s:5:\"bongo\";s:16:\"shipping_company\";s:0:\"\";s:16:\"shipping_country\";s:2:\"PH\";s:18:\"shipping_address_1\";s:5:\"sadas\";s:18:\"shipping_address_2\";s:0:\"\";s:17:\"shipping_postcode\";s:4:\"6000\";s:13:\"shipping_city\";s:9:\"Cebu City\";s:14:\"shipping_state\";s:3:\"CEB\";s:14:\"shipping_phone\";s:0:\"\";}");
 
 // this function is dependent on multiple address plugin 
 function get_customer_addresses( ) {
@@ -518,4 +823,71 @@ function get_customer_addresses_default( $type='shipping' ) {
 
     return $data;
 }
+
+function get_customer_addresses_id( $id ) {
+    global $wpdb;
+
+    // echo $type;
+    $querystr = "
+                SELECT *
+                FROM QYp_dsabafw_billingadress
+                WHERE id=".$id."
+                ";
+    $query_results = $wpdb->get_results($querystr);
+    $data=null;
+    if ($query_results) {
+        $data = $query_results[0];
+        $data->userdata = unserialize($data->userdata);
+    }
+
+    return $data;
+}
+
+function set_customer_default( ) {
+    global $wpdb;
+
+    // TYPE IS EITHER shipping | billing
+    $type = $_GET['type'];
+    $id = $_GET['id'];
+    // echo $type;
+    if (!$type || !$id) {
+        echo wp_json_encode([
+            "status"=> "failed"
+        ]);
+    
+        die();
+    }
+    
+    // remove default per type
+    $wpdb->update('QYp_dsabafw_billingadress', array('Defalut' => 0), array('userid' => get_current_user_id(), 'type' => $type));
+    // set new default per type
+    $wpdb->update('QYp_dsabafw_billingadress', array('Defalut' => 1), array('id' => $id, 'type' => $type));
+
+
+    echo wp_json_encode([
+        "status"=> "ok"
+    ]);
+
+    die();
+}
+
+add_action( 'wp_ajax_set_customer_default', 'set_customer_default' );
+add_action( 'wp_ajax_nopriv_set_customer_default', 'set_customer_default' );
+
+function delete_customer_address( ) {
+    global $wpdb;
+    // TYPE IS EITHER shipping | billing
+    $id = $_GET['id'];
+    
+    $wpdb->delete('QYp_dsabafw_billingadress', array('id' => $id));
+
+    echo wp_json_encode([
+        'status' => "ok"
+    ]);
+
+    die();
+}
+
+add_action( 'wp_ajax_delete_customer_address', 'delete_customer_address' );
+add_action( 'wp_ajax_nopriv_delete_customer_address', 'delete_customer_address' );
 ?>

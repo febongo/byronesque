@@ -333,6 +333,34 @@
         $("rs-module").change(function(){
             console.log('slider changed');
         });
+
+        // ADDRESS BOOK SCRIPTS
+        $(".setDefault").click(function(){
+
+            let id = $(this).attr('data-address-id')
+            let type = $(this).attr('data-address-type')
+            $.ajax({
+                url:opt.ajaxUrl,
+                type: 'get',
+                data: { action:  'set_customer_default', id: id, type: type },
+                success: function(data) {
+                    location.reload();
+                }
+            });
+        })
+
+        $(".removeAddress").click(function(){
+
+            let id = $(this).attr('data-address-id')
+            $.ajax({
+                url:opt.ajaxUrl,
+                type: 'get',
+                data: { action:  'delete_customer_address', id: id},
+                success: function(data) {
+                    location.reload();
+                }
+            });
+        })
         
         
         
