@@ -22,7 +22,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 <form class="woocommerce-EditAccountForm edit-account" action="" method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
 
 	<div class="woocommerce-myaccount-detailblock">
-	<h5>General Info</h5>
+	<h4>General Info</h4>
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 	<div class="woocommerce-myaccount-columns">
 		
@@ -54,7 +54,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		
 	</div>
 	<div class="woocommerce-myaccount-detailblock">
-	<h5>Password</h5>	
+	<h4>Password</h4>	
 	<fieldset>
 		<legend><?php esc_html_e( 'Password change', 'woocommerce' ); ?></legend>
 

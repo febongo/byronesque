@@ -267,6 +267,11 @@
     margin: 0 0 48px 0;
 }
 
+#byronesque-currency-nav .search-form span{
+    top: 28px;
+    left: auto;
+}
+
 .open-side-menu #byro-side-content{
     opacity: 1;
     width:35%;
@@ -321,6 +326,7 @@
 #byronesque-side-nav .bottom-links a {
 	color: #545454;
     font-size: 14px;
+    text-decoration: none;
 }
 
 #byronesque-side-nav .newsletter-form{
@@ -352,6 +358,7 @@
 .cart-table td{
     border: none;
     vertical-align: top;
+    padding: 16px 0;
 }
 
 .cart-table td.item-price{
@@ -376,6 +383,8 @@
     color: #fff;
     text-align: center;
     margin-bottom: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 
@@ -562,17 +571,19 @@
     line-height: 20px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+    text-decoration: none;
     color: #111111;
 	padding: 14px 20px;
     z-index: 100;
     display: inline-block;
-    background: #f7f7f7;
-    border: 1px solid #7B7B7B;
+    background: none;
+    border: 1px solid #11111133;
     margin-right: 15px;
+    height: 48px;
 }
 
 .btn-filter.active{
-    border: none;
+    border-color: #111111;
 }
 
 .filter-container .browseBy{

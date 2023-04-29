@@ -57,7 +57,7 @@ class wpb_widget_currency extends WP_Widget {
                     <p>You are currently shipping to <?= $currencyName ?> and order will be billed in <?= $currentCurrencyObj ? $currentCurrencyObj['symbol'] : '' ?>-<?= $currentCurrency ?></p>
                     
                     <div class="search-form">
-                    <i class="fa fa-search"></i>
+                    <span id="search-btn" style="background-image:url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/search_w.svg'?>')"></span>
                     <input type="text" placeholder="Search Country" name="country-search" class="country-search" id="country-search">
                     </div>
                     

@@ -25,25 +25,38 @@ $show_shipping_calculator = ! empty( $show_shipping_calculator );
 $calculator_text          = '';
 ?>
 <tr class="woocommerce-shipping-totals shipping">
+<<<<<<< HEAD
+	<th class="b2"><?php echo wp_kses_post( $package_name ); ?></th>
+=======
 	<th><?php //echo wp_kses_post( $package_name ); ?></th>
+>>>>>>> a51ce382bdcab1517fe31a7e4dfe4b5ba8d837e4
 	<td data-title="<?php echo esc_attr( $package_name ); ?>">
 		<?php if ( $available_methods ) : ?>
 			<ul id="shipping_method" class="woocommerce-shipping-methods">
 				<?php foreach ( $available_methods as $method ) : ?>
 					<li>
 						<?php
+<<<<<<< HEAD
+=======
 						// var_dump($index);
 						printf( '<label class="chk-container" for="shipping_method_%1$s_%2$s">%3$s', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) );
+>>>>>>> a51ce382bdcab1517fe31a7e4dfe4b5ba8d837e4
 						if ( 1 < count( $available_methods ) ) {
 							printf( '<input type="radio" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method" %4$s />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ), checked( $method->id, $chosen_method, false ) ); // WPCS: XSS ok.
 						} else {
 							printf( '<input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method" />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ) ); // WPCS: XSS ok.
 						}
+<<<<<<< HEAD
+						printf( '<label for="shipping_method_%1$s_%2$s">%3$s</label>', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) ); // WPCS: XSS ok.
+						do_action( 'woocommerce_after_shipping_rate', $method, $index );
+						?>
+=======
 						 // WPCS: XSS ok.
 						do_action( 'woocommerce_after_shipping_rate', $method, $index );
 						?>
 							<span class='checkmark'></span>
 						</label>
+>>>>>>> a51ce382bdcab1517fe31a7e4dfe4b5ba8d837e4
 					</li>
 				<?php endforeach; ?>
 			</ul>

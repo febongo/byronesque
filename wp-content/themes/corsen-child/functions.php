@@ -28,3 +28,125 @@ function tq73et_override_pagination_args( $args ) {
 	$args['next_text'] = __( 'Next' );
 	return $args;
 }
+
+//show attributes after summary in product single view
+add_action('woocommerce_single_product_summary', function() {
+	//template for this is in storefront-child/woocommerce/single-product/product-attributes.php
+	global $product;
+	echo $product->list_attributes();
+}, 25);
+
+
+// Blog Page Title
+function page_title_sc( ){
+   return get_the_title();
+}
+add_shortcode( 'page_title', 'page_title_sc' );
+
+
+// Blog page Publish Date
+function shortcode_post_published_date(){
+ return get_the_date();
+}
+add_shortcode( 'post_published', 'shortcode_post_published_date' );
+
+
+// Blog Page Featured Image
+add_shortcode('thumbnail', 'thumbnail_in_content');
+
+function thumbnail_in_content($atts) {
+    global $post;
+
+    return get_the_post_thumbnail($post->ID);
+}
+
+// Blog Page product name
+add_shortcode('product_data','custom_product_data');
+function custom_product_data($atts)
+{
+    $post_id = $atts['id'];
+    $title = get_the_title($post_id);
+    $link = get_the_permalink($post_id);
+    $data ='<a href="'.$link.'">'.$title.'</a>';
+    return $data;
+}
+
+// Blog Page product image
+add_shortcode('product_image','custom_product_image');
+function custom_product_image($atts)
+{
+    $post_id = $atts['id'];
+    $link = get_the_permalink($post_id);
+    $image = get_the_post_thumbnail($post_id);
+    $data ='<div><a>'.$image.'</div>';
+    return $data;
+}
+
+// Blog Page post title
+add_shortcode('post_title','custom_post_title');
+function custom_post_title($atts)
+{
+    $post_id = $atts['id'];
+    $title = get_the_title($post_id);
+    $data ='<p>'.$title.'</p>';
+    return $data;
+}
+
+// Blog Page Related Posts
+function related_posts_shortcode( $atts ) {
+ 
+extract(shortcode_atts(array(
+'limit' => '5',
+), $atts));
+ 
+global $wpdb, $post, $table_prefix;
+ 
+if ($post->ID) {
+ 
+$retval = '
+<ul>';
+ 
+// Get tags
+$tags = wp_get_post_tags($post->ID);
+$tagsarray = array();
+foreach ($tags as $tag) {
+$tagsarray[] = $tag->term_id;
+}
+$tagslist = implode(',', $tagsarray);
+ 
+// Do the query
+$q = "
+SELECT p.*, count(tr.object_id) as count
+FROM $wpdb->term_taxonomy AS tt, $wpdb->term_relationships AS tr, $wpdb->posts AS p
+WHERE tt.taxonomy ='post_tag'
+AND tt.term_taxonomy_id = tr.term_taxonomy_id
+AND tr.object_id = p.ID
+AND tt.term_id IN ($tagslist)
+AND p.ID != $post->ID
+AND p.post_status = 'publish'
+AND p.post_date_gmt < NOW()
+GROUP BY tr.object_id
+ORDER BY count DESC, p.post_date_gmt DESC
+LIMIT $limit;";
+ 
+$related = $wpdb->get_results($q);
+ 
+if ( $related ) {
+foreach($related as $r) {
+$retval .= '
+<li><a title="'.wptexturize($r->post_title).'" href="'.get_permalink($r->ID).'">'.wptexturize($r->post_title).'</a></li>
+';
+}
+} else {
+$retval .= '
+<li>No related posts found</li>
+';
+}
+$retval .= '</ul>
+';
+return $retval;
+}
+return;
+}
+add_shortcode('related_posts', 'related_posts_shortcode');
+
