@@ -774,3 +774,19 @@
 }
 
 
+/* modified image hover on archive page */
+.qodef-woo-product-image .qodef-e-image-hover{
+    display: none;
+}
+
+.qodef-woo-product-list .has-hover-image .qodef-e-inner:hover .qodef-e-image-hover{
+    display:block;
+}
+
+.qodef-woo-product-list .has-hover-image .qodef-e-inner:hover .qodef-woo-product-image > img{
+    display: none;
+}
+
+#qodef-woo-page .qodef-woo-product-list:not(.qodef--hover-image) .qodef-e-inner:hover .qodef-woo-product-image img{
+    transform: translateX(0) translateZ(0) scale(var(--qodef-img-scale)) !important;
+}

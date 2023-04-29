@@ -910,4 +910,33 @@ function change_cart_shipping_method_full_label( $label, $method ) {
     return $label;
 }
 
+
+add_action( 'woocommerce_before_shop_loop_item_title', 'wp_kama_woocommerce_before_shop_loop_item_title_action' );
+
+function wp_kama_woocommerce_before_shop_loop_item_title_action(){
+    $product_list_hover_image = get_post_meta( get_the_ID(), 'qodef_product_list_image_hover', true );
+    $has_image          = ! empty( $product_list_hover_image );
+
+    if ( $has_image ) {
+        $image_dimension     = isset( $image_dimension ) && ! empty( $image_dimension ) ? esc_attr( $image_dimension['size'] ) : apply_filters( 'single_product_archive_thumbnail_size', 'woocommerce_thumbnail' );
+        $custom_image_width  = isset( $custom_image_width ) && '' !== $custom_image_width ? intval( $custom_image_width ) : 0;
+        $custom_image_height = isset( $custom_image_height ) && '' !== $custom_image_height ? intval( $custom_image_height ) : 0;
+        ?>
+        <div class="qodef-e-image-hover">
+            <?php echo corsen_core_get_list_shortcode_item_image( $image_dimension, $product_list_hover_image, $custom_image_width, $custom_image_height ); ?>
+        </div>
+    <?php }
+}
+
+add_filter('post_class', function($classes, $class, $product_id) {
+    $product_list_hover_image = get_post_meta( $product_id, 'qodef_product_list_image_hover', true );
+    $has_image          = ! empty( $product_list_hover_image );
+
+    if ($has_image)
+    $classes = array_merge(['has-hover-image'], $classes);
+    
+    return $classes;
+},10,3);
 ?>
+
+
