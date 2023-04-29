@@ -465,6 +465,11 @@
             
 
             var selectedShippingMethod = $('#shipping_method input[type="radio"]:checked').attr('id');
+            if (!selectedShippingMethod) {
+                selectedShippingMethod = $('#shipping_method li:first-child input').attr('id');
+                $('#shipping_method li:first-child .checkmark').hide()
+            }
+            console.log("shippping ",selectedShippingMethod);
             setShippingMethodPrice(selectedShippingMethod)
 
             $(document).on("change", "#shipping_method input[type='radio']", function(){
