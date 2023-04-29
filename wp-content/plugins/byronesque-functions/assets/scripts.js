@@ -408,7 +408,7 @@
                     let userData = $.parseJSON(data)
                     // return userData;
                     billingAddress = userData;
-                    if(userdata)
+                    if(userData)
                     setAddressFields("billing", userData.userdata)
                     // $('.woocommerce-billing-fields').hide()
                 }
