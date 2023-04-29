@@ -776,16 +776,24 @@ function modified_addresses( $fields ) {
 	$fields[ 'address_1' ][ 'placeholder' ] = 'Street address*';
 	$fields[ 'city' ][ 'placeholder' ] = 'City*';
 	$fields[ 'country' ][ 'placeholder' ] = 'Country*';
+	$fields[ 'state' ][ 'placeholder' ] = 'county*';
 	$fields[ 'postcode' ][ 'placeholder' ] = 'Zip Code*';
 	$fields[ 'phone' ][ 'placeholder' ] = 'Phone(ex. +33 123 45 67)*';
 	$fields[ 'phone' ][ 'required' ] = true;
 
-    unset( $fields[ 'state' ] );
+    // unset( $fields[ 'state' ] );
     unset( $fields[ 'address_2' ] );
     unset( $fields[ 'company' ] );
 
 	return $fields;
 	
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'override_billing_checkout_fields', 20, 1 );
+function override_billing_checkout_fields( $fields ) {
+    $fields['billing']['billing_phone']['placeholder'] = 'Phone(ex. +33 123 45 67)*';
+    $fields['billing']['billing_phone']['required'] = true;
+    return $fields;
 }
 
 // this function is dependent on multiple address plugin 
@@ -890,4 +898,16 @@ function delete_customer_address( ) {
 
 add_action( 'wp_ajax_delete_customer_address', 'delete_customer_address' );
 add_action( 'wp_ajax_nopriv_delete_customer_address', 'delete_customer_address' );
+
+
+add_filter( 'woocommerce_cart_shipping_method_full_label', 'change_cart_shipping_method_full_label', 10, 2 );
+function change_cart_shipping_method_full_label( $label, $method ) {
+    $has_cost  = 0 < $method->cost;
+    $hide_cost = ! $has_cost && in_array( $method->get_method_id(), array( 'free_shipping', 'local_pickup' ), true );
+
+    $label = str_replace(":"," / ", $label);
+
+    return $label;
+}
+
 ?>

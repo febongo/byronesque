@@ -18,12 +18,11 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="woocommerce-shipping-fields">
+<div id="shippingAddressCustom" class="woocommerce-shipping-fields checkoutBlocks">
+	<h5><?php esc_html_e( 'Shipping Address', 'woocommerce' ); ?></h5>
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
-		<div class="shipping_address2">
-
-			<h4>SHIPPING ADDRESS</h4>
+		<div class="shipping_address2 checkoutDetailBlock">
 
 			<?php 
 				$shipDefault = get_customer_addresses_default('shipping');
@@ -31,15 +30,16 @@ defined( 'ABSPATH' ) || exit;
 				if ($shipDefault) :
 					// var_dump($shipDefault->userdata['reference_field']);
 			?>
-				<p>Your default shipping address is set to: </p>
-				<p class="addressDetails">
-					<span><?= $shipDefault->userdata['shipping_first_name'] ?></span> <span><?= $shipDefault->userdata['shipping_last_name'] ?></span><br>
-					<span><?= $shipDefault->userdata['shipping_address_1'] ?></span><br>
-					<span><?= $shipDefault->userdata['shipping_postcode'] ?></span> <span><?= $shipDefault->userdata['shipping_state'] ?></span>, <span><?= $shipDefault->userdata['shipping_country'] ?></span>
-				</p>
-
+				<div class="defaultAddress">
+					<p>Your default shipping address is set to: </p>
+					<p class="addressDetails">
+						<span><?= $shipDefault->userdata['shipping_first_name'] ?></span> <span><?= $shipDefault->userdata['shipping_last_name'] ?></span><br>
+						<span><?= $shipDefault->userdata['shipping_address_1'] ?></span><br>
+						<span><?= $shipDefault->userdata['shipping_postcode'] ?></span> <span><?= $shipDefault->userdata['shipping_state'] ?></span>, <span><?= $shipDefault->userdata['shipping_country'] ?></span>
+					</p>
+				</div>
 				<label class='chk-container'>Ship to default address
-					<input type='radio' name='shipOption' value='shipToDefault' checked>
+					<input type='radio' name='shipOption' value='shipToDefault'>
 					<span class='checkmark'></span>
 				</label>
 
@@ -48,11 +48,7 @@ defined( 'ABSPATH' ) || exit;
 					<span class='checkmark'></span>
 				</label>
 
-				<!-- <h5 id="ship-to-different-address">
-					<label class='chk-container'>
-						<input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" /> <span><?php esc_html_e( 'Ship to a different address?', 'woocommerce' ); ?></span>
-					</label>
-				</h5> -->
+
 			<?php endif; ?>
 
 
@@ -72,11 +68,13 @@ defined( 'ABSPATH' ) || exit;
 
 			
 
+			<span class="nextBlock btn" data-next="shippingMethodCustom">Continue</span>
 		</div>
 
 	<?php endif; ?>
+
 </div>
-<div class="woocommerce-additional-fields">
+<div class="woocommerce-additional-fields" style="display:none">
 	<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
 	<?php if ( apply_filters( 'woocommerce_enable_order_notes_field', 'yes' === get_option( 'woocommerce_enable_order_comments', 'yes' ) ) ) : ?>

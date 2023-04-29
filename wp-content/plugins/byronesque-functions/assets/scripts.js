@@ -20,17 +20,6 @@
 
         // NAVIGATION FUNCTIONS
         $("#qodef-page-header").append("<div id='menu-overlay' class='overlay'></div><div id='byro-side-content'></div>")
-        $.ajax({
-            url:opt.ajaxUrl,
-            type: 'get',
-            data: { action:  'get_customer_addresses', type: 'shipping' },
-            contentType:"application/json; charset=utf-8",
-            dataType:"json",
-            success: function(data) {
-                
-                console.log(data);
-            }
-        });
 
         // fetch cart contents 
         $.ajax({
@@ -193,12 +182,25 @@
             // if (offset > 300) {
             //     console.log(offset)
             // }
-            if( $('.qodef-woo-single-inner').isInViewport() && 
+            if( $('.qodef-woo-single-inner').length && $('.qodef-woo-single-inner').isInViewport() && 
                 !( ($('.upsells').length &&  $('.upsells').isInViewport()) || $('#qodef-page-footer').isInViewport()) 
             ) {
                 $(".summary.entry-summary").css("top",offset)
             }
             // console.log(productOffset)
+
+            if ($('#stepStarter').length ) {
+                if( !$('#stepStarter').isInViewport() ) {
+                    console.log("hidden");
+                    $('.stepBack').css("top",60)
+                    $('.stepBack').css("position","fixed")
+                } else {
+                    console.log("showing");
+                    $('.stepBack').css("top",0)
+                    $('.stepBack').css("position","relative")
+                }
+            }
+            
         });
 
         // EVENT REMOVE TO CART 
@@ -361,22 +363,234 @@
                 }
             });
         })
+
+        // ADDRESS BOOK POPULATE CHECKOUT FIELDS
+        if ( $(".woocommerce-checkout").length ) {
+
+            var blockStep=[
+                "shippingAddressCustom",
+                "shippingMethodCustom",
+                "paymentMethodCustom",
+                "billingAddressCustom",
+            ];
+            var currentBlockStep=0;
+            // var block
+            // hide additional fields
+            // $(".woocommerce-additional-fields").hide();
+
+            var shipOption = $('input[name="shipOption"]:checked').val();
+            let shippingAddress,billingAddress;
+            let this_ = this;
+
+            $.ajax({
+                url:opt.ajaxUrl,
+                async: false,
+                'global': false,
+                type: 'get',
+                data: { action:  'get_customer_addresses', type: 'shipping' },
+                success: function(data) {
+                    let userData = $.parseJSON(data)
+                    // return userData;
+                    shippingAddress = userData;
+                    setAddressFields("shipping", userData.userdata)
+                    // $('.woocommerce-shipping-fields__field-wrapper').hide()
+                }
+            });
+
+            $.ajax({
+                url:opt.ajaxUrl,
+                async: false,
+                'global': false,
+                type: 'get',
+                data: { action:  'get_customer_addresses', type: 'billing' },
+                success: function(data) {
+                    let userData = $.parseJSON(data)
+                    // return userData;
+                    billingAddress = userData;
+                    setAddressFields("billing", userData.userdata)
+                    // $('.woocommerce-billing-fields').hide()
+                }
+            });
+
+            // console.log("ajax returned data", shippingAddress);
+            if (shippingAddress) {
+                setAddressFields("shipping", shippingAddress.userdata)
+                $('input[value="shipToDefault"]').prop('checked',true)
+                $('.woocommerce-shipping-fields__field-wrapper').hide()
+
+            } else {
+                // show empty fields
+                setAddressFields("shipping", null)
+                $('input[value="shipToNew"]').prop('checked',true)
+                $('.woocommerce-shipping-fields__field-wrapper').show()
+                // $('input[name="shipOption"]').trigger('change')
+            }
+
+            appendShippingTo()
+
+            // $('input[name="shipOption"]').trigger('change')
+
+
+            $('input[name="shipOption"]').change(function(){ console.log('event called change');
+                var shipOption = $('input[name="shipOption"]:checked').val();
+
+                if (shipOption.trim() == "shipToDefault") {
+                    setAddressFields("shipping", shippingAddress.userdata)
+                    $('.woocommerce-shipping-fields__field-wrapper').hide()
+                } else {
+                    setAddressFields("shipping", null)
+                    $('.woocommerce-shipping-fields__field-wrapper').show()
+                }
+            })
+
+            $(document).on("click",".nextBlock",function() {
+                currentBlockStep++;
+                var nextBlockDiv = blockStep[currentBlockStep]
+                // $(this).parent().hide();
+                setActiveBlockCheckout(nextBlockDiv)
+            });
+
+            $(document).on("click",".stepBack",function() {
+                if (currentBlockStep > 0) {
+                    currentBlockStep--;
+                    var nextBlockDiv = blockStep[currentBlockStep]
+                    setActiveBlockCheckout(nextBlockDiv)
+                }
+
+                return false;
+                
+            });
+            
+
+            var selectedShippingMethod = $('#shipping_method input[type="radio"]:checked').attr('id');
+            setShippingMethodPrice(selectedShippingMethod)
+
+            $(document).on("change", "#shipping_method input[type='radio']", function(){
+                console.log("method changed");
+                var selectedShippingMethod = $('#shipping_method input[type="radio"]:checked').attr('id');
+                setShippingMethodPrice(selectedShippingMethod)
+            })
+
+            
+            // Billing actions
+            setAddressFields("billing", billingAddress.userdata)
+            $('input[value="billSameShip"]').prop('checked',true)
+            $('.woocommerce-billing-fields__field-wrapper').hide()
+            console.log("read billing");
+            $('input[name="billOption"]').change(function(){ console.log('event called change');
+                var billOption = $('input[name="billOption"]:checked').val();
+                console.log("billing option changed");
+                if (billOption.trim() == "billSameShip") {
+                    let billingData = {
+                        billing_first_name : $("#shipping_first_name").val(),
+                        billing_last_name : $("#shipping_last_name").val(),
+                        billing_country : $("#shipping_country").val(),
+                        billing_address_1: $("#shipping_address_1").val(),
+                        billing_city : $("#shipping_city").val(),
+                        billing_state : $("#shipping_state").val(),
+                        billing_postcode : $("#shipping_postcode").val(),
+                        billing_phone : $("#shipping_phone").val()
+                    }
+                    setAddressFields("billing", billingData)
+                    $('.woocommerce-billling-fields__field-wrapper').hide()
+                } else if (billOption.trim() == "billToDefault") {
+                    setAddressFields("billing", billingAddress.userdata)
+                    $('.woocommerce-billing-fields__field-wrapper').hide()
+                } else {
+                    setAddressFields("billing", null)
+                    $('.woocommerce-billing-fields__field-wrapper').show()
+                }
+            })
+
+            
+        }
         
         
         
     }) // DOCUMENT READY -- END
+
+
+    // ***************************************
+    // LISTEN TO JQUERY EVENTS
+    // TODO CLEAN UP SCRIPTS BELOW
+    // ***************************************
+
+    function setAddressFields(type,userShippingdata){
+
+        if (userShippingdata) {
+            $("#"+type+"_first_name").val(type == 'shipping' ? userShippingdata.shipping_first_name : userShippingdata.billing_first_name)
+            $("#"+type+"_last_name").val(type == 'shipping' ? userShippingdata.shipping_last_name : userShippingdata.billing_last_name)
+            $("#"+type+"_country").val(type == 'shipping' ? userShippingdata.shipping_country : userShippingdata.billing_country).change()
+            $("#"+type+"_address_1").val(type == 'shipping' ? userShippingdata.shipping_address_1: userShippingdata.billing_address_1)
+            $("#"+type+"_city").val(type == 'shipping' ? userShippingdata.shipping_city : userShippingdata.billing_city)
+            $("#"+type+"_cstate").val(type == 'shipping' ? userShippingdata.shipping_state : userShippingdata.billing_state)
+            $("#"+type+"_postcode").val(type == 'shipping' ? userShippingdata.shipping_postcode : userShippingdata.billing_postcode)
+            $("#"+type+"_phone").val(type == 'shipping' ? userShippingdata.shipping_phone : userShippingdata.billing_phone)
+        } else {
+            $("#"+type+"_first_name").val('')
+            $("#"+type+"_last_name").val('')
+            $("#"+type+"_country").val('').change()
+            $("#"+type+"_address_1").val('')
+            $("#"+type+"_city").val('')
+            $("#"+type+"_state").val('')
+            $("#"+type+"_postcode").val('')
+            $("#"+type+"_phone").val('')
+        }
+
+        
+    }
+
+    function setActiveBlockCheckout(target) {
+        // hide all detail
+        // set active / inactive
+        $(".checkoutBlocks").addClass('inActive')
+        $("#"+target).removeClass('inActive')
+
+        if (target == "shippingMethodCustom") {
+            appendShippingTo()
+        }
+        $('html, body').animate({
+            scrollTop: $("#"+target).offset().top
+        }, 500);
+        // $.scrollTo($('#'+target), 300);
+
+    }
+
+    function setShippingMethodPrice(targetId) {
+        let priceHtml = $("#"+targetId).parent().find('.woocommerce-Price-amount').html()
+        setTimeout(function(){ 
+            // x.value = "2 seconds" 
+            $("#shippingMethodAmount").html(priceHtml)
+        }, 2000);
+        // console.log(priceHtml)
+    }
+
+    function appendShippingTo(){
+        var name = $("#shipping_first_name").val() + " " + $("#shipping_last_name").val()
+        var address = $("#shipping_address_1").val() 
+        var addressCountry = $("#shipping_postcode").val() + " " + $("#shipping_city").val() + ", " + $("#shipping_country").val()
+        var html = "";
+        html += "<p class='shippingTo'>Shipping to</p>";
+        html += "<p class='shippingToDetails'>" + 
+                "<span>"+name+"</span><br>" +
+                "<span>"+address+"</span><br>" +
+                "<span>"+addressCountry+"</span>" +
+                "</p>";
+        $(".shippingTo").html(html);
+        // $(".woocommerce-myaccount-detailblock").append("<p>test</p>")
+    }
     
     $(document).on("click","#bn-shopby .menu-nav",function() {
 
         
-        console.log('click',$(this));
+        // console.log('click',$(this));
         if (!$("#bn-shopby .menu-nav").hasClass('show-side-menu')) {
             hideSideNav()
             $(".bn-shop-container").addClass('bn-show')
             $(this).addClass('show-side-menu')
         } else {
             hideSideNav()
-            console.log('else');
+            // console.log('else');
         }
         
     });

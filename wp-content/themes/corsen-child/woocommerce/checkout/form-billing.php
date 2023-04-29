@@ -17,31 +17,68 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$billDefault = get_customer_addresses_default('billing');
 ?>
-<div class="woocommerce-billing-fields">
+<div id="billingAddressCustom" class="woocommerce-billing-fields checkoutBlocks inActive">
 	<?php if ( wc_ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
-		<h5><?php esc_html_e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h5>
+		<h5><?php esc_html_e( 'Billing Address', 'woocommerce' ); ?></h5>
 
 	<?php else : ?>
 
-		<h5><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h5>
+		<h5><?php esc_html_e( 'Billing Address', 'woocommerce' ); ?></h5>
 
 	<?php endif; ?>
 
-	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
+	<div class="checkoutDetailBlock">
 
-	<div class="woocommerce-billing-fields__field-wrapper">
-		<?php
-		$fields = $checkout->get_checkout_fields( 'billing' );
+		<?php if ($billDefault) : ?>
+			<div class="defaultAddress">
+				<p>Your default billing address is set to: </p>
+				<p class="addressDetails">
+					<span><?= $billDefault->userdata['billing_first_name'] ?></span> <span><?= $billDefault->userdata['billing_last_name'] ?></span><br>
+					<span><?= $billDefault->userdata['billing_address_1'] ?></span><br>
+					<span><?= $billDefault->userdata['billing_postcode'] ?></span> <span><?= $billDefault->userdata['billing_state'] ?></span>, <span><?= $billDefault->userdata['billing_country'] ?></span>
+				</p>
+			</div>
+		<?php endif; ?>
 
-		foreach ( $fields as $key => $field ) {
-			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
-		}
-		?>
+		<label class='chk-container'>Same as shipping address
+			<input type='radio' name='billOption' value='billSameShip'>
+			<span class='checkmark'></span>
+		</label>
+		
+		<?php if ($billDefault) : ?>
+
+			<label class='chk-container'>Use default billing address
+				<input type='radio' name='billOption' value='billToDefault'>
+				<span class='checkmark'></span>
+			</label>
+
+		<?php endif; ?>
+
+		<label class='chk-container'>Bill to another address
+			<input type='radio' name='billOption' value='billToNew'>
+			<span class='checkmark'></span>
+		</label>
+	
+		<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
+
+		<div class="woocommerce-billing-fields__field-wrapper">
+			<?php
+			$fields = $checkout->get_checkout_fields( 'billing' );
+
+			foreach ( $fields as $key => $field ) {
+				woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+			}
+			?>
+		</div>
+
+		<button type="submit" class="btn">Finalise Purchase</button>
+		
+		<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 	</div>
-
-	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
 
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
