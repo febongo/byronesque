@@ -392,6 +392,7 @@
                     let userData = $.parseJSON(data)
                     // return userData;
                     shippingAddress = userData;
+                    if(userData)
                     setAddressFields("shipping", userData.userdata)
                     // $('.woocommerce-shipping-fields__field-wrapper').hide()
                 }
@@ -407,6 +408,7 @@
                     let userData = $.parseJSON(data)
                     // return userData;
                     billingAddress = userData;
+                    if(userdata)
                     setAddressFields("billing", userData.userdata)
                     // $('.woocommerce-billing-fields').hide()
                 }
