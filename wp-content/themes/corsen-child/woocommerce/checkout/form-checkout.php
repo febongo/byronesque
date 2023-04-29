@@ -114,6 +114,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 <!-- to be transfered in stylesheet -->
 <style>
+.woocommerce-checkout #qodef-page-content .woocommerce{
+	background: none;
+}
 .checkoutBlocks {
 	background: #F8F5EACC;
 	padding: 20px;
@@ -145,6 +148,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 .woocommerce-checkout-block .checkout-details{
 	width: 70%;
+}
+
+.woocommerce-checkout-block .checkout-details .checkout-details-block{
+	width: 100%;
 }
 
 .woocommerce-checkout-block .checkout-summary{
