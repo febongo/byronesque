@@ -47,7 +47,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 							<div id="shippingMethodCustom" class="checkoutBlocks inActive">
 
-								<h5><?php esc_html_e( 'Shipping Method', 'woocommerce' ); ?></h5>
+								<h4><?php esc_html_e( 'Shipping Method', 'woocommerce' ); ?></h4>
 
 								<div id="" class="checkoutDetailBlock">
 									<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
@@ -66,7 +66,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 
 							<div id="paymentMethodCustom" class="checkoutBlocks inActive">
-								<h5><?php esc_html_e( 'Payment Method', 'woocommerce' ); ?></h5>
+								<h4><?php esc_html_e( 'Payment Method', 'woocommerce' ); ?></h4>
 								<div id="payment" class="woocommerce-checkout-payment checkoutDetailBlock">
 									
 									
@@ -91,7 +91,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
 				
 				<div class="woocommerce-myaccount-detailblock order-summary-block">
-					<h5 id="order_review_heading"><?php esc_html_e( 'Order Summary', 'woocommerce' ); ?></h5>
+					<h4 id="order_review_heading"><?php esc_html_e( 'Order Summary', 'woocommerce' ); ?></h4>
 					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
 					<div id="order_review" class="woocommerce-checkout-review-order">

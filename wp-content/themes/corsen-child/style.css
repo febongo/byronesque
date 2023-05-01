@@ -13,11 +13,11 @@ Template: corsen
 
 @import url("https://use.typekit.net/eqy5tfk.css");
 
-body, h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p{
+body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p{
 	font-family: "neue-haas-unica";
 
 }
-h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .qodef-blog.qodef--single .qodef-blog-item .editorial-caption h6{
+h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6{
 	font-family: "Termina";
 }
 
@@ -69,13 +69,13 @@ input::placeholder, select::placeholder{
 	letter-spacing:0;
 }
 
-#qodef-woo-page .button, .login-submit input[type=submit], .woocommerce-account .button, .woocommerce-mini-cart__buttons .button {
+#qodef-woo-page .button, .login-submit input[type=submit], .woocommerce-account .button, .woocommerce-mini-cart__buttons .button, .nextBlock {
 	padding: 14px 0px!important;
 	display: block;
 	height: 48px;
 }
 
-.woocommerce-account .button, .woocommerce-mini-cart__buttons .button, .woocommerce-MyAccount-content .submit-btn a {
+.woocommerce-account .button, .woocommerce-mini-cart__buttons .button, .woocommerce-MyAccount-content .submit-btn a, .editorial-page .editorial-button, .nextBlock {
     font-family: 'termina';
 	line-height: 20px;
 	font-size: 12px;
@@ -85,6 +85,9 @@ input::placeholder, select::placeholder{
 	background-color: #111;
 	text-align: center;
 	padding: 14px 0;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .woocommerce-account .button:hover, .woocommerce-mini-cart__buttons .button:hover {
@@ -101,7 +104,7 @@ input::placeholder, select::placeholder{
 	font-family: "termina";
 	font-size: 14px!important;;
 	line-height: 20px!important;;
-	font-weight: 700!important;
+	font-weight: 700;
 	text-transform: uppercase;
 	margin:0;
 	text-decoration: none;
@@ -366,7 +369,7 @@ button[disabled] {
 }
 
 .newsletter-header h5{
-	font-weight: 600;
+	font-weight: 500;
 	margin-top:0;
 }
 
@@ -491,12 +494,20 @@ button[disabled] {
 	margin-bottom:0!important;
 }
 
-.editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-caption, figcaption, .editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-caption a{
+.editorial-imagegallery .editorial-caption h6 {
+	font-weight: 600;
 	color: #545454;
-	font-size: 14px;
-	line-height: 22px;
-	font-weight: 500;
+	display: inline;
 }
+
+.editorial-imagegallery .editorial-caption, .editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-caption a {
+	margin: 0 ;
+	font-size: 16px;
+	line-height: 22px ;
+	font-weight: 400;
+	color: #545454;
+}
+
 
 .qodef-blog.qodef--single .qodef-blog-item .innit-page h5 {
 	font-size: 15px;
@@ -507,11 +518,7 @@ button[disabled] {
 	font-size: 16px;
 }
 
-.qodef-blog.qodef--single .qodef-blog-item .editorial-caption h6 {
-	font-weight: 600;
-	color: #545454;
-	display: inline;
-}
+
 
 .editorial-page .qodef-blog.qodef--single .qodef-blog-item a{
 	text-decoration: underline;
@@ -584,18 +591,6 @@ button[disabled] {
 
 .editorial-imagegrid {
 	transform: translate(120px, 0%);
-}
-
-.qodef-blog.qodef--single .qodef-blog-item .editorial-imagegallery p, .qodef-blog.qodef--single .qodef-blog-item .editorial-imagegallery a, .editorial-imagegallery .gallery-item .gallery-caption{
-	margin: 0 ;
-	font-size: 16px!important;
-	line-height: 22px ;
-	font-weight: 400;
-	color: #545454;
-}
-
-.editorial-imagegallery p {
-	margin-top: 12px!important;
 }
 
 .editorial-page .gallery-item {
@@ -837,6 +832,34 @@ Color: #1F1F1F;
 
 
 /* PRODUCT LIST */
+
+.has-hover-image .qodef-woo-product-image .qodef-e-image-hover {
+	display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.qodef-woo-product-list.qodef--hover-image .has-hover-image .qodef-woo-product-image .qodef-e-image-hover {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .25s ease-out;
+}
+
+.qodef-woo-product-list.qodef--hover-image .has-hover-image .qodef-woo-product-image .qodef-e-image-hover img {
+	width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.has-hover-image .qodef-woo-product-image .qodef-e-image-hover {
+	display: none;
+}
+
+
 
 .shop-gallery ul li{
 	margin-bottom: 74px;
@@ -1155,13 +1178,17 @@ Color: #1F1F1F;
 
 /* CHECKOUT */
 
+.back-container {
+	margin-top: 32px;
+}
+
 .woocommerce-checkout #qodef-page-content .woocommerce{
 	background: none;
 }
 .checkoutBlocks {
 	background: #F8F5EACC;
-	padding: 20px;
-	margin-bottom: 20px;
+	padding: 24px 26px;
+	margin-bottom: 40px;
 }
 
 .checkoutBlocks.inActive .checkoutDetailBlock{
@@ -1174,7 +1201,7 @@ Color: #1F1F1F;
 	width: 100%; 
 	background: #000;
 	color: #fff;
-	margin : 20px 0;
+	margin-top: 56px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -1183,8 +1210,13 @@ Color: #1F1F1F;
 	display: none;
 }
 
+.defaultAddress .addressDetails {
+	margin: 16px 0 32px;
+}
+
 .woocommerce-checkout-block{
 	width: 100%;
+	margin-top: 100px;
 }
 
 .woocommerce-checkout-block .checkout-details{
@@ -1240,7 +1272,7 @@ Color: #1F1F1F;
 }
 
 .wrap-form .back-container{
-	width: 60px;
+	width: 15%;
 	position: relative;
 }
 
@@ -1249,7 +1281,7 @@ Color: #1F1F1F;
 }
 
 .wrap-form .form-checkout-block{
-	width : calc(100% - 60px);
+	width : calc(100% - 15%);
 }
 
 #qodef-woo-page.qodef--checkout .wrap-form .form-checkout-block .woocommerce-checkout{
