@@ -68,6 +68,11 @@ function import_products_page() {
 ?> 
     <div class="wrap"> 
         <h2>Import Products</h2> 
+
+        <div class="notice notice-info">
+            <p style="font-weight:bold">This importer is only meant for byronesque products. Here's a sample template <a href="https://vzc.hva.mybluehost.me/wp-content/uploads/2023/05/updated-sample-template.csv">CSV</a></p>
+        </div>
+        <hr>
         <form method="post" enctype="multipart/form-data"> 
             <input type="file" name="import_file"> 
             <?php submit_button( 'Import Products' ); ?> 
