@@ -33,7 +33,7 @@ $billDefault = get_customer_addresses_default('billing');
 
 	<div class="checkoutDetailBlock">
 
-		<?php if ($billDefault) : ?>
+		<!--<?php if ($billDefault) : ?>
 			<div class="defaultAddress">
 				<p>Your default billing address is set to: </p>
 				<p class="addressDetails">
@@ -42,7 +42,7 @@ $billDefault = get_customer_addresses_default('billing');
 					<span><?= $billDefault->userdata['billing_postcode'] ?></span> <span><?= $billDefault->userdata['billing_state'] ?></span>, <span><?= $billDefault->userdata['billing_country'] ?></span>
 				</p>
 			</div>
-		<?php endif; ?>
+		<?php endif; ?>-->
 
 		<label class='chk-container'>Same as shipping address
 			<input type='radio' name='billOption' value='billSameShip'>
@@ -74,9 +74,7 @@ $billDefault = get_customer_addresses_default('billing');
 			}
 			?>
 		</div>
-
-		<button type="submit" class="btn">Finalise Purchase</button>
-		
+		<button type="submit" class="nextBlock btn">Continue</button>
 		<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 	</div>
 </div>

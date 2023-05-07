@@ -74,7 +74,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php endforeach; ?>
 
 		<tr class="shipping-method">
-			<th><span id="shippingMethod">Shipping</span></th>
+			<th class="b2"><span id="shippingMethod">Shipping</span></th>
 			<td><span id="shippingMethodAmount"></span></td>
 		</tr>
 
@@ -95,7 +95,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php endforeach; ?>
 			<?php else : ?>
 				<tr class="tax-total">
-					<th><?php echo esc_html( WC()->countries->tax_or_vat() ); ?></th>
+					<th class="b2"><?php echo esc_html( WC()->countries->tax_or_vat() ); ?></th>
 					<td><?php wc_cart_totals_taxes_total_html(); ?></td>
 				</tr>
 			<?php endif; ?>
