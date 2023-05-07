@@ -72,6 +72,9 @@ include('widgets/burger_menu.php');
 include('widgets/account.php');
 include('widgets/cart.php');
 include('widgets/my_shop.php');
+
+include('inc/productExtraFields.php');
+include('inc/importer.php');
 // include('account-pages/customAccountpages.php');
 
 // register widgets
@@ -937,5 +940,6 @@ add_filter('post_class', function($classes, $class, $product_id) {
     
     return $classes;
 },10,3);
+
 
 ?>
