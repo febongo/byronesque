@@ -943,5 +943,4 @@ add_filter('post_class', function($classes, $class, $product_id) {
     return $classes;
 },10,3);
 
-
 ?>

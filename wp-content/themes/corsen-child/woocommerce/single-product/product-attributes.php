@@ -19,6 +19,21 @@ $attributes = $product->get_attributes();
 ob_start();
 
 ?>
+
+<?php
+// show location
+ $locationTerm = get_the_terms($product->get_id(), 'location');
+ $locationArr=[];
+
+ foreach($locationTerm as $locTerms){
+	$locationArr[] = $locTerms->name; 
+ }
+
+?>
+<?php if($locationArr) : ?>
+	<p>Location: <?= implode(', ',$locationArr) ?></p>
+<?php endif; ?>
+
 <div class="product_attributes">
 
 	<?php foreach ( $attributes as $attribute ) :
