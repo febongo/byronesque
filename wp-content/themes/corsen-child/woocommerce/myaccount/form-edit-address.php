@@ -28,9 +28,8 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 	<form method="post">
 
 		<h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h3><?php // @codingStandardsIgnoreLine ?>
-	<div class="woocommerce-myaccount-detailblock">
-		<h4>add address (Shipping/billing)</h4>
-		<div class="woocommerce-address-fields woocommerce-account-input">
+
+		<div class="woocommerce-address-fields">
 			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
 			<div class="woocommerce-address-fields__field-wrapper">
@@ -49,7 +48,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 				<input type="hidden" name="action" value="edit_address" />
 			</p>
 		</div>
-		</div>
+
 	</form>
 
 <?php endif; ?>
