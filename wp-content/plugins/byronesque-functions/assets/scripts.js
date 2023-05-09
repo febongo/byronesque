@@ -520,7 +520,15 @@
             $(".single_add_to_cart_button").hide();
 
             $("#JSLogin").click(function(){
-                $(".login-container").removeClass('hidden')
+                $("#get_account h4").text("Login")
+                $("#get_account").addClass('login-wrap')
+                $("#get_account").removeAttr("style");
+            });
+
+            $(document).on("click","#get_account #bn-login-close",function() {
+                console.log("this");
+                $("#get_account").removeClass('login-wrap')
+                $("#get_account").hide()
             });
         }
         

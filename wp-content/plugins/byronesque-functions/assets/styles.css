@@ -804,7 +804,7 @@
 }
 
 /* custom login */
-.login-container{
+/* .login-container{
     position: fixed;
     width: 100%;
     height: 100%;
@@ -822,4 +822,34 @@
     display: block;
     background: #fff;
     padding: 20px;
+} */
+
+#get_account.login-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+}
+
+#get_account.login-wrap .login-page{
+    width: 33%;
+    display: block;
+    background: #fff;
+    padding: 20px;
+} 
+
+#byro-side-content #bn-login-close{
+    display: none;
+}
+
+#get_account #bn-login-close.bn-close-btn{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
 }

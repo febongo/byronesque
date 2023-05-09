@@ -78,10 +78,12 @@ class wpb_widget_account extends WP_Widget {
 function get_account() {
 
     ?>
-    
+        <div class="login-page">
+            <p style="margin:0;text-align:right;"><span id="bn-login-close" class="bn-close-btn" style="background-image:url('/wp-content/plugins/byronesque-functions/assets/img/close.png')"></span></p>
         <h4>Account</h4>
         <?php if(!is_user_logged_in()) : ?>
         <?= do_shortcode('[byro-login-form]'); ?>
+        </div>
         <?php //do_shortcode('[miniorange_social_login shape="longbuttonwithtext" theme="default" space="8" width="180" height="35" color="000000"]'); ?>
         <?php else : 
             $menu_name = 'byronesque-account-settings'; //menu slug

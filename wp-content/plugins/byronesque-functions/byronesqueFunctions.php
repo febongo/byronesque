@@ -176,13 +176,6 @@ function add_content_after_addtocart() {
 		//echo '<a href="'.$checkout_url.'" class="buy-now button">Buy Now</a>';
 	} else {
         echo '<a href="#" id="JSLogin" class="trigger-login button alt wp-element-button">Add to Bag</a>';
-
-        echo "<div class='login-container hidden'>";
-        echo "<div class='login-page'>";
-        echo "<h4>Login</h4>";
-        echo do_shortcode('[byro-login-form]'); 
-        echo "</div>";
-        echo "</div>";
     }
 }
 add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );
@@ -589,7 +582,7 @@ function address_book_add() {
         </label></div>
     </div>
     <div class="submit-btn">
-        <input class="btn " type="submit" value="Save changees">
+        <input class="btn " type="submit" value="Save changes">
         <a href="/my-account/address-book/" class="btn">Exit without saving changes</a>
     </div>
     </form>

@@ -204,7 +204,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
+	<p class="woocommerce-mini-cart__buttons buttons">
+        <a href="/checkout/" class="button checkout wc-forward wp-element-button">Checkout</a>
+        <?php //do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?>
+    </p>
 
     <p class="mini-cart-note">You won’t be charged for your item(s) yet.</p>
 	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
