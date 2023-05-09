@@ -173,8 +173,8 @@ function search_product() {
                     $pexcerpt = substr($pexcerpt, 0, strrpos($excerpt, ' '));
                     $pexcerpt .= '...';
                 }
-                $subHeaderTitle = $result->short_description;
-
+                $subHeaderTitle = $product->short_description;
+                // echo "short >> $product->short_description";
                 $output .= '<li>';
                     $output .= '<a href="'.get_post_permalink($result->ID).'">';
                         $output .= '<div class="product-image">';
