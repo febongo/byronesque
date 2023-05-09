@@ -167,10 +167,13 @@ function search_product() {
                 $currency   = get_woocommerce_currency_symbol();
                 $product = new WC_Product($result->ID);
 
-                // $sku   = get_post_meta($result->ID,'_sku');
-                // $stock = get_post_meta($result->ID,'_stock_status');
-
-                // $categories = wp_get_post_terms($result->ID, 'product_cat');
+                $pexcerpt = strip_tags($result->post_content);
+                if (strlen($pexcerpt) > 100) {
+                    $pexcerpt = substr($pexcerpt, 0, 100);
+                    $pexcerpt = substr($pexcerpt, 0, strrpos($excerpt, ' '));
+                    $pexcerpt .= '...';
+                }
+                $subHeaderTitle = $result->short_description;
 
                 $output .= '<li>';
                     $output .= '<a href="'.get_post_permalink($result->ID).'">';
@@ -179,7 +182,7 @@ function search_product() {
                         $output .= '</div>';
                         $output .= '<div class="product-data">';
                             $output .= '<h6>'.$result->post_title.'</h6>';
-                            $output .= '<p>'.$result->post_content.'</p>';
+                            $output .= '<p>'.($subHeaderTitle ? $subHeaderTitle : $pexcerpt).'</p>';
                             if (!empty($price)) {
                                 $output .= '<div class="product-price">';
                                     $output .= $product->get_price_html();
