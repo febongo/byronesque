@@ -42,6 +42,20 @@ function add_product_extra_field() {
     ) );
 }
 
+add_action( 'woocommerce_product_options_sku', 'add_custom_field_below_sku' );
+
+function add_custom_field_below_sku() {
+
+    woocommerce_wp_text_input( array(
+        'id'          => '_product_list_sku',
+        'label'       => __( 'Bundle item codes', 'woocommerce' ),
+        'placeholder' => 'Enter Item codes',
+        'description' => __( 'Enter the item codes for this bundle product.', 'woocommerce' ),
+        'desc_tip'    => true,
+        'type'        => 'text',
+    ) );
+}
+
 // Save extra field value
 add_action( 'woocommerce_process_product_meta', 'save_product_extra_field', 10, 2 );
 function save_product_extra_field( $post_id, $post ) {
@@ -59,6 +73,11 @@ function save_product_extra_field( $post_id, $post ) {
     if ( isset( $_POST['_product_cost_of_goods'] ) ) {
         $product_archiving = floatval( $_POST['_product_cost_of_goods'] );
         update_post_meta( $post_id, '_product_cost_of_goods', $product_archiving );
+    }
+
+    if ( isset( $_POST['_product_list_sku'] ) ) {
+        $product_skus = floatval( $_POST['_product_list_sku'] );
+        update_post_meta( $post_id, '_product_list_sku', $product_skus );
     }
 }
 
