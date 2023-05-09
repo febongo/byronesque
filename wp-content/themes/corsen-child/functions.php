@@ -97,11 +97,13 @@ function custom_post_title($atts)
 
 
 add_menu_page( 
-    'Custom Products CSV Importer', 
-    'Custom Products CSV Importer', 
-    'manage_options', 
+    'Product CSV Importer', 
+    'Product CSV Importer', 
+    '9', 
     'import-products', 
-    'import_products_page' 
+    'import_products_page' ,
+    'dashicons-controls-repeat',
+    57
 ); 
  
 // var_dump(is_product());
