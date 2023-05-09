@@ -169,6 +169,12 @@ height: calc(100vh - 21em);
 	}
 }
 
+@media only screen and (max-width: 1024px){
+	.qodef-qi-interactive-link-showcase.qodef-layout--split .qodef-m-items {
+		justify-content: flex-start;
+	}
+}
+
 .js-home-title {
 	display: block;
 }
@@ -229,6 +235,12 @@ height: calc(100vh - 21em);
 	padding-left:42px;
 }
 
+@media only screen and (max-width: 767px){
+	.qodef-page-title .qodef-m-content.qodef-content-full-width {
+		padding-left:16px;
+	}
+}	
+	
 .fullwidth-editorial .qodef-m-image, .fullwidth-editorial-white .qodef-m-image  {
 	opacity: 0;
   /*  width: 100vw;
@@ -410,15 +422,27 @@ button[disabled] {
 	margin: 52px 0 !important;
 }
 
+@media only screen and (max-width: 720px){
+	.fullwidth-newsletter .newsletter-input {
+		display:block;
+		margin: 36px 0 40px;
+	}
+}
 
 
 .newsletter-input :first-child {
 	margin-right:20px;
 }
 
+@media only screen and (max-width: 720px){
+	.newsletter-input :first-child {
+		margin-bottom: 28px;
+	}
+}
+
 
 .newsletter-label, .newsletter-label a {
-	color: #11111152;
+	color: #11111152!important;
 	font-weight: 400;
 	font-size: 14px;
 }
@@ -923,6 +947,12 @@ Color: #1F1F1F;
 #qodef-page-content .woocommerce, .qodef-woo-product-list {
 	padding: 0 42px 0;
 	background-color:#F8F5EA;
+}
+
+@media only screen and (max-width: 767px) {
+#qodef-page-content .woocommerce, .qodef-woo-product-list {
+	padding: 0 16px 0;
+}
 }
 
 
@@ -1450,6 +1480,15 @@ Color: #1F1F1F;
 
 /* MOBILE */
 
+@media only screen and (max-width: 1024px) {
+	#qodef-top-area{
+		display: block;
+	}
+	#qodef-top-area-inner {
+		padding: 9px 16px;
+	}
+}
+
 #qodef-page-mobile-header {
 	background-color: #111;
 }
@@ -1468,7 +1507,20 @@ Color: #1F1F1F;
 	}
 }
 
+@media (max-width: 1024px) {
+	.qodef-grid.qodef-layout--template>.qodef-grid-inner{
+		grid-template-areas: "content"!important;
+	}
+}
+
+@media (max-width: 768px) {
+	#qodef-page-footer-top-area-inner .qodef-layout--columns.qodef-responsive--custom>.qodef-grid-inner .qodef-grid-item{
+		margin-bottom: none;
+}
+	
 #qodef-page-mobile-header .qodef-mobile-header-logo-link img, #qodef-page-mobile-header .qodef-header-logo-image.qodef--customizer {
-	width: 165px;
+	width: 165px!important;
+	height: 13px;
 	padding-left: 16px;
+	max-height: none!imporant;
 }
