@@ -44,13 +44,17 @@ ol, ul {
 	font-weight:500!important;
 }
 
-.b2, .b2-stressed,.editorial-shop .product-title,  .editorial-shop .product-description, .checkout-summary .cart_item .product-name {
+.b2, .b2-stressed,.editorial-shop .product-title, 
+.editorial-shop .product-description, 
+.checkout-summary .cart_item .product-name,
+.woocommerce-page div.woocommerce .shop_table th{
 	font-size: 16px!important;
 	line-height: 22px!important;
 	text-transform: capitalize;
 }
 
-.b2-stressed, .editorial-shop .product-title, .checkout-summary .cart_item .product-name {
+.b2-stressed, .editorial-shop .product-title,
+.checkout-summary .cart_item .product-name.{
 	font-weight: 700!important;
 }
 
@@ -82,6 +86,7 @@ input::placeholder, select::placeholder{
 .woocommerce-account .button, .woocommerce-mini-cart__buttons .button, 
 .woocommerce-MyAccount-content .submit-btn a, 
 .editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-button, 
+.editorial-page .qodef-qi-button.editorial-button,
 .nextBlock{
     font-family: 'termina';
 	line-height: 20px;
@@ -109,7 +114,9 @@ input::placeholder, select::placeholder{
 .checkoutBlocks h5, .woocommerce-checkout-block h4,
 .editorial-page .editorial-relatedpost h6, 
 .editorial-page .editorial-relatedpost h6 a,
-.editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-relatedpost h6 a{
+.editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-relatedpost h6 a,
+.woocommerce .woocommerce-order .woocommerce-thankyou-order-received,
+.woocommerce-order-received .woocommerce-order h2{
 	font-family: "termina";
 	font-size: 14px!important;;
 	line-height: 20px!important;;
@@ -452,8 +459,15 @@ button[disabled] {
 }
 
 .section-newsletter-dark .newsletter-label, .section-newsletter-dark .newsletter-label a, .newsletter-label, .newsletter-label a{
-	color: #111;
 	margin-top:20px!important;
+}
+
+.section-newsletter-dark .newsletter-label, .section-newsletter-dark .newsletter-label a{
+	color: #FFFFFF52!important;
+}
+
+.section-newsletter-dark .newsletter-input input{
+	border-color: #FFFFFF1F!important;
 }
 
 .section-newsletter-dark .newsletter-header h5{
@@ -1340,16 +1354,35 @@ Color: #1F1F1F;
 
 .woocommerce-MyAccount-content .myaccount-ordersblocks {
 	background-color: #F8F5EA;
-	padding: 12px 20px;
 }
 
 .woocommerce-MyAccount-content .woocommerce-orders-table tr {
 	border: none;
+	border-bottom: 10px solid #fff;
 }
 
 .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table td, 
 .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table th {
-	padding: 0;
+	padding: 12px 20px;
+}
+
+.woocommerce-orders-table__cell .woocommerce-button.button.view {
+	border-radius: 60px;
+	width: 40px;
+	height: 40px;
+	padding: 9px 0 0 0!important;
+	background-color: inherit;
+}
+
+.woocommerce-orders-table__cell .woocommerce-button.button.view img {
+	width: 20px;
+	height:20px;
+}
+
+.woocommerce-orders-table__cell .woocommerce-button.button.view:hover {
+	border: none;
+	transition: none;
+	background-color: #E9E4CE;
 }
 
 /* CHECKOUT */
@@ -1475,6 +1508,14 @@ Color: #1F1F1F;
 
 .wc_payment_method .wc-stripe-card-icons-container{
 	display: none ;
+}
+
+/* ORDER RECEIVED */
+.woocommerce .woocommerce-order {
+	background-color: #F9F7EE;
+    padding: 24px 26px;
+    width: 840px;
+    margin: 100px auto;
 }
 
 
