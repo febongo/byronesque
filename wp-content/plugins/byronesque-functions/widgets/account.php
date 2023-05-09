@@ -145,6 +145,8 @@ if(!function_exists('byro_login_form'))
     );
     wp_login_form($args);
     // add_lost_password_link();
+
+    echo "<p><b>Or <a href='/my-account'>Create an account</a></b></p>";
   }
   add_shortcode('byro-login-form', 'byro_login_form');
 }
@@ -181,3 +183,12 @@ add_action('init', function() {
 // echo '<link rel="preload" as="image" href="'.plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/person_w.png">';
   
 
+// if (!is_user_logged_in()) {
+//     echo "<div class='login-container'>";
+//     echo "<div class='login-page'>";
+//     echo "<h4></h4>";
+//     echo do_shortcode('[byro-login-form]'); 
+//     echo "</div>";
+//     echo "</div>";
+
+// }

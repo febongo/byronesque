@@ -796,3 +796,30 @@
 #qodef-woo-page .qodef-woo-product-list:not(.qodef--hover-image) .qodef-e-inner:hover .qodef-woo-product-image img{
     transform: translateX(0) translateZ(0) scale(var(--qodef-img-scale)) !important;
 }
+
+.single-product div#qodef-woo-page.qodef--single .entry-summary form.cart .trigger-login{
+    margin-bottom: 8px;
+    background: #111;
+    color: #fff;
+}
+
+/* custom login */
+.login-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+}
+
+.login-page{
+    width: 33%;
+    display: block;
+    background: #fff;
+    padding: 20px;
+}

@@ -171,10 +171,19 @@ function add_content_after_addtocart() {
 	$checkout_url = WC()->cart->get_checkout_url();
 
 	// run only on simple products
-	if( $product->is_type( 'simple' ) ){
+	if( $product->is_type( 'simple' ) && is_user_logged_in() ){
 		echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Buy Now</a>';
 		//echo '<a href="'.$checkout_url.'" class="buy-now button">Buy Now</a>';
-	}
+	} else {
+        echo '<a href="#" id="JSLogin" class="trigger-login button alt wp-element-button">Add to Bag</a>';
+
+        echo "<div class='login-container hidden'>";
+        echo "<div class='login-page'>";
+        echo "<h4>Login</h4>";
+        echo do_shortcode('[byro-login-form]'); 
+        echo "</div>";
+        echo "</div>";
+    }
 }
 add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );
 
