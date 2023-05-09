@@ -44,6 +44,8 @@ ol, ul {
 	font-weight:500!important;
 }
 
+
+
 .b2, .b2-stressed,.editorial-shop .product-title, 
 .editorial-shop .product-description, 
 .checkout-summary .cart_item .product-name,
@@ -54,7 +56,7 @@ ol, ul {
 }
 
 .b2-stressed, .editorial-shop .product-title,
-.checkout-summary .cart_item .product-name.{
+.checkout-summary .cart_item .product-name{
 	font-weight: 700!important;
 }
 
@@ -162,13 +164,17 @@ input::placeholder, select::placeholder{
 
 /* INTERACTIVE LIST */
 
-/*.elementor-14 .elementor-element.elementor-element-dce5bfa .qodef-m-items {
-height: calc(100vh - 21em);
-}*/
 
 .qodef-qi-interactive-link-showcase.qodef-layout--split {
 	height: 720px;
 }
+
+@media only screen and (min-width: 2000px){
+	.qodef-qi-interactive-link-showcase.qodef-layout--split {
+		height: 1024px;
+	}
+}
+
 
 @media only screen and (max-width: 480px){
 	.qodef-qi-interactive-link-showcase.qodef-layout--split {
@@ -744,6 +750,11 @@ div#qodef-woo-page.qodef--single .entry-summary .qodef-woo-product-title .produc
 	margin-right: 4px;
 }
 
+.product-shipsfrom .att_label {
+	margin-left: 4px;
+}
+
+
 .card-header p {
 	margin: 12px 0 10px;
 	letter-spacing: 0;
@@ -1145,7 +1156,7 @@ Color: #1F1F1F;
 
 
 .default, .checkout-summary .shippingTo, .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table tr th {
-	font-size: 14px;
+	font-size: 14px!important;
 	font-weight: 400;
 	letter-spacing: .01em;	
 	margin: 0 0 14px;
@@ -1356,15 +1367,19 @@ Color: #1F1F1F;
 	background-color: #F8F5EA;
 }
 
-.woocommerce-MyAccount-content .woocommerce-orders-table tr {
+.woocommerce-MyAccount-content .woocommerce-orders-table tr.order {
 	border: none;
 	border-bottom: 10px solid #fff;
 }
 
+.order-header {
+	border: 0;
+}
+
 .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table td, 
 .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table th {
-	padding: 12px 20px;
-}
+	padding: 12px 10px 0 10px;
+}	
 
 .woocommerce-orders-table__cell .woocommerce-button.button.view {
 	border-radius: 60px;
@@ -1528,6 +1543,7 @@ Color: #1F1F1F;
 	#qodef-top-area-inner {
 		padding: 9px 16px;
 	}
+	
 }
 
 #qodef-page-mobile-header {
@@ -1545,6 +1561,23 @@ Color: #1F1F1F;
 	}
 	.order-summary-block {
 		order: 1;
+	}
+}
+@media only screen and (max-width: 768px) {
+    #qodef-page-header {
+        display: none;
+    }
+	#qodef-page-mobile-header {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 767px) {
+    #qodef-page-header {
+        display: block;
+    }
+	#qodef-page-mobile-header {
+		display: none;
 	}
 }
 

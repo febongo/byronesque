@@ -30,9 +30,6 @@ ob_start();
  }
 
 ?>
-<?php if($locationArr) : ?>
-	<p>Location: <?= implode(', ',$locationArr) ?></p>
-<?php endif; ?>
 
 <div class="product_attributes">
 
@@ -56,6 +53,14 @@ ob_start();
 	</div>
 
 	<?php endforeach; ?>
+	
+	<div class="product-shipsfrom"><?php if($locationArr) : ?>
+		<span class="att_label b2-stressed">Location: </span>
+		<span class="att_value b2"><?= implode(', ',$locationArr) ?></span><!-- .att_value -->
+	</div><?php endif; ?>
+
+
+
 
 
 
