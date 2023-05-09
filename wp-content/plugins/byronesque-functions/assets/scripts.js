@@ -51,7 +51,7 @@
             	}).remove();
             	
                 // remove social login inline styles
-                $("#loginform .mo-openid-app-icons a").removeAttr("style");
+                $(".mo-openid-app-icons a").removeAttr("style");
             }
         });
 
@@ -510,6 +510,18 @@
             })
 
             
+        }
+
+        $(".single_add_to_cart_button").click(function(){
+            alert();
+        });
+
+        if ( $("#JSLogin").length ) {
+            $(".single_add_to_cart_button").hide();
+
+            $("#JSLogin").click(function(){
+                $(".login-container").removeClass('hidden')
+            });
         }
         
         
