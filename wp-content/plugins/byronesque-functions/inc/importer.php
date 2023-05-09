@@ -70,7 +70,7 @@ function import_products_page() {
         <h2>Import Products</h2> 
 
         <div class="notice notice-info">
-            <p style="font-weight:bold">This importer is only meant for byronesque products. Here's a sample template <a href="https://vzc.hva.mybluehost.me/wp-content/uploads/2023/05/updated-sample-template.csv">CSV</a></p>
+            <p style="font-weight:bold">This importer is only meant for byronesque products. Here's a sample template <a href="/wp-content/uploads/2023/05/byro-sample-product-template.csv">CSV</a></p>
         </div>
         <hr>
         <form method="post" enctype="multipart/form-data"> 
@@ -102,6 +102,7 @@ function assigndataToArray($data){
         "conditionNotes"        => $data[$cnt++],
         "shippingReturnPolicy"  => $data[$cnt++],
         "sku"                   => $data[$cnt++],
+        "skuBundle"             => $data[$cnt++],
         "shippingWeight"        => $data[$cnt++],
         "shippingBox"           => explode("x",$data[$cnt++]),
         "commission"            => $data[$cnt++],
@@ -177,6 +178,9 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         update_field( 'shipping_and_return_policy', $dataArray['shippingReturnPolicy'], $product_id ); 
 
         // UPDATE PRODUCT EXTRA FIELDS
+        if ($dataArray['skuBundle'])
+            update_post_meta( $product_id, '_product_list_sku', $dataArray['skuBundle'] );
+
         if ($dataArray['commission']) 
             update_post_meta( $product_id, '_product_commission', $dataArray['commission'] );
         
@@ -187,13 +191,13 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             update_post_meta( $product_id, '_product_cost_of_goods', $dataArray['costOfGoods'] );
         
         // UPDATE SEO TAGS
-        if ($dataArray['costOfGoods'])
+        if ($dataArray['seoTitle'])
             update_post_meta($product_id, '_yoast_wpseo_title', $dataArray['seoTitle']);
 
-        if ($dataArray['costOfGoods'])
+        if ($dataArray['seoDescription'])
             update_post_meta($product_id, '_yoast_wpseo_metadesc', $dataArray['seoDescription']);
 
-        if ($dataArray['costOfGoods'])
+        if ($dataArray['seoKeywords'])
             update_post_meta($product_id, '_yoast_wpseo_focuskw', $dataArray['seoKeywords']);
 
         // add size variations
