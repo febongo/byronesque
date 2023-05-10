@@ -294,14 +294,24 @@
         // ADD IMAGE INFO
         if ( $(".home-interactive-links .qodef-m-images .qodef-e-image img").length ) {
             var images = $(".home-interactive-links .qodef-m-images .qodef-e-image")
+            var links = $(".home-interactive-links .qodef-m-items a")
+            // console.log(links[0],images);
+            // links.each(function(ndx){
+            //     console.log("this links",$(this).attr('href'));
+            // })
 
             images.each(function(ndx){
+                // console.log("index", $(links[0]).attr('href')   )
                 // console.log($(this).find('img').attr('src'))
                 var this_ = $(this)
                 $.ajax({
                     url:opt.ajaxUrl,
                     type: 'post',
-                    data: { action: 'get_image_meta', imgurl: $(this).find('img').attr('src') },
+                    data: { 
+                        action: 'get_image_meta', 
+                        imgurl: $(this).find('img').attr('src'),
+                        link: $(links[ndx]).attr('href') 
+                    },
                     success: function(data) {
                         if (data) {
                             this_.append(data);

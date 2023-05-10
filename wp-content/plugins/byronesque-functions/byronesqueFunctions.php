@@ -305,6 +305,7 @@ add_shortcode('shop-filters', 'shopFilters');
 function get_image_meta() {
     if (isset($_POST['imgurl']) && !empty($_POST['imgurl'])) {
         $url = $_POST['imgurl'];
+        $link = $_POST['link'];
         // REMOVE ADDED URI
         $url = str_replace("i0.wp.com/","",$url);
         $url = (explode("?",$url))[0];
@@ -325,7 +326,12 @@ function get_image_meta() {
             echo "<p class='js-home-fold-description'>
                     <span class='js-home-title'>".$attachment->post_title."</span>
                     <span class='js-home-desc'>".$attachment->post_content."</span>
-                </p>";
+                </p>
+                ";
+        }
+
+        if ($link) {
+            echo "<a class='js-home-fold-link' href='$link'></a>";
         }
         
 
