@@ -171,7 +171,7 @@ function add_content_after_addtocart() {
 	$checkout_url = WC()->cart->get_checkout_url();
 
 	// run only on simple products
-	if( $product->is_type( 'simple' ) && is_user_logged_in() ){
+	if( is_user_logged_in() ){
 		echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Buy Now</a>';
 		//echo '<a href="'.$checkout_url.'" class="buy-now button">Buy Now</a>';
 	} else {
