@@ -409,6 +409,87 @@ function add_selling_contents() {
    
 add_action( 'woocommerce_account_customer-selling_endpoint', 'add_selling_contents' );
 
+// --------------------
+// add ajax action event function 
+function updateRequestSelling( ) {
+    global $wpdb;
+    // TYPE IS EITHER shipping | billing
+    $id   = $_GET['id'];
+    $type = $_GET['type'];
+    $dataAction = $_GET['dataAction'];
+
+    $headers = array(
+        'Content-Type: text/html; charset=UTF-8',
+        'From: Person Name <email@here.com>'
+    );
+    $email="febongo@gmail.com";
+    $subject="";
+    $html_message="";
+
+    $customer_id = get_field('customer',$id);
+    $customer = get_user_by( 'id', $customer_id );
+    $homeUrl = home_url();
+
+    switch($dataAction){
+        case 'cancel':
+            update_field( 'status', 'cancel', $id ); 
+            $subject="Customer Cancelled a product $type";
+            $html_message="<p>Hi Admin,</p>
+                            <p></p>
+                            <p>Customer cancelled the product $type</p>
+                            <p>Customer Email: $customer->user_email
+                            <br>
+                            Customer Name: $customer->display_name
+                            </p>
+                            <p>Dashboard <a href='$homeUrl/wp-admin/post.php?post=$id&action=edit'>link</a></p>    
+                        ";
+        break;
+        case 'update':
+            $subject="Customer request an update of product $type";
+            $html_message="<p>Hi Admin,</p>
+                            <p></p>
+                            <p>Customer request an update of product $type</p>
+                            <p>Customer Email: $customer->user_email
+                            <br>
+                            Customer Name: $customer->display_name
+                            </p>
+                            <p>Dashboard <a href='$homeUrl/wp-admin/post.php?post=$id&action=edit'>link</a></p>    
+                        ";  
+        break;
+                        
+    }
+
+    // Get the WC_Emails instance
+    $wc_emails = WC()->mailer()->get_emails();
+    // var_dump($wc_emails);
+    // Loop through the emails and find the new order email
+    foreach ( $wc_emails as $wc_email ) { 
+        if ( $wc_email->id === 'new_order' ) {
+            // echo "this";
+            // var_dump($wc_email->recipient);
+            // Found the new order email, get its settings
+            $email = $wc_email->recipient;
+            
+            // var_dump($new_order_settings);
+            
+            // Exit the loop since we found the email we were looking for
+            break;
+        }
+    }
+    
+    // $emailArr = explode(",", $email);
+    wp_mail( $email, $subject, $html_message, $headers );
+    echo wp_json_encode([
+        'status' => "ok",
+        'message' => "Your Request is already sent to support"
+    ]);
+
+    die();
+}
+
+add_action( 'wp_ajax_updateRequestSelling', 'updateRequestSelling' );
+add_action( 'wp_ajax_nopriv_updateRequestSelling', 'updateRequestSelling' );
+
 function address_book_contents() {
     global $wpdb;
 
@@ -454,7 +535,7 @@ function address_book_contents() {
 
         echo "<a href='/my-account/address-book-add/' class='button wc-forward wp-element-button'>Add Addresses</a>";
     }
- }
+}
    
 add_action( 'woocommerce_account_address-book_endpoint', 'address_book_contents' );
 
@@ -742,6 +823,7 @@ function customerRequest( $attr ) {
             // setup_postdata( $post );
             $size = get_field('size',$post->ID);
             $price = get_field('price', $post->ID);
+            $status = get_field('status', $post->ID);
             ?>
             <li>
             <table class="table table-request">
@@ -756,8 +838,21 @@ function customerRequest( $attr ) {
                         <p><?= $price ?></p>
                     </td>
                     <td>
-                        <p><a href="#">Email us for update</a></p>
-                        <p><a href="#">cancel request</a></p>
+                        
+                        <?php if( $status != 'cancel' 
+                                || $status != 'cancelled' 
+                                || $status != 'sold' 
+                              ) : 
+                        ?>
+                            <p>
+                                <span class="jsSendEmail" data-id="<?= $post->ID ?>" data-type="<?= $a['type'] ?>" data-action="update">Email us for update</span>
+
+                            </p>
+                        <?php endif; ?>
+
+                        <?php if( $status == 'processing' ) : ?>
+                            <p><span class="jsSendEmail" data-id="<?= $post->ID ?>" data-type="<?= $a['type'] ?>" data-action="cancel">cancel request</span></p>
+                        <?php endif; ?>
                     </td>
                 </tr>
             </table>

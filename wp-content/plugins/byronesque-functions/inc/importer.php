@@ -31,8 +31,9 @@ function import_products_page() {
             $parent_product_id;
             while ( ( $data = fgetcsv( $file ) ) !== false ) { 
                 // get data from CSV and map to product fields
-
+                // echo "assign data";
                 $dataArray = assigndataToArray($data);
+                // echo "2";
                 if ( $dataArray['productType'] && $dataArray['title'] != "BRAND" ) {
                     // check if the product with the SKU already exists
                     $product_id = wc_get_product_id_by_sku( $dataArray['sku'] );
@@ -65,12 +66,12 @@ function import_products_page() {
     if ( isset( $_POST['submit'] ) ) { 
         echo '<div class="updated"><p>Products imported successfully!</p><ul>'.$htmlMessage.'</ul></div>'; 
     } 
-?> 
+    ?> 
     <div class="wrap"> 
         <h2>Import Products</h2> 
 
         <div class="notice notice-info">
-            <p style="font-weight:bold">This importer is only meant for byronesque products. Here's a sample template <a href="/wp-content/uploads/2023/05/byro-sample-product-template.csv">CSV</a></p>
+            <p style="font-weight:bold">This importer is only meant for byronesque products. Here's a sample template <a href="/wp-content/uploads/2023/05/byro-sample-product-template.v3-in.csv">CSV</a></p>
         </div>
         <hr>
         <form method="post" enctype="multipart/form-data"> 
@@ -78,7 +79,7 @@ function import_products_page() {
             <?php submit_button( 'Import Products' ); ?> 
         </form> 
     </div> 
-<?php 
+    <?php 
 } 
 
 // ASSIGN DATA TO FORMATTED ARRAY
@@ -102,9 +103,9 @@ function assigndataToArray($data){
         "conditionNotes"        => $data[$cnt++],
         "shippingReturnPolicy"  => $data[$cnt++],
         "sku"                   => $data[$cnt++],
-        "skuBundle"             => $data[$cnt++],
         "shippingWeight"        => $data[$cnt++],
         "shippingBox"           => explode("x",$data[$cnt++]),
+        "appraisalFee"          => $data[$cnt++],
         "commission"            => $data[$cnt++],
         "archivingFee"          => $data[$cnt++],
         "costOfGoods"           => $data[$cnt++],
@@ -112,8 +113,9 @@ function assigndataToArray($data){
         "seoKeywords"           => $data[$cnt++],
         "seoTitle"              => $data[$cnt++],
         "seoDescription"        => $data[$cnt++],
+        "relatedItems"          => explode($separator,$data[$cnt++]),
         "productType"           => $data[$cnt++],
-        "productParent"         => $data[$cnt++]
+        "productParent"         => 1
     ];
 }
 
@@ -124,7 +126,7 @@ function saveDataFromCsv($dataArray){
     }
 
     // echo "TYPE: {$dataArray['productType']}";
-    if ($dataArray['productType'] == 'variable') {
+    if (strtolower($dataArray['productType']) == 'variable') {
         // echo "Createing variable";
         $product = new WC_Product_Variable();
     } else {
@@ -136,6 +138,7 @@ function saveDataFromCsv($dataArray){
     $product->set_short_description( $dataArray['subHeader'] );
     $product->set_regular_price( $dataArray['price'] );
     $product->set_description( $dataArray['details'] );
+    $product->set_status( "draft" );
 
     // if($catArr)
     // $product->set_category_ids( $catArr );
@@ -178,8 +181,9 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         update_field( 'shipping_and_return_policy', $dataArray['shippingReturnPolicy'], $product_id ); 
 
         // UPDATE PRODUCT EXTRA FIELDS
-        if ($dataArray['skuBundle'])
-            update_post_meta( $product_id, '_product_list_sku', $dataArray['skuBundle'] );
+
+        if ($dataArray['appraisalFee']) 
+            update_post_meta( $product_id, '_product_appraisal', $dataArray['appraisalFee'] );
 
         if ($dataArray['commission']) 
             update_post_meta( $product_id, '_product_commission', $dataArray['commission'] );
@@ -192,13 +196,13 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         
         // UPDATE SEO TAGS
         if ($dataArray['seoTitle'])
-            update_post_meta($product_id, '_yoast_wpseo_title', $dataArray['seoTitle']);
+            update_post_meta($product_id, '_yoast_wpseo_title', $dataArray['seoTitle'] ? $dataArray['seoTitle'] : $dataArray['title']);
 
         if ($dataArray['seoDescription'])
-            update_post_meta($product_id, '_yoast_wpseo_metadesc', $dataArray['seoDescription']);
+            update_post_meta($product_id, '_yoast_wpseo_metadesc', $dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay']);
 
         if ($dataArray['seoKeywords'])
-            update_post_meta($product_id, '_yoast_wpseo_focuskw', $dataArray['seoKeywords']);
+            update_post_meta($product_id, '_yoast_wpseo_focuskw', $dataArray['seoKeywords'] ? $dataArray['seoKeywords'] : $dataArray['byroSay']);
 
         // add size variations
         if ( sizeof($dataArray['size']) > 0 && $dataArray['productParent']) {
@@ -316,6 +320,21 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
                 $cat_ids[]=$cat->term_id;
             }
             wp_set_object_terms( $product_id, $cat_ids, 'product_cat' );
+        }
+        var_dump($dataArray['relatedItems']);
+        // add croos / up sell
+        if ( sizeof($dataArray['relatedItems']) > 0 ){
+            $related_ids=[];
+            foreach($dataArray['relatedItems'] as $relatedProd){
+    
+                $related_id = wc_get_product_id_by_sku( $relatedProd );
+                if ($related_id) {
+                    $related_ids[] = $related_id;
+                }
+            }
+            var_dump($related_ids);
+            update_post_meta( $product_id, '_upsell_ids',$related_ids );
+            update_post_meta( $product_id, '_crosssell_ids',$related_ids );
         }
 
         // echo "<p>End of simple save</p>";

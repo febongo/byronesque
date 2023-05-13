@@ -2,6 +2,20 @@
 // Add commission field to product general tab
 add_action( 'woocommerce_product_options_general_product_data', 'add_product_extra_field' );
 function add_product_extra_field() {
+
+    woocommerce_wp_text_input( array(
+        'id'          => '_product_appraisal',
+        'label'       => __( 'Price less 200 appraisal fee', 'woocommerce' ),
+        'placeholder' => 'Enter appraisal fee',
+        'description' => __( 'Enter the appraisal fee price less 200.', 'woocommerce' ),
+        'desc_tip'    => true,
+        'type'        => 'number',
+        'custom_attributes' => array(
+            'min' => '0',
+            'step' => '0.01'
+        ),
+    ) );
+
     woocommerce_wp_text_input( array(
         'id'          => '_product_commission',
         'label'       => __( 'Product Commission', 'woocommerce' ),
@@ -42,7 +56,7 @@ function add_product_extra_field() {
     ) );
 }
 
-add_action( 'woocommerce_product_options_sku', 'add_custom_field_below_sku' );
+// add_action( 'woocommerce_product_options_sku', 'add_custom_field_below_sku' );
 
 function add_custom_field_below_sku() {
 
@@ -59,6 +73,11 @@ function add_custom_field_below_sku() {
 // Save extra field value
 add_action( 'woocommerce_process_product_meta', 'save_product_extra_field', 10, 2 );
 function save_product_extra_field( $post_id, $post ) {
+
+    if ( isset( $_POST['_product_appraisal'] ) ) {
+        $product_commission = floatval( $_POST['_product_appraisal'] );
+        update_post_meta( $post_id, '_product_appraisal', $product_commission );
+    }
 
     if ( isset( $_POST['_product_commission'] ) ) {
         $product_commission = floatval( $_POST['_product_commission'] );
