@@ -853,6 +853,18 @@ function customerRequest( $attr ) {
                         <?php if( $status == 'processing' ) : ?>
                             <p><span class="jsSendEmail" data-id="<?= $post->ID ?>" data-type="<?= $a['type'] ?>" data-action="cancel">cancel request</span></p>
                         <?php endif; ?>
+
+                        <?php if( $status == 'cancel' ) : ?>
+                            <p><span >Processing cancellation request</span></p>
+                        <?php endif; ?>
+
+                        <?php if( $status == 'cancelled' ) : ?>
+                            <p><span >Cancelled</span></p>
+                        <?php endif; ?>
+
+                        <?php if( $status == 'sold' ) : ?>
+                            <p><span >Sold</span></p>
+                        <?php endif; ?>
                     </td>
                 </tr>
             </table>
