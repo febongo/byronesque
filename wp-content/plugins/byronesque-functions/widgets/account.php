@@ -148,7 +148,7 @@ if(!function_exists('byro_login_form'))
     wp_login_form($args);
     // add_lost_password_link();
 
-    echo "<p><b>Or <a href='/my-account'>Create an account</a></b></p>";
+    echo "<p class='b2'>Or <a href='/my-account'>Create an account</a></p>";
   }
   add_shortcode('byro-login-form', 'byro_login_form');
 }
