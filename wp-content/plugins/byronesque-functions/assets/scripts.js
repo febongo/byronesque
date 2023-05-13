@@ -541,6 +541,32 @@
                 $("#get_account").hide()
             });
         }
+
+        $(".jsSendEmail").click(function(){
+            $(this).hide();
+            $(this).parent().append("sending request...");
+            let this_ = $(this);
+            $.ajax({
+                url:opt.ajaxUrl,
+                type: 'get',
+                data: { 
+                    action:  'updateRequestSelling',
+                    id:  $(this).attr('data-id'),
+                    type:  $(this).attr('data-type'),
+                    dataAction:  $(this).attr('data-action'),
+                },
+                success: function(data) {
+                    let reqData = $.parseJSON(data);
+                    this_.parent().html(reqData.message);
+                },
+                done: function(data){
+                    let reqData = $.parseJSON(data);
+                    this_.parent().html(reqData.message);
+                }
+            });
+
+            return false;
+        });
         
         
         
