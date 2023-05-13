@@ -420,7 +420,7 @@ function updateRequestSelling( ) {
 
     $headers = array(
         'Content-Type: text/html; charset=UTF-8',
-        'From: Person Name <email@here.com>'
+        'From: Byronesque<admin@byronesque.com>'
     );
     $email="febongo@gmail.com";
     $subject="";
