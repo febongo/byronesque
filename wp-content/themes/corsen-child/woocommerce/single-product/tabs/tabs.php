@@ -39,8 +39,45 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 
 ?>
 
+<div class="accordion accordion-flush" id="accordionFlushExample">
+
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="flush-headingOne">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+			Accordion Item #1
+			</button>
+		</h2>
+		<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+			<div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+		</div>
+	</div>
+	
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="flush-headingTwo">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+			Accordion Item #2
+			</button>
+		</h2>
+		<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+			<div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+		</div>
+	</div>
+
+	<div class="accordion-item">
+	<h2 class="accordion-header" id="flush-headingThree">
+		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+		Accordion Item #3
+		</button>
+	</h2>
+	<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+		<div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+	</div>
+	</div>
+</div>
+
+
 <div class="woocommerce-tabs wc-tabs-wrapper">
-	<div class="accordion" id="productDescription">	
+	<div class="accordion accordion-flush" id="productDescription">	
 
 		
 		<?php 
@@ -54,87 +91,86 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		?>
 		<!-- BYRONESQUE SAYS  -->
 		<?php if ($byronesque_say) : ?>
-		<div class="card">
-			<div class="card-header" id="headingByroSay">
-				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionByroSay" aria-expanded="true" aria-controls="productDescriptionByroSay">
-					Byronesque says
-				</p>
-			</div>
 
-			<div id="productDescriptionByroSay" class="collapse" aria-labelledby="headingByroSay" data-parent="#productDescriptionByroSay">
-				<div class="card-body">
-				<?= $byronesque_say ?>
+
+			<div class="accordion-item" id="productDescriptionByroSayLabel">
+				<h2 class="accordion-header">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionByroSay" aria-expanded="true" aria-controls="productDescriptionByroSay">
+					Byronesque says
+					</button>
+				</h2>
+				<div id="productDescriptionByroSay" class="accordion-collapse collapse" aria-labelledby="productDescriptionByroSayLabel" data-bs-parent="#productDescription">
+					<div class="accordion-body">
+					<?= $byronesque_say ?>
+					</div>
 				</div>
 			</div>
-		</div>
 		<?php endif; ?>
 
 		<!-- MADE IN  -->
 		<?php if ($product_details) : ?>
-		<div class="card">
-			<div class="card-header" id="headingMadeIn">
-				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionMadeIn" aria-expanded="true" aria-controls="productDescriptionMadeIn">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="productDescriptionMadeInlabel">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionMadeIn" aria-expanded="true" aria-controls="productDescriptionMadeIn">
 					Product details
-				</p>
-			</div>
-
-			<div id="productDescriptionMadeIn" class="collapse" aria-labelledby="headingMadeIn" data-parent="#productDescriptionMadeIn">
-				<div class="card-body">
-				<?= $product_details ?>
+					</button>
+				</h2>
+				<div id="productDescriptionMadeIn" class="accordion-collapse collapse" aria-labelledby="productDescriptionMadeInlabel" data-bs-parent="#productDescription">
+					<div class="accordion-body">
+					<?= $product_details ?>
+					</div>
 				</div>
 			</div>
-		</div>
 		<?php endif; ?>
 
 		<!-- MADE FROM  -->
 		<?php if ($measurements) : ?>
-		<div class="card">
-			<div class="card-header" id="headingMadeFrom">
-				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionMadeFrom" aria-expanded="true" aria-controls="productDescriptionMadeFrom">
+			<div class="accordion-item">
+				<h2 class="accordion-header">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionMadeFrom" aria-expanded="true" aria-controls="productDescriptionMadeFrom">
 					Measurements
-				</p>
-			</div>
-
-			<div id="productDescriptionMadeFrom" class="collapse" aria-labelledby="headingMadeFrom" data-parent="#productDescriptionMadeFrom">
-				<div class="card-body">
-				<?= $measurements ?>
+					</button>
+				</h2>
+				<div id="productDescriptionMadeFrom" class="accordion-collapse collapse" aria-labelledby="productDescriptionMadeFrom" data-bs-parent="#productDescription">
+					<div class="accordion-body">
+					<?= $measurements ?>
+					</div>
 				</div>
 			</div>
-		</div>
+
 		<?php endif; ?>
 
 		<!-- Condition and care notes  -->
 		<?php if ($condition_and_) : ?>
-		<div class="card">
-			<div class="card-header" id="headingCondition">
-				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionCondition" aria-expanded="true" aria-controls="productDescriptionCondition">
-				Condition and care notes
-				</p>
-			</div>
-
-			<div id="productDescriptionCondition" class="collapse" aria-labelledby="headingCondition" data-parent="#productDescriptionCondition">
-				<div class="card-body">
-				<?= $condition_and_ ?>
+			<div class="accordion-item">
+				<h2 class="accordion-header">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionCondition" aria-expanded="true" aria-controls="productDescriptionCondition">
+					Condition and care notes
+					</button>
+				</h2>
+				<div id="productDescriptionCondition" class="accordion-collapse collapse" aria-labelledby="productDescriptionCondition" data-bs-parent="#productDescription">
+					<div class="accordion-body">
+					<?= $condition_and_ ?>
+					</div>
 				</div>
 			</div>
-		</div>
+
 		<?php endif; ?>
 
 		<!-- shipping_and_return_policy  -->
 		<?php if ($shipping_and_return_policy) : ?>
-		<div class="card">
-			<div class="card-header" id="headingShipping">
-				<p class="mb-0" data-toggle="collapse" data-target="#productDescriptionShipping" aria-expanded="true" aria-controls="productDescriptionShipping">
+			<div class="accordion-item">
+				<h2 class="accordion-header">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionShipping" aria-expanded="true" aria-controls="productDescriptionShipping">
 					Shipping & returns policy
-				</p>
-			</div>
-
-			<div id="productDescriptionShipping" class="collapse" aria-labelledby="headingShipping" data-parent="#productDescriptionShipping">
-				<div class="card-body">
-				<?= $shipping_and_return_policy ?>
+					</button>
+				</h2>
+				<div id="productDescriptionShipping" class="accordion-collapse collapse" aria-labelledby="productDescriptionShipping" data-bs-parent="#productDescription">
+					<div class="accordion-body">
+					<?= $shipping_and_return_policy ?>
+					</div>
 				</div>
 			</div>
-		</div>
 		<?php endif; ?>
 
 		
@@ -181,78 +217,17 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 <div class="product-ref">Runway photo credit: <?= $runaway_photo_credit ?></div>
 <?php endif; ?>
 
-
-
-<script>
-jQuery(document).ready(function($) {
-  $('.accordion .card-header').click(function() {
-	$(".accordion .card").removeClass("open")
-	$(this).parent().toggleClass('open');
-
-  });
-
-  $(".open-auth-note").click(function(){
-	  $(".authenticity_note_pop").css("display","flex");
-  });
-
-  $(".authenticity_note_pop_close").click(function(){
-	  $(".authenticity_note_pop").css("display","none");
-  });
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <style>
-.accordion .card-header {
-  cursor: pointer;
+.accordion-button:not(.collapsed){
+	background-color: #000;
+	color: #fff;
 }
-.accordion .card-body {
-  display: none;
-  height: 0px;
-  overflow: hidden;
-  transition: height 1s;
-}
-.accordion .open .card-header {
-  border-bottom: none;
-}
-
-.accordion .open .card-body {
-  display: block !important;
-  height: auto;
-}
-
-.single-product .product_meta{
-	display: none;
-}
-
-.authenticity_note_pop{
-	position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-	padding: 0;
-	padding-right:0 !important;
-    display: none;
-    align-items: center;
-    justify-content: center;
-	z-index: 11;
-	
-}
-
-.authenticity_note_pop .overlay{
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.authenticity_note_pop .auth-content-wrap{
-	max-width: 567px;
-    background: #fff;
-    padding: 40px;
-    z-index: 9999;
-    position: relative;
+.accordion-button:focus{
+	border: none;
+	box-shadow: none;
 }
 </style>

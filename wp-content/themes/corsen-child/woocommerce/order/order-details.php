@@ -98,6 +98,7 @@ if ( $show_downloads ) {
 	</table>
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+	
 </section>
 
 <?php

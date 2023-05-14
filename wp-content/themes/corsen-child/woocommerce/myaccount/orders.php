@@ -76,13 +76,30 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 								if ( ! empty( $actions ) ) {
 									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button' . esc_attr( $wp_button_class ) . ' button ' . sanitize_html_class( $key ) . '">' . '<img src="/wp-content/uploads/2023/05/plus.svg">' . '</a>';
+										if ($action['name'] == "View" ) {
+											echo '<span class="toggle-details" data-details="order-details-'.$order->get_id().'">
+													<img class="open-arrow" src="/wp-content/uploads/2023/05/plus.svg">
+													<img class="close-arrow" src="/wp-content/uploads/2023/05/minus.svg"></span>
+												 ';
+										} else {
+											echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button' . esc_attr( $wp_button_class ) . ' button ' . sanitize_html_class( $key ) . '">' . $action['name'] . '</a>';
+										}
 									}
 								}
+
+								// echo $order->get_id();
 								?>
+								
 							<?php endif; ?>
 						</td>
 					<?php endforeach; ?>
+				</tr>
+				<tr id="order-details-<?= $order->get_id() ?>" class="hide order-detail-contents">
+					<td colspan="5">
+						<div class="order-details">
+							<?php wc_get_template( 'order/order-details.php', array( 'order_id' => $order->get_id() ) ); ?>
+						</div>
+					</td>
 				</tr>
 				<?php
 			}
@@ -120,3 +137,41 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_account_orders', $has_orders ); ?>
+
+<style>
+	tr.hide{
+		display: none;
+	}
+
+	.toggle-details .open-arrow{
+		display: block;
+	}
+	.toggle-details .close-arrow{
+		display: none;
+	}
+
+	.toggle-details.show .open-arrow{
+		display: none;
+	}
+	.toggle-details.show .close-arrow{
+		display: block;
+	}
+</style>
+
+<script>
+	jQuery(document).ready(function($){
+		$(".toggle-details").click(function(){
+			var trId = $(this).attr('data-details')
+			if( $(this).hasClass("show") ){
+				$(".toggle-details").removeClass("show")
+
+			} else {
+				$(".toggle-details").removeClass("show")
+				$(this).addClass("show")
+				$(".order-detail-contents").removeAttr('style')
+			}
+			$("#"+trId).slideToggle();
+		});
+	});
+
+</script>
