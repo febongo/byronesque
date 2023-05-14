@@ -16,8 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 $has_row    = false;
 $attributes = $product->get_attributes();
 
-ob_start();
-
 ?>
 
 <?php
@@ -29,6 +27,7 @@ ob_start();
 	$locationArr[] = $locTerms->name; 
  }
 
+ $hasSize=false;
 ?>
 
 <div class="product_attributes">
@@ -47,27 +46,24 @@ ob_start();
 		$has_row = true;
 		?>
 
-	<div class="product-size">
-		<span class="att_label b2-stressed"><?php echo wc_attribute_label( $attribute['name'] ); ?>: </span>
-		<span class="att_value b2"><?php echo $att_val; ?></span><!-- .att_value -->
-	</div>
+		<?php if ( strtolower($attribute['name']) == "pa_size") : $hasSize=true;?>
+			<div class="product-size">
+				<span class="att_label b2-stressed"><?php echo wc_attribute_label( $attribute['name'] ); ?>: </span>
+				<span class="att_value b2"><?php echo $att_val; ?></span><!-- .att_value -->
+			</div>
+		<?php endif; ?>
 
 	<?php endforeach; ?>
-	
-	<div class="product-shipsfrom"><?php if($locationArr) : ?>
-		<span class="att_label b2-stressed">Location: </span>
-		<span class="att_value b2"><?= implode(', ',$locationArr) ?></span><!-- .att_value -->
-	</div><?php endif; ?>
 
-
-
-
-
+	<?php if($locationArr) : ?>
+		<div class="product-shipsfrom">
+			<span class="att_label b2-stressed">Location: </span>
+			<span class="att_value b2"><?= implode(', ',$locationArr) ?></span><!-- .att_value -->
+		</div>
+	<?php endif; ?>
 
 </div>
-<?php
-if ( $has_row ) {
-	echo ob_get_clean();
-} else {
-	ob_end_clean();
-}
+
+<?php if( !$hasSize ) : ?>
+	<p class="size-info">Please see description for sizes.</p>
+<?php endif; ?>
