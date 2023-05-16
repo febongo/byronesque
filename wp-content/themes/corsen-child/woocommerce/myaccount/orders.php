@@ -59,8 +59,8 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 						</td>
 						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">
 							<span class="toggle-details" data-details="order-details-<?= $order->get_id() ?>">
-								<img class="open-arrow" src="https://vzc.hva.mybluehost.me/wp-content/uploads/2023/05/plus.svg">
-								<img class="close-arrow" src="https://vzc.hva.mybluehost.me/wp-content/uploads/2023/05/minus.svg">
+								<img class="open-arrow" src="/wp-content/uploads/2023/05/plus.svg">
+								<img class="close-arrow" src="/wp-content/uploads/2023/05/minus.svg">
 							</span>
 						</td>											
 					</tr>
