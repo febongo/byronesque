@@ -522,9 +522,9 @@
             
         }
 
-        $(".single_add_to_cart_button").click(function(){
-            alert();
-        });
+        // $(".single_add_to_cart_button").click(function(){
+        //     alert();
+        // });
 
         if ( $("#JSLogin").length ) {
             $(".single_add_to_cart_button").hide();

@@ -22,91 +22,155 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <h3>Orders</h3>
 <?php if ( $has_orders ) : ?>
-	<p style="margin-bottom:40px;">Everything you need to know about your current or previous orders. <br>If you have purchased from one of our brand concession partners, your digital appraisal certificate and any supporting documents are also securely stored here. <br>Use this to track your orders, request a return or check your order history.
-	</p>
-	<div class="myaccount-orderblocks">
-	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
-		<!--<thead>
-			<tr>
-				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
-					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-<?php echo esc_attr( $column_id ); ?>"><span class="nobr"><?php echo esc_html( $column_name ); ?></span></th>
-				<?php endforeach; ?>
-			</tr>
-		</thead>-->
 
-		<tbody>
-			<?php
-			foreach ( $customer_orders->orders as $customer_order ) {
-				$order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-				$item_count = $order->get_item_count() - $order->get_item_count_refunded();
-				?>
-				<tr class="order-header">
-				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
-					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-<?php echo esc_attr( $column_id ); ?>"><span class="nobr"><?php echo esc_html( $column_name ); ?></span></th>
-				<?php endforeach; ?>
+	<p>Everything you need to know about your current or previous orders. <br>If you have purchased from one of our brand concession partners, your digital appraisal certificate and any supporting documents are also securely stored here. </p>
+	<p>Track your orders, request a return or check your order history</p>
+
+	<?php foreach ( $customer_orders->orders as $customer_order ) : ?>
+		<?php 
+		$order      			= wc_get_order( $customer_order );
+		$item_count 			= $order->get_item_count() - $order->get_item_count_refunded();
+		$order_items           	= $order->get_items( apply_filters( 'woocommerce_purchase_order_item_types', 'line_item' ) );
+		$show_purchase_note    	= $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
+		?>
+		<div style="margin-bottom:10px;" class="myaccount-orderblocks">
+			<table>
+				<thead>
+				<tr class=“order-header”>
+					<th style="width:23%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date"><span class="nobr">Order Date</span> </th>
+					<th style="width:23%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number"><span class="nobr">Order Number</span</th>
+					<th style="width:23%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status"><span class="nobr">Status</span></th>
+					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions"></th>
 				</tr>
+				</thead>
 
-				<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-<?php echo esc_attr( $order->get_status() ); ?> order">
-					
-					<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
-						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
-							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
-								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
+				<tbody>
+					<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-processing order">
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="Date">
+							<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
+						</td>
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="Order">
+							<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
+								<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
+							</a>
+						</td>
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status">
+							<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
+						</td>
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">
+							<span class="toggle-details" data-details="order-details-<?= $order->get_id() ?>">
+								<img class="open-arrow" src="https://vzc.hva.mybluehost.me/wp-content/uploads/2023/05/plus.svg">
+								<img class="close-arrow" src="https://vzc.hva.mybluehost.me/wp-content/uploads/2023/05/minus.svg">
+							</span>
+						</td>											
+					</tr>
 
-							<?php elseif ( 'order-number' === $column_id ) : ?>
-								<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
-									<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
+					<tr class="orders-delivery-info order-detail-contents order-details-<?= $order->get_id() ?>">
+						<td colspan="4">One delivery was sent from Paris, France</td>
+					</tr>
+
+					<tr class="orders-cart-details order-detail-contents order-details-<?= $order->get_id() ?>">
+						<td colspan="4">Cart Details</td>
+					</tr>
+
+					<?php foreach ( $order_items as $item_id => $item ) {
+
+						$product = $item->get_product();
+						if ($product) :
+
+						// $is_visible        = $product && $product->is_visible();
+						$product_permalink = $product->get_permalink( );
+
+						$image = wp_get_attachment_image_src( get_post_thumbnail_id( $product->id ), 'single-post-thumbnail' );
+
+					?>
+						<tr class="order-detail-contents order-details-<?= $order->get_id() ?>">
+							<td class="thumb-image">
+
+								<a href="<?= $product_permalink ?>">
+									<img src="<?= $image && count($image) > 0 ? $image[0] : '' ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" >
 								</a>
-
-							<?php elseif ( 'order-date' === $column_id ) : ?>
-								<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
-
-							<?php elseif ( 'order-status' === $column_id ) : ?>
-								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
-
-							<?php elseif ( 'order-total' === $column_id ) : ?>
+							</td>
+							<td colspan="2" class="item-summary">
 								<?php
-								/* translators: 1: formatted order total 2: total order items */
-								echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
-								?>
+									// $product_id = $item->get_product_id();
+									$variation_id = $item->get_variation_id();
+									$size;
 
-							<?php elseif ( 'order-actions' === $column_id ) : ?>
-								<?php
-								$actions = wc_get_account_orders_actions( $order );
-
-								if ( ! empty( $actions ) ) {
-									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-										if ($action['name'] == "View" ) {
-											echo '<span class="toggle-details" data-details="order-details-'.$order->get_id().'">
-													<img class="open-arrow" src="/wp-content/uploads/2023/05/plus.svg">
-													<img class="close-arrow" src="/wp-content/uploads/2023/05/minus.svg"></span>
-												 ';
-										} else {
-											echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button' . esc_attr( $wp_button_class ) . ' button ' . sanitize_html_class( $key ) . '">' . $action['name'] . '</a>';
+									if ($variation_id) {
+										$variation_data = $item->get_variation_attributes();
+										if ($variation_id > 0 && !empty($variation_data)) {
+											$size = $variation_data['pa_size']; 
 										}
 									}
-								}
-
-								// echo $order->get_id();
+									
 								?>
-								
-							<?php endif; ?>
-						</td>
-					<?php endforeach; ?>
-				</tr>
-				<tr id="order-details-<?= $order->get_id() ?>" class="hide order-detail-contents">
-					<td colspan="5">
-						<div class="order-details">
-							<?php wc_get_template( 'order/order-details.php', array( 'order_id' => $order->get_id() ) ); ?>
-						</div>
-					</td>
-				</tr>
-				<?php
-			}
-			?>
-		</tbody>
-	</table>
-	</div>
+								<span class="product-name"><?= $item->get_name() ?></span>
+								<span><?= $product->short_description ?></span>
+								<span><?= ($size ? "Size $size" : 'See product description for product sizes.') ?></span>
+								<?= $product->get_price_html() ?>
+							</td> 
+							<td class="item-sumary-links">
+								<span><a href="#">Apraisal details</a></span>
+								<span><a href="#">Non-returnable</a></span>
+							</td>
+						</tr>
+						<?php endif; ?>
+					<?php } ?>
+				</tbody>  
+
+				<tfoot class="order-detail-contents order-details-<?= $order->get_id() ?>">
+					<?php 
+					$totals = $order->get_order_item_totals();
+				
+					?>
+					<tr class="cart-subtotal">
+						<th colspan="3" class="b2">Subtotal</th>
+						<td><?= wp_kses_post( $totals['cart_subtotal']['value']); ?></td>
+					</tr>
+
+					<tr class="shipping-method">
+						<th colspan="3"  class="b2"><span id="shippingMethod">Shipping</span></th>
+						<td><?= wp_kses_post( $totals['shipping']['value']); ?></td>
+					</tr>
+
+
+					<tr class="tax-total">
+						<th colspan="3" class="b2">Tax</th>
+						<td><?= wp_kses_post( $totals['tax']['value']); ?></td>
+					</tr>				
+
+					<tr class="order-total">
+						<th colspan="3" class="b2-stressed">Total</th>
+						<td><strong><?= wp_kses_post( $totals['order_total']['value']); ?></strong> </td>
+					</tr>
+				</tfoot>
+			</table>      
+			<div class="order-detail-contents order-details-<?= $order->get_id() ?>">
+				<p class="shippingTo">Delivery Address</p>
+				<div class="order-change-address">
+					<!-- <a href="#">Change Address</a> -->
+				</div>
+				<div class="shippingTo">
+
+					<p class="shippingToDetails">
+					<address>
+						<?php echo wp_kses_post( $order->get_formatted_shipping_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
+
+						<?php if ( $order->get_shipping_phone() ) : ?>
+							<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_shipping_phone() ); ?></p>
+						<?php endif; ?>
+					</address>
+					</p>
+					<!-- <p class="shipping-note">If you need to change the delivery address for your order, you can do so before it’s prepared.</p> -->
+				</div>
+			</div>
+
+		</div>
+	
+	<?php endforeach; ?>
+
+
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 
 	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>
@@ -139,7 +203,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <?php do_action( 'woocommerce_after_account_orders', $has_orders ); ?>
 
 <style>
-	tr.hide{
+	.order-detail-contents{
 		display: none;
 	}
 
@@ -161,6 +225,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <script>
 	jQuery(document).ready(function($){
 		$(".toggle-details").click(function(){
+			console.log('asd');
 			var trId = $(this).attr('data-details')
 			if( $(this).hasClass("show") ){
 				$(".toggle-details").removeClass("show")
@@ -170,7 +235,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 				$(this).addClass("show")
 				$(".order-detail-contents").removeAttr('style')
 			}
-			$("#"+trId).slideToggle();
+			$("."+trId).slideToggle();
 		});
 	});
 
