@@ -24,7 +24,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <?php if ( $has_orders ) : ?>
 	<p style="margin-bottom:40px;">Everything you need to know about your current or previous orders. <br>If you have purchased from one of our brand concession partners, your digital appraisal certificate and any supporting documents are also securely stored here. <br>Use this to track your orders, request a return or check your order history.
 	</p>
-	<div class="myaccount-ordersblocks">
+	<div class="myaccount-orderblocks">
 	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
 		<!--<thead>
 			<tr>

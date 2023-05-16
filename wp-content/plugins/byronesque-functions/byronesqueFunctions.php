@@ -611,9 +611,11 @@ function address_book_add() {
     $countries   = $countries_obj->__get('countries');
     // var_dump($countries);
     ?>
+    <div class="woocommerce-myaccount-detailblock">
     <form method="post">
         <h4>Add address (shipping/billing)</h4>
     <div class="address-book">
+        <div class="woocommerce-myaccount-columns">
         <p class="form-row form-row-first" id="_first_name_field" data-priority="10">
             <span class="woocommerce-input-wrapper">
                 <input type="text" class="input-text " name="_first_name" id="_first_name" placeholder="Name*" value="" required>
@@ -624,6 +626,20 @@ function address_book_add() {
                 <input type="text" class="input-text " name="_last_name" id="_last_name" placeholder="Last name*" value="" required>
             </span>
         </p>
+        </div>
+        <div class="woocommerce-myaccount-columns">
+            <p class="form-row form-row-wide" id="_address_1_field" data-priority="50">
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_address_1" id="_address_1" placeholder="Street address*" value="" data-placeholder="Street name*" required>
+            </span>
+        </p>
+        <p class="form-row form-row-wide" id="_city_field" >
+            <span class="woocommerce-input-wrapper">
+                <input type="text" class="input-text " name="_city" id="_city" placeholder="City*" value="" data-placeholder="City*" required>
+            </span>
+        </p>
+        </div>
+        <div class="woocommerce-myaccount-columns">
         <p class="form-row form-row-wide" id="_country_field" data-priority="40">
             <span class="woocommerce-input-wrapper">
                 <select name="_country" id="_country" class="country_to_state country_select " data-placeholder="Country*" data-label="Country / Region" tabindex="-1" aria-hidden="true" required>
@@ -634,28 +650,20 @@ function address_book_add() {
                 </select>
             </span>
         </p>
-        <p class="form-row form-row-wide" id="_address_1_field" data-priority="50">
-            <span class="woocommerce-input-wrapper">
-                <input type="text" class="input-text " name="_address_1" id="_address_1" placeholder="Street address*" value="" data-placeholder="Street address*" required>
-            </span>
-        </p>
-        <p class="form-row form-row-wide" id="_city_field" >
-            <span class="woocommerce-input-wrapper">
-                <input type="text" class="input-text " name="_city" id="_city" placeholder="City*" value="" data-placeholder="City*" required>
-            </span>
-        </p>
+        
         <p class="form-row form-row-wide" id="_postcode_field">
             <span class="woocommerce-input-wrapper">
                 <input type="text" class="input-text " name="_postcode" id="_postcode" placeholder="Zip Code*" value="" data-placeholder="Zip Code*" required>
             </span>
         </p>
+        </div>
         <p class="form-row form-row-wide" id="_phone_field" data-priority="">
             <span class="woocommerce-input-wrapper">
                 <input type="tel" class="input-text " name="_phone" id="_phone" placeholder="Phone(ex. +33 123 45 67)*" value="" required>
             </span>
         </p>
     </div>
-    <div class="submit-btn">
+    <div class="submit-btn save-default-chk">
         <div>
         <label class='chk-container'>Save as default shipping address
             <input type='checkbox' name='defaultShipping' value="1">
@@ -673,6 +681,7 @@ function address_book_add() {
         <a href="/my-account/address-book/" class="btn">Exit without saving changes</a>
     </div>
     </form>
+    </div>
     <?php
  }
    
