@@ -550,45 +550,11 @@ table td {
 
 
 
+
 /* INTERACTIVE LIST */
-
-
-.qodef-qi-interactive-link-showcase.qodef-layout--split {
-	height: 720px;
-}
-
-@media only screen and (min-width: 2000px){
-	.qodef-qi-interactive-link-showcase.qodef-layout--split {
-		height: 1024px;
-	}
-}
-
-
-@media only screen and (max-width: 480px){
-	.qodef-qi-interactive-link-showcase.qodef-layout--split {
-		height: auto;
-	}
-}
-
-@media only screen and (max-width: 1024px){
-	.qodef-qi-interactive-link-showcase.qodef-layout--split .qodef-m-items {
-		justify-content: flex-start;
-	}
-}
 
 .js-home-title {
 	display: block;
-}
-
-.home-interactive-links {
-	height: 100%;
-}
-.home-interactive-links img{
-	height:100%;
-}
-
-.elementor-14 .elementor-element.elementor-element-dce5bfa .qodef-m-item :before {
-	margin:0;
 }
 
 .js-home-fold-description {
@@ -602,10 +568,11 @@ table td {
 }
 
 
-.qodef-qi-interactive-link-showcase .qodef-e-image.qodef--active {
-	transition: opacity .3s ease-in-out;
+/*.js-home-fold-description {
+	background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.24) 100%);
+	color: #fff;
 }
-
+*/
 
 /* END INTERACTIVE LIST */
 
@@ -1628,7 +1595,7 @@ Color: #1F1F1F;
 }
 
 
-.default, .checkout-summary .shippingTo, .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table tr th {
+.default, .checkout-summary .shippingTo, .order-header {
 	font-size: 14px!important;
 	font-weight: 400;
 	letter-spacing: .01em;	
@@ -1838,20 +1805,25 @@ Color: #1F1F1F;
 
 .woocommerce-MyAccount-content .myaccount-orderblocks {
 	background-color: #F8F5EA;
+	padding: 18px 20px;
+}
+
+
+.woocommerce-MyAccount-content .myaccount-orderblocks table tr, 
+.woocommerce-MyAccount-content .myaccount-orderblocks table td,
+.woocommerce-MyAccount-content .myaccount-orderblocks table th{
+	border: none;
+}
+
+.woocommerce-MyAccount-content .myaccount-orderblocks table th{
+	padding: 0;
 }
 
 .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .myaccount-orderblocks .order-header th {
 	padding: 12px 0 0 20px;
 }
 
-.woocommerce-MyAccount-content .woocommerce-orders-table tr.order {
-	border: none;
-	border-bottom: 10px solid #fff;
-}
 
-.order-header {
-	border: 0;
-}
 
 .woocommerce-page div.woocommerce .woocommerce-MyAccount-content .woocommerce-orders-table td {
 	padding: 4px 0 18px 20px;
