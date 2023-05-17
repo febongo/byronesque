@@ -75,6 +75,7 @@ include('widgets/my_shop.php');
 
 include('inc/productExtraFields.php');
 include('inc/importer.php');
+// include('inc/usps_shipping.php');
 // include('account-pages/customAccountpages.php');
 
 // register widgets
