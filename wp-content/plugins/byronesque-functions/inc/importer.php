@@ -29,15 +29,17 @@ function import_products_page() {
         $file = fopen( $file_path, 'r' ); 
         if ( $file ) { 
             $parent_product_id;
+            $cnt=0;
+            $itemsHasRelated=[];
             while ( ( $data = fgetcsv( $file ) ) !== false ) { 
                 // get data from CSV and map to product fields
                 // echo "assign data";
                 $dataArray = assigndataToArray($data);
                 // echo "2";
-                if ( $dataArray['productType'] && $dataArray['title'] != "BRAND" ) {
+                if ( $dataArray['productType'] && $cnt != 0 ) {
                     // check if the product with the SKU already exists
                     $product_id = wc_get_product_id_by_sku( $dataArray['sku'] );
-                    
+
                     // $csvCategory = explode(",",$dataArray['category']);
                     $productTypeString="product attribute";
                     if ($dataArray['productParent']) {
@@ -53,11 +55,23 @@ function import_products_page() {
                     }
                     if($dataArray['productParent']) $parent_product_id = $product_id;
 
+                    // create parent product to be link as related
+                    if ($dataArray['relatedItems'] && count($dataArray['relatedItems']) > 0) {
+                        // check if item exist if not create temporary item to link product data
+                        foreach($dataArray['relatedItems'] as $relatedSku) {
+                            $related_id = wc_get_product_id_by_sku( $relatedSku );
+                            if (!$related_id) {
+                                saveTemporaryProduct($relatedSku);
+                            } 
+                        }
+                    }
+
                     updateDataFromCsv($parent_product_id,$product_id, $dataArray);
 
 
                 } // END IF
 
+                $cnt++;
             } // END WHILE LOOP
             fclose( $file );  // CLOSE FILE
         } 
@@ -81,6 +95,14 @@ function import_products_page() {
     </div> 
     <?php 
 } 
+
+// save temporary product
+function saveTemporaryProduct($sku) {
+    $productrelated = new WC_Product_Simple();
+    $productrelated->set_status( "draft" );
+    $productrelated->set_sku( $sku );
+    $productrelated->save();
+}
 
 // ASSIGN DATA TO FORMATTED ARRAY
 function assigndataToArray($data){
@@ -125,14 +147,20 @@ function saveDataFromCsv($dataArray){
         return null;
     }
 
-    // echo "TYPE: {$dataArray['productType']}";
-    if (strtolower($dataArray['productType']) == 'variable') {
-        // echo "Createing variable";
-        $product = new WC_Product_Variable();
+    $productId = wc_get_product_id_by_sku( $dataArray['sku'] );
+
+    if (!$productId) {
+        if (strtolower($dataArray['productType']) == 'variable') {
+            // echo "Createing variable";
+            $product = new WC_Product_Variable();
+        } else {
+            $product = new WC_Product_Simple();
+            // echo "Createing simple";
+        }
     } else {
-        $product = new WC_Product_Simple();
-        // echo "Createing simple";
+        $product = wc_get_product( $productId );
     }
+    
 
     $product->set_name( $dataArray['title'] );
     $product->set_short_description( $dataArray['subHeader'] );
@@ -169,6 +197,9 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
      **/ 
     // echo "Product parent: {$dataArray['productParent']}";
 
+    // re-save product information
+    $ret = saveDataFromCsv($dataArray);
+
 
     if ($dataArray['productParent']) {
         // save main information
@@ -181,18 +212,19 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         update_field( 'shipping_and_return_policy', $dataArray['shippingReturnPolicy'], $product_id ); 
 
         // UPDATE PRODUCT EXTRA FIELDS
-
+        // echo "<p>Appriasal {$dataArray['appraisalFee']}</p>";
+        // echo "<p>costOfGoods {$dataArray['costOfGoods']}</p>";
         if ($dataArray['appraisalFee']) 
-            update_post_meta( $product_id, '_product_appraisal', $dataArray['appraisalFee'] );
+            update_post_meta( $product_id, '_product_appraisal', floatval(str_replace(",","",$dataArray['appraisalFee'])) );
 
         if ($dataArray['commission']) 
-            update_post_meta( $product_id, '_product_commission', $dataArray['commission'] );
+            update_post_meta( $product_id, '_product_commission', floatval(str_replace(",","",$dataArray['commission'])) );
         
         if ($dataArray['archivingFee']) 
-            update_post_meta( $product_id, '_product_archiving_fee', $dataArray['archivingFee'] );
+            update_post_meta( $product_id, '_product_archiving_fee', floatval(str_replace(",","",$dataArray['archivingFee'])) );
         
         if ($dataArray['costOfGoods'])
-            update_post_meta( $product_id, '_product_cost_of_goods', $dataArray['costOfGoods'] );
+            update_post_meta( $product_id, '_product_cost_of_goods', floatval(str_replace(",","",$dataArray['costOfGoods'])) );
         
         // UPDATE SEO TAGS
         if ($dataArray['seoTitle'])
@@ -201,8 +233,10 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         if ($dataArray['seoDescription'])
             update_post_meta($product_id, '_yoast_wpseo_metadesc', $dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay']);
 
-        if ($dataArray['seoKeywords'])
-            update_post_meta($product_id, '_yoast_wpseo_focuskw', $dataArray['seoKeywords'] ? $dataArray['seoKeywords'] : $dataArray['byroSay']);
+        if ($dataArray['seoKeywords']){
+            $arrKeyPhrase = explode(",",$dataArray['seoKeywords']);
+            update_post_meta($product_id, '_yoast_wpseo_focuskw', $dataArray['seoKeywords'] ? implode("\n", $arrKeyPhrase) : $dataArray['byroSay']);
+        }
 
         // add size variations
         if ( sizeof($dataArray['size']) > 0 && $dataArray['productParent']) {

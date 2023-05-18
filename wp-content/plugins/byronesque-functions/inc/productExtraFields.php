@@ -12,7 +12,7 @@ function add_product_extra_field() {
         'type'        => 'number',
         'custom_attributes' => array(
             'min' => '0',
-            'step' => '0.01'
+            // 'step' => '1'
         ),
     ) );
 
@@ -25,7 +25,7 @@ function add_product_extra_field() {
         'type'        => 'number',
         'custom_attributes' => array(
             'min' => '0',
-            'step' => '0.01'
+            // 'step' => '2'
         ),
     ) );
 
@@ -38,7 +38,7 @@ function add_product_extra_field() {
         'type'        => 'number',
         'custom_attributes' => array(
             'min' => '0',
-            'step' => '1'
+            // 'step' => '3'
         ),
     ) );
 
@@ -51,32 +51,32 @@ function add_product_extra_field() {
         'type'        => 'number',
         'custom_attributes' => array(
             'min' => '0',
-            'step' => '1'
+            // 'step' => '4'
         ),
     ) );
 }
 
 // add_action( 'woocommerce_product_options_sku', 'add_custom_field_below_sku' );
 
-function add_custom_field_below_sku() {
+// function add_custom_field_below_sku() {
 
-    woocommerce_wp_text_input( array(
-        'id'          => '_product_list_sku',
-        'label'       => __( 'Bundle item codes', 'woocommerce' ),
-        'placeholder' => 'Enter Item codes',
-        'description' => __( 'Enter the item codes for this bundle product.', 'woocommerce' ),
-        'desc_tip'    => true,
-        'type'        => 'text',
-    ) );
-}
+//     woocommerce_wp_text_input( array(
+//         'id'          => '_product_list_sku',
+//         'label'       => __( 'Bundle item codes', 'woocommerce' ),
+//         'placeholder' => 'Enter Item codes',
+//         'description' => __( 'Enter the item codes for this bundle product.', 'woocommerce' ),
+//         'desc_tip'    => true,
+//         'type'        => 'text',
+//     ) );
+// }
 
 // Save extra field value
 add_action( 'woocommerce_process_product_meta', 'save_product_extra_field', 10, 2 );
 function save_product_extra_field( $post_id, $post ) {
 
     if ( isset( $_POST['_product_appraisal'] ) ) {
-        $product_commission = floatval( $_POST['_product_appraisal'] );
-        update_post_meta( $post_id, '_product_appraisal', $product_commission );
+        $product_appraisal = floatval( $_POST['_product_appraisal'] );
+        update_post_meta( $post_id, '_product_appraisal', $product_appraisal );
     }
 
     if ( isset( $_POST['_product_commission'] ) ) {
@@ -90,13 +90,13 @@ function save_product_extra_field( $post_id, $post ) {
     }
 
     if ( isset( $_POST['_product_cost_of_goods'] ) ) {
-        $product_archiving = floatval( $_POST['_product_cost_of_goods'] );
-        update_post_meta( $post_id, '_product_cost_of_goods', $product_archiving );
+        $product_cost_goods = floatval( $_POST['_product_cost_of_goods'] );
+        update_post_meta( $post_id, '_product_cost_of_goods', $product_cost_goods );
     }
 
-    if ( isset( $_POST['_product_list_sku'] ) ) {
-        $product_skus = floatval( $_POST['_product_list_sku'] );
-        update_post_meta( $post_id, '_product_list_sku', $product_skus );
-    }
+    // if ( isset( $_POST['_product_list_sku'] ) ) {
+    //     $product_skus = floatval( $_POST['_product_list_sku'] );
+    //     update_post_meta( $post_id, '_product_list_sku', $product_skus );
+    // }
 }
 
