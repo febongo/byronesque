@@ -68,7 +68,7 @@ defined( 'ABSPATH' ) || exit;
 
 			
 
-			<span class="nextBlock btn" data-next="shippingMethodCustom">Continue</span>
+			<span class="nextBlock btn" data-next="billingAddressCustom">Continue</span>
 		</div>
 
 	<?php endif; ?>

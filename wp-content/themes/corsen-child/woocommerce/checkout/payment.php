@@ -54,7 +54,7 @@ if ( ! wp_doing_ajax() ) {
 
 		<?php wp_nonce_field( 'woocommerce-process_checkout', 'woocommerce-process-checkout-nonce' ); ?>
 	</div>
-	<span class="nextBlock btn" data-next="billingAddressCustom">finalise purchase</span>
+	<button type="submit" class="nextBlock btn" data-next="billingAddressCustom">finalise purchase</button>
 </div>
 <?php
 if ( ! wp_doing_ajax() ) {

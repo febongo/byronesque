@@ -91,28 +91,3 @@ function custom_post_title($atts)
     $data = $title;
     return $data;
 }
-
-
-
-
-
-add_menu_page( 
-    'Product CSV Importer', 
-    'Product CSV Importer', 
-    '9', 
-    'import-products', 
-    'import_products_page' ,
-    'dashicons-controls-repeat',
-    57
-); 
- 
-// var_dump(is_product());
-// if ( !is_user_logged_in() && is_product() ) {
-//     echo "<div class='login-container hidden'>";
-//     echo "<div class='login-page'>";
-//     echo "<h4>Login</h4>";
-//     echo do_shortcode('[byro-login-form]'); 
-//     echo "</div>";
-//     echo "</div>";
-
-// }

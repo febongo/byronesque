@@ -379,9 +379,9 @@
 
             var blockStep=[
                 "shippingAddressCustom",
+                "billingAddressCustom",
                 "shippingMethodCustom",
                 "paymentMethodCustom",
-                "billingAddressCustom",
             ];
             var currentBlockStep=0;
             // var block

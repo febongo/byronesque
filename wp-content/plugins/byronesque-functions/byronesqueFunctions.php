@@ -12,6 +12,15 @@ function byronesquePlugininit() {
     include('inc/importer.php');
     // include('inc/usps_shipping.php');
 
+    add_menu_page( 
+        'Product CSV Importer', 
+        'Product CSV Importer', 
+        '9', 
+        'import-products', 
+        'import_products_page' ,
+        'dashicons-controls-repeat',
+        57
+    ); 
 }
 add_action('init', 'byronesquePlugininit', 9999);
 

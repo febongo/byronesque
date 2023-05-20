@@ -45,6 +45,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 							<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 
+							<?php do_action( 'woocommerce_checkout_billing' ); ?>
+
 							<div id="shippingMethodCustom" class="checkoutBlocks inActive">
 
 								<h4><?php esc_html_e( 'Shipping Method', 'woocommerce' ); ?></h4>
@@ -74,9 +76,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 								
 							</div>
 							
-							<?php do_action( 'woocommerce_checkout_billing' ); ?>
-
-
 						</div>
 					</div>
 

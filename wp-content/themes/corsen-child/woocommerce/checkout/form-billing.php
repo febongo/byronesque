@@ -74,7 +74,7 @@ $billDefault = get_customer_addresses_default('billing');
 			}
 			?>
 		</div>
-		<button type="submit" class="nextBlock btn">Continue</button>
+		<button type="button" class="nextBlock btn">Continue</button>
 		<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 	</div>
 </div>
