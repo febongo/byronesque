@@ -5,6 +5,15 @@ Description: Byronesque custom functions such as searching and mini cart functio
 Author: Felix Bongo (febongo@gmail.com)
 Version: 1.0
 */
+// Plugin initialization wait for woocommerce to be loaded
+function byronesquePlugininit() {
+    // Your code here
+    include('inc/productExtraFields.php');
+    include('inc/importer.php');
+    // include('inc/usps_shipping.php');
+
+}
+add_action('init', 'byronesquePlugininit', 9999);
 
 // register jquery and style on initialization
 add_action('init', 'register_script');
@@ -73,9 +82,7 @@ include('widgets/account.php');
 include('widgets/cart.php');
 include('widgets/my_shop.php');
 
-include('inc/productExtraFields.php');
-include('inc/importer.php');
-// include('inc/usps_shipping.php');
+
 // include('account-pages/customAccountpages.php');
 
 // register widgets
@@ -1065,5 +1072,6 @@ add_filter('post_class', function($classes, $class, $product_id) {
     
     return $classes;
 },10,3);
+
 
 ?>

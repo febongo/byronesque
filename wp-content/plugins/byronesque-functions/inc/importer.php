@@ -189,7 +189,7 @@ function saveDataFromCsv($dataArray){
 
 // UPDATE DATA 
 function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
-
+    global $wpdb;
     /**
      * Check parent if 1 | 0
      * if isParent then save categories, locations, brands, and custom fields
@@ -227,16 +227,17 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             update_post_meta( $product_id, '_product_cost_of_goods', floatval(str_replace(",","",$dataArray['costOfGoods'])) );
         
         // UPDATE SEO TAGS
-        if ($dataArray['seoTitle'])
-            update_post_meta($product_id, '_yoast_wpseo_title', $dataArray['seoTitle'] ? $dataArray['seoTitle'] : $dataArray['title']);
-
-        if ($dataArray['seoDescription'])
-            update_post_meta($product_id, '_yoast_wpseo_metadesc', $dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay']);
-
-        if ($dataArray['seoKeywords']){
-            $arrKeyPhrase = explode(",",$dataArray['seoKeywords']);
-            update_post_meta($product_id, '_yoast_wpseo_focuskw', $dataArray['seoKeywords'] ? implode("\n", $arrKeyPhrase) : $dataArray['byroSay']);
+        if ($dataArray['seoTitle']){
+            $wpdb->insert('QYp_aioseo_posts', array('post_id' => $product_id, 'title' => ($dataArray['seoTitle'] ? $dataArray['seoTitle'] : $dataArray['title'] ), 'description' => ($dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay'])));
         }
+
+        // if ($dataArray['seoDescription'])
+        //     update_post_meta($product_id, '_aioseo_description', $dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay']);
+
+        // if ($dataArray['seoKeywords']){
+        //     $arrKeyPhrase = explode(",",$dataArray['seoKeywords']);
+        //     update_post_meta($product_id, '_aioseo_keywords', $dataArray['seoKeywords'] ? $dataArray['seoKeywords'] : $dataArray['byroSay']);
+        // }
 
         // add size variations
         if ( sizeof($dataArray['size']) > 0 && $dataArray['productParent']) {
@@ -355,7 +356,6 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             }
             wp_set_object_terms( $product_id, $cat_ids, 'product_cat' );
         }
-        var_dump($dataArray['relatedItems']);
         // add croos / up sell
         if ( sizeof($dataArray['relatedItems']) > 0 ){
             $related_ids=[];
@@ -366,7 +366,6 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
                     $related_ids[] = $related_id;
                 }
             }
-            var_dump($related_ids);
             update_post_meta( $product_id, '_upsell_ids',$related_ids );
             update_post_meta( $product_id, '_crosssell_ids',$related_ids );
         }
