@@ -20,6 +20,7 @@
 defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
+
 <h3>Orders</h3>
 <?php if ( $has_orders ) : ?>
 
@@ -36,10 +37,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		<div style="margin-bottom:10px;" class="myaccount-orderblocks">
 			<table>
 				<thead>
-				<tr class=“order-header”>
-					<th style="width:23%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date"><span class="nobr">Order Date</span> </th>
-					<th style="width:23%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number"><span class="nobr">Order Number</span</th>
-					<th style="width:23%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status"><span class="nobr">Status</span></th>
+				<tr class="order-header">
+					<th style="width:13%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date"><span class="nobr">Order Date</span> </th>
+					<th style="width:13%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number"><span class="nobr">Order Number</span></th>
+					<th style="width:13%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status"><span class="nobr">Status</span></th>
 					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions"></th>
 				</tr>
 				</thead>
@@ -66,11 +67,11 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 					</tr>
 
 					<tr class="orders-delivery-info order-detail-contents order-details-<?= $order->get_id() ?>">
-						<td colspan="4">One delivery was sent from Paris, France</td>
+						<td colspan="4"><div><span class="flag-icon flag-icon-fr flag-icon-squared"></span> One delivery was sent from Paris, France</div></td>
 					</tr>
 
 					<tr class="orders-cart-details order-detail-contents order-details-<?= $order->get_id() ?>">
-						<td colspan="4">Cart Details</td>
+						<td colspan="4"><div>Cart Details</div></td>
 					</tr>
 
 					<?php foreach ( $order_items as $item_id => $item ) {
@@ -128,12 +129,11 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 						<th colspan="3" class="b2">Subtotal</th>
 						<td><?= wp_kses_post( $totals['cart_subtotal']['value']); ?></td>
 					</tr>
-
+					
 					<tr class="shipping-method">
 						<th colspan="3"  class="b2"><span id="shippingMethod">Shipping</span></th>
 						<td><?= wp_kses_post( $totals['shipping']['value']); ?></td>
 					</tr>
-
 
 					<tr class="tax-total">
 						<th colspan="3" class="b2">Tax</th>
@@ -153,7 +153,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 				</div>
 				<div class="shippingTo">
 
-					<p class="shippingToDetails">
+					<div class="shippingToDetails">
 					<address>
 						<?php echo wp_kses_post( $order->get_formatted_shipping_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
 
@@ -161,7 +161,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_shipping_phone() ); ?></p>
 						<?php endif; ?>
 					</address>
-					</p>
+					</div>
 					<!-- <p class="shipping-note">If you need to change the delivery address for your order, you can do so before it’s prepared.</p> -->
 				</div>
 			</div>

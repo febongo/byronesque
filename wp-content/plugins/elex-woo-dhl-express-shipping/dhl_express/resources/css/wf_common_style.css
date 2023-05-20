@@ -1,0 +1,11 @@
+.wf_show_tab{
+	cursor: pointer;
+}
+.wf_show_tab::after{
+	content: ' \25BC'
+}
+
+
+.wf_advanced_settings_title{
+	cursor: pointer;
+}
