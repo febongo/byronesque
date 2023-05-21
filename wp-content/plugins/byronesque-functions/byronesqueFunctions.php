@@ -232,8 +232,26 @@ function shopFilters() {
 
     <?php } ?>
     <div class="filter-container">
-        <a href="/product-category/new-arrivals/" class="btn-filter <?= is_product_category('new-arrivals') ? 'active' : '' ?>">NEW ARRIVALS</a>
-        <a href="/product-category/runway/" class="btn-filter <?= is_product_category('runway') ? 'active' : '' ?>">RUNWAY</a>
+        <?php 
+        // fetch categories 
+        // show categories contains products limit to 5
+
+        $product_categories = get_terms(array(
+            'taxonomy' => 'product_cat',
+            'hide_empty' => true,
+        ));
+
+        usort($product_categories, function($a, $b) {
+            return $b->count - $a->count;
+        });
+
+        foreach($product_categories as $key => $cat){
+            $isActive = is_product_category($cat->slug) ? 'active' : '';
+            echo "<a href='/product-category/$cat->slug' class='btn-filter $isActive'>$cat->name</a>";
+
+            if ($key > 3) break; 
+        }
+        ?>
         <span class="browseBy">FILTER PRODUCTS: <span class="filter-icon"></span></span>
         <div class="filter-list-container">
             <div class="close-wrap"><span class="close-filter"></span></div>
@@ -244,9 +262,10 @@ function shopFilters() {
                     $strBrandList="";
                     $brands = get_terms( array(
                         'taxonomy' => 'product_designer',
-                        'hide_empty' => false,
+                        'hide_empty' => true,
                     ) );
                     $counterSeparator=0;
+                    
                     foreach($brands as $key=>$brand){
                         $counterSeparator ++;
                         if ($counterSeparator == 1){
