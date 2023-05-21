@@ -771,6 +771,130 @@ class MVX_REST_API {
             'callback' => array( $this, 'mvx_list_of_refund_request' ),
             'permission_callback' => array( $this, 'save_settings_permission' )
         ] );
+
+        // Specific vendor products
+        register_rest_route( 'mvx/v1', '/vendor_products', [
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array( $this, 'mvx_list_of_vendor_products' ),
+            'permission_callback' => array( $this, 'save_settings_permission' )
+        ] );
+
+        // Specific vendor orders
+        register_rest_route( 'mvx/v1', '/vendor_orders', [
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array( $this, 'mvx_list_of_vendor_orders' ),
+            'permission_callback' => array( $this, 'save_settings_permission' )
+        ] );
+
+        // Specific vendor announcement
+        register_rest_route( 'mvx/v1', '/vendor_announcement', [
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array( $this, 'mvx_list_of_vendor_announcement' ),
+            'permission_callback' => array( $this, 'save_settings_permission' )
+        ] );
+
+        // Specific vendor reports
+        register_rest_route( 'mvx/v1', '/vendor_reports', [
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => array( $this, 'mvx_list_of_vendor_reports' ),
+            'permission_callback' => array( $this, 'save_settings_permission' )
+        ] );
+    }
+
+    public function mvx_list_of_vendor_reports($request) {
+        $vendor_id = $request && $request->get_param('vendor_id') ? $request->get_param('vendor_id') : '';
+        $status = $request && $request->get_param('status') ? $request->get_param('status') : '';
+        $vendor = '';
+        $reports_list = '';
+        if ($vendor_id) {
+            $vendor = get_mvx_vendor($vendor_id);
+            if ($vendor) {
+                $vendor_report_data = get_mvx_vendor_dashboard_stats_reports_data($vendor);
+                if ($vendor_report_data) {
+                    $reports_list = array(
+                        'traffic_no'    =>  $vendor_report_data[$status]['_raw_stats_data']['current']['traffic_no'],
+                        'coupon_total'  =>  $vendor_report_data[$status]['_raw_stats_data']['current']['coupon_total'],
+                        'withdrawal'    =>  $vendor_report_data[$status]['_raw_stats_data']['current']['withdrawal'],
+                        'earning'       =>  $vendor_report_data[$status]['_raw_stats_data']['current']['earning'],
+                        'sales_total'   =>  $vendor_report_data[$status]['_raw_stats_data']['current']['sales_total'],
+                        'orders_no'     =>  $vendor_report_data[$status]['_raw_stats_data']['current']['orders_no'],
+                    );
+                }
+            }
+        }
+        return rest_ensure_response($reports_list);
+    }
+
+    public function mvx_list_of_vendor_products($request) {
+        $vendor_id = $request && $request->get_param('vendor_id') ? $request->get_param('vendor_id') : '';
+        $vendor = '';
+        $product_list = [];
+        if ($vendor_id) {
+            $vendor = get_mvx_vendor($vendor_id);
+        }
+        if ($vendor) {
+            $products_array = $vendor->get_products(array());
+            if ($products_array) {
+                foreach ($products_array as $key => $value) {
+                    $product_list[] = array(
+                        'ID'            =>  $value->ID,
+                        'name'          =>  $value->post_title,
+                        'price'         =>  get_post_meta($value->ID, '_price', true) ? get_post_meta($value->ID, '_price', true) : ''
+                    );
+                }
+            }
+        }
+        return rest_ensure_response($product_list);
+    }
+
+    public function mvx_list_of_vendor_orders($request) {
+        $vendor_id = $request && $request->get_param('vendor_id') ? $request->get_param('vendor_id') : '';
+        $vendor = '';
+        $order_list = [];
+        if ($vendor_id) {
+            $vendor = get_mvx_vendor($vendor_id);
+        }
+        if ($vendor) {
+            $args = array(
+                'author' => $vendor->id,
+                'post_status' => 'any',
+                
+            );
+            $vendor_all_orders = mvx_get_orders($args);
+            if ($vendor_all_orders) {
+                foreach ($vendor_all_orders as $order_id) {
+                    $order = wc_get_order($order_id);
+                    $vendor_order = mvx_get_order($order_id);
+                    $order_list[] = array(
+                        'order_id'              =>  $order_id,
+                        'order_date'                  =>  mvx_date($order->get_date_created()),
+                        'vendor_earning'                 =>  $vendor_order && $vendor_order->get_commission_total() ? $vendor_order->get_commission_total() : '-',
+                        'order_status' => esc_html(wc_get_order_status_name($order->get_status()))
+                    );
+                }
+            }
+        }
+        return rest_ensure_response($order_list);
+    }
+
+    public function mvx_list_of_vendor_announcement($request) {
+        $vendor_id = $request && $request->get_param('vendor_id') ? $request->get_param('vendor_id') : '';
+        $vendor = '';
+        $announcement_list = [];
+        if ($vendor_id) {
+            $vendor = get_mvx_vendor($vendor_id);
+            $get_announcements = $vendor ? $vendor->get_announcements() : array();
+            if ($get_announcements && isset($get_announcements['all'])) {
+                foreach ($get_announcements['all'] as $key => $value) {
+                    $announcement_list[] = array(
+                        'post_title'                =>  $value->post_title,
+                        'post_content'              =>  $value->post_content,
+                        'post_date'                 =>  $value->post_date
+                    );
+                }
+            }
+        }
+        return rest_ensure_response($announcement_list);
     }
 
     public function mvx_list_of_refund_request() {
@@ -1344,6 +1468,7 @@ class MVX_REST_API {
     }
 
     public function mvx_task_board_icons_triggers($request) {
+        global $MVX;
         $value = $request->get_param('value') ? $request->get_param('value') : '';
         $key = $request->get_param('key') ? $request->get_param('key') : '';
         $reject_word = $request->get_param('reject_word') ? $request->get_param('reject_word') : '';
@@ -1939,7 +2064,7 @@ class MVX_REST_API {
             $install = new MVX_Install();
             if (!get_option("dc_product_vendor_plugin_page_install")) {
                 $install->mvx_product_vendor_plugin_create_pages();
-                update_option("dc_product_vendor_plugin_page_install", 1);
+                mvx_update_option("dc_product_vendor_plugin_page_install", 1);
             }
         }
     }
@@ -3748,6 +3873,7 @@ class MVX_REST_API {
         $product = $request && $request->get_param('product') ? ($request->get_param('product')) : 0;
         $find_1st_vendor_from_rest = $this->mvx_vendor_list_search()->data ? $this->mvx_vendor_list_search()->data[0]['value'] : 0;
         $selectvendor = $request && $request->get_param('vendor') ? ($request->get_param('vendor')) : $find_1st_vendor_from_rest;
+        $status_sales = $request && $request->get_param('status_sales') ? $request->get_param('status_sales') : '';
 
         // Bydefault last 7 days
         $start_date    = strtotime( '-7 days', strtotime( 'midnight', current_time( 'timestamp' ) ) );
@@ -4340,8 +4466,7 @@ class MVX_REST_API {
             'banking_overview'  =>  $banking_datas
         );
 
-        //print_r($report_by_admin_overview);die;
-        return rest_ensure_response($report_by_admin_overview);
+        return rest_ensure_response(apply_filters('mvx_analytics_tabs_datas', $report_by_admin_overview, $status_sales, $selectvendor, $value));
     }
 
     public function mvx_update_commission_status($request) {
@@ -4585,8 +4710,7 @@ class MVX_REST_API {
         }
 
         $order_edit_link = sprintf('post.php?post=%s&action=edit', $commission_order_id);
-        //print_r($line_items_details);die;
-        $payment_details = array(
+        $payment_details = apply_filters('mvx_individual_commission_content_filter', array(
             'commission_id' => $commission_id,
             'commission_order_id'   => $commission_order_id,
             'commission_type_object'    =>  $commission_type_object,
@@ -4631,8 +4755,8 @@ class MVX_REST_API {
             'refunded_output'   =>  wc_price(get_post_meta( $commission_id, '_commission_refunded', true ), array('currency' => $order->get_currency())),
             'get_shipping_method'   =>  $order->get_shipping_methods(),
             'notes_data'    =>  $notes_data,
-            'shipping_items_details'    =>  $shipping_items_details
-        );
+            'shipping_items_details'    =>  $shipping_items_details,
+        ));
 
         return rest_ensure_response($payment_details); 
     }
@@ -4640,13 +4764,60 @@ class MVX_REST_API {
     public function mvx_vendor_delete($request) {
         require_once(ABSPATH.'wp-admin/includes/user.php');
         $vendor_ids = $request->get_param('vendor_ids') ? $request->get_param('vendor_ids') : '';
+        $select_input = $request->get_param('select_input') ? $request->get_param('select_input') : '';
 
-        if ($vendor_ids && is_array($vendor_ids)) {
-            foreach (wp_list_pluck($vendor_ids, "ID") as $key => $value) {
-                wp_delete_user($value);
+        if ($select_input == 'delete') {
+            if ($vendor_ids && is_array($vendor_ids)) {
+                foreach (wp_list_pluck($vendor_ids, "ID") as $key => $value) {
+                    wp_delete_user($value);
+                }
+            } elseif ($vendor_ids) {
+                wp_delete_user($vendor_ids);
             }
-        } elseif ($vendor_ids) {
-            wp_delete_user($vendor_ids);
+        } elseif ($select_input == 'approve') {
+            if ($vendor_ids && is_array($vendor_ids)) {
+                foreach (wp_list_pluck($vendor_ids, "ID") as $key => $value) {
+                    delete_user_meta(absint($value), '_vendor_turn_off');
+                    $user = new WP_User(absint($value));
+                    $user->set_role('dc_vendor');
+                }
+            } elseif ($vendor_ids) {
+                delete_user_meta(absint($vendor_ids), '_vendor_turn_off');
+                $user = new WP_User(absint($vendor_ids));
+                $user->set_role('dc_vendor');
+            }
+        } elseif ($select_input == 'reject') {
+            if ($vendor_ids && is_array($vendor_ids)) {
+                foreach (wp_list_pluck($vendor_ids, "ID") as $key => $value) {
+                    delete_user_meta(absint($value), '_vendor_turn_off');
+                    $user = new WP_User(absint($value));
+                    $user->set_role('dc_rejected_vendor');
+                }
+            } elseif ($vendor_ids) {
+                delete_user_meta(absint($vendor_ids), '_vendor_turn_off');
+                $user = new WP_User(absint($vendor_ids));
+                $user->set_role('dc_rejected_vendor');
+            }
+        } elseif ($select_input == 'pending') {
+            if ($vendor_ids && is_array($vendor_ids)) {
+                foreach (wp_list_pluck($vendor_ids, "ID") as $key => $value) {
+                    delete_user_meta(absint($value), '_vendor_turn_off');
+                    $user = new WP_User(absint($value));
+                    $user->set_role('dc_pending_vendor');
+                }
+            } elseif ($vendor_ids) {
+                delete_user_meta(absint($vendor_ids), '_vendor_turn_off');
+                $user = new WP_User(absint($vendor_ids));
+                $user->set_role('dc_pending_vendor');
+            }
+        } elseif ($select_input == 'suspend') {
+            if ($vendor_ids && is_array($vendor_ids)) {
+                foreach (wp_list_pluck($vendor_ids, "ID") as $key => $value) {
+                    update_user_meta($value, '_vendor_turn_off', 'Enable');
+                }
+            } elseif ($vendor_ids) {
+                update_user_meta($vendor_ids, '_vendor_turn_off', 'Enable');
+            }
         }
         return $this->mvx_list_all_vendor('');
     }
@@ -4710,7 +4881,19 @@ class MVX_REST_API {
         } else if ($value == 'delete') {
             if ($commission_list) {
                 foreach ($commission_list as $key => $value_id) {
-                    wp_delete_post($value_id);
+                    if (get_post_status($value_id) != 'trash') {
+                        wp_trash_post($value_id);
+                    } else {
+                        wp_delete_post($value_id);
+                    }
+                }
+            }
+        } else if ($value == 'restore') {
+            if ($commission_list) {
+                foreach ($commission_list as $key => $value_id_un) {
+                    if (get_post_status($value_id_un) == 'trash') {
+                        wp_untrash_post($value_id_un);
+                    }
                 }
             }
         } else if ($value == 'export') {
@@ -4742,16 +4925,16 @@ class MVX_REST_API {
                 $commission_order = get_post_meta($commission, '_commission_order_id', true) ? wc_get_order(get_post_meta($commission, '_commission_order_id', true)) : false;
                 if ($commission_order) $currency = $commission_order->get_currency();
                 $commissions_data[] = apply_filters('mvx_vendor_commissions', array(
-                    'Recipient'     =>  $recipient,
-                    'Currency'      =>  $currency,
-                    'Commission'    =>  $commission_amount,
-                    'Shipping'      =>  $shipping_amount,
-                    'Tax'           =>  $tax_amount,
-                    'Total'         =>  $commission_total,
-                    'Status'        =>  $commission_staus,
-                    'Products'      =>  $product_list,
-                    'Sub Order'     =>  $order_id,
-                    'Date'          =>  $commission_details->post_modified
+                    __('Recipient', 'multivendorx')     =>  $recipient,
+                    __('Currency', 'multivendorx')      =>  $currency,
+                    __('Commission', 'multivendorx')    =>  $commission_amount,
+                    __('Shipping', 'multivendorx')      =>  $shipping_amount,
+                    __('Tax', 'multivendorx')           =>  $tax_amount,
+                    __('Total', 'multivendorx')         =>  $commission_total,
+                    __('Status', 'multivendorx')        =>  $commission_staus,
+                    __('Products', 'multivendorx')      =>  $product_list,
+                    __('Sub Order', 'multivendorx')     =>  $order_id,
+                    __('Date', 'multivendorx')          =>  $commission_details->post_modified
                 ), $commission_data);
             }
             return rest_ensure_response($commissions_data);
@@ -4809,7 +4992,7 @@ class MVX_REST_API {
 
         $args = array(
             'post_type' => 'dc_commission',
-            'post_status' => array('publish', 'private'),
+            'post_status' => $status && $status == 'trash' ? array('trash') : array('publish', 'private', 'draft'),
             'posts_per_page' => -1,
             'fields' => 'ids',
             'date_query' => array(
@@ -4831,7 +5014,7 @@ class MVX_REST_API {
             $args['post__in']   =  $commission_ids;
         }
 
-        if ($status) {
+        if ($status && $status != 'trash') {
             $args['meta_query'] = array(
                 array(
                     'key' => '_paid_status',
@@ -4853,7 +5036,7 @@ class MVX_REST_API {
 
         }
 
-        $commissions = new WP_Query( $args );
+        $commissions = new WP_Query( apply_filters('mvx_commission_list_args', $args ) );
         if ($commissions->get_posts() && !empty($commissions->get_posts())) {
             foreach ($commissions->get_posts() as $commission_key => $commission_value) {
 
@@ -4944,7 +5127,8 @@ class MVX_REST_API {
                     'net_earning'   =>  $net_earning,
                     'status'        =>  $status_display,
                     'date'          =>  $commission_details->post_modified,
-                    'action'        =>  $action_display
+                    'action'        =>  $action_display,
+                    'edit_net_earning'  => MVX_Commission::commission_totals($commission_value, 'edit')
                 ), $commission_value);
             }
         }

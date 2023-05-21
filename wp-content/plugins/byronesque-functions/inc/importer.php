@@ -217,8 +217,8 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         if ($dataArray['appraisalFee']) 
             update_post_meta( $product_id, '_product_appraisal', floatval(str_replace(",","",$dataArray['appraisalFee'])) );
 
-        if ($dataArray['commission']) 
-            update_post_meta( $product_id, '_product_commission', floatval(str_replace(",","",$dataArray['commission'])) );
+        // if ($dataArray['commission']) 
+        //     update_post_meta( $product_id, '_product_commission', floatval(str_replace(",","",$dataArray['commission'])) );
         
         if ($dataArray['archivingFee']) 
             update_post_meta( $product_id, '_product_archiving_fee', floatval(str_replace(",","",$dataArray['archivingFee'])) );
@@ -303,21 +303,29 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
 
         // add location
         if ( sizeof($dataArray['location']) > 0 ) {
-            $locationIds=[];
-            foreach( $dataArray['location'] as $location ) {
-                // get location
-                $locationTerm = get_term_by('name', $location, 'location');
+            // $locationIds=[];
+            // foreach( $dataArray['location'] as $location ) {
+            //     // get location
+            //     $locationTerm = get_term_by('name', $location, 'location');
 
-                if (!$locationTerm) {
-                    $locationTerm = wp_insert_term(
-                        $location,
-                        'location'
-                    );
-                }
-                // $location_id = $locationTerm->term_id;
-                $locationIds[] = $locationTerm->term_id;
-            }
-            wp_set_object_terms( $product_id, $locationIds, 'location' );
+            //     if (!$locationTerm) {
+            //         $locationTerm = wp_insert_term(
+            //             $location,
+            //             'location'
+            //         );
+            //     }
+            //     // $location_id = $locationTerm->term_id;
+            //     $locationIds[] = $locationTerm->term_id;
+            // }
+            // wp_set_object_terms( $product_id, $locationIds, 'location' );
+            $user = get_user_by('slug', $dataArray['location'][0] );
+            $vendor = get_mvx_vendor( $user->ID );
+            
+            // echo "<p>Adding Vendor {$vendor->term_id} >> $product_id</p>";
+            update_post_meta( $product_id , '_commission_per_product', floatval(str_replace(",","",$dataArray['commission'])) );
+
+            wp_delete_object_term_relationships( $product_id, 'dc_vendor_shop' );
+            wp_set_object_terms( $product_id, (int)$vendor->term_id, 'dc_vendor_shop', true );
         }
 
         // add brand

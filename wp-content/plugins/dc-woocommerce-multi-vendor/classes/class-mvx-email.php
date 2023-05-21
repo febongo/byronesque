@@ -52,6 +52,8 @@ class MVX_Email {
 		include( 'emails/class-mvx-email-vendor-followed.php' );
 		include( 'emails/class-mvx-email-admin-change-order-status.php' );
 		include( 'emails/class-mvx-email-vendor-new-coupon-added.php' );
+		include( 'emails/class-mvx-email-vendor-new-coupon-followed-customer.php' );
+		include( 'emails/class-mvx-email-vendor-bank-transfer-transaction.php' );
 
         $mvx_email = array();
         $mvx_email['WC_Email_Vendor_New_Account'] = new WC_Email_Vendor_New_Account();
@@ -79,6 +81,8 @@ class MVX_Email {
 		$mvx_email['WC_Email_Vendor_Followed'] = new WC_Email_Vendor_Followed();
 		$mvx_email['WC_Email_Admin_Change_Order_Status'] = new WC_Email_Admin_Change_Order_Status();
 		$mvx_email['WC_Email_Vendor_New_Coupon_Added'] = new WC_Email_Vendor_New_Coupon_Added();
+		$mvx_email['WC_Email_Vendor_New_Coupon_Added_To_Customer'] = new WC_Email_Vendor_New_Coupon_Added_To_Customer();
+		$mvx_email['WC_Email_Vendor_DirectBank_Commission_Transactions'] = new WC_Email_Vendor_DirectBank_Commission_Transactions();
 
         return array_merge( $emails, apply_filters( 'mvx_email_classes', $mvx_email ) );
     }
@@ -126,7 +130,7 @@ class MVX_Email {
 		$items = $order->get_items( 'line_item' );
 		$vendor_array = array();
 		$author_id = '';
-		$customer_support_details_settings = get_option('mvx_general_customer_support_details_settings_name');
+		$customer_support_details_settings = mvx_get_option('mvx_general_customer_support_details_settings_name');
 		$is_csd_by_admin = '';
 		
 		foreach( $items as $item_id => $item ) {			
@@ -165,7 +169,7 @@ class MVX_Email {
 		global $MVX;
 		$html = '';
 		$user_meta = get_user_meta( $vendor_id );
-		$capability_settings = get_option('mvx_general_customer_support_details_settings_name');
+		$capability_settings = mvx_get_option('mvx_general_customer_support_details_settings_name');
 		ob_start();
 		echo '<td valign="top" align="left" style=" background:#f4f4f4; padding:0px 40px"><h3 style="color:#557da1;display:block;font-family:Arial,sans-serif; font-size:16px;font-weight:bold;line-height:130%;margin:16px 0 8px;text-align:left">';
 		echo __('Customer Support Details of : ','multivendorx');
@@ -230,7 +234,7 @@ class MVX_Email {
 	public function get_csd_admin_address() {
 		global $MVX;
 		$html = '';
-		$capability_settings = get_option('mvx_general_customer_support_details_settings_name');		
+		$capability_settings = mvx_get_option('mvx_general_customer_support_details_settings_name');		
 		ob_start();
 		?>
 		<table>

@@ -13,10 +13,10 @@ if (!function_exists('get_mvx_vendor_settings')) {
             return get_mvx_global_settings($key, $default);
         }
         if (empty($key)) {
-            return get_option("mvx_{$tab}_tab_settings", $default);
+            return mvx_get_option("mvx_{$tab}_tab_settings", $default);
         }
         if (!empty($key) && !empty($tab)) {
-            $settings = get_option("mvx_{$tab}_tab_settings", $default);
+            $settings = mvx_get_option("mvx_{$tab}_tab_settings", $default);
         }
         if (!isset($settings[$key]) || empty($settings[$key])) {
             return $default;
@@ -50,7 +50,9 @@ if (!function_exists('get_mvx_global_settings')) {
                 )
         );
         foreach ($all_options as $option_name) {
-            $options = array_merge($options, get_option($option_name, array()));
+            if (is_array(mvx_get_option($option_name, array()))) {
+                $options = array_merge($options, mvx_get_option($option_name, array()));
+            }
         }
         if (empty($key)) {
             return $default;
@@ -84,7 +86,7 @@ if (!function_exists('get_mvx_older_global_settings')) {
                 )
         );
         foreach ($all_options as $option_name) {
-            $options = array_merge($options, get_option($option_name, array()));
+            $options = array_merge($options, mvx_get_option($option_name, array()));
         }
         if (empty($name)) {
             return $options;
@@ -103,12 +105,15 @@ if (!function_exists('update_mvx_vendor_settings')) {
         if (empty($key) || empty($value) || empty($tab)) {
             return;
         }
+        $settings = [];
         if (!empty($tab)) {
             $option_name = "mvx_{$tab}_tab_settings";
-            $settings = get_option("mvx_{$tab}_tab_settings");
+            $settings = mvx_get_option("mvx_{$tab}_tab_settings");
         }
-        $settings[$key] = $value;
-        update_option($option_name, $settings);
+        if (is_array($settings)) {
+            $settings[$key] = $value;
+            mvx_update_option($option_name, $settings);
+        }
     }
 
 }
@@ -121,13 +126,13 @@ if (!function_exists('delete_mvx_vendor_settings')) {
         }
         if (!empty($subtab)) {
             $option_name = "mvx_{$tab}_{$subtab}_settings_name";
-            $settings = get_option("mvx_{$tab}_{$subtab}_settings_name");
+            $settings = mvx_get_option("mvx_{$tab}_{$subtab}_settings_name");
         } else {
             $option_name = "mvx_{$tab}_settings_name";
-            $settings = get_option("mvx_{$tab}_settings_name");
+            $settings = mvx_get_option("mvx_{$tab}_settings_name");
         }
         unset($settings[$name]);
-        update_option($option_name, $settings);
+        mvx_update_option($option_name, $settings);
     }
 
 }
@@ -686,10 +691,10 @@ if (!function_exists('activate_mvx_plugin')) {
      * @return void
      */
     function activate_mvx_plugin() {
-        //if (!get_option('dc_product_vendor_plugin_installed')) {
+        //if (!mvx_get_option('dc_product_vendor_plugin_installed')) {
         require_once( 'class-mvx-install.php' );
         new MVX_Install();
-        update_option('dc_product_vendor_plugin_installed', 1);
+        mvx_update_option('dc_product_vendor_plugin_installed', 1);
         //}
     }
 
@@ -718,7 +723,7 @@ if (!function_exists('mvx_check_if_another_vendor_plugin_exits')) {
     function mvx_check_if_another_vendor_plugin_exits() {
         require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
         // deactivate marketplace stripe gateway
-        if (version_compare(get_option('dc_product_vendor_plugin_db_version'), '3.1.0', '<')) {
+        if (version_compare(mvx_get_option('dc_product_vendor_plugin_db_version'), '3.1.0', '<')) {
             
         } else {
             if (is_plugin_active('marketplace-stripe-gateway/marketplace-stripe-gateway.php')) {
@@ -1111,12 +1116,12 @@ if (!function_exists('do_mvx_data_migrate')) {
     function do_mvx_data_migrate($previous_plugin_version = '', $new_plugin_version = '') {
         global $MVX, $wpdb, $wp_roles;
         if ($previous_plugin_version) {
-            if ($previous_plugin_version <= '2.6.0' && !get_option('mvx_database_upgrade')) {
-                $old_pages = get_option('mvx_pages_settings_name');
+            if ($previous_plugin_version <= '2.6.0' && !mvx_get_option('mvx_database_upgrade')) {
+                $old_pages = mvx_get_option('mvx_pages_settings_name');
                 if (isset($old_pages['vendor_dashboard'])) {
                     wp_update_post(array('ID' => $old_pages['vendor_dashboard'], 'post_content' => '[mvx_vendor]'));
-                    update_option('mvx_product_vendor_vendor_page_id', get_option('mvx_product_vendor_vendor_dashboard_page_id'));
-                    $mvx_product_vendor_vendor_page_id = get_option('mvx_product_vendor_vendor_page_id');
+                    mvx_update_option('mvx_product_vendor_vendor_page_id', mvx_get_option('mvx_product_vendor_vendor_dashboard_page_id'));
+                    $mvx_product_vendor_vendor_page_id = mvx_get_option('mvx_product_vendor_vendor_page_id');
                     update_mvx_vendor_settings('mvx_vendor', $mvx_product_vendor_vendor_page_id, 'vendor', 'general');
                 }
                 /* remove unwanted vendor caps */
@@ -1239,7 +1244,7 @@ if (!function_exists('do_mvx_data_migrate')) {
                     update_mvx_vendor_settings('is_edit_delete_published_coupon', 'Enable', 'capabilities', 'product');
                 }
 
-                $mvx_pages = get_option('mvx_pages_settings_name');
+                $mvx_pages = mvx_get_option('mvx_pages_settings_name');
                 $mvx_old_pages = array(
 //                'vendor_dashboard' => 'mvx_product_vendor_vendor_dashboard_page_id'
                     'shop_settings' => 'mvx_product_vendor_shop_settings_page_id'
@@ -1262,7 +1267,7 @@ if (!function_exists('do_mvx_data_migrate')) {
                         unset($mvx_pages[$page_slug]);
                     }
                 }
-                update_option('mvx_pages_settings_name', $mvx_pages);
+                mvx_update_option('mvx_pages_settings_name', $mvx_pages);
 
                 #region update page option
                 if (get_mvx_vendor_settings('mvx_vendor', 'pages')) {
@@ -1276,7 +1281,7 @@ if (!function_exists('do_mvx_data_migrate')) {
                 $endpoints->add_mvx_endpoints();
                 flush_rewrite_rules();
                 delete_option('mvx_pages_settings_name');
-                update_option('mvx_database_upgrade', 'done');
+                mvx_update_option('mvx_database_upgrade', 'done');
                 #endregion
             }
             if ($previous_plugin_version <= '2.6.5') {
@@ -1353,7 +1358,7 @@ if (!function_exists('do_mvx_data_migrate')) {
                 $wpdb->delete($wpdb->prefix . 'mvx_products_map', array('product_title' => 'AUTO-DRAFT'));
             }
             if (version_compare($previous_plugin_version, '2.7.8', '<=')) {
-                update_option('users_can_register', 1);
+                mvx_update_option('users_can_register', 1);
                 delete_option('_is_dismiss_service_notice');
                 if (apply_filters('mvx_do_schedule_cron_vendor_weekly_order_stats', true) && !wp_next_scheduled('vendor_weekly_order_stats')) {
                     wp_schedule_event(time(), 'weekly', 'vendor_weekly_order_stats');
@@ -1477,10 +1482,10 @@ if (!function_exists('do_mvx_data_migrate')) {
                 if (!get_mvx_vendor_settings('is_vendor_shipping_on', 'general') && get_mvx_vendor_settings('give_shipping', 'payment') && 'Enable' === get_mvx_vendor_settings('give_shipping', 'payment')) {
                     update_mvx_vendor_settings('is_vendor_shipping_on', 'Enable', 'general');
                 } else {
-                    $settings = get_option("mvx_general_settings_name");
+                    $settings = mvx_get_option("mvx_general_settings_name");
                     if (isset($settings['is_vendor_shipping_on']))
                         unset($settings['is_vendor_shipping_on']);
-                    update_option('mvx_general_settings_name', $settings);
+                    mvx_update_option('mvx_general_settings_name', $settings);
                 }
             }
             if (version_compare($previous_plugin_version, '3.2.0', '<=')) {
@@ -1505,13 +1510,13 @@ if (!function_exists('do_mvx_data_migrate')) {
                     $dc_role->add_cap('delete_posts');
             }
             if (version_compare($previous_plugin_version, '3.2.1', '<=')) {
-                if (!wp_next_scheduled('mvx_spmv_product_meta_update') && !get_option('mvx_spmv_product_meta_migrated', false)) {
+                if (!wp_next_scheduled('mvx_spmv_product_meta_update') && !mvx_get_option('mvx_spmv_product_meta_migrated', false)) {
                     wp_schedule_event(time(), 'hourly', 'mvx_spmv_product_meta_update');
                 }
             }
             if (version_compare($previous_plugin_version, '3.2.2', '<=')) {
                 // shipping migration for beta
-                if(!get_option('mvx_322_vendor_shipping_data_migrated')){
+                if(!mvx_get_option('mvx_322_vendor_shipping_data_migrated')){
                     $vendors = get_mvx_vendors();
                     $MVX->shipping_gateway->load_shipping_methods();
                     if ($vendors) {
@@ -1560,21 +1565,21 @@ if (!function_exists('do_mvx_data_migrate')) {
                                             $shipping_details = get_option($option_name);
                                             $class = "class_cost_" . $shipping_class_id;
                                             $shipping_details[$class] = '';
-                                            update_option($option_name, $shipping_details);
+                                            mvx_update_option($option_name, $shipping_details);
                                         }
                                     }
                                 }
                             }
                         }
                         WC_Cache_Helper::get_transient_version('shipping', true);
-                        update_option('mvx_322_vendor_shipping_data_migrated', true);
+                        mvx_update_option('mvx_322_vendor_shipping_data_migrated', true);
                     }
                 }
             }
             if (version_compare($previous_plugin_version, '3.4.0', '<=')) {
                 $args = array('role' => 'dc_vendor', 'fields' => 'ids', 'orderby' => 'registered', 'order' => 'ASC');
                 $user_query = new WP_User_Query($args);
-                if ( !get_option( 'user_mvx_vendor_role_updated' ) && !empty( $user_query->results ) ) {
+                if ( !mvx_get_option( 'user_mvx_vendor_role_updated' ) && !empty( $user_query->results ) ) {
                     foreach ( $user_query->results as $vendor_id ) {
                         $user = new WP_User( $vendor_id );
                         $user->add_cap( 'edit_shop_orders' );
@@ -1585,10 +1590,10 @@ if (!function_exists('do_mvx_data_migrate')) {
                         $user->add_cap( 'delete_published_shop_orders' );
                         $user->remove_cap( 'add_shop_orders' );
                     }
-                    update_option( 'user_mvx_vendor_role_updated', true );
+                    mvx_update_option( 'user_mvx_vendor_role_updated', true );
                 }
                 
-                if( !get_option('mvx_orders_table_migrated') && !wp_next_scheduled('mvx_orders_migration') ){
+                if( !mvx_get_option('mvx_orders_table_migrated') && !wp_next_scheduled('mvx_orders_migration') ){
                     wp_schedule_event( time(), 'hourly', 'mvx_orders_migration' );
                 }
             }
@@ -1600,7 +1605,7 @@ if (!function_exists('do_mvx_data_migrate')) {
             /* Migrate commission data into table */
             do_mvx_commission_data_migrate();
         }
-        update_option('dc_product_vendor_plugin_db_version', $new_plugin_version);
+        mvx_update_option('dc_product_vendor_plugin_db_version', $new_plugin_version);
     }
 
 }
@@ -1646,10 +1651,10 @@ if (!function_exists('do_mvx_commission_data_migrate')) {
     function do_mvx_commission_data_migrate() {
         global $wpdb;
         /* Update Commission Order Table */
-        if (get_option('commission_data_migrated')) {
+        if (mvx_get_option('commission_data_migrated')) {
             return;
         }
-        $offset = get_option('dc_commission_offset_to_migrate') ? get_option('dc_commission_offset_to_migrate') : 0;
+        $offset = mvx_get_option('dc_commission_offset_to_migrate') ? mvx_get_option('dc_commission_offset_to_migrate') : 0;
         $args = array(
             'post_type' => 'dc_commission',
             'post_status' => array('private'),
@@ -1751,9 +1756,9 @@ if (!function_exists('do_mvx_commission_data_migrate')) {
                 }
             }
             $offset++;
-            update_option('dc_commission_offset_to_migrate', $offset);
+            mvx_update_option('dc_commission_offset_to_migrate', $offset);
         } else {
-            update_option('commission_data_migrated', '1');
+            mvx_update_option('commission_data_migrated', '1');
         }
     }
 
@@ -3897,7 +3902,7 @@ if (!function_exists('is_mvx_version_less_3_4_0')) {
      * @return boolean true/false
      */
     function is_mvx_version_less_3_4_0() {
-        $current_mvx = get_option('dc_product_vendor_plugin_db_version');
+        $current_mvx = mvx_get_option('dc_product_vendor_plugin_db_version');
         return version_compare( $current_mvx, '3.4.0', '<' );
     }
 }
@@ -4490,10 +4495,10 @@ if (!function_exists('mvx_admin_backend_settings_fields_details')) {
             )
         );
 
-        $review_options_data = get_option('mvx_review_management_tab_settings');
+        $review_options_data = mvx_get_option('mvx_review_management_tab_settings');
         $mvx_review_categories = $review_options_data && isset($review_options_data['mvx_review_categories']) ? $review_options_data['mvx_review_categories'] : $default_nested_data;
 
-        $commission_options_data = get_option('mvx_commissions_tab_settings');
+        $commission_options_data = mvx_get_option('mvx_commissions_tab_settings');
         $mvx_product_commission_variations = isset($commission_options_data['vendor_commission_by_products']) ? $commission_options_data['vendor_commission_by_products'] : $default_nested_data;
         $mvx_quantity_commission_variations = isset($commission_options_data['vendor_commission_by_quantity']) ? $commission_options_data['vendor_commission_by_quantity'] : $default_nested_data;
 
@@ -5395,6 +5400,98 @@ if (!function_exists('mvx_admin_backend_settings_fields_details')) {
                     ),
                     'database_value' => array(),
                 ],
+                [
+                    'key'       => 'sku_generator_simple',
+                    'type'      => 'select',
+                    'label'     => __( 'Generate Simple / Parent SKUs:', 'multivendorx' ),
+                    'desc'      => __( 'Determine how SKUs for simple, external, or parent products will be generated.', 'multivendorx' ),
+                    'options' => array(
+                        array(
+                            'key'=> "choose_options",
+                            'label'=> __('Choose options', 'multivendorx'),
+                            'value'=> "choose_options",
+                        ),
+                        array(
+                            'key'=> "never",
+                            'label'=> __('Never (let me set them)', 'multivendorx'),
+                            'value'=> "never",
+                        ),
+                        array(
+                            'key'=> "slugs",
+                            'label'=> __('Using the product slug (name)', 'multivendorx'),
+                            'value'=> "slugs",
+                        ),
+                        array(
+                            'key'=> "ids",
+                            'label'=> __('Using the product ID)', 'multivendorx'),
+                            'value'=> "ids",
+                        ),
+                    ),
+                    'database_value' => '',
+                ],
+                [
+                    'key'       => 'sku_generator_variation',
+                    'type'      => 'select',
+                    'label'     => __( 'Generate Variation SKUs:', 'multivendorx' ),
+                    'desc'      => __( 'Determine how SKUs for product variations will be generated.', 'multivendorx' ),
+                    'options' => array(
+                        array(
+                            'key'=> "choose_options",
+                            'label'=> __('Choose options', 'multivendorx'),
+                            'value'=> "choose_options",
+                        ),
+                        array(
+                            'key'=> "never",
+                            'label'=> __('Never (let me set them)', 'multivendorx'),
+                            'value'=> "never",
+                        ),
+                        array(
+                            'key'=> "slugs",
+                            'label'=> __('Using the attribute slugs (names)', 'multivendorx'),
+                            'value'=> "slugs",
+                        ),
+                        array(
+                            'key'=> "ids",
+                            'label'=> __('Using the variation ID)', 'multivendorx'),
+                            'value'=> "ids",
+                        ),
+                    ),
+                    'database_value' => '',
+                ],
+                [
+                    'key'       => 'sku_generator_attribute_spaces',
+                    'type'      => 'select',
+                    'label'     => __( 'Replace spaces in attributes?', 'multivendorx' ),
+                    'desc'      => __( 'Replace spaces in attribute names when used in a SKU.', 'multivendorx' ),
+                    'options' => array(
+                        array(
+                            'key'=> "choose_options",
+                            'label'=> __('Choose options', 'multivendorx'),
+                            'value'=> "choose_options",
+                        ),
+                        array(
+                            'key'=> "no",
+                            'label'=> __('Do not replace spaces in attribute names.', 'multivendorx'),
+                            'value'=> "no",
+                        ),
+                        array(
+                            'key'=> "underscore",
+                            'label'=> __('Replace spaces with underscores', 'multivendorx'),
+                            'value'=> "underscore",
+                        ),
+                        array(
+                            'key'=> "dash",
+                            'label'=> __('Replace spaces with dashes / hyphens', 'multivendorx'),
+                            'value'=> "dash",
+                        ),
+                        array(
+                            'key'=> "none",
+                            'label'=> __('Remove spaces from attribute names', 'multivendorx'),
+                            'value'=> "none",
+                        ),
+                    ),
+                    'database_value' => '',
+                ],
             ],
             'commissions'   =>  [
                 [
@@ -6258,6 +6355,20 @@ if (!function_exists('mvx_admin_backend_settings_fields_details')) {
                     ),
                     'database_value' => array(),
                 ],
+                [
+                    'key'     => 'display_suborder_in_mail',
+                    'label'   => __( 'Display Suborder in mail', 'multivendorx' ),
+                    'class'   => 'mvx-toggle-checkbox',
+                    'type'    => 'checkbox',
+                    'options' => array(
+                        array(
+                            'key'=> "display_suborder_in_mail",
+                            'label'=> __('Display suborder number in mail.', 'multivendorx'),
+                            'value'=> "display_suborder_in_mail"
+                        )
+                    ),
+                    'database_value' => array(),
+                ],
             ],
             'store-location' => [
                 [
@@ -6649,6 +6760,36 @@ if (!function_exists('mvx_admin_backend_settings_fields_details')) {
                 ],
                 
             ],
+            'settings-min-max' => [
+                [
+                    'key'    => 'enable_min_max_quantity',
+                    'label'   => __( 'Enable Min/Max Quantities', 'multivendorx' ),
+                    'desc'    => __( 'Activating this will set min and max quantities for selected products.', 'multivendorx' ),
+                    'class'   => 'mvx-toggle-checkbox',
+                    'type'    => 'checkbox',
+                    'options' => array(
+                        array(
+                            'key'=> "enable_min_max_quantity",
+                            'value'=> "enable_min_max_quantity"
+                        )
+                    ),
+                    'database_value' => array(),
+                ],
+                [
+                    'key'    => 'enable_min_max_amount',
+                    'label'   => __( 'Enable Min/Max Amount', 'multivendorx' ),
+                    'desc'    => __( 'Activating this will set min and max amount for selected products.', 'multivendorx' ),
+                    'class'   => 'mvx-toggle-checkbox',
+                    'type'    => 'checkbox',
+                    'options' => array(
+                        array(
+                            'key'=> "enable_min_max_amount",
+                            'value'=> "enable_min_max_amount"
+                        )
+                    ),
+                    'database_value' => array(),
+                ],
+            ],
         ];
 
         return apply_filters('mvx_settings_fields_details', $settings_fields);
@@ -6772,6 +6913,14 @@ if (!function_exists('mvx_admin_backend_tab_settings')) {
                 'submenu'       =>  'settings',
                 'modulename'    =>  'social'
             ),
+            array(
+                'tablabel'      =>  __('Min-Max Quantities', 'multivendorx'),
+                'apiurl'        =>  'mvx_module/v1/save_dashpages',
+                'description'   =>  __('Manage Min-Max Quantities/Amount', 'multivendorx'),
+                'icon'          =>  'icon-tab-min-max',
+                'submenu'       =>  'settings',
+                'modulename'    =>  'settings-min-max'
+            ),
         );
         
         if (!mvx_is_module_active('spmv')) {
@@ -6790,6 +6939,10 @@ if (!function_exists('mvx_admin_backend_tab_settings')) {
            unset($general_settings_page_endpoint[11]);
         }
 
+        if (!mvx_is_module_active('min-max')) {
+            unset($general_settings_page_endpoint[14]);
+        }
+        
         $payment_page_endpoint = array(
             array(
                 'tablabel'      =>  __('PayPal Masspay', 'multivendorx'),
@@ -7299,13 +7452,13 @@ if (!function_exists('mvx_list_all_modules')) {
                     ],
                     [
                         'id'           => 'rental-pro',
-                        'name'         => __( 'Rental-Pro', 'multivendorx' ),
+                        'name'         => __( 'Rental Pro', 'multivendorx' ),
                         'description'  => __( 'Perfect for those desiring to offer rental, booking, or real state agencies or services.', 'multivendorx' ),
                         'plan'         => apply_filters('is_mvx_pro_plugin_inactive', true) ? 'pro' : 'free',
                         'required_plugin_list' => array(
                             array(
                                 'plugin_name'   => __('Rental Pro', 'multivendorx'),
-                                'plugin_link'   => 'https://woocommerce.com/products/rental-products/',
+                                'plugin_link'   => 'https://codecanyon.net/item/rnb-woocommerce-rental-booking-system/14835145?ref=redqteam',
                                 'is_active' => is_plugin_active('woocommerce-rental-and-booking/redq-rental-and-bookings.php') ? true : false,
                             ),
                             array(
@@ -7377,6 +7530,14 @@ if (!function_exists('mvx_list_all_modules')) {
                         ),
                         'doc_link'     => 'https://multivendorx.com/docs/knowladgebase/store-inventory',
                         'mod_link'     => admin_url('admin.php?page=mvx#&submenu=settings&name=settings-store-inventory'),
+                    ],
+                    [
+                        'id'           => 'min-max',
+                        'name'         => __( 'Min Max Quantities', 'multivendorx' ),
+                        'description'  => __( 'Set a minimum or maximum purchase quantity or amount for the products of your marketplace.', 'multivendorx' ),
+                        'plan'         => 'free',
+                        'doc_link'     => 'https://multivendorx.com/docs/non-knowledgebase/min-max-quantities/',
+                        'mod_link'     => admin_url('admin.php?page=mvx#&submenu=settings&name=settings-min-max'),
                     ],
                 ]
             ],
@@ -7923,6 +8084,38 @@ if (!function_exists('mvx_list_all_modules')) {
                             ),
                         ),
                         'doc_link'     => 'https://multivendorx.com/docs/knowladgebase/mvx-product-addon',
+                    ],
+                    [
+                        'id'           => 'product-addon',
+                        'name'         => __( 'Product Addon', 'multivendorx' ),
+                        'description'  => __( 'Offer add-ons like gift wrapping, special messages etc along with primary products', 'multivendorx' ),
+                        'plan'         => apply_filters('is_mvx_pro_plugin_inactive', true) ? 'pro' : 'free',
+                        'required_plugin_list' => array(
+                            array(
+                                'plugin_name'   => __('Product Add-Ons', 'multivendorx'),
+                                'plugin_link'   => 'https://woocommerce.com/products/product-add-ons/',
+                                'is_active' => is_plugin_active('woocommerce-product-addons/woocommerce-product-addons.php') ? true :false,
+                            ),
+                            array(
+                                'plugin_name'   => __('MultivendorX Pro', 'multivendorx'),
+                                'plugin_link'   => 'https://multivendorx.com/',
+                                'is_active'     => $mvx_pro_is_active,
+                            ),
+                        ),
+                        'doc_link'     => 'https://multivendorx.com/docs/knowladgebase/mvx-product-addon',
+                    ],
+                    [
+                        'id'           => 'shipstation-module',
+                        'name'         => __( 'Shipstation', 'multivendorx' ),
+                        'description'  => __( 'Shipstation', 'multivendorx' ),
+                        'plan'         => apply_filters('is_mvx_pro_plugin_inactive', true) ? 'pro' : 'free',
+                        'required_plugin_list' => array(
+                            array(
+                                'plugin_name'   => __('MultivendorX Pro', 'multivendorx'),
+                                'plugin_link'   => 'https://multivendorx.com/',
+                                'is_active'     => $mvx_pro_is_active,
+                            ),
+                        ),
                     ],
                 ]
             ],

@@ -248,7 +248,7 @@ class MVX_Vendor_Hooks {
                 , 'position'    => 70
                 , 'submenu'     => array()
                 , 'link_target' => '_self'
-                , 'nav_icon'    => 'dashicons dashicons-media-interactive', 
+                , 'nav_icon'    => 'mvx-font ico-followers-icon', 
             ),
             'vendor-knowledgebase' => array(
                 'label'       => __( 'Knowledgebase', 'multivendorx' )
@@ -379,10 +379,13 @@ class MVX_Vendor_Hooks {
      */
     public function mvx_vendor_dashboard_storefront_endpoint() {
         global $MVX;
+        $suffix = defined('MVX_SCRIPT_DEBUG') && MVX_SCRIPT_DEBUG ? '' : '.min';
         $vendor = get_mvx_vendor( get_current_vendor_id() );
         $user_array = $MVX->user->get_vendor_fields( $vendor->id );
         $MVX->library->load_dashboard_upload_lib();
         $MVX->library->load_gmap_api();
+        wp_register_script( 'mvx-frontend-media', $MVX->plugin_url . 'assets/frontend/js/storefront-media' . $suffix . '.js', array( 'jquery'), $MVX->version );
+        wp_enqueue_script( 'mvx-frontend-media' );
         $MVX->template->get_template( 'vendor-dashboard/shop-front.php', $user_array );
     }
     
@@ -429,7 +432,7 @@ class MVX_Vendor_Hooks {
     public function mvx_vendor_dashboard_vendor_shipping_endpoint() {
         global $MVX;
         $MVX->library->load_select2_lib();
-        $mvx_payment_settings_name = get_option( 'mvx_payment_settings_name' );
+        $mvx_payment_settings_name = mvx_get_option( 'mvx_payment_settings_name' );
         $_vendor_give_shipping = get_user_meta( get_current_vendor_id(), '_vendor_give_shipping', true );
         if ( is_mvx_shipping_module_active() && empty( $_vendor_give_shipping ) ) {
             if (wp_script_is('mvx-vendor-shipping', 'registered') &&

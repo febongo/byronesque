@@ -32,6 +32,7 @@ class MVX_Backend_Commission extends Component {
 			data_paid_commission: [],
 			data_unpaid_commission: [],
 			data_refunded_commission: [],
+			data_trash_commission: [],
 			data_partial_refunded_commission: [],
 			show_vendor_name: [],
 			commisson_bulk_choose: [],
@@ -40,6 +41,7 @@ class MVX_Backend_Commission extends Component {
 			commission_list_status_paid: false,
 			commission_list_status_unpaid: false,
 			commission_list_status_refunded: false,
+			commission_list_status_trash: false,
 			date_range: ''
 		};
 		this.handleSelectRowsChange = this.handleSelectRowsChange.bind(this);
@@ -80,7 +82,9 @@ class MVX_Backend_Commission extends Component {
 			this.setState({
 				commission_list_status_all: false,
 				commission_list_status_paid: true,
-				commission_list_status_unpaid: false
+				commission_list_status_unpaid: false,
+				commission_list_status_trash: false,
+				commission_list_status_refunded: false,
 			});
 			// paid status
 			axios
@@ -102,7 +106,9 @@ class MVX_Backend_Commission extends Component {
 			this.setState({
 				commission_list_status_all: false,
 				commission_list_status_paid: false,
-				commission_list_status_unpaid: true
+				commission_list_status_unpaid: true,
+				commission_list_status_trash: false,
+				commission_list_status_refunded: false,
 			});
 			axios
 				.get(
@@ -124,7 +130,8 @@ class MVX_Backend_Commission extends Component {
 				commission_list_status_all: false,
 				commission_list_status_paid: false,
 				commission_list_status_unpaid: false,
-				commission_list_status_refunded: true
+				commission_list_status_refunded: true,
+				commission_list_status_trash: false
 			});
 			axios
 				.get(
@@ -139,13 +146,38 @@ class MVX_Backend_Commission extends Component {
 					});
 				});
 		}
+
+		if (type === 'trash') {
+			// trash status
+			this.setState({
+				commission_list_status_all: false,
+				commission_list_status_paid: false,
+				commission_list_status_unpaid: false,
+				commission_list_status_refunded: false,
+				commission_list_status_trash: true
+			});
+			axios
+				.get(
+					`${appLocalizer.apiUrl}/mvx_module/v1/show_commission_from_status_list`,
+					{
+						params: { commission_status: 'trash', date_range: this.state.date_range },
+					}
+				)
+				.then((response) => {
+					this.setState({
+						datacommission: response.data,
+					});
+				});
+		}
 		
 
 		if (type === 'all') {
 			this.setState({
 				commission_list_status_all: true,
 				commission_list_status_paid: false,
-				commission_list_status_unpaid: false
+				commission_list_status_unpaid: false,
+				commission_list_status_trash: false,
+				commission_list_status_refunded: false,
 			});
 
 			axios
@@ -287,6 +319,7 @@ class MVX_Backend_Commission extends Component {
 				});
 			});
 		}
+		this.common_funtions('');
 	}
 
 	componentDidUpdate(prevProps) {
@@ -322,7 +355,7 @@ class MVX_Backend_Commission extends Component {
 		}
 	}
 
-	componentDidMount() {
+	common_funtions = (e) => {
 		axios
 		.get(
 			`${appLocalizer.apiUrl}/mvx_module/v1/all_commission`,
@@ -379,6 +412,20 @@ class MVX_Backend_Commission extends Component {
 				});
 			});
 
+		// trash status
+		axios
+			.get(
+				`${appLocalizer.apiUrl}/mvx_module/v1/show_commission_from_status_list`,
+				{
+					params: { commission_status: 'trash', date_range: this.state.date_range },
+				}
+			)
+			.then((response) => {
+				this.setState({
+					data_trash_commission: response.data,
+				});
+			});
+
 		// partial refunded status
 		axios
 			.get(
@@ -392,7 +439,10 @@ class MVX_Backend_Commission extends Component {
 					data_partial_refunded_commission: response.data,
 				});
 			});
+	};
 
+	componentDidMount() {
+		this.common_funtions('');
 		// get vendor name on select
 		axios({
 			url: `${appLocalizer.apiUrl}/mvx_module/v1/show_vendor_name`,
@@ -566,6 +616,7 @@ class MVX_Backend_Commission extends Component {
 	}
 
 	render() {
+		var total_net_earning_count = 0;
 		return (
 			<div className="mvx-general-wrapper mvx-commission">
 				<HeaderSection />
@@ -837,6 +888,20 @@ class MVX_Backend_Commission extends Component {
 														></p>
 													</div>
 												</p>
+												{
+													this.state.commission_details.additional_datas ?
+														<p
+															dangerouslySetInnerHTML={{
+																__html: this.state.commission_details.additional_datas
+																	
+															}}
+														>
+														</p>
+													:
+
+													''
+												}
+
 											</div>
 										</div>
 									</div>
@@ -1315,6 +1380,7 @@ class MVX_Backend_Commission extends Component {
 														)}
 																<td/>
 																<td/>
+																<td/>
 																<td className="mvx-order-label-td">
 																	{
 																		appLocalizer
@@ -1343,6 +1409,8 @@ class MVX_Backend_Commission extends Component {
 																		}}
 																	></div>
 																</td>
+
+
 															</tr>
 														) : (
 															''
@@ -1442,6 +1510,22 @@ class MVX_Backend_Commission extends Component {
 
 
 
+														{
+
+															this.state.commission_details.additional_down_datas ? this.state.commission_details.additional_down_datas.map(
+															(
+																data,
+																index_c
+															) => (
+																<tr
+																	dangerouslySetInnerHTML={{
+																		__html: data
+																			
+																	}}
+																>
+																</tr>
+															)) : ''
+														}
 
 
 														<tr>
@@ -1793,6 +1877,31 @@ class MVX_Backend_Commission extends Component {
 											)
 										</div>
 									</li>
+									<li className="mvx-multistatus-item mvx-divider"></li>
+									<li className={`mvx-multistatus-item ${this.state.commission_list_status_trash ? 'status-active' : ''}`}>
+										<div
+											className="mvx-multistatus-check-unpaid"
+											onClick={(e) =>
+												this.handle_commission_status_check(
+													e,
+													'trash'
+												)
+											}
+										>
+											{
+												appLocalizer
+													.commission_page_string
+													.trash
+											}{' '}
+											(
+											{
+												this.state
+													.data_trash_commission
+													.length
+											}
+											)
+										</div>
+									</li>
 								</ul>
 
 
@@ -1863,6 +1972,14 @@ class MVX_Backend_Commission extends Component {
 									onChange={(e) => this.handleupdatereport(e)}
 								/>
 							</div>
+
+
+							{
+								this.state.datacommission.length > 0 && appLocalizer.total_earning_visible ? this.state.datacommission.map((data_earning, index_earning) => {
+									total_net_earning_count += data_earning.edit_net_earning;
+								}) : '',
+								total_net_earning_count > 0 && appLocalizer.total_earning_visible ? <div className="total-net-earning"> Total Net Earning: {total_net_earning_count} </div> : ''
+							}
 
 							{this.state.columns_commission_list &&
 							this.state.columns_commission_list.length > 0 &&

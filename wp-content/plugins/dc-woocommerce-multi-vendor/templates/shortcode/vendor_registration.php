@@ -4,10 +4,11 @@
     <form class="register" role="form" method="post" enctype="multipart/form-data">
         <?php $mvx_vendor_registration_form_data = mvx_get_option('mvx_new_vendor_registration_form_data'); ?>
         <h2 class="reg_header1"><?php echo isset($mvx_vendor_registration_form_data[0]['label']) && !empty($mvx_vendor_registration_form_data[0]['label']) ? $mvx_vendor_registration_form_data[0]['label'] : apply_filters('mvx_vendor_registration_header_text',__('Vendor Registration Form','multivendorx')); ?></h2>
+        <h7 class=""><?php echo isset($mvx_vendor_registration_form_data[0]['label']) && !empty($mvx_vendor_registration_form_data[0]['description']) ? $mvx_vendor_registration_form_data[0]['description'] : apply_filters('mvx_vendor_registration_description_text', ''); ?></h7>
 
         <div class="mvx_regi_form_box">
             <?php if(!is_user_logged_in()) : 
-                $mvx_vendor_general_settings_name = get_option('mvx_vendor_general_settings_name');?>
+                $mvx_vendor_general_settings_name = mvx_get_option('mvx_vendor_general_settings_name');?>
             <h3 class="reg_header2"><?php echo apply_filters('woocommerce_section_label', __('Account Details', 'multivendorx')); ?></h3>
             <?php if ('no' === get_option('woocommerce_registration_generate_username')) : ?>
                 <div class="mvx-regi-12">

@@ -58,6 +58,8 @@ class MVX_User {
         add_filter( 'wp_link_query_args', array( &$this, 'userwise_wp_link_query_args'), 99 );
         // filter user query, if orderby setted as 'rand'
         add_filter( 'pre_user_query', array( &$this, 'mvx_pre_user_query_filtered'), 99 );
+        // user can set there own store name. If name already exist then give error.
+        add_action('woocommerce_register_post', array(&$this, 'woocommerce_register_post_store_name_restriction'), 10, 3);
     }
     
     function remove_wp_admin_access_for_suspended_vendor() {
@@ -333,12 +335,12 @@ class MVX_User {
 
         $vendor = new MVX_Vendor($user_id);
         $settings_capabilities = array_merge(
-                (array) get_option('mvx_general_settings_name', array())
-                , (array) get_option('mvx_capabilities_product_settings_name', array())
-                , (array) get_option('mvx_capabilities_order_settings_name', array())
-                , (array) get_option('mvx_capabilities_miscellaneous_settings_name', array())
+                (array) mvx_get_option('mvx_general_settings_name', array())
+                , (array) mvx_get_option('mvx_capabilities_product_settings_name', array())
+                , (array) mvx_get_option('mvx_capabilities_order_settings_name', array())
+                , (array) mvx_get_option('mvx_capabilities_miscellaneous_settings_name', array())
         );
-        $policies_settings = get_option('mvx_general_policies_settings_name');
+        $policies_settings = mvx_get_option('mvx_general_policies_settings_name');
 
         $fields = apply_filters('mvx_vendor_fields', array(
             "vendor_page_title" => array(
@@ -548,7 +550,7 @@ class MVX_User {
             unset($fields['vendor_external_store_label']);
         }
 
-        $payment_admin_settings = get_option('mvx_payment_settings_name');
+        $payment_admin_settings = mvx_get_option('mvx_payment_settings_name');
         $payment_mode = array('' => __('Payment Mode', 'multivendorx'));
         if (isset($payment_admin_settings['payment_method_paypal_masspay']) && $payment_admin_settings['payment_method_paypal_masspay'] = 'Enable') {
             $payment_mode['paypal_masspay'] = __('PayPal Masspay', 'multivendorx');
@@ -757,6 +759,18 @@ class MVX_User {
             } else {
                 $user = new WP_User(absint($user_id));
                 $user->set_role('dc_vendor');
+            }
+            // change store name if vendor_page_title exist in registration filed
+            $mvx_vendor_fields = isset( $_POST['mvx_vendor_fields'] ) ? array_filter( array_map( 'wc_clean', (array) $_POST['mvx_vendor_fields'] ) ) : '';
+            if ($mvx_vendor_fields && is_array($mvx_vendor_fields)) {
+                foreach ($mvx_vendor_fields as $key => $value) {
+                    if (in_array($value['type'], array('vendor_page_title'))) {
+                        $vendor = get_mvx_vendor($user_id);
+                        if ($vendor) {
+                            if (!$vendor->update_page_title(wc_clean($value['value']))) {}
+                        }
+                    }
+                }
             }
             do_action('mvx_after_register_vendor', $user_id);
         }
@@ -1127,6 +1141,29 @@ class MVX_User {
         if( $query->query_vars["orderby"] != 'rand' ) return $query;
         $query->query_orderby = 'ORDER by RAND()';
         return $query;
+    }
+
+    public function woocommerce_register_post_store_name_restriction($username, $email, $errors) {
+        $vendors = get_mvx_vendors() && !empty(get_mvx_vendors()) ? wp_list_pluck(get_mvx_vendors(), 'id') : array();
+        $list_store_name = [];
+        if ($vendors) {
+            foreach ( $vendors as $vendor ) {
+                $vendor_term_id = get_user_meta( $vendor, '_vendor_term_id', true );
+                $vendor_term = get_term($vendor_term_id);
+                if ($vendor_term) {
+                    $list_store_name[] = $vendor_term->name;
+                }
+            }
+        }
+        $mvx_vendor_fields = isset( $_POST['mvx_vendor_fields'] ) ? array_filter( array_map( 'wc_clean', (array) $_POST['mvx_vendor_fields'] ) ) : '';
+        if ($mvx_vendor_fields && is_array($mvx_vendor_fields)) {
+            foreach ($mvx_vendor_fields as $key => $value) {
+                if (in_array($value['type'], array('vendor_page_title')) && in_array($value['value'], $list_store_name)) {
+                    $errors->add('vendor store name is not validate', __('Store name already exist', 'multivendorx'));
+                }
+            }
+        }
+        return $errors;
     }
     
 }

@@ -12,7 +12,7 @@ class MVX_Frontend {
 
     public function __construct() {
 
-        $permalinks = get_option('dc_vendors_permalinks');
+        $permalinks = mvx_get_option('dc_vendors_permalinks');
         $this->custom_store_url = empty($permalinks['vendor_shop_base']) ? _x('vendor', 'slug', 'multivendorx') : $permalinks['vendor_shop_base'];
         //enqueue scripts
         add_action('wp_enqueue_scripts', array(&$this, 'frontend_scripts'));
@@ -78,10 +78,22 @@ class MVX_Frontend {
             add_action( 'woocommerce_account_followers_endpoint', array($this, 'mvx_customer_followers_vendor_callback' ));
         }
         //is checkout delivery location on
-        add_filter( 'woocommerce_checkout_fields', array( &$this, 'mvx_checkout_user_location_fields' ), 50 );
-        add_action( 'woocommerce_after_checkout_billing_form', array( &$this, 'mvx_checkout_user_location_map' ), 50 );
-        add_action( 'woocommerce_checkout_update_order_review', array( &$this, 'mvx_checkout_user_location_session_set' ), 50 );
-        add_action( 'woocommerce_checkout_update_order_meta', array( &$this, 'mvx_checkout_user_location_save' ), 50 );
+        if ( mvx_is_module_active('store-location') ) {
+            add_filter( 'woocommerce_checkout_fields', array( &$this, 'mvx_checkout_user_location_fields' ), 50 );
+            add_action( 'woocommerce_after_checkout_billing_form', array( &$this, 'mvx_checkout_user_location_map' ), 50 );
+            add_action( 'woocommerce_checkout_update_order_review', array( &$this, 'mvx_checkout_user_location_session_set' ), 50 );
+            add_action( 'woocommerce_checkout_update_order_meta', array( &$this, 'mvx_checkout_user_location_save' ), 50 );
+        }
+
+        if ( get_mvx_vendor_settings('display_product_seller', 'settings_general') && apply_filters('mvx_display_multiple_vendor_notice_at_cart_chekout_page', true) ){
+            add_action( 'woocommerce_before_cart', array( &$this, 'message_multiple_vendors_cart' ), 10 );
+            add_filter( 'wc_get_template', array( &$this, 'mvx_template_cart' ), 10, 5 );
+            add_filter( 'wc_get_template', array( &$this, 'mvx_template_orderdetails' ), 10, 5 );
+        }
+        //display suborder in mail
+        if ( get_mvx_vendor_settings('display_suborder_in_mail', 'order') ) {
+            add_filter( 'wc_get_template', array( &$this, 'mvx_template_email_order_details' ), 10, 5 );
+        }
     }
 
     /**
@@ -171,7 +183,7 @@ class MVX_Frontend {
      * @return void
      */
     function mvx_validate_extra_register_fields($username, $email, $validation_errors) {
-        $mvx_vendor_registration_form_data = mvx_get_option('mvx_vendor_registration_form_data');
+        $mvx_vendor_registration_form_data = mvx_get_option('mvx_new_vendor_registration_form_data');
         if(isset($_POST['g-recaptchatype']) && $_POST['g-recaptchatype'] == 'v2'){
             if (isset($_POST['g-recaptcha-response']) && empty($_POST['g-recaptcha-response'])) {
                 $validation_errors->add('recaptcha is not validate', __('Please Verify  Recaptcha', 'multivendorx'));
@@ -240,7 +252,7 @@ class MVX_Frontend {
         $items = $order->get_items('line_item');
         $vendor_array = array();
         $author_id = '';
-        $customer_support_details_settings = get_option('mvx_general_customer_support_details_settings_name');
+        $customer_support_details_settings = mvx_get_option('mvx_general_customer_support_details_settings_name');
         $is_csd_by_admin = '';
         foreach ($items as $item_id => $item) {
             $product_id = wc_get_order_item_meta($item_id, '_product_id', true);
@@ -430,6 +442,10 @@ class MVX_Frontend {
             wp_enqueue_script('mvx_customer_qna_js');
         }
         if (mvx_is_store_page()) {
+            $MVX->library->load_bootstrap_style_lib();
+            $MVX->library->load_bootstrap_script_lib();
+            $MVX->library->load_vlite_lib();
+            wp_enqueue_script( 'mvx_vlite_js', $frontend_script_path . 'vlite_script' . $suffix . '.js', array('jquery' ), $MVX->version, true );
             wp_enqueue_script('mvx_seller_review_rating_js');
             wp_enqueue_script('frontend_js');
         }
@@ -698,7 +714,7 @@ class MVX_Frontend {
                 $vendor = get_mvx_vendor($vendor_id);
                 $formated_languages = array();
                 $default_lang = $sitepress->get_default_language();
-                $permalinks = get_option('dc_vendors_permalinks');
+                $permalinks = mvx_get_option('dc_vendors_permalinks');
                 $vendor_permalink = is_array($permalinks) && isset($permalinks['vendor_shop_base']) && !empty($permalinks['vendor_shop_base']) ? $permalinks['vendor_shop_base'] : 'vendor';
                 if( !empty( $languages ) ) {
                     $is_wpml_configured = apply_filters( 'wpml_setting', 0, 'language_negotiation_type' );
@@ -736,11 +752,11 @@ class MVX_Frontend {
     }
 
     public function mvx_vendor_shop_page_policies_endpoint( $store_id, $query_vars_name ) {
-        $_vendor_shipping_policy = get_user_meta( $store_id, 'vendor_shipping_policy', true ) ? get_user_meta( $store_id, 'vendor_shipping_policy', true ) : __( 'No policy found', 'multivendorx' );
+        $_vendor_shipping_policy = get_user_meta( $store_id, '_vendor_shipping_policy', true ) ? get_user_meta( $store_id, '_vendor_shipping_policy', true ) : __( 'No policy found', 'multivendorx' );
 
-        $_vendor_refund_policy = get_user_meta( $store_id, 'vendor_refund_policy', true ) ? get_user_meta( $store_id, 'vendor_refund_policy', true ) : __( 'No policy found', 'multivendorx' );
+        $_vendor_refund_policy = get_user_meta( $store_id, '_vendor_refund_policy', true ) ? get_user_meta( $store_id, '_vendor_refund_policy', true ) : __( 'No policy found', 'multivendorx' );
 
-        $_vendor_cancellation_policy = get_user_meta( $store_id, 'vendor_cancellation_policy', true ) ? get_user_meta( $store_id, 'vendor_cancellation_policy', true ) : __( 'No policy found', 'multivendorx' );
+        $_vendor_cancellation_policy = get_user_meta( $store_id, '_vendor_cancellation_policy', true ) ? get_user_meta( $store_id, '_vendor_cancellation_policy', true ) : __( 'No policy found', 'multivendorx' );
 
         ?>
         <div class="mvx-policie-sec">
@@ -1078,13 +1094,6 @@ class MVX_Frontend {
      * Checkout User Location Field
      */
     public function mvx_checkout_user_location_fields( $fields ) {
-        ?>
-        <style>
-            .input-hidden{
-                display: none;
-            }
-        </style>
-        <?php
         if( ! WC()->is_rest_api_request() ) {
             if( ( true === WC()->cart->needs_shipping() ) && apply_filters( 'mvx_is_allow_checkout_user_location', true ) && mvx_is_module_active('distance-shipping') ) {
                 $user_location_filed = mvx_mapbox_api_enabled() ? array('input-hidden') : array('form-row-wide');
@@ -1126,4 +1135,86 @@ class MVX_Frontend {
         }
     }
 
+    function message_multiple_vendors_cart() {
+        $vendorsincart = $this->get_vendors_in_cart();
+        if ( count($vendorsincart) > 1 ) {
+            wc_print_notice(esc_html__('The products in your cart are sold by multiple different vendor partners. The order will be placed simultaneously with all vendors and you will receive a package from each of them.', 'multivendorx'), 'notice' );
+        }else if ( count($vendorsincart) === 1 ) {
+            $vendorid = reset($vendorsincart);
+            echo '<input type="hidden" value="' . esc_attr($vendorid) . '">';
+        }
+        echo '<input type="hidden" value="' . esc_attr(count($vendorsincart)) . '">';
+    }
+
+    function get_vendors_in_cart() {
+        $cart = WC()->cart;
+        $vendors = array();
+        if ( is_object($cart) ) {
+            foreach ( $cart->get_cart() as $cart_item ) {
+                $vendor = get_mvx_product_vendors( $cart_item['product_id'] );
+                if ( $vendor ) {
+                    $vendor_id = $vendor->id;
+                    if ( !empty($vendor_id) ) {
+                        array_push($vendors, $vendor_id);
+                    }
+                }
+            }
+        }
+        return array_unique(array_filter($vendors));
+    }
+
+    function get_vendors_of_order( $order_id ) {
+        if ( is_object($order_id) ) {
+            $order = $order_id;
+        } else {
+            $order = wc_get_order($order_id);
+        }
+        $vendors = array();
+        $items = $order->get_items();
+        foreach ( $items as $product ) {
+            $vendor_id = get_post_field( 'post_author', $product->get_product_id() );
+            array_push($vendors, $vendor_id);
+        }
+        return array_unique(array_filter($vendors));
+    }
+
+    function mvx_template_cart( $template, $template_name, $args, $template_path, $default_path ) {
+        global $MVX;
+        $vendorsincart = $this->get_vendors_in_cart();
+        if ( count($vendorsincart) > 1 ) {
+            if ( 'cart.php' === basename( $template ) ) {
+                $template = $MVX->template->get_template( 'woocommerce/cart/cart.php' );
+            }
+        }
+        return $template;
+    }
+
+    function mvx_template_orderdetails( $template, $template_name, $args, $template_path, $default_path ) {
+        global $MVX;
+        if ( 'order-details.php' === basename( $template ) ) {
+            if ( isset($args['order_id']) ) {
+                $order_id = $args['order_id'];
+                $vendors = $this->get_vendors_of_order($order_id);
+                if ( count($vendors) > 1 ) {
+                    $template = $MVX->template->get_template( 'woocommerce/order/order-details.php', array( 'order_id' => $order_id ) );
+                }
+            }	
+        }   
+        return $template;
+    }
+
+    function mvx_template_email_order_details( $template, $template_name, $args, $template_path, $default_path ) {
+        global $MVX;
+        if ( 'email-order-details.php' === basename( $template ) ) {
+            if ( $args['plain_text'] === false && $args['sent_to_admin'] === false ) {
+                $order = $args['order'];
+                $order_id = $order->get_id();
+                $vendors = $this->get_vendors_of_order($order_id);
+                if ( count($vendors) > 1 ) {
+                    $template = $MVX->template->get_template( 'woocommerce/emails/email-order-details.php', array( 'order' => $order ) );
+                }  
+            }	
+        }
+        return $template;
+    }
 }
