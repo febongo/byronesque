@@ -3,7 +3,7 @@
 Plugin Name: Byronesque Shop Functions
 Description: Byronesque custom functions such as searching and mini cart functions
 Author: Felix Bongo (febongo@gmail.com)
-Version: 1.0
+Version: 1.0.1
 */
 // Plugin initialization wait for woocommerce to be loaded
 function byronesquePlugininit() {
