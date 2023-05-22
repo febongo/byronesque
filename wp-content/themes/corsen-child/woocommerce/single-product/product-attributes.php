@@ -16,16 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 $has_row    = false;
 $attributes = $product->get_attributes();
 
+$vendor = get_the_terms($product_id, 'dc_vendor_shop');
+
 ?>
 
 <?php
 // show location
- $locationTerm = get_the_terms($product->get_id(), 'location');
- $locationArr=[];
+//  $locationTerm = get_the_terms($product->get_id(), 'location');
+//  $locationArr=[];
 
- foreach($locationTerm as $locTerms){
-	$locationArr[] = $locTerms->name; 
- }
+//  foreach($locationTerm as $locTerms){
+// 	$locationArr[] = $locTerms->name; 
+//  }
 
  $hasSize=false;
 ?>
@@ -55,10 +57,10 @@ $attributes = $product->get_attributes();
 
 	<?php endforeach; ?>
 
-	<?php if($locationArr) : ?>
+	<?php if($vendor && count($vendor) > 0) : ?>
 		<div class="product-shipsfrom">
-			<span class="att_label b2-stressed">Location: </span>
-			<span class="att_value b2"><?= implode(', ',$locationArr) ?></span><!-- .att_value -->
+			<span class="att_label b2-stressed">Ships From: </span>
+			<span class="att_value b2"><?= $vendor[0]->name ?></span><!-- .att_value -->
 		</div>
 	<?php endif; ?>
 

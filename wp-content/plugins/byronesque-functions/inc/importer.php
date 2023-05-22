@@ -110,8 +110,8 @@ function assigndataToArray($data){
     $separator='|';
     $cnt=0;
     return [
-        "title"                 => $data[$cnt++],
         "brand"                 => explode($separator,$data[$cnt++]),
+        "title"                 => $data[$cnt++],
         "subHeader"             => $data[$cnt++],
         "sy"                    => $data[$cnt++],
         "price"                 => $data[$cnt++],

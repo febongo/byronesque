@@ -71,7 +71,7 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 		<?php endif; ?>
 
 		<!-- MADE IN  -->
-		<?php if ($product_details) : ?>
+		<?php if (true) : ?>
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="productDescriptionMadeInlabel">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionMadeIn" aria-expanded="true" aria-controls="productDescriptionMadeIn">
@@ -80,7 +80,7 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 				</h2>
 				<div id="productDescriptionMadeIn" class="accordion-collapse collapse" aria-labelledby="productDescriptionMadeInlabel" data-bs-parent="#productDescription">
 					<div class="accordion-body">
-					<?= $product_details ?>
+						<?php the_content(); ?>
 					</div>
 				</div>
 			</div>

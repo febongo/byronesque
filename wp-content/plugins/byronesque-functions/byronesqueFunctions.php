@@ -163,16 +163,18 @@ add_filter('the_title', 'modifyFetchTitleAddDescription', 20, 2);
 function modifyFetchTitleAddDescription($the_title, $id)
 {
 
-  if (get_post_type($id) == 'product' && !is_admin()) : // runs only on the shop page
+    
+    if (get_post_type($id) == 'product' && !is_admin()) : // runs only on the shop page
+        
+        $product = wc_get_product( $id );
+        $the_title = '<span class="product-title" style="font-style:inherit; font-size:inherit; color: inherit;display:block">'.$the_title.'</span>';
+        $post = get_post( $id );
 
-    $the_title = '<span class="product-title" style="font-style:inherit; font-size:inherit; color: inherit;display:block">'.$the_title.'</span>';
-    $post = get_post( $id );
+        $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )).'</span>';
 
-    $the_title .= '<span class="product-description">'.wp_trim_words( $post->post_content, 10 ).'</span>';
+    endif;
 
-  endif;
-
-  return $the_title;
+    return $the_title;
 }
 
 /* Create Buy Now Button dynamically after Add To Cart button */
@@ -189,7 +191,7 @@ function add_content_after_addtocart() {
 
 	// run only on simple products
 	if( is_user_logged_in() ){
-		echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Buy Now</a>';
+		echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Pay For Your Item</a>';
 		//echo '<a href="'.$checkout_url.'" class="buy-now button">Buy Now</a>';
 	} else {
         echo '<a href="#" id="JSLogin" class="trigger-login button alt wp-element-button">Add to Bag</a>';
