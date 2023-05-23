@@ -50,6 +50,11 @@ $allowed_html = array(
 	<div class="woocommerce-myaccount-detailblock">
 		<header class="woocommerce-Address-title title">
 			<p>Newsletter</p>
+
+			<?php
+			// $email = "febongo@gmail.com";
+			check_email_subscription_status($current_user->user_email);
+			?>
 		</header>
 
 	</div>

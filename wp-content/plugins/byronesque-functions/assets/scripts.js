@@ -567,6 +567,30 @@
 
             return false;
         });
+
+        $(".stopStartNewsletterSubscription").click(function(){
+            
+            console.log("this clicked",$(this).attr('email'));
+
+            $.ajax({
+                url:opt.ajaxUrl,
+                type: 'get',
+                data: { 
+                    action:  'add_or_remove_subscriber_to_mailchimp',
+                    getAction:  $(this).attr('data-action'),
+                    email:  $(this).attr('data-email'),
+                },
+                success: function(data) {
+                    let reqData = $.parseJSON(data);
+                    this_.parent().html(reqData.message);
+                },
+                done: function(data){
+                    let reqData = $.parseJSON(data);
+                    this_.parent().html(reqData.message);
+                }
+            });
+
+        });
         
         
         

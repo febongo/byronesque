@@ -91,3 +91,18 @@ function custom_post_title($atts)
     $data = $title;
     return $data;
 }
+
+// echo "**************************************************************called ********************************************************";
+// $email = 'febongotest@example.com';
+// $list_id = 'bd26333b2e';
+// add_mailchimp_subscriber($email, $list_id);
+
+// var_dump(get_user_meta(3,'mailchimp_woocommerce_is_subscribed'));
+// $mailchimp = Mailchimp_WooCommerce();
+// var_dump($mailchimp);
+// $api = MC4WP_MailChimp_WooCommerce::get_instance();
+// var_dump($api);
+
+
+// $integration = mc4wp_get_integration('woocommerce');
+// var_dump($integration);

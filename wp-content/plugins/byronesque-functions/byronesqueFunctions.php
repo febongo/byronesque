@@ -10,6 +10,7 @@ function byronesquePlugininit() {
     // Your code here
     include('inc/productExtraFields.php');
     include('inc/importer.php');
+    include('inc/mailchimpNewsLetter.php');
     // include('inc/usps_shipping.php');
 
     add_menu_page( 
