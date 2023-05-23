@@ -58,7 +58,7 @@ class wpb_widget_menu extends WP_Widget {
                         <div class="newsletter-form">
                             <h3 id="newsletterSide">NEWSLETTER</h3>
                             <?php 
-                                $newsl = '[contact-form-7 id="'.$newsletter.'" title="Newsletter"]';
+                                $newsl = '[mc4wp_form id="'.$newsletter.'" title="Newsletter"]';
                                 echo do_shortcode($newsl);
                             ?>
 
