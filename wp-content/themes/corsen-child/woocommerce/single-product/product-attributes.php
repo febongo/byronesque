@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $has_row    = false;
 $attributes = $product->get_attributes();
 
-$vendor = get_the_terms($product_id, 'dc_vendor_shop');
+// $vendor = get_the_terms($product_id, 'dc_vendor_shop');
 
 ?>
 
@@ -57,12 +57,12 @@ $vendor = get_the_terms($product_id, 'dc_vendor_shop');
 
 	<?php endforeach; ?>
 
-	<?php if($vendor && count($vendor) > 0) : ?>
-		<div class="product-shipsfrom">
+	<?php //if($vendor && count($vendor) > 0) : ?>
+		<!-- <div class="product-shipsfrom">
 			<span class="att_label b2-stressed">Ships From: </span>
-			<span class="att_value b2"><?= $vendor[0]->name ?></span><!-- .att_value -->
-		</div>
-	<?php endif; ?>
+			<span class="att_value b2"><?= $vendor[0]->name ?></span>
+		</div> -->
+	<?php //endif; ?>
 
 </div>
 
