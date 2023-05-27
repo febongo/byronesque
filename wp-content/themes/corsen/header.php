@@ -5,15 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 	<!-- Start of byronesque Zendesk Widget script -->
 	<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=2ffc2a6d-2bff-4070-ac4f-e9473e1e7849"> </script>
-	<script>
-		// Open the Zendesk Chat widget
-        function openZendeskChat() {
-            // alert();
-            if (typeof zE !== 'undefined') {
-                zE.show();
-            }
-        }
-	</script>
 	<!-- End of byronesque Zendesk Widget script -->
 	<?php wp_head(); ?>
 </head>

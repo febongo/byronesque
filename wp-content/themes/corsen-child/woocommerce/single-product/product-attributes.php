@@ -69,6 +69,3 @@ $attributes = $product->get_attributes();
 <?php if( !$hasSize ) : ?>
 	<p class="size-info">Please see description for sizes.</p>
 <?php endif; ?>
-
-<button type="button" onclick="openZendeskChat()" class="show_zendesk_button button alt wp-element-button">Contact</button>
-

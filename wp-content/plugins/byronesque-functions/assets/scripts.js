@@ -592,23 +592,23 @@
 
         });
 
-        $(".show_zendesk_button2").click(function(){
-            // alert();
-            console.log("open zendesk chat");
-            openZendeskChat();
-        });
+        // $(".show_zendesk_button").click(function(){
+        //     alert();
+        //     console.log("open zendesk chat");
+        //     openZendeskChat();
+        // });
+
+        document.getElementById('openChat').addEventListener('click', openZendeskChat);
 
         // $("#launcher").hide()
         
         // // Open the Zendesk Chat widget
-        // function openZendeskChat() {
-        //     // alert();
-        //     if (typeof zE !== 'undefined') {
-        //         zE.show();
-        //     } else {
-        //         zE.hide();
-        //     }
-        // }
+        function openZendeskChat() {
+            alert();
+            if (typeof zE !== 'undefined') {
+                zE.show();
+            }
+        }
         
         // Hide the Zendesk Chat widget
         // function hideZendeskChat() {
