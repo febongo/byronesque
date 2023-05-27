@@ -16,7 +16,7 @@
 
         // init Isotope
         var qsRegex;
-        var $grid;
+        var $grid, $pageFilter;
 
         // NAVIGATION FUNCTIONS
         $("#qodef-page-header").append("<div id='menu-overlay' class='overlay'></div><div id='byro-side-content'></div>")
@@ -618,6 +618,18 @@
         // }
 
         // hideZendeskChat()
+
+
+        // ADD ISOTOPE FILTER IN PAGE
+        $pageFilter = $('#byro-page-archive .qodef-grid-inner').isotope({
+            itemSelector: '.qodef-grid-item',
+            layoutMode: 'fitRows'
+        });
+
+        $('.btn-filter').click(function(){
+            var filterValue = $( this ).attr('data-filter');
+            $pageFilter.isotope({ filter: filterValue });
+        });
         
     }) // DOCUMENT READY -- END
 

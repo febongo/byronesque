@@ -208,7 +208,7 @@ add_action( 'woocommerce_before_add_to_cart_button', 'add_custom_button_before_a
 
 
 // CREATE FILTER SHORTCODE 
-function shopFilters() {
+function shopFilters($attr) {
 
     if (is_product_category()) { 
         $cat = get_queried_object();
@@ -245,20 +245,33 @@ function shopFilters() {
         // fetch categories 
         // show categories contains products limit to 5
 
-        $product_categories = get_terms(array(
-            'taxonomy' => 'product_cat',
-            'hide_empty' => true,
-        ));
+        if (!empty($attr) && isset($attr['fields'])) {
+            $fields = explode(",",$attr['fields']);
+            //var_dump($fields);
 
-        usort($product_categories, function($a, $b) {
-            return $b->count - $a->count;
-        });
+            foreach($fields as $field){
+                $slug = sanitize_title($field);
+                echo "<button type='button' class='btn-filter' data-filter='$slug'>$field</a>";
+            }
 
-        foreach($product_categories as $key => $cat){
-            $isActive = is_product_category($cat->slug) ? 'active' : '';
-            echo "<a href='/product-category/$cat->slug' class='btn-filter $isActive'>$cat->name</a>";
+        } else {
 
-            if ($key > 3) break; 
+        
+            $product_categories = get_terms(array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+            ));
+
+            usort($product_categories, function($a, $b) {
+                return $b->count - $a->count;
+            });
+
+            foreach($product_categories as $key => $cat){
+                $isActive = is_product_category($cat->slug) ? 'active' : '';
+                echo "<a href='/product-category/$cat->slug' class='btn-filter $isActive'>$cat->name</a>";
+
+                if ($key > 3) break; 
+            }
         }
         ?>
         <span class="browseBy">FILTER PRODUCTS: <span class="filter-icon"></span></span>
@@ -344,7 +357,6 @@ function shopFilters() {
 }
     // register shortcode
 add_shortcode('shop-filters', 'shopFilters');
-
 
 // add ajax to fetch images info 
 function get_image_meta() {
