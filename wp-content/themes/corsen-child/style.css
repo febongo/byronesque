@@ -717,23 +717,34 @@ table td {
 
 /* WHITE */
 
-.white:hover .fullwidth-editorial:hover h3, 
+.white:hover .fullwidth-editorial h3, 
 .white:hover .block-overlay h4, 
 .white:hover .block-overlay h3,
 .white:hover .qodef-m-content p,
-.white:hover .qodef-m-content h3 {
+.white:hover .qodef-m-content h3,
+.white:hover .qodef-m-content h6{
 	color: #fff !important;
 	transition: color .3s;	
 }
 
 /* BLACK */
-.black:hover .fullwidth-editorial:hover h3, 
+
+.black:hover .fullwidth-editorial h3, 
 .black:hover .block-overlay h4, 
 .black:hover .block-overlay h3,
 .black:hover .qodef-m-content p,
-.black:hover .qodef-m-content h3{
+.black:hover .qodef-m-content h3,
+.black:hover .qodef-m-content h6{
 	color: #111 !important;
 	transition: color .3s;	
+}
+
+.editorial-section-white h5 p{
+	color:#fff;
+}
+
+.editorial-section-white:hover h5{
+	color:#111;
 }
 
 
@@ -791,13 +802,6 @@ Top: 48px;
 }
 
  
-.editorial-section-white h5 p{
-	color:#fff;
-}
-
-.editorial-section-white:hover h5{
-	color:#111;
-}
 
 
 
@@ -836,9 +840,9 @@ Top: 48px;
 	margin:0;
 }
 
-.editorial-block p, .editorial-block h6 {
+/*.editorial-block p, .editorial-block h6 {
 	color:#fff;
-}
+}*/
 
 
 
