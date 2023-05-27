@@ -1,2 +1,0 @@
-# SendCloud Checkout Library
-
