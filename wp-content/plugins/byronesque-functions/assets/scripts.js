@@ -474,17 +474,23 @@
             });
             
 
-            var selectedShippingMethod = $('#shipping_method input[type="radio"]:checked').attr('id');
-            if (!selectedShippingMethod) {
-                selectedShippingMethod = $('#shipping_method li:first-child input').attr('id');
-                $('#shipping_method li:first-child .checkmark').hide()
-            }
-            console.log("shippping ",selectedShippingMethod);
+            var selectedShippingMethod = $('.woocommerce-shipping-methods input[type="radio"]:checked');
+
+            // selectedShippingMethod.each(function(){
+            //     console.log($(this));
+            //     if (!$(this)) {
+            //         selectedShippingMethod = $('#shipping_method li:first-child input').attr('id');
+            //         $('.woocommerce-shipping-methods li:first-child .checkmark').hide()
+            //     }
+            // });
+            
+            // console.log("shippping ",selectedShippingMethod);
             setShippingMethodPrice(selectedShippingMethod)
 
             $(document).on("change", "#shipping_method input[type='radio']", function(){
-                console.log("method changed");
-                var selectedShippingMethod = $('#shipping_method input[type="radio"]:checked').attr('id');
+                // console.log("method changed");
+                var selectedShippingMethod = $('.woocommerce-shipping-methods input[type="radio"]:checked');
+                // console.log(selectedShippingMethod);
                 setShippingMethodPrice(selectedShippingMethod)
             })
 
@@ -680,12 +686,17 @@
 
     }
 
-    function setShippingMethodPrice(targetId) {
-        let priceHtml = $("#"+targetId).parent().find('.woocommerce-Price-amount').html()
+    function setShippingMethodPrice(targetIds) {
+        let priceHtml = ""
+
+        targetIds.each(function(){
+            // console.log($(this));
+            priceHtml += "<p>"+$("#"+$(this).attr('id')).parent().find('.woocommerce-Price-amount').html()+"</p>" 
+        });
+        // console.log("hyml",priceHtml);
         setTimeout(function(){ 
-            // x.value = "2 seconds" 
             $("#shippingMethodAmount").html(priceHtml)
-        }, 2000);
+        }, 3000);
         // console.log(priceHtml)
     }
 
