@@ -591,8 +591,33 @@
             });
 
         });
+
+        $(".show_zendesk_button2").click(function(){
+            // alert();
+            console.log("open zendesk chat");
+            openZendeskChat();
+        });
+
+        // $("#launcher").hide()
         
+        // // Open the Zendesk Chat widget
+        // function openZendeskChat() {
+        //     // alert();
+        //     if (typeof zE !== 'undefined') {
+        //         zE.show();
+        //     } else {
+        //         zE.hide();
+        //     }
+        // }
         
+        // Hide the Zendesk Chat widget
+        // function hideZendeskChat() {
+        //     if (typeof zE !== 'undefined') {
+        //     zE.hide();
+        //     }
+        // }
+
+        // hideZendeskChat()
         
     }) // DOCUMENT READY -- END
 

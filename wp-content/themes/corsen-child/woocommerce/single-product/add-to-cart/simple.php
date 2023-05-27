@@ -23,6 +23,7 @@ global $product;
 if ( ! $product->is_purchasable() ) {
 
 	// add disabled button here
+	echo '<button type="button" onclick="openZendeskChat()" class="single_add_to_cart_button button alt wp-element-button" disabled>Contact</button>';
 	echo '<button type="button" class="single_add_to_cart_button button alt wp-element-button" disabled>Add to Bag</button>';
 	echo '<button type="button" class="single_add_to_cart_button button alt wp-element-button" disabled>Pay For Your Item</button>';
 	
