@@ -108,7 +108,7 @@ function get_cart() {
 
     
 do_action( 'woocommerce_before_mini_cart' ); ?>
-<h4>YOUR CART</h4>
+<h4>YOUR BAG</h4>
 <?php if ( ! WC()->cart->is_empty() ) : ?>
 <div class="byro-mini-cart">
 	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">

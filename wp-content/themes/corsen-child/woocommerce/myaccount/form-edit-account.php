@@ -43,10 +43,14 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" autocomplete="email" placeholder="Email Address" value="<?php echo esc_attr( $user->user_email ); ?>" />
 	</p>
 	
-		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+	<!--	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 		<label for="account_display_name"><?php esc_html_e( 'Display name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_display_name" id="account_display_name"  placeholder="Display Name" value="<?php echo esc_attr( $user->display_name ); ?>" /> 
 			<span><em><?php esc_html_e( 'This will be how your name will be displayed in the account section and in reviews', 'woocommerce' ); ?></em></span>
+	</p>-->
+		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+		<label for="shipping_phone"><?php esc_html_e( 'Phone Number', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="shipping_phone" id="shipping_phone"  placeholder="Phone Number" value="<?php echo esc_attr( $user->shipping_phone ); ?>" /> 
 	</p>
 	</div>
 	<div class="clear"></div>

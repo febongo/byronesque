@@ -529,7 +529,7 @@
 }
 
 .woocommerce-message .added-notif{
-    padding: 0 20px;
+    padding: 12px 20px;
     color: #545454;
 }
 
@@ -539,7 +539,7 @@
     background-size: contain;
     padding: 4px;
     font-size: 12px;
-    line-height: 9px;
+    line-height: 8px;
     color: #545454;
 }
 

@@ -18,7 +18,7 @@ body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6,
 	font-family: "neue-haas-unica";
 
 }
-h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6{
+h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6, .woocommerce-mini-cart__buttons .button{
 	font-family: "Termina";
 }
 
@@ -32,7 +32,11 @@ h6.entry-title {
 	color: #111111B8;
 }
 
-ul li a {
+ul li a,
+.mobile-sidenav-menu-small a span.qodef-menu-item-text,
+.filter-btns .btn-filter-products,
+#byro-search-result .editorial-search a,
+#byro-search-result .product-search a{
 	text-decoration: none;
 }
 
@@ -88,6 +92,8 @@ input::placeholder, select::placeholder{
 	padding: 14px 0px!important;
 	display: block;
 	height: 48px;
+	width: 100%;
+	text-align: center;
 }
 
 #qodef-woo-page.qodef--single form.cart .variations_button  {
@@ -95,25 +101,7 @@ input::placeholder, select::placeholder{
 	max-width: 100%!important;
 }
 
-.woocommerce-account .button, .woocommerce-mini-cart__buttons .button, 
-.woocommerce-MyAccount-content .submit-btn a, 
-.editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-button, 
-.editorial-page .qodef-qi-button.editorial-button,
-.nextBlock{
-    font-family: 'termina';
-	line-height: 20px;
-	font-size: 12px;
-	font-weight: 500;
-	margin-bottom: 8px;
-	width: 100%;
-	background-color: #111;
-	text-align: center;
-	padding: 14px 0;
-	color: #fff;
-	text-decoration: none;
-	text-transform: uppercase;
-	border-radius: 0;
-}
+
 
 .woocommerce-account .button:hover, .woocommerce-mini-cart__buttons .button:hover {
 	background-color: #808080;
@@ -138,6 +126,47 @@ input::placeholder, select::placeholder{
 	text-decoration: none;
 }
 
+.woocommerce-account .button, .woocommerce-mini-cart__buttons .button, 
+.woocommerce-MyAccount-content .submit-btn a, 
+.editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-button, 
+.editorial-page .qodef-qi-button.editorial-button,
+.nextBlock,
+.single-product-button-bottom .qodef-qi-button,
+.mobile-sidenav-menu-small a span,
+#qodef-page-footer .widget a,
+.mo-openid-app-icons a,
+.newsletter-form button,
+.mc4wp-form-fields input[type="submit"]{
+	font-family: "termina";    
+	font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    border-radius: 0;
+	text-decoration:none;
+}
+
+
+.woocommerce-account .button, .woocommerce-mini-cart__buttons .button, 
+.woocommerce-MyAccount-content .submit-btn a, 
+.editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-button, 
+.editorial-page .qodef-qi-button.editorial-button,
+.nextBlock,
+{
+	margin-bottom: 8px;
+	width: 100%;
+	background-color: #111;
+	text-align: center;
+	padding: 14px 0;
+	border-radius: 0;
+}
+
+
+
+
+
 #qodef-page-inner {
 	padding:0;
 }
@@ -146,6 +175,9 @@ input::placeholder, select::placeholder{
 .hidden {
 	display: none;
 }
+
+
+
 
 /* NOTIFICATION BAR */
 .easy-notification-bar-button {
@@ -240,7 +272,11 @@ input::placeholder, select::placeholder{
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	margin-top: 60px;
+}
+
+.country-list ul li.element-item {
+	position: static!important;
+	margin: 4px 0;
 }
 
 #byronesque-currency-nav input {
@@ -262,6 +298,18 @@ input::placeholder, select::placeholder{
 	color: #545454;
 }
 
+
+.newsletter-form button,
+.mc4wp-form-fields input[type="submit"]{
+	width: 100%;
+	padding: 14px 0!important;
+	text-align: center;
+	display: block;
+	border:0;
+	background-color: #111;
+
+}
+
 #byronesque-side-nav .subscribe-label {
 	color: #111;
 }
@@ -275,6 +323,8 @@ input::placeholder, select::placeholder{
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 22px;
+	position: static!important;
+	margin: 68px 0 12px;
 }
 
 
@@ -313,9 +363,7 @@ input::placeholder, select::placeholder{
 	height: 100%;
 }
 
-#byro-search-result .editorial-search a {
-	text-decoration: none;
-}
+
 
 .product-search ul {
 	display: grid;
@@ -401,22 +449,18 @@ input::placeholder, select::placeholder{
 
 /* ACCOUNT */
 
+
 .mo-openid-app-icons a{
-  width:100%;
+  	width:100%;
 	height:48px;
 	padding: 14px 0;
-  background: #fff;
+  	background: #fff;
 	text-align:center;
-	font-size: 12px;
-	line-height: 20px;
-	font-weight: 500;
 	color:#111;
 	margin-bottom:8px;
 	border: 1px solid #545454;
 	display: block;
-	text-transform: uppercase;
 	position: relative;
-	text-decoration: none;
  }
 
 
@@ -580,6 +624,19 @@ table td {
 	display: block;
 }
 
+.home-interactive-links {
+	height:80vh;
+}
+
+.qodef-qi-interactive-link-showcase.qodef-layout--split .qodef-m-items {
+	justify-content: start;
+}
+
+@media only screen and (max-width: 1024px){
+	.home-interactive-links {
+		height:50vh;
+	}
+}	
 
 /*.js-home-fold-description {
 	background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.24) 100%);
@@ -636,6 +693,16 @@ table td {
 	width: 518px;
 }
 
+@media only screen and (max-width: 680px){
+	.fullwidth-editorial-white .qodef-m-content .qodef-m-content-inner,
+	.fullwidth-editorial-white .qodef-m-content .qodef-m-content-inner p{
+	width: 350px;
+	}
+	.fullwidth-editorial-white .qodef-m-image {
+	height: 292px;
+	}
+}	
+
 
 /*.fullwidth-editorial-white h3{
 	color:#fff;
@@ -651,7 +718,7 @@ table td {
 
 @media only screen and (max-width: 480px){
 	.fullwidth-editorial-white h3 {
-		width: min-content;
+		width: fit-content;
 	}
 }
 
@@ -758,7 +825,7 @@ Top: 48px;
 
 
 
-/* SUBSCRIBE */
+/* NEWSLETTER */
 
 .qodef-button.qodef-html--link {
 	width:100%;
@@ -786,7 +853,7 @@ Top: 48px;
 	background-color: #808080;
 }
 
-/* NEWSLETTER */
+
 
 .newsletter-marquee {
 	cursor: pointer;
@@ -796,17 +863,7 @@ Top: 48px;
 	margin-bottom:40px;
 }
 
-.newsletter-form button {
-	width: 100%;
-	padding: 12px 233px;
-	border:0;
-	background-color: #111;
-	color: #fff;	
-	font-family: "termina";
-	font-size: 12px;
-	font-weight:600;
-	letter-spacing:0.02em;
-}
+
 
 /*.newsletter-form button:hover, .newsletter-form button:active{
 	color:#E4FF00;
@@ -920,14 +977,9 @@ button[disabled] {
 	margin:0;
 }
 
-#qodef-page-footer .widget a  {
-	font-family: "termina";
-	font-size:12px;
-	line-height: 20px;
+
+#qodef-page-footer .widget a{
 	color: #FFFFFFB8;
-	letter-spacing: 0.02em;
-	font-weight:500;
-	text-decoration:none;
 }
 
 .widget a:hover {
@@ -1295,7 +1347,7 @@ div#qodef-woo-page.qodef--single .entry-summary .qodef-woo-product-title .produc
 }
 
 .qodef-product-layout--big_images div#qodef-woo-page.qodef--single .related, .qodef-product-layout--big_images div#qodef-woo-page.qodef--single .up-sells {
-	padding: 80px 42px 79px;
+	padding: 80px 42px 0;
 	margin: 0;
 	background-color: #F8F5EA;
 }
@@ -1361,19 +1413,13 @@ Color: #1F1F1F;
 	background-color: #F8F5EA;
     display: flex;
     gap: 20px;
-    padding: 40px 42px 100px 42px;
+    padding: 0 42px 100px 42px;
 }
 
 .single-product-button-bottom .qodef-qi-button {
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    line-height: 20px;
-    letter-spacing: 0.01em;
-    color: #FFFFFF;
-    border-radius: 0;
     padding: 14px 0;
 }
+
 
 
 
@@ -1383,6 +1429,10 @@ Color: #1F1F1F;
 
 
 /* PRODUCT LIST */
+
+.wcvendors_sold_by_in_loop {
+	visibility: hidden;
+}
 
 .has-hover-image .qodef-woo-product-image .qodef-e-image-hover {
 	display: inline-block;
@@ -1438,8 +1488,12 @@ Color: #1F1F1F;
 }
 
 #qodef-page-content .woocommerce, .qodef-woo-product-list {
-	padding: 0 42px 0;
+	padding: 0 42px;
 	background-color:#F8F5EA;
+}
+
+.qodef-woo-product-list {
+	padding: 0 42px 80px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1513,9 +1567,12 @@ Color: #1F1F1F;
 	margin-top: 52px;
 }
 
-.woocommerce-account .edit {
+.woocommerce-account .edit,
+.woocommerce-account .txt-right.stopStartNewsletterSubscription{
 	float: right;
+	text-decoration: underline;
 }
+
 
 .woocommerce-account .woocommerce-MyAccount-content {
 	width: 55%;
@@ -1754,7 +1811,6 @@ Color: #1F1F1F;
 
 .woocommerce-page .wc-stripe-simple-form {
 	background: none;
-	padding: 54px 0;
 }
 
 .wc-stripe-simple-form label, 
@@ -1805,6 +1861,25 @@ Color: #1F1F1F;
 /* CART */ 
 .woocommerce-form-coupon-toggle { 
 	display: none;
+}
+
+/* ORDER RECEIPT */
+
+p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received{
+	margin-bottom: 34px;
+}
+
+.woocommerce-order-received .woocommerce-order .woocommerce-order-overview li {
+	border-bottom: none;
+	padding: 4px 0;
+}
+
+.woocommerce-order .woocommerce-thankyou-order-details .woocommerce-order-overview__total .woocommerce-Price-amount {
+	float: none;
+}
+
+th.woocommerce-table__product-table.product-total {
+	text-align: end;
 }
 
 /* REQUESTS / SELLING */
@@ -2312,7 +2387,10 @@ input.wpcf7-not-valid {
 	#bn-search-close {
 		visibility: hidden;
 	}
+
 }
+
+
 
 @media only screen and (min-width: 767px) {
     #qodef-page-header {
@@ -2333,6 +2411,126 @@ input.wpcf7-not-valid {
 	#qodef-page-footer-top-area-inner .qodef-layout--columns.qodef-responsive--custom>.qodef-grid-inner .qodef-grid-item{
 		margin-bottom: none;
 }
+}
+
+@media (max-width: 680px) {
+    .qodef-woo-product-list ul.products.columns-4 {
+        --qode-columns: 2;
+    }
+	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .entry-summary {
+		top: 0!important;
+	}
+	.single-product-button-bottom {
+		display: block;
+		padding: 40px 16px;
+	}
+	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .related, 
+	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .up-sells {
+		padding: 32px 16px 0;
+	}
+	.single-product-button-bottom .qodef-qi-button {
+		margin-bottom: 20px;
+	}
+	#qodef-woo-page.qodef--single .woocommerce-product-gallery {
+	  width: 100%;
+	  overflow: hidden;
+	}
+	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .entry-summary>* {
+		padding-right: 0;
+	}
+	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .qodef-gutter--no .woocommerce-product-gallery__image {
+		width: 100%;
+	}
+	#qodef-woo-page.qodef--single .woocommerce-product-gallery .qodef-grid-inner {
+	  display: inline-flex;
+	  width: 100vh;
+	}
+		
+	.wrap-form .back-container {
+		display: none;
+	}
+	#qodef-woo-page {
+		width: 100%;
+	}
+	.woocommerce-checkout-block {
+    	display: inline-grid;
+		width: 100%;
+	}
+	.wrap-form .form-checkout-block,
+	.woocommerce-checkout-block .checkout-summary,
+	.woocommerce-checkout-block .checkout-details{
+		width: 100%;
+	}
+	.woocommerce-checkout-block .checkout-details {
+    order: 2;
+	}
+	.woocommerce-checkout-block .checkout-summary {
+    order: 1;
+	}
+	#qodef-page-inner {
+		padding: 0!important;
+	}
+	.woocommerce .woocommerce-MyAccount-navigation {
+		display: none;
+	}
+	.mobile-sidenav-menu-small .sub-menu {
+		color: #fff;
+	}
+	.menu-nav {
+		width:40px;
+		height:40px;
+	}
+	#qodef-page-content .woocommerce {
+		background-color: transparent;
+	}
+	.woocommerce-account .woocommerce-MyAccount-content,
+	.woocommerce-page .woocommerce-myaccount-columns p{
+		width: 100%;
+	}
+	.woocommerce-myaccount-detailblock, 
+	.woocommerce-myaccount-columns {
+		display: grid
+	}
+	.woocommerce-account .edit, .woocommerce-account .txt-right.stopStartNewsletterSubscription {
+		float: none;
+		order: 2;
+		display: block;
+	}
+	.address-book .woocommerce-myaccount-columns, 
+	.edit-account .woocommerce-myaccount-columns {
+		margin-bottom: 0;
+	}
+	.woocommerce-account .woocommerce-EditAccountForm .woocommerce-form-row {
+		margin: 0;
+	}
+	.addresses-contents {
+		float: none;
+	}
+	.addresses-actions {
+		text-align: left;
+		margin-top: 24px;
+	}
+	.addresses-actions .action-links span {
+		line-height: 24px;
+	}
+	.qodef-mobile-header-navigation>ul>li.current-menu-item>a .qodef-menu-item-text {
+		background-size: 0;
+		color: #B1B1B1;
+	}
+	.woocommerce-notices-wrapper .woocommerce-message{
+		margin: 16px;
+		min-width: 94%;
+	}
+	.woocommerce-message .added-notif {
+		padding: 12px 20px;
+	}
+	#qodef-page-footer-top-area-inner {
+		padding: 32px 16px!important;
+	}
+	.editorial-block .qodef-m-content .qodef-m-text {
+		display: none;
+	}
+
 }
 
 #qodef-page-mobile-header-inner {
@@ -2375,3 +2573,6 @@ input.wpcf7-not-valid {
 .mobilenav-footer-links {
 	margin-top: 36px!important;
 }
+
+
+

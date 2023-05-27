@@ -58,6 +58,8 @@ $allowed_html = array(
 		</header>
 
 	</div>
+	
+	<?php echo do_shortcode( '[plugin_delete_me /]' ); ?>
 
 
 
