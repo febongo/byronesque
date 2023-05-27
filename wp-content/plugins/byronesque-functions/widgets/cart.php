@@ -140,7 +140,9 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                             </td>
                             <td class="item-summary">
                                 <?php echo "<span>".wp_kses_post( $product_name )."</span>"; ?>
-                                <?= "<span>QTY: ".$cart_item['quantity']."</span>" ?>
+                                <?php if($_product->get_short_description()) : ?><span class="shortdescription"><?= $_product->get_short_description() ?></span><?php endif; ?>
+						        <?php if($_product->get_attribute('pa_size')) : ?><span class="shortdescription">Size <?= $_product->get_attribute('pa_size') ?></span><?php endif; ?>
+
                                 <?php
                                 echo apply_filters( 
                                     'woocommerce_cart_item_remove_link',

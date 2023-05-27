@@ -16,6 +16,25 @@
 // add_menu_page('My Custom Page', 'My Custom Page', 'manage_options', 'my-top-level-slug');
 function import_products_page() {
 
+    // $test = "London";
+    // $user = get_user_by('slug', $test );
+    // $prodId = 9761;
+    // echo "<pre>";
+    // var_dump(get_post_meta($prodId));
+    // echo "</pre>";
+
+    // $product_data = array(
+    //     'ID'          => $prodId,
+    //     'post_author' => $user->ID,
+    // );
+    
+    // // Update the product post data
+    // wp_update_post($product_data);
+
+    // update_post_meta($prodId, '_wcv_product_vendor', array($user->ID));
+
+    // do_action('wcvendors_vendor_assigned_product', $user->ID, $prodId);
+
     $htmlMessage="";
 
     if ( isset( $_FILES['import_file'] ) && ! empty( $_FILES['import_file']['name'] ) ) { 
@@ -319,13 +338,22 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             // }
             // wp_set_object_terms( $product_id, $locationIds, 'location' );
             $user = get_user_by('slug', $dataArray['location'][0] );
-            $vendor = get_mvx_vendor( $user->ID );
+            // $vendor = get_mvx_vendor( $user->ID );
             
             // echo "<p>Adding Vendor {$vendor->term_id} >> $product_id</p>";
-            update_post_meta( $product_id , '_commission_per_product', floatval(str_replace(",","",$dataArray['commission'])) );
+            // update_post_meta( $product_id , '_commission_per_product', floatval(str_replace(",","",$dataArray['commission'])) );
 
-            wp_delete_object_term_relationships( $product_id, 'dc_vendor_shop' );
-            wp_set_object_terms( $product_id, (int)$vendor->term_id, 'dc_vendor_shop', true );
+            // wp_delete_object_term_relationships( $product_id, 'dc_vendor_shop' );
+            // wp_set_object_terms( $product_id, (int)$vendor->term_id, 'dc_vendor_shop', true );
+
+
+            $product_data = array(
+                'ID'          => $product_id,
+                'post_author' => $user->ID,
+            );
+            
+            // Update the product post data
+            wp_update_post($product_data);
         }
 
         // add brand
