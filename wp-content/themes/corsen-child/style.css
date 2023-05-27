@@ -14,16 +14,20 @@ Template: corsen
 @import url("https://use.typekit.net/eqy5tfk.css");
 @import url("https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css");
 
-body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2{
+body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-12164 .pum-content, .pum-theme-content-only .pum-content{
 	font-family: "neue-haas-unica";
 
 }
-h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6, .woocommerce-mini-cart__buttons .button{
+h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6, .woocommerce-mini-cart__buttons .button, .pum-theme-12164 .pum-title, .pum-theme-content-only .pum-title{
 	font-family: "Termina";
 }
 
 .qodef-h3 a:focus, .qodef-h3 a:hover, h3 a:focus, h3 a:hover {
 	color: inherit;
+}
+
+.pum-theme-12164 .pum-title, .pum-theme-content-only .pum-title {
+	text-transform: uppercase;
 }
 
 h6.entry-title {
@@ -186,6 +190,8 @@ input::placeholder, select::placeholder{
 	position: absolute;
 	left: 0;
 }
+
+
 
 /* HEADER TOP BAR */
 
