@@ -610,7 +610,7 @@
         
         // // Open the Zendesk Chat widget
         function openZendeskChat() {
-            alert();
+            // alert();
             if (typeof zE !== 'undefined') {
                 zE.show();
             }
@@ -638,9 +638,15 @@
         });
 
         // MODIFY PRODUCT LIST BRING OUT EXTERNAL LINK FOR EXTERNAL PRODUCTS
-        console.log('this',$('.qodef-woo-product-list'));
+        // console.log('this',$('.qodef-woo-product-list'));
         if ($(".qodef-woo-product-list")) {
-            alert();
+            let exProducts = $(".qodef-woo-product-list .product-type-external")   
+            // console.log(exProducts);
+            exProducts.each(function(){
+                let link = $(this).find('a.external-product-label').attr("href")
+                $(this).find('.qodef-e-inner').append("<a href='"+link+"' target='_blank' style='position: absolute;width: 100%;height: 100%;top: 0;left: 0;'></a>")
+            });
+            // alert();
         }
         
     }) // DOCUMENT READY -- END
