@@ -92,7 +92,6 @@ function custom_post_title($atts)
     return $data;
 }
 
-include('future-filters.php');
 
 // echo "**************************************************************called ********************************************************";
 // $email = 'febongotest@example.com';

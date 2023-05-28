@@ -14,7 +14,7 @@ Template: corsen
 @import url("https://use.typekit.net/eqy5tfk.css");
 @import url("https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css");
 
-body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-12164 .pum-content, .pum-theme-content-only .pum-content{
+body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-12164 .pum-content, .pum-theme-content-only .pum-content p{
 	font-family: "neue-haas-unica";
 
 }
@@ -338,9 +338,7 @@ input::placeholder, select::placeholder{
 	border-left: 0
 }
 
-.open-side-menu .overlay{
-/* 	top: 146px; */
-}
+
 /* SEARCH */
 
 
@@ -1004,6 +1002,10 @@ button[disabled] {
 	margin:0;
 }
 
+#qodef-page-footer-top-area-inner,
+#qodef-page-footer-bottom-area-inner {
+		padding: 52px 42px!important;		
+}
 
 #qodef-page-footer .widget a{
 	color: #FFFFFFB8;
@@ -1028,6 +1030,18 @@ button[disabled] {
 	color: #FFFFFF52;
 	font-size: 14px;
 	line-height: 20px;	
+}
+
+#qodef-page-footer .widget .button.chat-with-us {
+    align-content: start;
+    float: right;
+    padding: 14px 0;
+    width: 248px;
+    text-align: center;
+    border: 1px solid #7B7B7B;
+    background-color: #fff;
+    margin-bottom: 16px;
+    color: #111;
 }
 
 /* BLOG */
@@ -2313,7 +2327,18 @@ input.wpcf7-not-valid {
 }
 
 
+
 /* CONTACT FORM */
+
+.qodef-qi-button.qodef-layout--outlined.chat-contact-page {
+	border-color: #7B7B7B;
+	color: #111;
+	font-weight: 500;
+}
+
+.qodef-qi-button.qodef-layout--outlined.chat-contact-page:hover {
+	background-color: transparent;
+}
 
 .contact-row {
  	display: flex;
@@ -2426,6 +2451,8 @@ input.wpcf7-not-valid {
 	#qodef-page-mobile-header {
 		display: none;
 	}
+
+
 }
 
 @media (max-width: 1024px) {
@@ -2437,7 +2464,7 @@ input.wpcf7-not-valid {
 @media (max-width: 768px) {
 	#qodef-page-footer-top-area-inner .qodef-layout--columns.qodef-responsive--custom>.qodef-grid-inner .qodef-grid-item{
 		margin-bottom: none;
-}
+	}
 }
 
 @media (max-width: 680px) {
@@ -2551,11 +2578,19 @@ input.wpcf7-not-valid {
 	.woocommerce-message .added-notif {
 		padding: 12px 20px;
 	}
-	#qodef-page-footer-top-area-inner {
+	#qodef-page-footer-top-area-inner,
+	#qodef-page-footer-bottom-area-inner {
 		padding: 32px 16px!important;
 	}
 	.editorial-block .qodef-m-content .qodef-m-text {
 		display: none;
+	}
+	#qodef-page-footer .widget .button.chat-with-us {
+		width: 79px;
+		font-size: 11px;
+	}
+	.qodef-grid>.qodef-grid-inner {
+		display: flex;
 	}
 
 }

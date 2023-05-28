@@ -966,7 +966,7 @@ function modified_addresses( $fields ) {
 	$fields[ 'phone' ][ 'required' ] = true;
 
     // unset( $fields[ 'state' ] );
-    unset( $fields[ 'address_2' ] );
+    // unset( $fields[ 'address_2' ] );
     unset( $fields[ 'company' ] );
 
 	return $fields;

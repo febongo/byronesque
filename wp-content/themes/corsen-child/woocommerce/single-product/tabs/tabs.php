@@ -59,7 +59,7 @@ if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenti
 			<div class="accordion-item" id="productDescriptionByroSayLabel">
 				<h2 class="accordion-header">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#productDescriptionByroSay" aria-expanded="true" aria-controls="productDescriptionByroSay">
-					Byronesque says
+					In Our Opinion
 					</button>
 				</h2>
 				<div id="productDescriptionByroSay" class="accordion-collapse collapse" aria-labelledby="productDescriptionByroSayLabel" data-bs-parent="#productDescription">
