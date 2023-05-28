@@ -1134,7 +1134,7 @@ function insertLinkExternal() {
     global $product;
     // echo $product->get_product_url();
     if ($product && $product->is_type('external')) {
-        echo '<a href="'.$product->get_product_url().'" class="external-product-label"></a>';
+        echo '<a href="'.$product->get_product_url().'" class="woocommerce-LoopProduct-link woocommerce-loop-product__link external-product-label"></a>';
     }
 }
 add_action('woocommerce_after_shop_loop_item', 'insertLinkExternal', 10);
