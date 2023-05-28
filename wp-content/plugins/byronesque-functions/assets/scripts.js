@@ -641,8 +641,9 @@
         // console.log('this',$('.qodef-woo-product-list'));
         if ($(".qodef-woo-product-list")) {
             let exProducts = $(".qodef-woo-product-list li.product-type-external")   
-            console.log(exProducts);
+            // console.log(exProducts);
             exProducts.each(function(){
+                console.log("this",$(this));
                 let link = $(this).find('a.external-product-label').attr("href")
                 console.log("1st", link)
                 if (!link) link = $(this).find('a.product-type-external').attr("href")
