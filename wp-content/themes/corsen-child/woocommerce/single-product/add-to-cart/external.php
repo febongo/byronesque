@@ -21,9 +21,14 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 <form class="cart" action="<?php echo esc_url( $product_url ); ?>" method="get">
 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+	<?php
+	$product = wc_get_product(get_the_ID());
 
-	<button type="submit" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $button_text ); ?></button>
-
+	$button_text = $product->get_button_text();
+	?>
+	<!-- <button type="submit" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $button_text ); ?></button> -->
+	<a class="single_add_to_cart_button button alt wp-element-button" target="_blank" href="<?php echo esc_url( $product_url ); ?>"><?= ($button_text ? $button_text : 'Buy product') ?></a>
+	
 	<?php wc_query_string_form_fields( $product_url ); ?>
 
 	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>

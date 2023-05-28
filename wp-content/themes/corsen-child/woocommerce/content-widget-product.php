@@ -37,7 +37,7 @@ if ( ! is_a( $product, 'WC_Product' ) ) {
 		<h6 class="qodef-woo-product-title">
 			<a itemprop="url" href="<?php echo esc_url( $product->get_permalink() ); ?>"><?php echo corsen_wp_kses_html( 'content', $product->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 		</h6>
-		test
+		
 		<?php if ( ! empty( $show_rating ) ) : ?>
 			<?php echo wc_get_rating_html( $product->get_average_rating() ); // PHPCS:Ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php endif; ?>

@@ -192,7 +192,9 @@ function add_content_after_addtocart() {
 
 	// run only on simple products
 	if( is_user_logged_in() ){
-		echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Pay For Your Item</a>';
+        if ($product && !$product->is_type('external')) {
+            echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Pay For Your Item</a>';
+        }
 		//echo '<a href="'.$checkout_url.'" class="buy-now button">Buy Now</a>';
 	} else {
         echo '<a href="#" id="JSLogin" class="trigger-login button alt wp-element-button">Add to Bag</a>';
@@ -1098,6 +1100,9 @@ function change_cart_shipping_method_full_label( $label, $method ) {
 add_action( 'woocommerce_before_shop_loop_item_title', 'wp_kama_woocommerce_before_shop_loop_item_title_action' );
 
 function wp_kama_woocommerce_before_shop_loop_item_title_action(){
+
+    global $product;
+
     $product_list_hover_image = get_post_meta( get_the_ID(), 'qodef_product_list_image_hover', true );
     $has_image          = ! empty( $product_list_hover_image );
 
@@ -1110,6 +1115,9 @@ function wp_kama_woocommerce_before_shop_loop_item_title_action(){
             <?php echo corsen_core_get_list_shortcode_item_image( $image_dimension, $product_list_hover_image, $custom_image_width, $custom_image_height ); ?>
         </div>
     <?php }
+
+        // var_dump($product);
+    insertLinkExternal();
 }
 
 add_filter('post_class', function($classes, $class, $product_id) {
@@ -1122,5 +1130,13 @@ add_filter('post_class', function($classes, $class, $product_id) {
     return $classes;
 },10,3);
 
+function insertLinkExternal() {
+    global $product;
+    // echo $product->get_product_url();
+    if ($product && $product->is_type('external')) {
+        echo '<a href="'.$product->get_product_url().'" class="external-product-label"></a>';
+    }
+}
+add_action('woocommerce_after_shop_loop_item', 'insertLinkExternal', 10);
 
 ?>
