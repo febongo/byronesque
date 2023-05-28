@@ -604,7 +604,7 @@
         //     openZendeskChat();
         // });
 
-        document.getElementById('openChat').addEventListener('click', openZendeskChat);
+        // document.getElementById('openChat').addEventListener('click', openZendeskChat);
 
         // $("#launcher").hide()
         
