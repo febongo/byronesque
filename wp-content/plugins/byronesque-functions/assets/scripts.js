@@ -624,7 +624,7 @@
         // }
 
         // hideZendeskChat()
-
+        console.log("called");
 
         // ADD ISOTOPE FILTER IN PAGE
         $pageFilter = $('#byro-page-archive .qodef-grid-inner').isotope({
@@ -636,6 +636,12 @@
             var filterValue = $( this ).attr('data-filter');
             $pageFilter.isotope({ filter: filterValue });
         });
+
+        // MODIFY PRODUCT LIST BRING OUT EXTERNAL LINK FOR EXTERNAL PRODUCTS
+        console.log('this',$('.qodef-woo-product-list'));
+        if ($(".qodef-woo-product-list")) {
+            alert();
+        }
         
     }) // DOCUMENT READY -- END
 
