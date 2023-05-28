@@ -16,18 +16,18 @@ function add_product_extra_field() {
         ),
     ) );
 
-    // woocommerce_wp_text_input( array(
-    //     'id'          => '_product_commission',
-    //     'label'       => __( 'Product Commission', 'woocommerce' ),
-    //     'placeholder' => 'Enter commission percentage',
-    //     'description' => __( 'Enter the commission percentage for this product.', 'woocommerce' ),
-    //     'desc_tip'    => true,
-    //     'type'        => 'number',
-    //     'custom_attributes' => array(
-    //         'min' => '0',
-    //         // 'step' => '2'
-    //     ),
-    // ) );
+    woocommerce_wp_text_input( array(
+        'id'          => '_product_commission',
+        'label'       => __( 'Product Commission', 'woocommerce' ),
+        'placeholder' => 'Enter commission percentage',
+        'description' => __( 'Enter the commission percentage for this product.', 'woocommerce' ),
+        'desc_tip'    => true,
+        'type'        => 'number',
+        'custom_attributes' => array(
+            'min' => '0',
+            // 'step' => '2'
+        ),
+    ) );
 
     woocommerce_wp_text_input( array(
         'id'          => '_product_archiving_fee',
@@ -79,10 +79,10 @@ function save_product_extra_field( $post_id, $post ) {
         update_post_meta( $post_id, '_product_appraisal', $product_appraisal );
     }
 
-    // if ( isset( $_POST['_product_commission'] ) ) {
-    //     $product_commission = floatval( $_POST['_product_commission'] );
-    //     update_post_meta( $post_id, '_product_commission', $product_commission );
-    // }
+    if ( isset( $_POST['_product_commission'] ) ) {
+        $product_commission = floatval( $_POST['_product_commission'] );
+        update_post_meta( $post_id, '_product_commission', $product_commission );
+    }
 
     if ( isset( $_POST['_product_archiving_fee'] ) ) {
         $product_archiving = floatval( $_POST['_product_archiving_fee'] );

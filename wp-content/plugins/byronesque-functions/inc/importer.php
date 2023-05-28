@@ -236,8 +236,8 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         if ($dataArray['appraisalFee']) 
             update_post_meta( $product_id, '_product_appraisal', floatval(str_replace(",","",$dataArray['appraisalFee'])) );
 
-        // if ($dataArray['commission']) 
-        //     update_post_meta( $product_id, '_product_commission', floatval(str_replace(",","",$dataArray['commission'])) );
+        if ($dataArray['commission']) 
+            update_post_meta( $product_id, '_product_commission', floatval(str_replace(",","",$dataArray['commission'])) );
         
         if ($dataArray['archivingFee']) 
             update_post_meta( $product_id, '_product_archiving_fee', floatval(str_replace(",","",$dataArray['archivingFee'])) );

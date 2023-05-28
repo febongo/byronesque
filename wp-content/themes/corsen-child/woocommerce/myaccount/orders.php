@@ -114,6 +114,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							<td class="item-sumary-links">
 								<span><a href="#">Apraisal details</a></span>
 								<span><a href="#">Non-returnable</a></span>
+								<?php 
+								$authenticity = get_field("authenticity", $product->ID);
+								?>
+								<?php if($authenticity) : ?><span><a href="<?= $authenticity ?>" target="_blank">Authenticity</a></span><?php endif; ?>
 							</td>
 						</tr>
 						<?php endif; ?>
