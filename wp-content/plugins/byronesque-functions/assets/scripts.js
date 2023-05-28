@@ -644,8 +644,10 @@
             // console.log(exProducts);
             exProducts.each(function(){
                 let link = $(this).find('a.external-product-label').attr("href")
+                console.log("1st", link)
+                if (!link) link = $(this).find('a.product-type-external').attr("href")
 
-                if (!link) $(this).find('a.product-type-external').attr("href")
+                console.log("2nd", link)
 
                 $(this).find('.qodef-e-inner').append("<a href='"+link+"' target='_blank' style='position: absolute;width: 100%;height: 100%;top: 0;left: 0;'></a>")
             });
