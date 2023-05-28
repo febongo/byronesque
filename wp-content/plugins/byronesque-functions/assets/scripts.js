@@ -640,7 +640,7 @@
         // MODIFY PRODUCT LIST BRING OUT EXTERNAL LINK FOR EXTERNAL PRODUCTS
         // console.log('this',$('.qodef-woo-product-list'));
         if ($(".qodef-woo-product-list")) {
-            let exProducts = $(".qodef-woo-product-list .product-type-external")   
+            let exProducts = $(".qodef-woo-product-list li.product-type-external")   
             // console.log(exProducts);
             exProducts.each(function(){
                 let link = $(this).find('a.external-product-label').attr("href")
