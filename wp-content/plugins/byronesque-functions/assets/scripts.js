@@ -645,8 +645,10 @@
             exProducts.each(function(){
                 console.log("this",$(this));
                 let link = $(this).find('a.external-product-label').attr("href")
+                console.log("label", $(this).find('a.external-product-label'))
                 console.log("1st", link)
                 if (!link) link = $(this).find('a.product-type-external').attr("href")
+                console.log("label", $(this).find('a.product-type-external'))
 
                 console.log("2nd", link)
 
