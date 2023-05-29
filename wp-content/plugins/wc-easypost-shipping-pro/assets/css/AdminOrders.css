@@ -1,0 +1,84 @@
+th#shipment_tracking {
+	width: 200px;
+}
+
+.adminOrders select {
+	margin: 0 2px 3px 2px;
+	padding: 2px;
+	font-size: 10px;
+	min-height: 26px;
+	max-height: 26px;
+	width: 100%;
+}
+
+.adminOrders input {
+	margin: 0 2px 3px 2px;
+	padding: 2px;
+	font-size: 10px;
+	width: 30px;
+	min-height: 26px;
+	max-height: 26px;
+	text-align: center;
+}
+
+.adminOrders input.packageDescription {
+	width: 100%;
+	text-align: left;
+}
+
+.adminOrders input.packageValue {
+	width: 45px;
+}
+
+.adminOrders select.packageCurrency {
+	width: 45px;
+}
+
+.adminOrders button.submit.button {
+	margin: 0 2px 3px 2px;
+	padding: 2px;
+	font-size: 10px;
+	min-height: 26px;
+	max-height: 26px;
+	width: 100%;
+}
+
+.adminOrders .packageWeight {
+	margin-left: 10px;
+}
+
+.blockUI.blockOverlay::before {
+	height: 1em;
+	width: 1em;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -.5em;
+	margin-top: -.5em;
+	content: '';
+	-webkit-animation: spin 1s ease-in-out infinite;
+	animation: spin 1s ease-in-out infinite;
+	background: url(../images/icons/loader.svg) center center;
+	background-size: cover;
+	line-height: 1;
+	text-align: center;
+	font-size: 2em;
+	color: rgba(0,0,0,.75);
+}
+
+body.blockUI.blockOverlay::before,
+.wrap > .blockUI.blockOverlay::before {
+	position: fixed;
+	height: 2em;
+	width: 2em;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

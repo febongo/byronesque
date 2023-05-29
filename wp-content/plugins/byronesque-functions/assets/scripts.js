@@ -623,39 +623,39 @@
         //     }
         // }
 
-        // hideZendeskChat()
-        console.log("called");
 
-        // ADD ISOTOPE FILTER IN PAGE
-        $pageFilter = $('#byro-page-archive .qodef-grid-inner').isotope({
-            itemSelector: '.qodef-grid-item',
-            layoutMode: 'fitRows'
-        });
-
-        $('.btn-filter').click(function(){
-            var filterValue = $( this ).attr('data-filter');
-            $pageFilter.isotope({ filter: filterValue });
-        });
+        
 
         // MODIFY PRODUCT LIST BRING OUT EXTERNAL LINK FOR EXTERNAL PRODUCTS
         // console.log('this',$('.qodef-woo-product-list'));
-        if ($(".qodef-woo-product-list")) {
-            let exProducts = $(".qodef-woo-product-list li.product-type-external")   
-            // console.log(exProducts);
-            exProducts.each(function(){
-                console.log("this",$(this));
-                let link = $(this).find('a.external-product-label').attr("href")
-                console.log("label", $(this).find('a.external-product-label'))
-                console.log("1st", link)
-                if (!link) link = $(this).find('a.product-type-external').attr("href")
-                console.log("label", $(this).find('a.product-type-external'))
-
-                console.log("2nd", link)
-
-                $(this).find('.qodef-e-inner').append("<a href='"+link+"' target='_blank' style='position: absolute;width: 100%;height: 100%;top: 0;left: 0;'></a>")
+        if ($("#partnerize-items")) {
+            
+            // ADD ISOTOPE FILTER IN PAGE
+            $pageFilter = $('#partnerize-items').isotope({
+                itemSelector: '.grid-item',
+                layoutMode: 'fitRows'
             });
+    
+    
+            $('.btn-filter').click(function(){
+                var filterValue = $( this ).attr('data-filter');
+                $pageFilter.isotope({ filter: '.'+filterValue });
+            });
+        
+            
             // alert();
         }
+        
+        let exProducts = $(".qodef-woo-product-list li.product-type-external")   
+        // console.log(exProducts);
+        exProducts.each(function(){
+
+            let link = $(this).find('a.external-product-label').attr("href")
+
+            if (!link) link = $(this).find('a.product_type_external').attr("href")
+
+            $(this).find('.qodef-e-inner').append("<a href='"+link+"' target='_blank' style='position: absolute;width: 100%;height: 100%;top: 0;left: 0;'></a>")
+        });
         
     }) // DOCUMENT READY -- END
 

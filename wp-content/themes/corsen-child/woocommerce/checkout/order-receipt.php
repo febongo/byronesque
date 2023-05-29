@@ -23,20 +23,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 <ul class="order_details">
 	<li class="order">
 		<?php esc_html_e( 'Order number:', 'woocommerce' ); ?>
-		<strong><?php echo esc_html( $order->get_order_number() ); ?></strong>
+		<span class="b2"><?php echo esc_html( $order->get_order_number() ); ?></span>
 	</li>
 	<li class="date">
 		<?php esc_html_e( 'Date:', 'woocommerce' ); ?>
-		<strong><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></strong>
+		<span class="b2"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></span>
 	</li>
 	<li class="total">
 		<?php esc_html_e( 'Total:', 'woocommerce' ); ?>
-		<strong><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></strong>
+		<span class="b2"><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></span>
 	</li>
 	<?php if ( $order->get_payment_method_title() ) : ?>
 	<li class="method">
 		<?php esc_html_e( 'Payment method:', 'woocommerce' ); ?>
-		<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
+		<span class="b2"><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></span>
 	</li>
 	<?php endif; ?>
 </ul>

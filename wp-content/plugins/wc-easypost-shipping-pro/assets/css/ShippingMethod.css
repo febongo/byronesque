@@ -1,0 +1,24 @@
+.notice:not(.oneteamsoftware,#woocommerce_errors),
+.is-dismissible:not(#woocommerce_errors),
+.woocommerce-message:not(.oneteamsoftware),
+.updated:not(.oneteamsoftware,#message.inline),
+.error:not(.oneteamsoftware,#woocommerce_errors),
+.promotion:not(.oneteamsoftware) {
+	display: none !important;
+}
+
+.advanced-setting {
+	display: none !important;
+}
+
+.display-advanced-settings .advanced-setting {
+	display: revert !important;
+}
+
+.display-advanced-settings tr.advanced-setting {
+	background-color: #ff000008;
+}
+
+.is-dismissible:not(#woocommerce_errors) {
+	display: none;
+}

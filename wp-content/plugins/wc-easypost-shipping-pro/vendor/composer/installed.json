@@ -1,0 +1,2542 @@
+{
+    "packages": [
+        {
+            "name": "dmitryrechkin/php-collections-dictionary",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmitryrechkin/php-collections-dictionary.git",
+                "reference": "1931390788c1f9071abde87013261553da6dab03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmitryrechkin/php-collections-dictionary/zipball/1931390788c1f9071abde87013261553da6dab03",
+                "reference": "1931390788c1f9071abde87013261553da6dab03",
+                "shasum": ""
+            },
+            "require": {
+                "dmitryrechkin/php-namingconverter": "^1.0",
+                "dmitryrechkin/php-numberparser": "^1.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-12-15T04:42:16+00:00",
+            "type": "php-collections-dictionary",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DmitryRechkin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Rechkin",
+                    "email": "rechkin@gmail.com",
+                    "homepage": "https://github.com/dmitryrechkin/"
+                }
+            ],
+            "description": "PHP Collections Dictionary library that lets you set and access values with the different key variations.",
+            "support": {
+                "issues": "https://github.com/dmitryrechkin/php-collections-dictionary/issues",
+                "source": "https://github.com/dmitryrechkin/php-collections-dictionary/tree/1.0.1"
+            },
+            "install-path": "../dmitryrechkin/php-collections-dictionary"
+        },
+        {
+            "name": "dmitryrechkin/php-converters-emptytonull",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmitryrechkin/php-converters-emptytonull.git",
+                "reference": "fdbdf7d522a4e2396d7eaa1e57f419e371abaf46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmitryrechkin/php-converters-emptytonull/zipball/fdbdf7d522a4e2396d7eaa1e57f419e371abaf46",
+                "reference": "fdbdf7d522a4e2396d7eaa1e57f419e371abaf46",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-09-26T00:11:46+00:00",
+            "type": "php-converters-emptytonull",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DmitryRechkin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Rechkin",
+                    "email": "rechkin@gmail.com",
+                    "homepage": "https://github.com/dmitryrechkin/"
+                }
+            ],
+            "description": "PHP Converter that converts of empty to null. It is helps to make code cleaner by removing the need for if conditions for cases when some API expects null in order to consider parameter as unset.",
+            "support": {
+                "issues": "https://github.com/dmitryrechkin/php-converters-emptytonull/issues",
+                "source": "https://github.com/dmitryrechkin/php-converters-emptytonull/tree/1.0.0"
+            },
+            "install-path": "../dmitryrechkin/php-converters-emptytonull"
+        },
+        {
+            "name": "dmitryrechkin/php-namingconverter",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmitryrechkin/php-namingconverter.git",
+                "reference": "f4a366da1159b9c2e7bedc11563d462ef02c3594"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmitryrechkin/php-namingconverter/zipball/f4a366da1159b9c2e7bedc11563d462ef02c3594",
+                "reference": "f4a366da1159b9c2e7bedc11563d462ef02c3594",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-09-10T03:52:02+00:00",
+            "type": "php-namingconverter",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DmitryRechkin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Rechkin",
+                    "email": "rechkin@gmail.com",
+                    "homepage": "https://github.com/dmitryrechkin/"
+                }
+            ],
+            "description": "PHP collection of naming converters that can be used to convert a given string from one naming format to another.",
+            "support": {
+                "issues": "https://github.com/dmitryrechkin/php-namingconverter/issues",
+                "source": "https://github.com/dmitryrechkin/php-namingconverter/tree/1.0.0"
+            },
+            "install-path": "../dmitryrechkin/php-namingconverter"
+        },
+        {
+            "name": "dmitryrechkin/php-numberparser",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmitryrechkin/php-numberparser.git",
+                "reference": "35b7f9217ea59da2e36a3d1522ee797b22c84203"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmitryrechkin/php-numberparser/zipball/35b7f9217ea59da2e36a3d1522ee797b22c84203",
+                "reference": "35b7f9217ea59da2e36a3d1522ee797b22c84203",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-09-10T04:04:58+00:00",
+            "type": "php-numberparser",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DmitryRechkin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Rechkin",
+                    "email": "rechkin@gmail.com",
+                    "homepage": "https://github.com/dmitryrechkin/"
+                }
+            ],
+            "description": "PHP Number Parser helps to parse a number from a string which can contain non-numeric characters.",
+            "support": {
+                "issues": "https://github.com/dmitryrechkin/php-numberparser/issues",
+                "source": "https://github.com/dmitryrechkin/php-numberparser/tree/1.0.0"
+            },
+            "install-path": "../dmitryrechkin/php-numberparser"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "7.7.0",
+            "version_normalized": "7.7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "fb7566caccf22d74d1ab270de3551f72a58399f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/fb7566caccf22d74d1ab270de3551f72a58399f5",
+                "reference": "fb7566caccf22d74d1ab270de3551f72a58399f5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/promises": "^1.5.3 || ^2.0",
+                "guzzlehttp/psr7": "^1.9.1 || ^2.4.5",
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-client": "^1.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "provide": {
+                "psr/http-client-implementation": "1.0"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.8.1",
+                "ext-curl": "*",
+                "php-http/client-integration-tests": "dev-master#2c025848417c1135031fdf9c728ee53d0a7ceaee as 3.0.999",
+                "php-http/message-factory": "^1.1",
+                "phpunit/phpunit": "^8.5.29 || ^9.5.23",
+                "psr/log": "^1.1 || ^2.0 || ^3.0"
+            },
+            "suggest": {
+                "ext-curl": "Required for CURL handler support",
+                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+                "psr/log": "Required for using the Log middleware"
+            },
+            "time": "2023-05-21T14:04:53+00:00",
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "psr-18",
+                "psr-7",
+                "rest",
+                "web service"
+            ],
+            "support": {
+                "issues": "https://github.com/guzzle/guzzle/issues",
+                "source": "https://github.com/guzzle/guzzle/tree/7.7.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../guzzlehttp/guzzle"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "2.0.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "3a494dc7dc1d7d12e511890177ae2d0e6c107da6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/3a494dc7dc1d7d12e511890177ae2d0e6c107da6",
+                "reference": "3a494dc7dc1d7d12e511890177ae2d0e6c107da6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5 || ^8.0"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.8.1",
+                "phpunit/phpunit": "^8.5.29 || ^9.5.23"
+            },
+            "time": "2023-05-21T13:50:22+00:00",
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "support": {
+                "issues": "https://github.com/guzzle/promises/issues",
+                "source": "https://github.com/guzzle/promises/tree/2.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../guzzlehttp/promises"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "2.5.0",
+            "version_normalized": "2.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "b635f279edd83fc275f822a1188157ffea568ff6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/b635f279edd83fc275f822a1188157ffea568ff6",
+                "reference": "b635f279edd83fc275f822a1188157ffea568ff6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.1 || ^2.0",
+                "ralouphie/getallheaders": "^3.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.8.1",
+                "http-interop/http-factory-tests": "^0.9",
+                "phpunit/phpunit": "^8.5.29 || ^9.5.23"
+            },
+            "suggest": {
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
+            },
+            "time": "2023-04-17T16:11:26+00:00",
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/2.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../guzzlehttp/psr7"
+        },
+        {
+            "name": "oneteamsoftware/php-arraymerger",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-arraymerger.git",
+                "reference": "1ac618472ad3443e9c51675f79f3f91f403b3388"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-arraymerger/repository/archive.zip?sha=1ac618472ad3443e9c51675f79f3f91f403b3388",
+                "reference": "1ac618472ad3443e9c51675f79f3f91f403b3388",
+                "shasum": ""
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-10-17T02:29:14+00:00",
+            "type": "php-arraymerger",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "A collection of array merging algorithms",
+            "install-path": "../oneteamsoftware/php-arraymerger"
+        },
+        {
+            "name": "oneteamsoftware/php-autoloader",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-autoloader.git",
+                "reference": "84e9d1d832fb4d63dd149efcfb4424a617ea640e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-autoloader/repository/archive.zip?sha=84e9d1d832fb4d63dd149efcfb4424a617ea640e",
+                "reference": "84e9d1d832fb4d63dd149efcfb4424a617ea640e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-10-20T02:28:33+00:00",
+            "type": "php-autoloader",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Autoloads php code and supports phar",
+            "install-path": "../oneteamsoftware/php-autoloader"
+        },
+        {
+            "name": "oneteamsoftware/php-cache",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-cache.git",
+                "reference": "4e113bdd24b8eeb13ed6107b1221be12f362cfa0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-cache/repository/archive.zip?sha=4e113bdd24b8eeb13ed6107b1221be12f362cfa0",
+                "reference": "4e113bdd24b8eeb13ed6107b1221be12f362cfa0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-10-17T03:05:19+00:00",
+            "type": "php-cache",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Adds ability to cache data in a few various ways",
+            "install-path": "../oneteamsoftware/php-cache"
+        },
+        {
+            "name": "oneteamsoftware/php-classnamefinder",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-classnamefinder.git",
+                "reference": "637e55f2280ac353b48bdcdb1f9e2ca367884082"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-classnamefinder/repository/archive.zip?sha=637e55f2280ac353b48bdcdb1f9e2ca367884082",
+                "reference": "637e55f2280ac353b48bdcdb1f9e2ca367884082",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-10-17T03:01:54+00:00",
+            "type": "php-classnamefinder",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Class Name Finder",
+            "install-path": "../oneteamsoftware/php-classnamefinder"
+        },
+        {
+            "name": "oneteamsoftware/php-lazyclassproxy",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-lazyclassproxy.git",
+                "reference": "461ce1031e9c1e561fe88bfbbe52481b8e70a438"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-lazyclassproxy/repository/archive.zip?sha=461ce1031e9c1e561fe88bfbbe52481b8e70a438",
+                "reference": "461ce1031e9c1e561fe88bfbbe52481b8e70a438",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "time": "2022-07-10T16:22:42+00:00",
+            "type": "php-lazyclassproxy",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cd tests/;composer update"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Lazy Class Proxy",
+            "install-path": "../oneteamsoftware/php-lazyclassproxy"
+        },
+        {
+            "name": "oneteamsoftware/php-logger",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-logger.git",
+                "reference": "b55bb398c5922009bab6a8bb8a7dbd2722dbbf0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-logger/repository/archive.zip?sha=b55bb398c5922009bab6a8bb8a7dbd2722dbbf0d",
+                "reference": "b55bb398c5922009bab6a8bb8a7dbd2722dbbf0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-10-17T02:58:21+00:00",
+            "type": "php-logger",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Framework that helps to log what is going on in your code",
+            "install-path": "../oneteamsoftware/php-logger"
+        },
+        {
+            "name": "oneteamsoftware/php-parcel",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-parcel.git",
+                "reference": "5c61f3a98d404784f951713fd290d657493f6dcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-parcel/repository/archive.zip?sha=5c61f3a98d404784f951713fd290d657493f6dcf",
+                "reference": "5c61f3a98d404784f951713fd290d657493f6dcf",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-logger": "~1.0.0",
+                "oneteamsoftware/php-unitconverter": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-01-29T20:18:54+00:00",
+            "type": "php-parcel",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Parcel",
+            "install-path": "../oneteamsoftware/php-parcel"
+        },
+        {
+            "name": "oneteamsoftware/php-pdf",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-pdf.git",
+                "reference": "fdd5ece04a0853f6768829e5fe423f2a2ef6f113"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-pdf/repository/archive.zip?sha=fdd5ece04a0853f6768829e5fe423f2a2ef6f113",
+                "reference": "fdd5ece04a0853f6768829e5fe423f2a2ef6f113",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0",
+                "setasign/fpdf": "1.8.4",
+                "setasign/fpdi": "2.3.6"
+            },
+            "time": "2022-06-19T03:38:04+00:00",
+            "type": "php-pdf",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cd tests/;composer update"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "PDF library",
+            "install-path": "../oneteamsoftware/php-pdf"
+        },
+        {
+            "name": "oneteamsoftware/php-rule",
+            "version": "1.0.4",
+            "version_normalized": "1.0.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-rule.git",
+                "reference": "4e0568ecd34a3ca5d018a704cae92f5e879fd486"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-rule/repository/archive.zip?sha=4e0568ecd34a3ca5d018a704cae92f5e879fd486",
+                "reference": "4e0568ecd34a3ca5d018a704cae92f5e879fd486",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-logger": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-12-15T04:05:30+00:00",
+            "type": "php-rule",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cp vendor/dmitryrechkin/php-standard/php-standard.xml phpcs.xml"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Rules framework",
+            "install-path": "../oneteamsoftware/php-rule"
+        },
+        {
+            "name": "oneteamsoftware/php-shippingcarrier-abstractadapter",
+            "version": "1.0.6",
+            "version_normalized": "1.0.6.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-shippingcarrier-abstractadapter.git",
+                "reference": "fbdb5c1d77c560b9cb0c4f3911af0a308a71e22e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-shippingcarrier-abstractadapter/repository/archive.zip?sha=fbdb5c1d77c560b9cb0c4f3911af0a308a71e22e",
+                "reference": "fbdb5c1d77c560b9cb0c4f3911af0a308a71e22e",
+                "shasum": ""
+            },
+            "require": {
+                "dmitryrechkin/php-collections-dictionary": "^1.0",
+                "dmitryrechkin/php-converters-emptytonull": "^1.0",
+                "dmitryrechkin/php-namingconverter": "^1.0",
+                "guzzlehttp/guzzle": "^7.0",
+                "oneteamsoftware/php-arraymerger": "1.0.0",
+                "oneteamsoftware/php-cache": "1.0.0",
+                "oneteamsoftware/php-classnamefinder": "1.0.0",
+                "oneteamsoftware/php-logger": "1.0.0",
+                "oneteamsoftware/php-unitconverter": "1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0",
+                "humbug/php-scoper": "0.17.5",
+                "oneteamsoftware/php-scoper-configs": "~1.0.0"
+            },
+            "time": "2023-05-22T03:09:09+00:00",
+            "type": "php-shippingcarrier-abstractadapter",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.0"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/",
+                    "OneTeamSoftware\\Tests\\": "tests/",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\": "packages/guzzlehttp/guzzle/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Promise\\": "packages/guzzlehttp/promises/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Psr7\\": "packages/guzzlehttp/psr7/src"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Abstract shipping carrier adapter",
+            "install-path": "../oneteamsoftware/php-shippingcarrier-abstractadapter"
+        },
+        {
+            "name": "oneteamsoftware/php-shippingcarrier-easypost",
+            "version": "1.0.8",
+            "version_normalized": "1.0.8.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-shippingcarrier-easypost.git",
+                "reference": "ad22b6882f093eb36c0deb0617e0b1070ef3cbbb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-shippingcarrier-easypost/repository/archive.zip?sha=ad22b6882f093eb36c0deb0617e0b1070ef3cbbb",
+                "reference": "ad22b6882f093eb36c0deb0617e0b1070ef3cbbb",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-shippingcarrier-abstractadapter": "1.0.6",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0",
+                "humbug/php-scoper": "0.17.5",
+                "oneteamsoftware/php-scoper-configs": "~1.0.0",
+                "oneteamsoftware/php-shippingcarrier-tests": "1.0.1"
+            },
+            "time": "2023-05-06T22:07:04+00:00",
+            "type": "php-shippingcarrier-easypost",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\": "packages/guzzlehttp/guzzle/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Promise\\": "packages/guzzlehttp/promises/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Psr7\\": "packages/guzzlehttp/psr7/src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "mkdir -p tests/Unit",
+                    "cp -r vendor/oneteamsoftware/php-shippingcarrier-abstractadapter/tests/Unit/* tests/Unit/",
+                    "cp -r vendor/oneteamsoftware/php-shippingcarrier-tests/tests/Unit/* tests/Unit/"
+                ]
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "EasyPost shipping carrier adapter",
+            "install-path": "../oneteamsoftware/php-shippingcarrier-easypost"
+        },
+        {
+            "name": "oneteamsoftware/php-unitconverter",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-unitconverter.git",
+                "reference": "c751280ae200f6738b2bf6b341ed5cbd08395dca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-unitconverter/repository/archive.zip?sha=c751280ae200f6738b2bf6b341ed5cbd08395dca",
+                "reference": "c751280ae200f6738b2bf6b341ed5cbd08395dca",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-09-17T18:32:50+00:00",
+            "type": "php-unitconverter",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Helper classes to convert dimensions and weight units",
+            "install-path": "../oneteamsoftware/php-unitconverter"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-admin-form",
+            "version": "1.0.6",
+            "version_normalized": "1.0.6.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-admin-form.git",
+                "reference": "8dcfb408df61484704661e2d2a3967c7f38ab2d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-admin-form/repository/archive.zip?sha=8dcfb408df61484704661e2d2a3967c7f38ab2d5",
+                "reference": "8dcfb408df61484704661e2d2a3967c7f38ab2d5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-04-10T01:22:23+00:00",
+            "type": "php-wc-admin-form",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Form for WooCommerce Admin",
+            "install-path": "../oneteamsoftware/php-wc-admin-form"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-admin-logexporter",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-admin-logexporter.git",
+                "reference": "0c9aab87649d28968c89ed2cf3fbbedd1d9d7e54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-admin-logexporter/repository/archive.zip?sha=0c9aab87649d28968c89ed2cf3fbbedd1d9d7e54",
+                "reference": "0c9aab87649d28968c89ed2cf3fbbedd1d9d7e54",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-05-02T07:20:20+00:00",
+            "type": "php-wc-admin-logexporter",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Log Exporter for WordPress",
+            "install-path": "../oneteamsoftware/php-wc-admin-logexporter"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-logger",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-logger.git",
+                "reference": "e45a0f5416dbe9d0059ab3d28a49520ab87bf0ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-logger/repository/archive.zip?sha=e45a0f5416dbe9d0059ab3d28a49520ab87bf0ca",
+                "reference": "e45a0f5416dbe9d0059ab3d28a49520ab87bf0ca",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-logger": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-10-17T04:25:12+00:00",
+            "type": "php-wc-logger",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Logger for WooCommerce",
+            "install-path": "../oneteamsoftware/php-wc-logger"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-multivendorbridge",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-multivendorbridge.git",
+                "reference": "24f37c61450db305122470ceaba5bf4e916db4fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-multivendorbridge/repository/archive.zip?sha=24f37c61450db305122470ceaba5bf4e916db4fa",
+                "reference": "24f37c61450db305122470ceaba5bf4e916db4fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "time": "2022-08-26T04:59:26+00:00",
+            "type": "php-wc-multivendorbridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cd tests/;composer update"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Creates a bridge by unifying interface to multiple multivendor WooCommerce plugins",
+            "install-path": "../oneteamsoftware/php-wc-multivendorbridge"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-orders-query",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-orders-query.git",
+                "reference": "8e04417721eaee453d883e99e9b2e8955bf05acf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-orders-query/repository/archive.zip?sha=8e04417721eaee453d883e99e9b2e8955bf05acf",
+                "reference": "8e04417721eaee453d883e99e9b2e8955bf05acf",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "time": "2022-07-29T04:37:52+00:00",
+            "type": "php-wc-orders-query",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cd tests/;composer update"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Helps to query WooCommerce Orders",
+            "install-path": "../oneteamsoftware/php-wc-orders-query"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-pagedetector",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-pagedetector.git",
+                "reference": "dd740eba79359211b32992d12547ee1985cd5422"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-pagedetector/repository/archive.zip?sha=dd740eba79359211b32992d12547ee1985cd5422",
+                "reference": "dd740eba79359211b32992d12547ee1985cd5422",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "time": "2022-07-29T04:38:00+00:00",
+            "type": "php-wc-pagedetector",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cd tests/;composer update"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Helps to detect checkout and cart pages",
+            "install-path": "../oneteamsoftware/php-wc-pagedetector"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-parcel",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-parcel.git",
+                "reference": "9ec9a00b6e2716169ae4374ecb9c8726f2371bf3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-parcel/repository/archive.zip?sha=9ec9a00b6e2716169ae4374ecb9c8726f2371bf3",
+                "reference": "9ec9a00b6e2716169ae4374ecb9c8726f2371bf3",
+                "shasum": ""
+            },
+            "require": {
+                "dmitryrechkin/php-numberparser": "^1.0",
+                "oneteamsoftware/php-parcel": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0",
+                "dmitryrechkin/php-wp-phpunit-bootstrap": "^1.0"
+            },
+            "time": "2023-02-28T16:38:39+00:00",
+            "type": "php-wc-parcel",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Parcel for WooCommerce",
+            "install-path": "../oneteamsoftware/php-wc-parcel"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-rule",
+            "version": "1.0.8",
+            "version_normalized": "1.0.8.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-rule.git",
+                "reference": "947aa44cc4317501d199f5da8eefa2170d559bcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-rule/repository/archive.zip?sha=947aa44cc4317501d199f5da8eefa2170d559bcf",
+                "reference": "947aa44cc4317501d199f5da8eefa2170d559bcf",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-cache": "~1.0.0",
+                "oneteamsoftware/php-logger": "~1.0.0",
+                "oneteamsoftware/php-rule": ">=1.0.1",
+                "oneteamsoftware/php-wp-cache-storage": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0",
+                "dmitryrechkin/php-wp-phpunit-bootstrap": "^1.0"
+            },
+            "time": "2023-01-13T02:21:10+00:00",
+            "type": "php-wc-rule",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cp vendor/dmitryrechkin/php-standard/php-standard.xml phpcs.xml"
+                ]
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Rules for WooCommerce",
+            "install-path": "../oneteamsoftware/php-wc-rule"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-shipping",
+            "version": "1.0.15",
+            "version_normalized": "1.0.15.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-shipping.git",
+                "reference": "2de0dedb6ff7a1f51865034e51a20c429c06c488"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-shipping/repository/archive.zip?sha=2de0dedb6ff7a1f51865034e51a20c429c06c488",
+                "reference": "2de0dedb6ff7a1f51865034e51a20c429c06c488",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-lazyclassproxy": "~1.0.0",
+                "oneteamsoftware/php-shippingcarrier-abstractadapter": "~1.0.0",
+                "oneteamsoftware/php-unitconverter": "~1.0.0",
+                "oneteamsoftware/php-wc-admin-logexporter": "~1.0.0",
+                "oneteamsoftware/php-wc-logger": "~1.0.0",
+                "oneteamsoftware/php-wc-pagedetector": "~1.0.0",
+                "oneteamsoftware/php-wc-parcel": "~1.0.0",
+                "oneteamsoftware/php-wc-rule": ">=1.0.1",
+                "oneteamsoftware/php-wp-admin-notices": "~1.0.0",
+                "oneteamsoftware/php-wp-admin-oneteamsoftware": "~1.0.0",
+                "oneteamsoftware/php-wp-cache-storage": "~1.0.0",
+                "oneteamsoftware/php-wp-oneteamsoftware-autoloader": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0",
+                "dmitryrechkin/php-wp-phpunit-bootstrap": "^1.0",
+                "humbug/php-scoper": "0.17.5",
+                "oneteamsoftware/php-scoper-configs": "~1.0.0"
+            },
+            "time": "2023-05-11T06:19:53+00:00",
+            "type": "php-wc-shipping",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\": "packages/guzzlehttp/guzzle/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Promise\\": "packages/guzzlehttp/promises/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Psr7\\": "packages/guzzlehttp/psr7/src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cp vendor/dmitryrechkin/php-standard/php-standard.xml phpcs.xml",
+                    "vendor/bin/php-scoper add-prefix --output-dir=packages/guzzlehttp --config=vendor/oneteamsoftware/php-scoper-configs/scoper-guzzlehttp.inc.php --force --quiet"
+                ]
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Live shipping rates and address validation",
+            "install-path": "../oneteamsoftware/php-wc-shipping"
+        },
+        {
+            "name": "oneteamsoftware/php-wc-shipping-pro",
+            "version": "1.0.17",
+            "version_normalized": "1.0.17.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wc-shipping-pro.git",
+                "reference": "fd05cbf068cd7f46557d6486b3c03f6e2e104887"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wc-shipping-pro/repository/archive.zip?sha=fd05cbf068cd7f46557d6486b3c03f6e2e104887",
+                "reference": "fd05cbf068cd7f46557d6486b3c03f6e2e104887",
+                "shasum": ""
+            },
+            "require": {
+                "dmitryrechkin/php-numberparser": "^1.0",
+                "oneteamsoftware/php-pdf": "~1.0.0",
+                "oneteamsoftware/php-wc-admin-form": "~1.0.0",
+                "oneteamsoftware/php-wc-multivendorbridge": "~1.0.0",
+                "oneteamsoftware/php-wc-orders-query": "~1.0.0",
+                "oneteamsoftware/php-wc-shipping": "1.0.15",
+                "oneteamsoftware/php-wp-admin-metabox": "~1.0.0",
+                "oneteamsoftware/php-wp-crontask": "~1.0.0",
+                "oneteamsoftware/php-wp-pluginlife-client": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0",
+                "dmitryrechkin/php-wp-phpunit-bootstrap": "^1.0",
+                "humbug/php-scoper": "0.17.5",
+                "oneteamsoftware/php-scoper-configs": "~1.0.0"
+            },
+            "time": "2023-05-22T06:45:07+00:00",
+            "type": "php-wc-shipping-pro",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\": "packages/guzzlehttp/guzzle/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Promise\\": "packages/guzzlehttp/promises/src",
+                    "OneTeamSoftware\\Packages\\GuzzleHttp\\Psr7\\": "packages/guzzlehttp/psr7/src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": [
+                    "cp vendor/dmitryrechkin/php-standard/php-standard.xml phpcs.xml",
+                    "vendor/bin/php-scoper add-prefix --output-dir=packages/guzzlehttp --config=vendor/oneteamsoftware/php-scoper-configs/scoper-guzzlehttp.inc.php --force --quiet"
+                ]
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Prints labels and so on",
+            "install-path": "../oneteamsoftware/php-wc-shipping-pro"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-admin-metabox",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-admin-metabox.git",
+                "reference": "d6fffa28bfc782e6acf6161fea0db261757627fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-admin-metabox/repository/archive.zip?sha=d6fffa28bfc782e6acf6161fea0db261757627fc",
+                "reference": "d6fffa28bfc782e6acf6161fea0db261757627fc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-11-09T04:22:20+00:00",
+            "type": "php-wp-admin-metabox",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Base class that makes simple addition of metaboxes",
+            "install-path": "../oneteamsoftware/php-wp-admin-metabox"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-admin-notices",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-admin-notices.git",
+                "reference": "dd1b78865388432d91e0b852e8070e08a7cf6819"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-admin-notices/repository/archive.zip?sha=dd1b78865388432d91e0b852e8070e08a7cf6819",
+                "reference": "dd1b78865388432d91e0b852e8070e08a7cf6819",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-12-29T20:35:25+00:00",
+            "type": "php-wp-admin-notices",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Displays notices in WordPress Admin",
+            "install-path": "../oneteamsoftware/php-wp-admin-notices"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-admin-oneteamsoftware",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-admin-oneteamsoftware.git",
+                "reference": "b688dfa48b6bb1c410c7cc34d5c8ca013b7bbf84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-admin-oneteamsoftware/repository/archive.zip?sha=b688dfa48b6bb1c410c7cc34d5c8ca013b7bbf84",
+                "reference": "b688dfa48b6bb1c410c7cc34d5c8ca013b7bbf84",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-01-16T02:42:38+00:00",
+            "type": "php-wp-admin-oneteamsoftware",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Adds 1TeamSoftware menu to WordPress Admin",
+            "install-path": "../oneteamsoftware/php-wp-admin-oneteamsoftware"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-cache-storage",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-cache-storage.git",
+                "reference": "9bca4141ae209e10e51a9b68b878210812680225"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-cache-storage/repository/archive.zip?sha=9bca4141ae209e10e51a9b68b878210812680225",
+                "reference": "9bca4141ae209e10e51a9b68b878210812680225",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-cache": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-04-12T00:56:53+00:00",
+            "type": "php-wp-cache-storage",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Cache Storage Adapter for WordPress",
+            "install-path": "../oneteamsoftware/php-wp-cache-storage"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-crontask",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-crontask.git",
+                "reference": "a1196ea2a394f17342a2d97956be8a14876a811a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-crontask/repository/archive.zip?sha=a1196ea2a394f17342a2d97956be8a14876a811a",
+                "reference": "a1196ea2a394f17342a2d97956be8a14876a811a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-03-27T04:46:54+00:00",
+            "type": "php-wp-crontask",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-update-cmd": []
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Base class that simplifies creation of wordpress cron tasks",
+            "install-path": "../oneteamsoftware/php-wp-crontask"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-oneteamsoftware-autoloader",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-oneteamsoftware-autoloader.git",
+                "reference": "07585ab47cc1551702a0f40678103bbc9b7d1aa1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-oneteamsoftware-autoloader/repository/archive.zip?sha=07585ab47cc1551702a0f40678103bbc9b7d1aa1",
+                "reference": "07585ab47cc1551702a0f40678103bbc9b7d1aa1",
+                "shasum": ""
+            },
+            "require": {
+                "oneteamsoftware/php-autoloader": "~1.0.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2022-11-06T19:56:25+00:00",
+            "type": "php-wp-oneteamsoftware-autoloader",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DmitryRechkin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2022 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "Configures autoloader for WP plugins",
+            "install-path": "../oneteamsoftware/php-wp-oneteamsoftware-autoloader"
+        },
+        {
+            "name": "oneteamsoftware/php-wp-pluginlife-client",
+            "version": "1.0.4",
+            "version_normalized": "1.0.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:oneteamsoftware/php-wp-pluginlife-client.git",
+                "reference": "128c63fb3ffad8f09a77d4216d9fd285cdb8ac2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/oneteamsoftware%2Fphp-wp-pluginlife-client/repository/archive.zip?sha=128c63fb3ffad8f09a77d4216d9fd285cdb8ac2f",
+                "reference": "128c63fb3ffad8f09a77d4216d9fd285cdb8ac2f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "dmitryrechkin/php-phpunit-bootstrap": "^1.0",
+                "dmitryrechkin/php-standard": "^1.0"
+            },
+            "time": "2023-01-27T02:54:14+00:00",
+            "type": "php-wp-pluginlife-client",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OneTeamSoftware\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "OneTeamSoftware\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "Copyright: © 2023 FlexRC, Canada. Any usage / copying / extension or modification without prior authorization is prohibited."
+            ],
+            "authors": [
+                {
+                    "name": "OneTeamSoftware",
+                    "email": "info@1teamsoftware.com",
+                    "homepage": "https://1teamsoftware.com"
+                }
+            ],
+            "description": "WordPress Client for PluginLife Server",
+            "install-path": "../oneteamsoftware/php-wp-pluginlife-client"
+        },
+        {
+            "name": "psr/http-client",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-client.git",
+                "reference": "0955afe48220520692d2d09f7ab7e0f93ffd6a31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/0955afe48220520692d2d09f7ab7e0f93ffd6a31",
+                "reference": "0955afe48220520692d2d09f7ab7e0f93ffd6a31",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "time": "2023-04-10T20:12:12+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP clients",
+            "homepage": "https://github.com/php-fig/http-client",
+            "keywords": [
+                "http",
+                "http-client",
+                "psr",
+                "psr-18"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-client/tree/1.0.2"
+            },
+            "install-path": "../psr/http-client"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "e616d01114759c4c489f93b099585439f795fe35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
+                "reference": "e616d01114759c4c489f93b099585439f795fe35",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "time": "2023-04-10T20:10:41+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
+            },
+            "install-path": "../psr/http-factory"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "2.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "time": "2023-04-04T09:54:51+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/2.0"
+            },
+            "install-path": "../psr/http-message"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "version_normalized": "3.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "time": "2019-03-08T08:55:37+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
+            "install-path": "../ralouphie/getallheaders"
+        },
+        {
+            "name": "setasign/fpdf",
+            "version": "1.8.4",
+            "version_normalized": "1.8.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Setasign/FPDF.git",
+                "reference": "b0ddd9c5b98ced8230ef38534f6f3c17308a7974"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Setasign/FPDF/zipball/b0ddd9c5b98ced8230ef38534f6f3c17308a7974",
+                "reference": "b0ddd9c5b98ced8230ef38534f6f3c17308a7974",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "ext-zlib": "*"
+            },
+            "time": "2021-08-30T07:50:06+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "fpdf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Plathey",
+                    "email": "oliver@fpdf.org",
+                    "homepage": "http://fpdf.org/"
+                }
+            ],
+            "description": "FPDF is a PHP class which allows to generate PDF files with pure PHP. F from FPDF stands for Free: you may use it for any kind of usage and modify it to suit your needs.",
+            "homepage": "http://www.fpdf.org",
+            "keywords": [
+                "fpdf",
+                "pdf"
+            ],
+            "support": {
+                "source": "https://github.com/Setasign/FPDF/tree/1.8.4"
+            },
+            "install-path": "../setasign/fpdf"
+        },
+        {
+            "name": "setasign/fpdi",
+            "version": "v2.3.6",
+            "version_normalized": "2.3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Setasign/FPDI.git",
+                "reference": "6231e315f73e4f62d72b73f3d6d78ff0eed93c31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/6231e315f73e4f62d72b73f3d6d78ff0eed93c31",
+                "reference": "6231e315f73e4f62d72b73f3d6d78ff0eed93c31",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zlib": "*",
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "conflict": {
+                "setasign/tfpdf": "<1.31"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7",
+                "setasign/fpdf": "~1.8",
+                "setasign/tfpdf": "1.31",
+                "squizlabs/php_codesniffer": "^3.5",
+                "tecnickcom/tcpdf": "~6.2"
+            },
+            "suggest": {
+                "setasign/fpdf": "FPDI will extend this class but as it is also possible to use TCPDF or tFPDF as an alternative. There's no fixed dependency configured."
+            },
+            "time": "2021-02-11T11:37:01+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "setasign\\Fpdi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Slabon",
+                    "email": "jan.slabon@setasign.com",
+                    "homepage": "https://www.setasign.com"
+                },
+                {
+                    "name": "Maximilian Kresse",
+                    "email": "maximilian.kresse@setasign.com",
+                    "homepage": "https://www.setasign.com"
+                }
+            ],
+            "description": "FPDI is a collection of PHP classes facilitating developers to read pages from existing PDF documents and use them as templates in FPDF. Because it is also possible to use FPDI with TCPDF, there are no fixed dependencies defined. Please see suggestions for packages which evaluates the dependencies automatically.",
+            "homepage": "https://www.setasign.com/fpdi",
+            "keywords": [
+                "fpdf",
+                "fpdi",
+                "pdf"
+            ],
+            "support": {
+                "issues": "https://github.com/Setasign/FPDI/issues",
+                "source": "https://github.com/Setasign/FPDI/tree/v2.3.6"
+            },
+            "funding": [
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/setasign/fpdi",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../setasign/fpdi"
+        },
+        {
+            "name": "symfony/deprecation-contracts",
+            "version": "v2.5.2",
+            "version_normalized": "2.5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "time": "2022-01-02T09:53:40+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.5-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A generic function and convention to trigger deprecation notices",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.2"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/deprecation-contracts"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

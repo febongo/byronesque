@@ -17,7 +17,7 @@ use Automattic\Jetpack\Sync\Settings as Sync_Settings;
  */
 class Blaze {
 
-	const PACKAGE_VERSION = '0.5.1.1';
+	const PACKAGE_VERSION = '0.5.11';
 
 	/**
 	 * Script handle for the JS file we enqueue in the post editor.
@@ -121,6 +121,11 @@ class Blaze {
 		$connection        = new Jetpack_Connection();
 		$site_id           = Jetpack_Connection::get_site_id();
 
+		// Only admins should be able to Blaze posts on a site.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return false;
+		}
+
 		// On self-hosted sites, we must do some additional checks.
 		if ( ! $is_wpcom ) {
 			/*
@@ -177,6 +182,11 @@ class Blaze {
 			return $post_actions;
 		}
 
+		// Bail if the post has a password.
+		if ( '' !== $post->post_password ) {
+			return $post_actions;
+		}
+
 		// Might be useful to wrap in a method call for general use without post_id.
 		$blaze_url = Redirect::get_url(
 			'jetpack-blaze',
@@ -209,7 +219,10 @@ class Blaze {
 		 * We only want it in the post editor.
 		 * Enqueueing the script in those editors would cause a fatal error.
 		 * See #20357 for more info.
-		 */
+		*/
+		if ( ! function_exists( 'get_current_screen' ) ) { // When Gutenberg is loaded in the frontend.
+			return;
+		}
 		$current_screen = get_current_screen();
 		if (
 			empty( $current_screen )
@@ -218,7 +231,6 @@ class Blaze {
 		) {
 			return;
 		}
-
 		// Bail if criteria is not met to enable Blaze features.
 		if ( ! self::should_initialize() ) {
 			return;
