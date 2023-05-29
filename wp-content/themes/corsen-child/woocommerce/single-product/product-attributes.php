@@ -17,7 +17,15 @@ $has_row    = false;
 $attributes = $product->get_attributes();
 
 // $vendor = get_the_terms($product_id, 'dc_vendor_shop');
+// echo "<pre>";
+// var_dump($product);
+// echo "</pre>";
 
+$author_id = get_post_field('post_author', $product_id);
+$author_name = get_the_author_meta('display_name', $author_id);
+// $vendor = wcv_get_vendor_from_product($product_id);
+// $shipping_country = get_user_meta($author_id, 'shipping_country', true);
+// var_dump($shipping_country);
 ?>
 
 <?php
@@ -57,12 +65,12 @@ $attributes = $product->get_attributes();
 
 	<?php endforeach; ?>
 
-	<?php //if($vendor && count($vendor) > 0) : ?>
-		<!-- <div class="product-shipsfrom">
+	<?php if($author_name) : ?>
+		<div class="product-shipsfrom">
 			<span class="att_label b2-stressed">Ships From: </span>
-			<span class="att_value b2"><?= $vendor[0]->name ?></span>
-		</div> -->
-	<?php //endif; ?>
+			<span class="att_value b2"><?= $author_name ?></span>
+		</div>
+	<?php endif; ?>
 
 </div>
 
