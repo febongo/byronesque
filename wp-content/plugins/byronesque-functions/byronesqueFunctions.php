@@ -1139,4 +1139,30 @@ function insertLinkExternal() {
 }
 add_action('woocommerce_after_shop_loop_item', 'insertLinkExternal', 10);
 
+
+function custom_login_logo() {
+    echo '<style type="text/css">
+        .login h1 a {
+            background-image: url(/wp-content/uploads/2023/05/Byronesque_logo_new-blk.png) !important;
+            width: 100px !important;
+            height: 100px !important;
+            background-size: 100% !important;
+        }
+
+        .login .mo_btn-social{
+            padding-left: 0 !important;
+        }
+    </style>';
+}
+add_action('login_enqueue_scripts', 'custom_login_logo');
+
+function custom_login_logo_url() {
+    return home_url(); // Replace with your desired URL
+}
+add_filter('login_headerurl', 'custom_login_logo_url');
+
+function custom_login_logo_url_title() {
+    return 'Your Site Name'; // Replace with your desired title
+}
+add_filter('login_headertitle', 'custom_login_logo_url_title');
 ?>
