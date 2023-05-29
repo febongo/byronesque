@@ -1144,8 +1144,8 @@ function custom_login_logo() {
     echo '<style type="text/css">
         .login h1 a {
             background-image: url(/wp-content/uploads/2023/05/Byronesque_logo_new-blk.png) !important;
-            width: 100px !important;
-            height: 100px !important;
+            width: 100% !important;
+            height: auto !important;
             background-size: 100% !important;
         }
 
