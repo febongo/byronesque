@@ -44,7 +44,7 @@ function import_products_page() {
         $file_path = $movefile['file']; 
     }    
     
-    if ( isset( $file_path ) ) { 
+    if ( isset( $file_path ) && $uploaded_file['type'] == "text/csv") { 
         $file = fopen( $file_path, 'r' ); 
         if ( $file ) { 
             $parent_product_id;
@@ -96,9 +96,15 @@ function import_products_page() {
         } 
     } 
 
-    if ( isset( $_POST['submit'] ) ) { 
-        echo '<div class="updated"><p>Products imported successfully!</p><ul>'.$htmlMessage.'</ul></div>'; 
-    } 
+    if ($uploaded_file['type'] != "text/csv") {
+        echo '<div class="notice notice-info"><p>Please upload a CSV file.</p></div>'; 
+    } else {
+        if ( isset( $_POST['submit'] ) ) { 
+            echo '<div class="updated"><p>Products imported successfully!</p><ul>'.$htmlMessage.'</ul></div>'; 
+        } 
+    }
+
+    
     ?> 
     <div class="wrap"> 
         <h2>Import Products</h2> 
@@ -412,6 +418,10 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             update_post_meta( $product_id, '_upsell_ids',$related_ids );
             update_post_meta( $product_id, '_crosssell_ids',$related_ids );
         }
+
+        // update inventory stock level
+        update_post_meta($product_id, "_manage_stock", "yes");
+        update_post_meta($product_id, "_stock", 1);
 
         // echo "<p>End of simple save</p>";
     } else {
