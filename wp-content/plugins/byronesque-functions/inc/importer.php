@@ -236,6 +236,8 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         update_field( 'condition_and_', $dataArray['conditionNotes'], $product_id ); 
         update_field( 'shipping_and_return_policy', $dataArray['shippingReturnPolicy'], $product_id ); 
         update_field( 'season__year', $dataArray['sy'], $product_id ); 
+        update_field( 'loa_details', $dataArray['loa'], $product_id ); 
+        update_field( 'click_through_details', $dataArray['clickThrough'], $product_id ); 
 
         // UPDATE PRODUCT EXTRA FIELDS
         // echo "<p>Appriasal {$dataArray['appraisalFee']}</p>";

@@ -30,11 +30,12 @@ $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 $total_sold = get_post_meta(get_the_ID(),'total_sales', true);
 
-$letter_of_authenticity = get_field("letter_of_authenticity");
+$loa_details = get_field("loa_details");
+$click_through_details = get_field("click_through_details");
 
-if ( $total_sold && $letter_of_authenticity && $letter_of_authenticity["authenticity_note"] && $letter_of_authenticity["authenticity_information"]) {
-	echo "<div class='authenticity_note'>".$letter_of_authenticity["authenticity_note"]."</div>";
-	echo "<div class='authenticity_note_pop'><div class='overlay authenticity_note_pop_close'></div><div class='auth-content-wrap'><span class='authenticity_note_pop_close'>x</span>".$letter_of_authenticity["authenticity_information"]."</div></div>";
+if ( $loa_details && $click_through_details ) {
+	echo "<div class='authenticity_note'>".$loa_details."</div>";
+	echo "<div class='authenticity_note_pop'><div class='overlay authenticity_note_pop_close'></div><div class='auth-content-wrap'><span class='authenticity_note_pop_close'>x</span>".$click_through_details["authenticity_information"]."</div></div>";
 }
 
 ?>
