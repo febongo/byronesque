@@ -251,9 +251,12 @@ function shopFilters($attr) {
             $fields = explode(",",$attr['fields']);
             //var_dump($fields);
 
-            foreach($fields as $field){
-                $slug = sanitize_title($field);
-                echo "<button type='button' class='btn-filter' data-filter='$slug'>$field</button>";
+            if (count($fields) > 0) {
+                echo "<button type='button' class='btn-filter' data-filter='*'>View All</button>";
+                foreach($fields as $field){
+                    $slug = sanitize_title($field);
+                    echo "<button type='button' class='btn-filter' data-filter='$slug'>$field</button>";
+                }
             }
 
         } else {
