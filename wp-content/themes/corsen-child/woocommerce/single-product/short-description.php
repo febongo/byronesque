@@ -29,5 +29,5 @@ if ( ! $short_description ) {
 
 ?>
 <div class="woocommerce-product-details__short-description" style="display:none">
-	<?php echo $short_description; // WPCS: XSS ok. ?>
+	<?php echo $short_description. ', ' . get_field('season__year'); ?>
 </div>

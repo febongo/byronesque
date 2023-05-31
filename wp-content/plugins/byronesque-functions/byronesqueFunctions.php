@@ -170,8 +170,13 @@ function modifyFetchTitleAddDescription($the_title, $id)
         $product = wc_get_product( $id );
         $the_title = '<span class="product-title" style="font-style:inherit; font-size:inherit; color: inherit;display:block">'.$the_title.'</span>';
         $post = get_post( $id );
+        $seasonYear = get_field('season__year');
 
-        $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )).'</span>';
+        if ( is_single() ) {
+            $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )) . ($seasonYear ? ', '.$seasonYear : '') .'</span>';
+        } else {
+            $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )).'</span>';
+        }
 
     endif;
 
