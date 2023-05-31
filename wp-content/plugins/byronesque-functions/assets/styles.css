@@ -451,8 +451,11 @@
     right: 0;
 }
 
-.menu-nav .shop-by-label {
+.menu-nav.shop-by-label {
     font-family: 'Termina';
+    width: 129px;
+    padding: 0 30px;
+    font-weight: 500;
 }
 /* END SHOP BY */
 
@@ -864,4 +867,37 @@
 
 #launcher{
     display:none;
+}
+
+.authenticity_note_pop{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 !important;
+    background: rgba(0,0,0,0.3);
+    z-index: 99991;
+}
+
+.auth-content-wrap{
+    max-width: 500px;
+    margin: auto;
+    top: 30%;
+    position: relative;
+    background: #fdfdfd;
+    padding: 60px 42px 80px;
+}
+
+
+.authenticity_note_pop_close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 20px;
+    color: transparent;
+    background: url(https://byronesque.com/wp-content/plugins/byronesque-functions/assets/img/close.svg) no-repeat;
+    background-size: 12px;
 }

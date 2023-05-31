@@ -7,7 +7,7 @@
         var viewportTop = $(window).scrollTop();
         var viewportBottom = viewportTop + $(window).height();
 
-        console.log(elementTop, elementBottom)
+        //console.log(elementTop, elementBottom)
     
         return elementBottom > viewportTop && elementTop < viewportBottom;
     };
@@ -185,7 +185,7 @@
             if( $('.qodef-woo-single-inner').length && $('.qodef-woo-single-inner').isInViewport() && 
                 !( ($('.upsells').length &&  $('.upsells').isInViewport()) || $('#qodef-page-footer').isInViewport()) 
             ) {
-                $(".summary.entry-summary").css("top",offset)
+                //$(".summary.entry-summary").css("top",offset)
             }
             // console.log(productOffset)
 
@@ -662,7 +662,7 @@
                 return html.replace(/(cow)/g, '<span class="authenticity_note_tag">$1</span>');
             });
 
-            $(".authenticity_note_tag").click(function(){
+            $(".authenticity_note").click(function(){
                 $(".authenticity_note_pop").show()
             });
 

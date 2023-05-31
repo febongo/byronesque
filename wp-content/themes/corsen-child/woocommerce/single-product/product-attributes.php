@@ -73,7 +73,8 @@ $author_name = get_the_author_meta('display_name', $author_id);
 	<?php endif; ?>
 
 </div>
-
+<!--
 <?php if( !$hasSize ) : ?>
 	<p class="size-info">Please see description for sizes.</p>
 <?php endif; ?>
+-->
