@@ -656,6 +656,22 @@
 
             $(this).find('.qodef-e-inner').append("<a href='"+link+"' target='_blank' style='position: absolute;width: 100%;height: 100%;top: 0;left: 0;'></a>")
         });
+
+        if($(".authenticity_note")){
+            $(".authenticity_note:contains('Certificate of Appraisal')").html(function(_, html) {
+                return html.replace(/(cow)/g, '<span class="authenticity_note_tag">$1</span>');
+            });
+
+            $(".authenticity_note_tag").click(function(){
+                $(".authenticity_note_pop").show()
+            });
+
+            $(".authenticity_note_pop_close").click(function(){
+                $(".authenticity_note_pop").hide()
+            });
+        }
+
+        
         
     }) // DOCUMENT READY -- END
 
