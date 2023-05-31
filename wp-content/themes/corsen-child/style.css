@@ -79,13 +79,19 @@ img {
 input, .form-row select {
 	border-bottom: 1px solid #1111111F!important;
 	padding: 0 0 4px 0 !important;
-	color: #111;
+	color: #1f1f1f;
 	letter-spacing: 0!important;
 }
 
+input[type=text] {
+	color: #1f1f1f!important;
+}
 
-input::placeholder, select::placeholder{
-	color: #7B7B7B;
+
+input::placeholder, 
+select::placeholder, 
+::placeholder{
+	color: #7B7B7B!important;
 	letter-spacing:0;
 }
 
@@ -700,7 +706,8 @@ table td {
 
 }
 
-.fullwidth-editorial-white .qodef-m-text {
+.fullwidth-editorial .qodef-m-content,
+.halfwidth-editorial .qodef-m-content{
 	width: 518px;
 }
 
@@ -1040,14 +1047,16 @@ button[disabled] {
 }
 
 #qodef-page-footer .widget .button.chat-with-us {
-    align-content: start;
-    float: right;
     padding: 14px 0;
     width: 248px;
     text-align: center;
     border: 1px solid #7B7B7B;
     background-color: #fff;
     color: #111;
+	position: fixed;
+    bottom: 1%;
+    right: 52px;
+	z-index: 9999;
 }
 
 /* BLOG */
@@ -1604,8 +1613,8 @@ Color: #1F1F1F;
 	text-transform: uppercase;
 }
 .qodef-button:hover, .btn-filter:hover, .woocommerce-MyAccount-content .submit-btn a:hover, .sellwithus-button:hover {
-	border-width: 2px;
-	border-color: #111;
+	border: 2px solid #111;
+	outline: transparent;
 }
 
 /* MY ACCOUNT PAGE */

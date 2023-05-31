@@ -583,13 +583,15 @@
     z-index: 100;
     display: inline-block;
     background: none;
-    border: 1px solid #11111133;
+    outline: 1px solid #11111133;
+    border: 2px solid transparent;
     margin-right: 15px;
     height: 48px;
 }
 
 .btn-filter.active{
     border-color: #111111;
+    outline: transparent;
 }
 
 .filter-container .browseBy{
