@@ -968,15 +968,20 @@ function modified_addresses( $fields ) {
 	$fields[ 'first_name' ][ 'placeholder' ] = 'Name*';
 	$fields[ 'last_name' ][ 'placeholder' ] = 'Last name*';
 	$fields[ 'address_1' ][ 'placeholder' ] = 'Street address*';
+	$fields[ 'address_1' ][ 'priority' ] = 30;
 	$fields[ 'city' ][ 'placeholder' ] = 'City*';
-	$fields[ 'country' ][ 'placeholder' ] = 'Country*';
-	$fields[ 'state' ][ 'placeholder' ] = 'county*';
+	$fields[ 'city' ][ 'priority' ] = 40;
 	$fields[ 'postcode' ][ 'placeholder' ] = 'Zip Code*';
+	$fields[ 'postcode' ][ 'priority' ] = 50;
+	$fields[ 'state' ][ 'placeholder' ] = 'county*';
+	$fields[ 'state' ][ 'priority' ] = 60;
+	$fields[ 'country' ][ 'placeholder' ] = 'Country*';
+	$fields[ 'country' ][ 'priority' ] = 70;
 	$fields[ 'phone' ][ 'placeholder' ] = 'Phone(ex. +33 123 45 67)*';
 	$fields[ 'phone' ][ 'required' ] = true;
 
     // unset( $fields[ 'state' ] );
-    // unset( $fields[ 'address_2' ] );
+    unset( $fields[ 'address_2' ] );
     unset( $fields[ 'company' ] );
 
 	return $fields;
