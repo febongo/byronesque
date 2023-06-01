@@ -79,7 +79,7 @@ function import_products_page() {
                         // check if item exist if not create temporary item to link product data
                         foreach($dataArray['relatedItems'] as $relatedSku) {
                             $related_id = wc_get_product_id_by_sku( $relatedSku );
-                            if (!$related_id) {
+                            if (!$related_id && $relatedSku) {
                                 saveTemporaryProduct($relatedSku);
                             } 
                         }
