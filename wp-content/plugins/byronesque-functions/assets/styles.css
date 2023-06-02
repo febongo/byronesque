@@ -90,9 +90,11 @@
 
 .bn-search-form #bn-search-value {
     background: #111;
-    border: 0px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.54);
-    color: #fff;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;    
+    border-bottom: 1px solid #fff !important;
+    color: #fff!important;
     margin: 0;
     width: 70%;
     padding: 0 0 8px 30px;
@@ -191,6 +193,7 @@
     width: 20px;
     height: 20px;
     display: inline-block;
+    background: no-repeat;
 }
 
 
@@ -888,6 +891,7 @@
     position: relative;
     background: #fdfdfd;
     padding: 60px 42px 80px;
+    font-weight: 500;
 }
 
 

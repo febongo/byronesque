@@ -14,11 +14,11 @@ Template: corsen
 @import url("https://use.typekit.net/eqy5tfk.css");
 @import url("https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css");
 
-body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-content-only .pum-content p{
+body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-content-only .pum-content p, .auth-content-wrap{
 	font-family: "neue-haas-unica";
 
 }
-h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6, .woocommerce-mini-cart__buttons .button, .pum-theme-12164 .pum-title, .pum-theme-content-only .pum-title{
+h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-qi-button, .shopby-area .menu-nav,.js-home-title, .home-interactive-links .qodef-e-title, .qodef-button .qodef-m-text, .editorial-page h6, .woocommerce-mini-cart__buttons .button, .pum-theme-12164 .pum-title, .pum-theme-content-only .pum-title, .qodef-qi-section-title h6.qodef-m-title {
 	font-family: "Termina";
 }
 
@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, .button,.header-newsletter, .qodef-qi-text-marquee, .qodef-q
 .pum-theme-12164 .pum-title, .pum-theme-content-only .pum-title {
 	text-transform: uppercase;
 	font-family: "Termina"!important;
+}
+
+.qodef-qi-section-title h6.qodef-m-title {
+	font-weight: 700;
 }
 
 h6.entry-title {
@@ -68,6 +72,11 @@ ol, ul {
 .b2-stressed, .editorial-shop .product-title,
 .checkout-summary .cart_item .product-name{
 	font-weight: 700!important;
+}
+
+.qodef-woo-product-list .product-title,
+.up-sells .product-title {
+	font-weight: 600;
 }
 
 
@@ -398,8 +407,12 @@ select::placeholder,
 	height: auto;
 }
 
+.product-search .product-data {
+	padding: 0 10px;
+}
+
 .product-search .product-data h6 {
-	font-weight: 700;
+	font-weight: 600;
 	font-size: 16px;
 	line-height: 22px;
 	text-transform: capitalize;
@@ -422,7 +435,7 @@ select::placeholder,
 }
 
 .widget ul:not(.qodef-shortcode-list):not(.select2-selection__rendered) {
-	margin:none;
+	margin: 0;
 }
 
 .product-search .product-data p {
@@ -1317,7 +1330,7 @@ p.stock{
 .product-template-default .accordion-button {
 	padding: 12px 0 10px;
 	letter-spacing: 0;
-	font-weight: 700;
+	font-weight: 600;
 	color: #111;
 }
 
@@ -1329,6 +1342,10 @@ p.stock{
 .product-template-default .accordion-button:not(.collapsed) {
 	background-color: #fff;
 	color: #111;
+}
+
+.accordion-flush .accordion-item:last-child {
+	border-bottom: 1px solid rgba(0,0,0,.125)!important;
 }
 
 .product-template-default .accordion-button:not(.collapsed)::after {
@@ -1436,7 +1453,7 @@ p.stock{
 	color: #545454;
 }
 
-.up-sells .product-title, .product-title, h2.accoridion-header button {
+.product-title, h2.accoridion-header button {
 	font-weight: 700;
 	display: block;
 	text-transform: capitalize;
@@ -1606,6 +1623,10 @@ Color: #1F1F1F;
 .qodef-woo-product-list .qodef-woo-product-content .price {
 	position: relative!important;
 	float:left;
+}
+
+.qodef-woo-product-list .qodef-woo-product-content {
+	padding: 0 10px;
 }
 
 .qodef-m-pagination {
@@ -1837,6 +1858,10 @@ Color: #1F1F1F;
 	margin-top: 52px;
 }
 
+.woocommerce-checkout-review-order .product-name p.shortdescription {
+	font-weight: 500;
+}
+
 .woocommerce-page .checkout-summary .shippingToDetails {
 	font-weight: 500;
 	font-size: 16px;
@@ -1895,6 +1920,18 @@ Color: #1F1F1F;
 	font-size: 16px;
 	line-height: 22px ;
 	font-weight: 400;
+}
+
+.wc-stripe_cc-new-method-container {
+	margin-bottom: 0;
+}
+
+.wc-stripe-simple-form {
+	padding: 10px 0 0;
+}
+
+#qodef-woo-page.qodef--checkout .wc_payment_methods li {
+	padding: 0;
 }
 
 .wc-stripe-simple-form .baseline {
@@ -2471,6 +2508,9 @@ input.wpcf7-not-valid {
 	#byronesque-currency-nav input, .bn-search-form #bn-search-value {
 		padding-left: 9px!important;
 	}
+	.bn-search-form #bn-search-value {
+		width: 100%;
+	}
 	#bn-search-close {
 		visibility: hidden;
 	}
@@ -2624,12 +2664,37 @@ input.wpcf7-not-valid {
 		width: 79px;
 		font-size: 11px;
 	}
+	#bn-search-wrap {
+		display: flex;
+	}
 	.qodef-grid>.qodef-grid-inner {
 		display: flex!important;
 	}
 	.editorial-feature-fullwidth {
 	height: auto;
 	}
+	#qodef-page-footer-top-area .qodef-grid-inner {
+		display: block!important;
+	}
+	.entry-summary .authenticity_note {
+		margin: 20px 0 0;
+		font-size: 12px
+	}
+	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .entry-summary .woocommerce-tabs {
+		margin-top: 40px;
+	}
+	.single-product .product-description, 
+	.qodef-woo-single-inner .entry-summary .price .woocommerce-Price-amount {
+		font-weight: 500;
+		font-size: 18px;
+	}
+	.single-product .product_attributes {
+		margin-top: 36px;
+	}
+	#qodef-woo-page.qodef--single form.cart, #yith-quick-view-content.single-product form.cart {
+		margin-top: 40px;
+	}
+	
 
 }
 
