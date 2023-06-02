@@ -440,7 +440,7 @@
     width: 100%;
     right: -110%;
     background: #fff;
-    padding: 45px;
+    padding: 60px 42px;
     transition: right 0.8s;
     opacity: 0;
     z-index: -1;
@@ -479,12 +479,12 @@
 }
 
 .row .r-4{
-    width: 33.3%;
+    width: 25%;
 }
 
 .b-r{
-   /* border-right: 2px solid rgba(17, 17, 17, 0.05); */
-    padding-right: 20px;
+   /* border-right: 2px solid rgba(17, 17, 17, 0.05); 
+    padding-right: 20px;*/
     margin-right: 20px;
 }
 
@@ -908,24 +908,4 @@
 
 .lost-password-form{
     display: none;
-}
-
-.popUpNotification{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0,0,0,0.4);
-    z-index: 199;
-	display:none
-}
-
-.message-content{
-    max-width: 500px;
-    min-height: 300px;
-    background: #fdfdfd;
-    margin: auto;
-    position: relative;
-    top: 35%;
 }
