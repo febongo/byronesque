@@ -433,6 +433,12 @@
     margin-right: auto;
     display: flex;
     justify-content: end;
+    max-height: 60vh;
+}
+
+#byro-shopby-filters .feat-wrap > a > img{
+    object-fit: cover;
+    height: 100%;
 }
 
 #byro-shopby-filters{
