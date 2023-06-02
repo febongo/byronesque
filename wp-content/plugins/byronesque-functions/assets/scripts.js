@@ -765,18 +765,18 @@
             $("#"+type+"_country").val(type == 'shipping' ? userShippingdata.shipping_country : userShippingdata.billing_country).change()
             $("#"+type+"_address_1").val(type == 'shipping' ? userShippingdata.shipping_address_1: userShippingdata.billing_address_1)
             $("#"+type+"_city").val(type == 'shipping' ? userShippingdata.shipping_city : userShippingdata.billing_city)
-            $("#"+type+"_cstate").val(type == 'shipping' ? userShippingdata.shipping_state : userShippingdata.billing_state)
+            $("#"+type+"_state").val(type == 'shipping' ? userShippingdata.shipping_state : userShippingdata.billing_state)
             $("#"+type+"_postcode").val(type == 'shipping' ? userShippingdata.shipping_postcode : userShippingdata.billing_postcode)
             $("#"+type+"_phone").val(type == 'shipping' ? userShippingdata.shipping_phone : userShippingdata.billing_phone)
         } else {
-            $("#"+type+"_first_name").val('')
-            $("#"+type+"_last_name").val('')
-            $("#"+type+"_country").val('').change()
-            $("#"+type+"_address_1").val('')
-            $("#"+type+"_city").val('')
-            $("#"+type+"_state").val('')
-            $("#"+type+"_postcode").val('')
-            $("#"+type+"_phone").val('')
+            // $("#"+type+"_first_name").val('')
+            // $("#"+type+"_last_name").val('')
+            // $("#"+type+"_country").val('').change()
+            // $("#"+type+"_address_1").val('')
+            // $("#"+type+"_city").val('')
+            // $("#"+type+"_state").val('')
+            // $("#"+type+"_postcode").val('')
+            // $("#"+type+"_phone").val('')
         }
 
         
