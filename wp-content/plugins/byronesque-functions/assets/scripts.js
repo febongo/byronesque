@@ -707,7 +707,7 @@
         $(document).on("click",".lost-password-submit",function() {
             // alert();
             var userLogin = $(this).parent().parent().find('#user_login').val();
-            alert($(this).parent().parent().attr('action'));
+            // alert($(this).parent().parent().attr('action'));
             if (userLogin) {
                 $.ajax({
                     url: opt.ajaxUrl,
@@ -720,7 +720,12 @@
                         $('.lost-password-response').html('Loading...');
                     },
                     success: function(response) {
-                        $('.lost-password-response').html(response);
+                        hideSideNav();
+                        $('.popUpNotification .message-content .message').html(response);
+                        $('.popUpNotification').show();
+
+                        $(".login-form").show();
+                        $(".lost-password-form").hide()
                     }
                 });
             } else {
@@ -730,6 +735,10 @@
             return false;
 
 
+        })
+
+        $(document).on("click",".closeNtification", function(){
+            $(".popUpNotification").hide()
         })
 
         
