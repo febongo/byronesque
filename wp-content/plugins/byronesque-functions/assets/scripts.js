@@ -52,6 +52,7 @@
             	
                 // remove social login inline styles
                 $(".mo-openid-app-icons a").removeAttr("style");
+
             }
         });
 
@@ -153,17 +154,17 @@
 
         // debounce so filtering doesn't happen every millisecond
         function debounce( fn, threshold ) {
-        var timeout;
-        threshold = threshold || 100;
-        return function debounced() {
-            clearTimeout( timeout );
-            var args = arguments;
-            var _this = this;
-            function delayed() {
-            fn.apply( _this, args );
-            }
-            timeout = setTimeout( delayed, threshold );
-        };
+            var timeout;
+            threshold = threshold || 100;
+            return function debounced() {
+                clearTimeout( timeout );
+                var args = arguments;
+                var _this = this;
+                function delayed() {
+                fn.apply( _this, args );
+                }
+                timeout = setTimeout( delayed, threshold );
+            };
         }
 
         $(document).on("click","#byronesque-side-nav .open-news-form",function() {
@@ -496,13 +497,16 @@
 
             
             // Billing actions
-            setAddressFields("billing", billingAddress.userdata)
+            if (billingAddress && billingAddress.userdata) {
+                setAddressFields("billing", billingAddress.userdata)
+            }
+            
             $('input[value="billSameShip"]').prop('checked',true)
             $('.woocommerce-billing-fields__field-wrapper').hide()
-            console.log("read billing");
+
             $('input[name="billOption"]').change(function(){ console.log('event called change');
                 var billOption = $('input[name="billOption"]:checked').val();
-                console.log("billing option changed");
+
                 if (billOption.trim() == "billSameShip") {
                     let billingData = {
                         billing_first_name : $("#shipping_first_name").val(),
@@ -515,7 +519,7 @@
                         billing_phone : $("#shipping_phone").val()
                     }
                     setAddressFields("billing", billingData)
-                    $('.woocommerce-billling-fields__field-wrapper').hide()
+                    $('.woocommerce-billing-fields__field-wrapper').hide()
                 } else if (billOption.trim() == "billToDefault") {
                     setAddressFields("billing", billingAddress.userdata)
                     $('.woocommerce-billing-fields__field-wrapper').hide()
@@ -671,9 +675,72 @@
             });
         }
 
+        $('.lost-password-submit').on('click', function(e) {
+            // e.preventDefault();
+            
+            var userLogin = $('.user_login').val();
+
+            console.log("lost password");
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: {
+                    user_login: userLogin,
+                    action: 'lost_password'
+                },
+                beforeSend: function() {
+                    $('#lost-password-response').html('Loading...');
+                },
+                success: function(response) {
+                    $('#lost-password-response').html(response);
+                }
+            });
+        });
+
+        $(document).on("click",".loss-password",function() {
+            $(".login-form").hide();
+            $(".lost-password-form").show()
+        })
+
+
+
+        $(document).on("click",".lost-password-submit",function() {
+            // alert();
+            var userLogin = $(this).parent().parent().find('#user_login').val();
+            alert($(this).parent().parent().attr('action'));
+            if (userLogin) {
+                $.ajax({
+                    url: opt.ajaxUrl,
+                    type: 'POST',
+                    data: {
+                        user_login: userLogin,
+                        action: 'custom_lost_password'
+                    },
+                    beforeSend: function() {
+                        $('.lost-password-response').html('Loading...');
+                    },
+                    success: function(response) {
+                        $('.lost-password-response').html(response);
+                    }
+                });
+            } else {
+                $("#lost-password-response").html("<p class='text-danger'>Please enter Username or Email</p>");
+            }
+
+            return false;
+
+
+        })
+
         
         
     }) // DOCUMENT READY -- END
+
+    
+    // $(".loss-password").on('click', function(e){
+    //     alert();
+    //     e.preventDefault();
+    // })
 
 
     // ***************************************

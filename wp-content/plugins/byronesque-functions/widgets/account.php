@@ -80,9 +80,22 @@ function get_account() {
     ?>
         <div class="login-page">
             <p style="margin:0;text-align:right;"><span id="bn-login-close" class="bn-close-btn" style="background-image:url('/wp-content/plugins/byronesque-functions/assets/img/close.png')"></span></p>
-        <h4>Account</h4>
-        <?php if(!is_user_logged_in()) : ?>
-        <?= do_shortcode('[byro-login-form]'); ?>
+            <div class="login-form">
+                <h4>Account</h4>
+                <?php if(!is_user_logged_in()) : ?>
+                <?= do_shortcode('[byro-login-form]'); ?>
+            </div>
+            <div class="lost-password-form" action="<?= esc_url(wp_lostpassword_url()); ?>">
+                <p class="lostPasswordDescription">Lost password description message here</p>
+                <p>
+                    <label for="user_login">Username or Email:</label>
+                    <input type="text" name="user_login" id="user_login" />
+                </p>
+                <p>
+                    <input type="submit" name="submit" value="Reset Password" class="lost-password-submit" />
+                </p>
+                <div class="lost-password-response"></div>
+            </div>
         </div>
         <?php //do_shortcode('[miniorange_social_login shape="longbuttonwithtext" theme="default" space="8" width="180" height="35" color="000000"]'); ?>
         <?php else : 
@@ -113,7 +126,7 @@ function get_account() {
 
 add_action( 'login_form_middle', 'add_social_links' );
 function add_social_links() {
-    return '<a class="loss-password" href="/wp-login.php?action=lostpassword">Forgot Your Password?</a>' . do_shortcode('[miniorange_social_login shape="longbuttonwithtext" theme="default" space="8" width="180" height="35" color="000000"]');
+    return '<a class="loss-password" href="#">Forgot Your Password?</a>' . do_shortcode('[miniorange_social_login shape="longbuttonwithtext" theme="default" space="8" width="180" height="35" color="000000"]');
 }
 
 if(!function_exists('byro_login_form'))
@@ -194,3 +207,36 @@ add_action('init', function() {
 //     echo "</div>";
 
 // }
+add_action('wp_ajax_nopriv_custom_lost_password', 'custom_lost_password');
+add_action('wp_ajax_custom_lost_password', 'custom_lost_password');
+
+function custom_lost_password() {
+    $user_login = isset($_POST['user_login']) ? sanitize_text_field($_POST['user_login']) : '';
+
+    // Check if the user exists
+    $user_data = get_user_by('login', $user_login);
+    if (!$user_data) {
+        echo 'User not found.';
+        wp_die();
+    }
+
+    // Generate a unique key and update user meta
+    $reset_key = wp_generate_password(20, false);
+    update_user_meta($user_data->ID, 'reset_password_key', $reset_key);
+
+    // Generate the password reset URL
+    $reset_url = add_query_arg(array(
+        'action' => 'rp',
+        'key'    => $reset_key,
+        'login'  => rawurlencode($user_login)
+    ), wp_login_url());
+
+    // Send the password reset email
+    $subject = 'Password Reset';
+    $message = 'Please click the following link to reset your password: ' . $reset_url;
+    $headers = 'From: Byronesque <support@byronesque.com>';
+    wp_mail($user_data->user_email, $subject, $message, $headers);
+
+    echo 'Password reset email sent successfully. Please check your email.';
+    wp_die();
+}

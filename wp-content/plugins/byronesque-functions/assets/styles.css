@@ -901,3 +901,7 @@
     background: url(https://byronesque.com/wp-content/plugins/byronesque-functions/assets/img/close.svg) no-repeat;
     background-size: 12px;
 }
+
+.lost-password-form{
+    display: none;
+}
