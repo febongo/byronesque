@@ -82,16 +82,16 @@ class wpb_widget_my_shop extends WP_Widget {
                             <?php if($post) : ?>
                                 <div class="r-6 feat-wrap">
                                     <a href="<?= get_permalink( $post->ID ) ?>">
-                                        <?= get_the_post_thumbnail( $post->ID, 'large' ) ?>
+                                        <?= get_the_post_thumbnail( $post->ID, 'medium' ) ?>
                                         <div class="feat-contents">
                                             <p>
                                                 <b>READ: <?= $post->post_title ?></b>
                                                 <?php
-                                                $excerpt = strip_tags($post->post_content);
-                                                if (strlen($excerpt) > 100) {
-                                                $excerpt = substr($excerpt, 0, 100);
-                                                $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
-                                                }
+                                                $excerpt = get_the_excerpt($post->ID);
+                                                // if (strlen($excerpt) > 100) {
+                                                //     $excerpt = get_the_excerpt($post->ID);
+                                                //     $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
+                                                // }
                                                 ?>
                                                 <br><?= $excerpt ?>
                                             </p>
