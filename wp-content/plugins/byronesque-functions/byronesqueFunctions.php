@@ -175,7 +175,8 @@ function modifyFetchTitleAddDescription($the_title, $id)
         if ( is_single() ) {
             $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )) . ($seasonYear ? ', '.$seasonYear : '') .'</span>';
         } else {
-            $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )).'</span>';
+            $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )) . ($seasonYear ? ', '.$seasonYear : '') .'</span>';
+            // $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )).'</span>';
         }
 
     endif;
