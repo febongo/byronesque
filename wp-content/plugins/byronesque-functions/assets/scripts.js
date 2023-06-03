@@ -190,17 +190,17 @@
             }
             // console.log(productOffset)
 
-            if ($('#stepStarter').length ) {
-                if( !$('#stepStarter').isInViewport() ) {
-                    console.log("hidden");
-                    $('.stepBack').css("top",60)
-                    $('.stepBack').css("position","fixed")
-                } else {
-                    console.log("showing");
-                    $('.stepBack').css("top",0)
-                    $('.stepBack').css("position","relative")
-                }
-            }
+            // if ($('#stepStarter').length ) {
+            //     if( !$('#stepStarter').isInViewport() ) {
+            //         console.log("hidden");
+            //         $('.stepBack').css("top",60)
+            //         $('.stepBack').css("position","fixed")
+            //     } else {
+            //         console.log("showing");
+            //         $('.stepBack').css("top",0)
+            //         $('.stepBack').css("position","relative")
+            //     }
+            // }
             
         });
 
