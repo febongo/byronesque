@@ -420,7 +420,7 @@
                     // return userData;
                     billingAddress = userData;
                     if(userData)
-                    setAddressFields("billing", userData.userdata)
+                    setAddressFields("billing", billingAddress.userdata)
                     // $('.woocommerce-billing-fields').hide()
                 }
             });
@@ -460,6 +460,9 @@
                 currentBlockStep++;
                 var nextBlockDiv = blockStep[currentBlockStep]
                 // $(this).parent().hide();
+                if (nextBlockDiv === 'billingAddressCustom') {
+                    $('input[name="billOption"]').trigger('change');
+                }
                 setActiveBlockCheckout(nextBlockDiv)
             });
 
@@ -504,7 +507,9 @@
             $('input[value="billSameShip"]').prop('checked',true)
             $('.woocommerce-billing-fields__field-wrapper').hide()
 
-            $('input[name="billOption"]').change(function(){ console.log('event called change');
+            setAddressFields("billing", shippingAddress.userdata)
+
+            $('input[name="billOption"]').change(function(){ 
                 var billOption = $('input[name="billOption"]:checked').val();
 
                 if (billOption.trim() == "billSameShip") {
