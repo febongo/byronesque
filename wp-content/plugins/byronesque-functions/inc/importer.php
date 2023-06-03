@@ -372,12 +372,14 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             // wp_set_object_terms( $product_id, (int)$vendor->term_id, 'dc_vendor_shop', true );
         }
 
-        // add brand
+        // add brand and insert as tags
         if ( sizeof($dataArray['brand']) > 0 ) {
             $designIds=[];
+            $tagIds=[];
             foreach( $dataArray['brand'] as $designer ) {
-                // get location
+
                 $designerTerm = get_term_by('name', $designer, 'product_designer');
+                $tagTerm = get_term_by('name', $tag_name, 'product_tag');
 
                 if (!$designerTerm) {
                     $designerTerm = wp_insert_term(
@@ -385,10 +387,17 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
                         'product_designer'
                     );
                 }
-                // $location_id = $locationTerm->term_id;
+
+                if (!$tagTerm) {
+                    $tagTerm = wp_insert_term($tag_name, 'product_tag');
+                }
+
                 $designIds[] = $designerTerm->term_id;
+                $tagIds[] = $tagTerm->term_id;
             }
             wp_set_object_terms( $product_id, $designIds, 'product_designer' );
+            wp_set_object_terms( $product_id, $tagIds, 'product_tag' );
+
         }
 
         // add category
