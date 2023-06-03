@@ -431,6 +431,10 @@
                 $('input[value="shipToDefault"]').prop('checked',true)
                 $('.woocommerce-shipping-fields__field-wrapper').hide()
 
+                $('input[value="billSameShip"]').prop('checked',true)
+                // $('.woocommerce-billing-fields__field-wrapper').hide()
+                setAddressFields("billing", shippingAddress.userdata)
+
             } else {
                 // show empty fields
                 setAddressFields("shipping", null)
@@ -441,7 +445,6 @@
 
             appendShippingTo()
 
-            // $('input[name="shipOption"]').trigger('change')
 
 
             $('input[name="shipOption"]').change(function(){ console.log('event called change');
@@ -459,8 +462,9 @@
             $(document).on("click",".nextBlock",function() {
                 currentBlockStep++;
                 var nextBlockDiv = blockStep[currentBlockStep]
-                // $(this).parent().hide();
+
                 if (nextBlockDiv === 'billingAddressCustom') {
+                    $('input[value="billSameShip"]').prop('checked', true);
                     $('input[name="billOption"]').trigger('change');
                 }
                 setActiveBlockCheckout(nextBlockDiv)
@@ -480,39 +484,20 @@
 
             var selectedShippingMethod = $('.woocommerce-shipping-methods input[type="radio"]:checked');
 
-            // selectedShippingMethod.each(function(){
-            //     console.log($(this));
-            //     if (!$(this)) {
-            //         selectedShippingMethod = $('#shipping_method li:first-child input').attr('id');
-            //         $('.woocommerce-shipping-methods li:first-child .checkmark').hide()
-            //     }
-            // });
-            
-            // console.log("shippping ",selectedShippingMethod);
             setShippingMethodPrice(selectedShippingMethod)
 
             $(document).on("change", "#shipping_method input[type='radio']", function(){
-                // console.log("method changed");
+
                 var selectedShippingMethod = $('.woocommerce-shipping-methods input[type="radio"]:checked');
-                // console.log(selectedShippingMethod);
+
                 setShippingMethodPrice(selectedShippingMethod)
             })
 
-            
-            // Billing actions
-            if (billingAddress && billingAddress.userdata) {
-                setAddressFields("billing", billingAddress.userdata)
-            }
-            
-            $('input[value="billSameShip"]').prop('checked',true)
-            $('.woocommerce-billing-fields__field-wrapper').hide()
-
-            setAddressFields("billing", shippingAddress.userdata)
-
             $('input[name="billOption"]').change(function(){ 
-                var billOption = $('input[name="billOption"]:checked').val();
 
-                if (billOption.trim() == "billSameShip") {
+                var billOption = $('input[name="billOption"]:checked').val();
+                console.log("this selection billing option",billOption);
+                if (billOption == "billSameShip") {
                     let billingData = {
                         billing_first_name : $("#shipping_first_name").val(),
                         billing_last_name : $("#shipping_last_name").val(),
@@ -525,11 +510,11 @@
                     }
                     setAddressFields("billing", billingData)
                     $('.woocommerce-billing-fields__field-wrapper').hide()
-                } else if (billOption.trim() == "billToDefault") {
+                } else if (billOption == "billToDefault") {
                     setAddressFields("billing", billingAddress.userdata)
                     $('.woocommerce-billing-fields__field-wrapper').hide()
                 } else {
-                    setAddressFields("billing", null)
+                    // setAddressFields("billing", null)
                     $('.woocommerce-billing-fields__field-wrapper').show()
                 }
             })
