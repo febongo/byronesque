@@ -11,6 +11,13 @@
     
         return elementBottom > viewportTop && elementTop < viewportBottom;
     };
+
+    
+    let headerWrapContainer = "#qodef-page-header";
+
+    if ($(window).width() <= 768) {
+        headerWrapContainer = "#qodef-page-mobile-header";
+    }
     
     $(document).on("ready", function(){
 
@@ -19,8 +26,7 @@
         var $grid, $pageFilter;
 
         // NAVIGATION FUNCTIONS
-        $("#qodef-page-header").append("<div id='menu-overlay' class='overlay'></div><div id='byro-side-content'></div>")
-
+        $(headerWrapContainer).append("<div id='menu-overlay' class='overlay'></div><div id='byro-side-content'></div>")
         // fetch cart contents 
         $.ajax({
             url:opt.ajaxUrl,
@@ -38,7 +44,7 @@
             data: { action:  'get_account' },
             success: function(data) {
                 $("#get_account").html(data)
-                
+               
                 // change placeholder in login form
                 $('#loginform input[type="text"]').attr('placeholder', 'Email address*');
             	$('#loginform input[type="password"]').attr('placeholder', 'Password*');
@@ -106,11 +112,20 @@
             if(defaultimg)
             $(this).css('background-image', 'url('+defaultimg+')')
         })
+
+        // $(".menu-nav-no-side").click(function(){
+            
+        //     if ( !$(this).hasClass('show-side-menu') ) {
+
+        //     }
+        // });
         
         $(".menu-nav-side").click(function(){
+
             if (!$(this).hasClass('show-side-menu')) {
 
                 var dataAction = $(this).attr('data-action')
+                console.log(dataAction);
                 if(dataAction) {
                     hideSideNav()
                     $("#byro-side-content").html("Loading...")
@@ -129,11 +144,15 @@
                     });
                     
                     showSideNav(this)
+                } else {
+                    console.log("show overlay");
+                    showOverlay();
                 }
                 
 
                 
             } else {
+                console.log("this");
                 hideSideNav()
             }
         })
@@ -174,20 +193,20 @@
         })
 
         // CHECK IF SCROLL, IF IT'S TO LOW AND SIDE MENU IS STILL ON, HIDE IT!
-        $( window ).scroll(function() {
-            var offset = $(window).scrollTop();
-            if (offset > 700)
-                hideSideNav();
+        // $( window ).scroll(function() {
+        //     var offset = $(window).scrollTop();
+        //     if (offset > 700)
+        //         hideSideNav();
 
             // ADD PRODUCT EVENT ON SCROLL TO RETAIN DESCRIPTION VISIBLE
             // if (offset > 300) {
             //     console.log(offset)
             // }
-            if( $('.qodef-woo-single-inner').length && $('.qodef-woo-single-inner').isInViewport() && 
-                !( ($('.upsells').length &&  $('.upsells').isInViewport()) || $('#qodef-page-footer').isInViewport()) 
-            ) {
-                //$(".summary.entry-summary").css("top",offset)
-            }
+            // if( $('.qodef-woo-single-inner').length && $('.qodef-woo-single-inner').isInViewport() && 
+            //     !( ($('.upsells').length &&  $('.upsells').isInViewport()) || $('#qodef-page-footer').isInViewport()) 
+            // ) {
+            //     //$(".summary.entry-summary").css("top",offset)
+            // }
             // console.log(productOffset)
 
             // if ($('#stepStarter').length ) {
@@ -202,7 +221,7 @@
             //     }
             // }
             
-        });
+        // });
 
         // EVENT REMOVE TO CART 
         // REMOVE ITEM AND UPDATE NUMBER OF CART ITEMS
@@ -711,6 +730,7 @@
                     },
                     success: function(response) {
                         hideSideNav();
+                        hideOverlay();
                         $('.popUpNotification .message-content .message').html(response);
                         $('.popUpNotification').show();
 
@@ -823,22 +843,28 @@
         // console.log('click',$(this));
         if (!$("#bn-shopby .menu-nav").hasClass('show-side-menu')) {
             hideSideNav()
+            showOverlay();
             $(".bn-shop-container").addClass('bn-show')
             $(this).addClass('show-side-menu')
+            console.log("if");
         } else {
+            console.log("else");
             hideSideNav()
+            
             // console.log('else');
         }
         
     });
 
     $(document).on("click","#bn-search .menu-nav",function() {
-        hideSideNav()
+        hideSideNav();
+        showOverlay();
         $(".bn-search-form").addClass('bn-show')
     });
 
     $(document).on("click","#bn-search-close",function() {
-
+        hideSideNav();
+        hideOverlay();
         $(".bn-search-form").removeClass('bn-show')
     });
 
@@ -857,7 +883,8 @@
     });
 
     function hideSideNav() {
-        $("#qodef-page-header").removeClass('open-side-menu')
+        hideOverlay();
+        $(headerWrapContainer).removeClass('open-side-menu')
         // $(".menu-nav-side").removeClass('show-side-menu')
         $(".menu-nav").removeClass('show-side-menu')
 
@@ -868,12 +895,14 @@
         })
 
         $('.bn-shop-container').removeClass('bn-show')
+        $(".bn-search-form").removeClass('bn-show')
     }
 
     function showSideNav(divClass) {
 
         setTimeout(function(){
-            $("#qodef-page-header").addClass('open-side-menu')
+            
+            $(headerWrapContainer).addClass('open-side-menu')
             $(divClass).addClass('show-side-menu')
     
             let defaultimg = $(divClass).attr('data-img-hover')
@@ -884,6 +913,14 @@
             $(divClass).css('background-image', 'url('+defaultimg+')')
         }, 200);
 
+    }
+
+    function showOverlay(){
+        $(headerWrapContainer).addClass('show-overlay')
+    }
+
+    function hideOverlay(){
+        $(headerWrapContainer).removeClass('show-overlay')
     }
 
     function productSearch(query){

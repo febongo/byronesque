@@ -776,6 +776,7 @@
     display: none;
 }
 
+.show-overlay .overlay,
 .open-side-menu .overlay{
     position: fixed;
     top: 0;
