@@ -929,8 +929,8 @@
     function productSearch(query){
 
         query = query.trim();
-        $("#byro-search-result").css("visibility","visible")
-        $("#byro-search-result").html("Searching...")
+        $(headerWrapContainer + " #byro-search-result").css("visibility","visible")
+        $(headerWrapContainer + " #byro-search-result").html("Searching...")
         $.ajax({
             url:opt.ajaxUrl,
             type: 'post',
@@ -939,9 +939,9 @@
                 
                 console.log(data)
                 if (data) {
-                    $("#byro-search-result").html(data)
+                    $(headerWrapContainer + " #byro-search-result").html(data)
                 } else {
-                    $("#byro-search-result").html("<p>Sorry, no search term found!</p>")
+                    $(headerWrapContainer + " #byro-search-result").html("<p>Sorry, no search term found!</p>")
                 }
             }
         });
