@@ -846,20 +846,23 @@
             showOverlay();
             $(".bn-shop-container").addClass('bn-show')
             $(this).addClass('show-side-menu')
-            console.log("if");
         } else {
-            console.log("else");
             hideSideNav()
             
-            // console.log('else');
         }
         
     });
 
     $(document).on("click","#bn-search .menu-nav",function() {
-        hideSideNav();
-        showOverlay();
-        $(".bn-search-form").addClass('bn-show')
+        
+        if (!$(".bn-search-form").hasClass('bn-show')) {
+            hideSideNav();
+            showOverlay();
+            $(".bn-search-form").addClass('bn-show')
+        } else {
+            hideSideNav();
+            hideOverlay();
+        }
     });
 
     $(document).on("click","#bn-search-close",function() {
