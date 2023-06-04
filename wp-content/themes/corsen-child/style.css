@@ -1209,6 +1209,15 @@ button[disabled] {
     line-height: 28px;
 }
 
+@media (max-width: 680px) {
+	.editorial-page .qodef-blog.qodef--single .qodef-blog-item a,
+	.editorial-page .qodef-blog.qodef--single .qodef-blog-item p, 
+	.editorial-credits p{
+		font-size: 15px;
+		line-height: 20px;
+	}
+}
+
 .editorial-page .qodef-blog .editorial-relatedpost .qodef-blog-item .qodef-e-excerpt {
 	margin: 0;
 }
@@ -1272,6 +1281,13 @@ button[disabled] {
 
 .editorial-imagegrid {
 	transform: translate(120px, 0%);
+}
+
+
+@media (max-width: 680px) {
+	.editorial-imagegrid {
+	transform: none;
+	}
 }
 
 .editorial-page .gallery-item {
