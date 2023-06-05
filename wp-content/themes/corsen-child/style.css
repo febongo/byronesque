@@ -232,7 +232,9 @@ select::placeholder,
 #billing_email_field,
 .wc_payment_method .wc-stripe-card-icons-container,
 #qodef-woo-page.qodef--single form.cart:not(.variations_form) .quantity,
-.wc-item-meta{
+.wc-item-meta,
+.order-mobile,
+.closeNtification .btn-close{
 	display: none;
 }
 
@@ -2577,6 +2579,46 @@ input.wpcf7-not-valid {
 	#bn-search-close {
 		visibility: hidden;
 	}
+	.open-side-menu #byro-side-content {
+		width: 100%;
+		padding: 24px 16px;
+	}
+	#byro-search-result .product-search, #byro-search-result .editorial-search {
+		padding: 40px 42px 40px;
+	}
+	#byro-search-result .editorial-search img {
+		width: 100%;
+		height: auto;
+	}
+	.product-search ul {
+		grid-template-columns: repeat(2, 1fr);	
+	}
+	.widget ul:not(.qodef-shortcode-list):not(.select2-selection__rendered) li{
+		margin-bottom: 36px;	
+	}
+	#byro-search-result .editorial-search img,
+	#byro-search-result .editorial-search li{
+		height: auto;
+	}
+	.editorial-search h4 {
+		bottom: 36px;
+		padding: 0 8px;
+	}
+	#byro-search-result .editorial-search ul li p{
+		display: none;
+	}
+	.product-search .product-image img {
+		width: 100%;
+	}
+	#qodef-page-mobile-header .product-search a  .product-data p {
+		color: #111;
+	}
+	.product-search .product-price,
+	.product-search .product-data p,
+	.product-search .product-data h6{
+		line-height: 20px;
+		font-size: 15px;
+	}
 
 }
 
@@ -2671,7 +2713,8 @@ input.wpcf7-not-valid {
 	.woocommerce .woocommerce-MyAccount-navigation,
 	.editorial-block .qodef-m-content .qodef-m-text,
 	#contemporary-vintage .filter-container .btn-filter,
-	#future-vintage .filter-container .btn-filter{
+	#future-vintage .filter-container .btn-filter,
+	.order-desktop{
 		display: none;
 	}
 	.filter-container .browseBy {
@@ -2790,6 +2833,17 @@ input.wpcf7-not-valid {
 	}
 	.woocommerce-myaccount-detailblock, .address-wrap, .checkoutBlocks {
 		padding: 16px 8px;
+	}
+	.order-mobile
+	{
+		display: block;
+	}
+	.woocommerce-orders-table__cell .toggle-details img {
+		bottom: 195px;
+	}
+	.woocommerce-orders-table__cell .toggle-details .close-arrow {
+		left: 250px;
+		bottom: 236px;
 	}
 
 }

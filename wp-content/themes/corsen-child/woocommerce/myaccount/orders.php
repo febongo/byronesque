@@ -36,7 +36,47 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		?>
 		<div style="margin-bottom:10px;" class="myaccount-orderblocks">
 			<table>
-				<thead>
+				
+				
+<!-- MOBILE -->
+		<thead class="order-mobile">
+			<tr class="order-header">
+				<th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date">
+            <div class="nobr">Order Date</div> 
+            <div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date b2" data-title="Date" style="margin-bottom:12px">
+				<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
+						</div>
+          </th>
+          </tr>
+         <tr class="order-header">
+					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number">
+            <div class="nobr">Order Number</div>
+					  	<div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number b2" data-title="Order" style="margin-bottom:12px">
+							<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
+								<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
+							</a>
+						</div>            
+					</th>
+          </tr>
+          <tr class="order-header">
+					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status">
+            <div class="nobr">Status</div>
+              <div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status b2" data-title="Status" style="margin-bottom:40px">
+							<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
+			</div>
+            </th>
+					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions"></th>
+				</tr>
+				</thead>
+
+				
+<!-- END MOBILE -->				
+				
+				
+				
+				
+				
+				<thead class="order-desktop">
 				<tr class="order-header">
 					<th style="width:13%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date"><span class="nobr">Order Date</span> </th>
 					<th style="width:13%" class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number"><span class="nobr">Order Number</span></th>
@@ -47,15 +87,15 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 				<tbody>
 					<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-processing order">
-						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="Date">
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date order-desktop" data-title="Date">
 							<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
 						</td>
-						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="Order">
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number order-desktop" data-title="Order">
 							<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
 								<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
 							</a>
 						</td>
-						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status">
+						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status order-desktop" data-title="Status">
 							<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
 						</td>
 						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">
