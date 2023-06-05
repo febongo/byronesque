@@ -107,7 +107,39 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 					</tr>
 
 					<tr class="orders-delivery-info order-detail-contents order-details-<?= $order->get_id() ?>">
-						<td colspan="4"><div><span class="flag-icon flag-icon-fr flag-icon-squared"></span> One delivery was sent from Paris, France</div></td>
+					<?php // fetch order items and get vendor locations 
+						$vendorDefaultId;
+						$vendorOtherId;
+						$strLocationDisplay="";
+						$selectedVendorLocation;
+						if (count($order_items) > 0) {
+							foreach ( $order_items as $item_id => $item ) {
+								$post_obj    = get_post( $item['product_id'] ); // The WP_Post object
+    							$post_author = $post_obj->post_author; // <=== The post author ID
+								// var_dump($post_author);
+								if (! $vendorDefaultId) {
+									$vendorDefaultId = $post_author;
+								} else if ( $vendorDefaultId != $post_author) {
+									$vendorOtherId = $post_author;
+								}
+							}
+
+							$selectedVendorLocation = get_user_by('ID', ($vendorOtherId ? $vendorOtherId : $vendorDefaultId) );
+							$strLocationDisplay = $vendorOtherId ? "One delivery was sent from" : "Delivery was sent from";
+							$state = get_user_meta($vendorDefaultId, 'shipping_state', true);
+							$country = get_user_meta($vendorDefaultId, 'shipping_country', true);
+							$user_meta = get_user_meta($selectedVendorLocation->ID);
+
+							$wc_countries = new WC_Countries();
+							$country_name = $wc_countries->countries[ $country ];
+
+							$country_code = strtolower($country);
+
+							$strLocationDisplay = "<span class='flag-icon flag-icon-$country_code flag-icon-squared'></span> $strLocationDisplay $state, $country_name";
+
+						}
+					?>
+						<td colspan="4"><div><?= $strLocationDisplay ?></div></td>
 					</tr>
 
 					<tr class="orders-cart-details order-detail-contents order-details-<?= $order->get_id() ?>">
