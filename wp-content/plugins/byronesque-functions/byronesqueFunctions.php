@@ -261,7 +261,7 @@ function shopFilters($attr) {
                 echo "<button type='button' class='btn-filter' data-filter='*'>View All</button>";
                 foreach($fields as $field){
                     $slug = sanitize_title($field);
-                    echo "<button type='button' class='btn-filter' data-filter='$slug'>$field</button>";
+                    echo "<button type='button' class='btn-filter' data-filter='.$slug'>$field</button>";
                 }
             }
 

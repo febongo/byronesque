@@ -652,7 +652,7 @@
     
             $('.btn-filter').click(function(){
                 var filterValue = $( this ).attr('data-filter');
-                $pageFilter.isotope({ filter: '.'+filterValue });
+                $pageFilter.isotope({ filter: filterValue });
             });
         
             
@@ -937,7 +937,6 @@
             data: { action: 'search_product', keyword: query },
             success: function(data) {
                 
-                console.log(data)
                 if (data) {
                     $(headerWrapContainer + " #byro-search-result").html(data)
                 } else {
