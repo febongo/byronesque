@@ -107,3 +107,37 @@ function custom_post_title($atts)
 
 // $integration = mc4wp_get_integration('woocommerce');
 // var_dump($integration);
+
+/**
+ * Override the WooCommerce product image display
+ */
+add_action( 'woocommerce_before_single_product_summary', 'custom_woocommerce_show_product_images', 20 );
+function custom_woocommerce_show_product_images() {
+    global $product;
+    // Get the product image gallery
+    $attachment_ids = $product->get_gallery_image_ids();
+
+    if ( $attachment_ids && $product->get_image_id() ) {
+        // Check if the user is on a mobile device
+        $is_mobile = wp_is_mobile();
+		echo "<section id='productMobileSlider' style='width:100%;max-height:400px;overflow:hidden'>";
+        foreach ( $attachment_ids as $attachment_id ) {
+            // Get the image URL
+            $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+
+            // Get the image sizes for mobile and desktop
+            $mobile_size = 'medium';
+            $desktop_size = 'full';
+
+            // Set the image size based on the user's device
+            $image_size = $is_mobile ? $mobile_size : $desktop_size;
+			if ($is_mobile) {
+				echo '<div class="mobile-view">';
+				echo wp_get_attachment_image( $attachment_id, $image_size );
+				echo '</div>';	
+			}
+            
+        } // End ForEach
+		echo "</section>";
+    }
+}

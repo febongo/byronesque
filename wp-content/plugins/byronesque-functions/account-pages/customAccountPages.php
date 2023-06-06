@@ -134,7 +134,7 @@ function customerRequest( $attr ) {
             $price = get_field('price', $post->ID);
             ?>
             <li>
-            <table class="table table-request">
+            <table class="table table-request account-desktop">
                 <tr>
                     <td>
                         <?= get_the_post_thumbnail($post->ID); ?>
@@ -145,6 +145,26 @@ function customerRequest( $attr ) {
                         <p><?= $size ?></p>
                         <p><?= $price ?></p>
                     </td>
+                    <td>
+                        <p><a href="#">Email us for update</a></p>
+                        <p><a href="#">cancel request</a></p>
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-request account-mobile">
+                <tr>
+                    <td>
+                        <?= get_the_post_thumbnail($post->ID); ?>
+                    </td>
+
+                    <td>
+                        <p><?= $post->post_title ?></p>
+                        <p><?= $post->post_content ?></p>
+                        <p><?= $size ?></p>
+                        <p><?= $price ?></p>
+                    </td>
+                </tr> 
+                <tr>
                     <td>
                         <p><a href="#">Email us for update</a></p>
                         <p><a href="#">cancel request</a></p>
