@@ -1176,7 +1176,7 @@ function custom_login_logo_url() {
 add_filter('login_headerurl', 'custom_login_logo_url');
 
 function custom_login_logo_url_title() {
-    return 'Your Site Name'; // Replace with your desired title
+    return 'Byronesque'; // Replace with your desired title
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
 ?>

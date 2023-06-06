@@ -188,6 +188,7 @@ function saveDataFromCsv($dataArray){
     
 
     $product->set_name( $dataArray['title'] );
+    $product->set_slug( sanitize_title( $dataArray['title'] . '-' . $dataArray['sku'] ) );
     $product->set_short_description( $dataArray['subHeader'] );
     $product->set_regular_price( $dataArray['price'] );
     $product->set_description( $dataArray['details'] );
