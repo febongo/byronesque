@@ -31,10 +31,10 @@ class wpb_widget_currency extends WP_Widget {
                     data-action="get_currency"
                     data-img-hover="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/region_b.svg'?>" 
                     data-img="<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/region_w.svg'?>" 
-                    style="background-image:url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/region_w.svg'?>')">
+                    style="background-image:url('<?php echo plugin_dir_url( dirname( __FILE__ ) ) .'assets/img/region_w.svg'?>')"><p class ="mobile-sidenav-menu-small">Region</p>
                 </span>
             </div>
-            <div id="get_currency" style="display:none">
+            <div id="get_currency" class="d-none">
                 <?php $currentCurrency = '';
                 if(isset($_COOKIE['wcu_current_currency'])) {
                     $currentCurrency = $_COOKIE['wcu_current_currency'];

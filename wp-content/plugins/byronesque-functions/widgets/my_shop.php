@@ -54,7 +54,7 @@ class wpb_widget_my_shop extends WP_Widget {
                         
                         <div class="r-6 row shop-by-list">
                             <div class="r-4 b-r">
-                                <?php if($title1) : ?><label class="menu-label"><?= $title1; ?></label><?php endif; ?>
+                                <?php if($title1) : ?><label class="menu-label mobile-menu-label"><?= $title1; ?></label><?php endif; ?>
                                 <ul class="byro-shop-nav">
                                     <?php foreach($menuitems1 as $menuitem) { ?>
                                         <li><a href="<?= $menuitem->url ?>"><?= $menuitem->title ?></a></li>

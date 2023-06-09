@@ -14,7 +14,7 @@ Template: corsen
 @import url("https://use.typekit.net/eqy5tfk.css");
 @import url("https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css");
 
-body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-content-only .pum-content p, .auth-content-wrap{
+body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-content-only .pum-content p, .auth-content-wrap, .qodef-mobile-header-navigation ul li ul li>a{
 	font-family: "neue-haas-unica";
 
 }
@@ -78,7 +78,8 @@ ol, ul {
 	.b2, .b2-stressed,.editorial-shop .product-title, 
 	.editorial-shop .product-description, 
 	.checkout-summary .cart_item .product-name,
-	.woocommerce-page div.woocommerce .shop_table th{
+	.woocommerce-page div.woocommerce .shop_table th,
+	.qodef-mobile-header-navigation ul li ul li>a{
 		font-size: 15px!important;
 		line-height: 20px!important;
 	}
@@ -181,6 +182,7 @@ select::placeholder,
 .nextBlock,
 .single-product-button-bottom .qodef-qi-button,
 .mobile-sidenav-menu-small a span,
+.currency-area p.mobile-sidenav-menu-small,
 #qodef-page-footer .widget a,
 .mo-openid-app-icons a,
 .newsletter-form button,
@@ -233,8 +235,9 @@ select::placeholder,
 .wc_payment_method .wc-stripe-card-icons-container,
 #qodef-woo-page.qodef--single form.cart:not(.variations_form) .quantity,
 .wc-item-meta,
-.account-mobile,
-.closeNtification .btn-close{
+.account-mobile, .shop-by-list .mobile-menu-label,
+.closeNtification .btn-close,
+p.mobile-sidenav-menu-small{
 	display: none;
 }
 
@@ -455,7 +458,8 @@ select::placeholder,
 	margin-top: 16px;
 }
 
-.product-search .product-data p {
+.product-search .product-data p,
+.qodef-mobile-header-navigation ul li ul li>a{
 	font-weight: 500;
 }
 
@@ -677,6 +681,12 @@ table td {
 /* END HEADER */
 
 
+
+/* BANNER */
+.qodef-qi-banner .qodef-m-banner-link {
+	cursor: pointer;
+	z-index: 99999;
+}
 
 
 /* INTERACTIVE LIST */
@@ -1198,6 +1208,12 @@ button[disabled] {
 	font-size: 16px;
 }
 
+.editorial-page .qodef-blog.qodef--single .qodef-blog-item a.qodef-m.qodef-qi-button,
+.editorial-page .qodef-blog.qodef--single .qodef-blog-item a.qodef-m.qodef-qi-button:hover{
+	text-decoration: none;
+	color: #fff;
+    font-size: 14px;
+}
 
 
 .editorial-page .qodef-blog.qodef--single .qodef-blog-item a{
@@ -1266,9 +1282,8 @@ button[disabled] {
 	height: 600px;
 	overflow: hidden;
 }
-
 .editorial-credits p{
-	font-weight: 400;
+	font-weight: 400!important;
 }
 
 .editorial-related-fullwidth{
@@ -1632,7 +1647,7 @@ Color: #1F1F1F;
 
 
 .shop-gallery ul li{
-	margin-bottom: 74px;
+	margin-bottom: 24px;
 }
 
 .product_title .product-title {
@@ -2658,6 +2673,10 @@ input.wpcf7-not-valid {
 	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .qodef-woo-single-image{
 		width: 100%;
 	}
+	
+	.open-side-menu #get_currency{
+		display: block;
+	}
 }
 
 @media (max-width: 680px) {
@@ -2700,7 +2719,7 @@ input.wpcf7-not-valid {
 	.qodef-product-layout--big_images div#qodef-woo-page.qodef--single .qodef-gutter--no .woocommerce-product-gallery__image {
 		width: 100%;
 	}
-	#qodef-woo-page.qodef--single .woocommerce-product-gallery .qodef-grid-inner {
+	#qodef-woo-page.qodef--single .woocommerce-product-gallery .qodef-grid-inner, .bn-shop-container .row {
 	  display: block;
 	  width: 100%;
 	}
@@ -2753,7 +2772,7 @@ input.wpcf7-not-valid {
 		width:40px;
 		height:40px;
 	}
-	#qodef-page-content .woocommerce {
+	#qodef-page-content .woocommerce, .menu-nav:hover {
 		background-color: transparent;
 	}
 	.woocommerce-account .woocommerce-MyAccount-content,
@@ -2800,6 +2819,18 @@ input.wpcf7-not-valid {
 	.woocommerce-message .added-notif {
 		padding: 12px 20px;
 	}
+	.page-template-default #qodef-page-footer-top-area .qodef-grid-inner {
+		display: block;
+	}	
+	.page-template-default .qodef-mobile-header-opener.qodef--opened .qodef--close {
+		top: 0!important;
+	}
+	.page-template-default .qodef-mobile-header-navigation ul li .qodef-menu-item-arrow {
+		color: #b1b1b1;
+	}
+	.page-template-default .qodef-mobile-header-navigation ul li ul li>a .qodef-menu-item-text {
+		background-image: none;
+	}
 	#qodef-page-footer-top-area-inner,
 	#qodef-page-footer-bottom-area-inner {
 		padding: 32px 16px!important;
@@ -2822,14 +2853,84 @@ input.wpcf7-not-valid {
         filter: invert();
         right: 16px;
     }
+	.yspl_win_wrap, .shop-by-list .mobile-menu-label {
+		display: block;
+	}
+	.menu-nav.shop-by-label {
+		width: auto;
+		height: auto;
+		padding: 0;
+		justify-content: start;
+	}
+	.bn-show #byro-shopby-filters {
+		z-index: 999;
+		padding: 12px 16px;
+	}
+	.bn-shop-container .row .r-6, .bn-shop-container .row .r-4 {
+		width: 100%;
+		display: block;
+	}
+	#byro-shopby-filters .feat-wrap {
+		margin-top: 40px;
+	}
+	.shopby-area .menu-label {
+		margin: 40px 0 20px;
+		font-size: 18px;
+		line-height: 24px;
+		text-transform: uppercase;
+	}
+	.page-template-default .bn-show ul.byro-shop-nav, .currency-area p.mobile-sidenav-menu-small {
+		margin: 0;
+		display: block;
+	}
+	div#wpb_widget_currency-8 {
+		margin-bottom: 32px;
+	}
+	.currency-area span, #bn-curr-switcher .menu-nav:hover {
+		background-image: none!important;
+		justify-content: start;
+		width: auto;
+		height: auto;
+	}
+	.open-side-menu #get_currency{
+		display: block;
+		background-color: #fff;
+		padding: 24px 16px;
+	}
+	#byronesque-currency-nav h4 {
+		margin-bottom: 32px;
+	}
+	#byronesque-currency-nav input {
+		padding-left: 32px!important;
+	}
+	.qodef-mobile-header-navigation ul li .country-list-pre-selected  ul, .qodef-mobile-header-navigation ul li .country-list ul {
+		display: block;
+		padding: 0;
+		margin: 0;
+	}
+	#byronesque-currency-nav p.element-item {
+		margin: 60px 0 16px;
+	}
+	.country-list-pre-selected {
+		margin-top: 40px;
+	}
+	.open-side-menu #get_currency, .bn-shop-container.bn-show{
+		display: block;
+		background-color: #fff;
+		padding: 24px 16px;
+		position: fixed;
+		top: 100px;
+		z-index: 99;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow-x: scroll;
+	}
 	/*.qodef-grid>.qodef-grid-inner {
 		display: flex!important;
 	}*/
 	.editorial-feature-fullwidth {
 	height: auto;
-	}
-	#qodef-page-footer-top-area .qodef-grid-inner {
-		display: block!important;
 	}
 	.entry-summary .authenticity_note {
 		margin: 20px 0 0;
@@ -2899,7 +3000,7 @@ input.wpcf7-not-valid {
 #qodef-page-mobile-header .qodef-mobile-header-logo-link img, #qodef-page-mobile-header .qodef-header-logo-image.qodef--customizer {
 	width: 165px!important;
 	height: 13px;
-	max-height: none!imporant;
+	max-height: unset!imporant;
 }
 
 .qodef-mobile-header-navigation {
@@ -2918,7 +3019,7 @@ input.wpcf7-not-valid {
 }
 
 .qodef-mobile-header-navigation ul li {
-	padding: 12px 0;
+	padding: 6px 0;
 }
 
 .qodef-mobile-header-navigation>ul>li>a {
@@ -2943,4 +3044,22 @@ input.wpcf7-not-valid {
 	opacity: 1;
 }
 
+.d-none{
+	display: none;
+}
 
+.elementor-14 .elementor-element.elementor-element-5c13ea7 > .elementor-element-populated{
+	margin: 0px 0px -1px 0px !important;
+}
+
+@media only screen and (min-width: 375px)
+{ 
+	.elementor-14 .elementor-element.elementor-element-dce5bfa > .elementor-widget-container{
+	padding: 0px 0px 32px 0px !important;
+} 
+}
+
+.single-product div#qodef-woo-page.qodef--single .entry-summary form.cart .single_add_to_cart_button.disable-btn{
+    background: #808080;
+    cursor: auto;
+}

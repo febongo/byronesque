@@ -58,8 +58,13 @@ $allowed_html = array(
 		</header>
 
 	</div>
+	<?php
+	$user = wp_get_current_user();
+    if ( !in_array( 'administrator', (array) $user->roles ) ) {
+        echo do_shortcode( '[plugin_delete_me /]' );
+    }
+	?>
 	
-	<?php echo do_shortcode( '[plugin_delete_me /]' ); ?>
 
 
 

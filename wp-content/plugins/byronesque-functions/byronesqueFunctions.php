@@ -209,7 +209,14 @@ function add_content_after_addtocart() {
 add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );
 
 function add_custom_button_before_add_to_cart() {
-    echo '<a class="single_add_to_cart_button button alt wp-element-button chat-with-us" href="javascript:$zopim.livechat.window.show()">CHAT WITH US</a>';
+    global $product;
+
+    if ($product->get_regular_price()) {
+        echo '<a class="single_add_to_cart_button button alt wp-element-button chat-with-us" href="javascript:$zopim.livechat.window.show()">CHAT WITH US</a>';
+    } else {
+        echo '<a class="single_add_to_cart_button button alt wp-element-button chat-with-us" href="javascript:$zopim.livechat.window.show()">Contact for details</a>';
+    }
+    
 }
 add_action( 'woocommerce_before_add_to_cart_button', 'add_custom_button_before_add_to_cart' );
 
@@ -258,11 +265,13 @@ function shopFilters($attr) {
             //var_dump($fields);
 
             if (count($fields) > 0) {
-                echo "<button type='button' class='btn-filter' data-filter='*'>View All</button>";
+                
                 foreach($fields as $field){
                     $slug = sanitize_title($field);
                     echo "<button type='button' class='btn-filter' data-filter='.$slug'>$field</button>";
                 }
+                
+                echo "<button type='button' class='btn-filter' data-filter='*'>View All</button>";
             }
 
         } else {

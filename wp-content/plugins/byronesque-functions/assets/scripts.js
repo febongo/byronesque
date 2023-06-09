@@ -865,7 +865,7 @@
         }
     });
 
-    $(document).on("click","#bn-search-close",function() {
+    $(document).on("click","#bn-search-close, .qodef-mobile-header-opener",function() {
         hideSideNav();
         hideOverlay();
         $(".bn-search-form").removeClass('bn-show')
