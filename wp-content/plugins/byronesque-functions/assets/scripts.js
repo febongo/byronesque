@@ -655,8 +655,30 @@
                 $pageFilter.isotope({ filter: filterValue });
             });
         
+        }
+        
+        if ($("#contemporary-items")) {
             
-            // alert();
+            //ADD ISOTOPE FILTER IN PAGE
+            $pageFilter = $('#contemporary-items .qodef-grid-inner').isotope({
+                itemSelector: '.qodef-grid-item',
+                layoutMode: 'fitRows'
+            });
+            
+            $(document).on("click",".qodef-m-pagination-items a",function() {
+                console.log("pagination loads");
+                setTimeout(function(){ 
+                    
+                    $pageFilter.isotope( 'reloadItems' ).isotope();
+                }, 3000);
+            });
+    
+    
+            $('.btn-filter').click(function(){
+                var filterValue = $( this ).attr('data-filter');
+                $pageFilter.isotope({ filter: filterValue });
+            });
+        
         }
         
         let exProducts = $(".qodef-woo-product-list li.product-type-external")   
