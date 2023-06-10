@@ -921,3 +921,14 @@
     position: sticky !important;
     top: 104px;
 }
+
+#contemporary-items .qodef-grid-inner .qodef-grid-item{
+    width: 25%;
+
+}
+#contemporary-items .qodef-grid-inner .qodef-grid-item > .qodef-e-inner{
+    padding-right: 20px;
+}
+#contemporary-items .qodef-grid-inner .qodef-grid-item:nth-child(4n+0) > .qodef-e-inner{
+    /*padding-right: 0;*/
+}

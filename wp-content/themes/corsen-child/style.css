@@ -1373,8 +1373,7 @@ p.stock{
 
 .entry-summary .authenticity_note {
 	background-color: #F8F5EAB8;
-	padding: 12px 16px;
-	padding-right: 16px;
+	padding: 12px 16px!important;
 	cursor: pointer;
 	margin-right: 15%;
 	margin-top: 20px
@@ -1738,6 +1737,13 @@ Color: #1F1F1F;
 .qodef-button:hover, .btn-filter:hover, .woocommerce-MyAccount-content .submit-btn a:hover, .sellwithus-button:hover {
 	border: 2px solid #111;
 	outline: transparent;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	color: #46b450;
+    border: 0;
+    margin: 0 0 40px 0!important;
+    padding: 0;
 }
 
 /* MY ACCOUNT PAGE */
@@ -2451,11 +2457,9 @@ ul.legal-list {
 .sellwithus-button input {
 	opacity: 0;
 	overflow: hidden;
-	width: 100%;
-	 height: 50px;
-  position: absolute;
-  bottom: -20px;
-  left: 0;
+	width: 50vw;
+	position: relative;
+ 	bottom: 32px;
 }
 
 .wpcf7 form.invalid .wpcf7-response-output {
@@ -3052,10 +3056,10 @@ input.wpcf7-not-valid {
 	margin: 0px 0px -1px 0px !important;
 }
 
-@media only screen and (min-width: 375px)
+/*@media only screen and (min-width: 375px)
 { 
 	.elementor-14 .elementor-element.elementor-element-dce5bfa > .elementor-widget-container{
-	padding: 0px 0px 32px 0px !important;
+	padding: 0px 0px 32px 0px !important;*/
 } 
 }
 
