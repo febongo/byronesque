@@ -136,12 +136,14 @@ function search_product() {
             foreach($editorialSearch as $editorial) {
                 // $editorialPost = get_post( $editorial );
 
-                $excerpt = strip_tags($editorial->post_content);
-                if (strlen($excerpt) > 100) {
-                $excerpt = substr($excerpt, 0, 100);
-                $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
-                $excerpt .= '...';
-                }
+                // $excerpt = strip_tags($editorial->post_content);
+                // if (strlen($excerpt) > 100) {
+                // $excerpt = substr($excerpt, 0, 100);
+                // $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
+                // $excerpt .= '...';
+                // }
+
+                $excerpt = get_the_excerpt($editorial->ID);
 
                 $editorialStr .= "<li>
                                     <a href='".get_permalink( $editorial->ID ).
