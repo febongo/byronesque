@@ -269,7 +269,7 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         // }
 
         // add size variations
-        if ( sizeof($dataArray['size']) > 0 && $dataArray['productParent']) {
+        if ( sizeof($dataArray['size']) > 0 ) {
             $sizeAttribute = get_taxonomy( 'Size' );
             if ( !$sizeAttribute ) {
                 $sizeAttribute = wc_create_attribute( array(

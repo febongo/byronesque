@@ -28,16 +28,10 @@ function byronesquePlugininit() {
     function modifyFetchTitleAddDescription($the_title, $id)
     {
 
-        // var_dump($id);
         if (get_post_type($id) == 'product' && !is_admin()) : // runs only on the shop page
             
-            // get designer
-            // $taxonomy = 'product_cat';
-
             $taxonomy = 'product_designer'; // Replace with the desired taxonomy name
             $terms = get_the_terms($id, $taxonomy);
-            // echo $id.$taxonomy;
-            // var_dump($terms);
 
             // CHECK IF TERM IS EQUAL OR EMPTY IGNORE MODIFICATIONS
             if ($terms && count($terms) > 0) {
@@ -52,14 +46,6 @@ function byronesquePlugininit() {
             $seasonYear = get_field('season__year');
 
             $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )) . ($seasonYear ? ', '.$seasonYear : '') .'</span>';
-
-
-            // if ( is_single() ) {
-            //     $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )) . ($seasonYear ? ', '.$seasonYear : '') .'</span>';
-            // } else {
-            //     $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )) . ($seasonYear ? ', '.$seasonYear : '') .'</span>';
-            //     // $the_title .= '<span class="product-description">'.($post->post_excerpt ? $post->post_excerpt : wp_trim_words( $post->post_content, 10 )).'</span>';
-            // }
 
         endif;
 
