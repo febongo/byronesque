@@ -28,6 +28,16 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 ?>
+<div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom">
+		<div class="qodef-m-inner">
+		<div class="qodef-m-content qodef-content-full-width ">
+	<h6 class="qodef-m-title entry-title">
+		Contemporary Vintage	</h6>
+	</div>
+	</div>
+	</div>
+	
+<div class="elementor elementor-5307">
 <section class="elementor-section elementor-top-section elementor-element elementor-element-4952c17 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4952c17" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-no">
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e0e2581" data-id="e0e2581" data-element_type="column">
@@ -44,6 +54,7 @@ do_action( 'woocommerce_before_main_content' );
 		</div>
 							</div>
 		</section>
+</div>
 <?php
 // this is from custom plugin
 echo do_shortcode('[shop-filters]');
