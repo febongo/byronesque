@@ -921,6 +921,9 @@
 
         $('.bn-shop-container').removeClass('bn-show')
         $(".bn-search-form").removeClass('bn-show')
+
+        $("#byronesque-side-nav .byro-side-nav").show()
+        $("#byronesque-side-nav .newsletter-form").hide()
     }
 
     function showSideNav(divClass) {
