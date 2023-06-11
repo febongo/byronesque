@@ -923,7 +923,7 @@
         $(".bn-search-form").removeClass('bn-show')
 
         $("#byronesque-side-nav .byro-side-nav").show()
-        $("#byronesque-side-nav .newsletter-form").hide()
+        $("#byronesque-side-nav .newsletter-form").removeClass("show-form")
     }
 
     function showSideNav(divClass) {
