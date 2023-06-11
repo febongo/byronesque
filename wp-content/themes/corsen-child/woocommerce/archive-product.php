@@ -140,7 +140,7 @@ do_action( 'woocommerce_after_main_content' );
 ?>
 <section class="contact-marquee-container" data-id="6a5b7b3" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1585px; left: 0px;">
 	<div class="elementor-container elementor-column-gap-no">
-		<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5b88c81" style="cursor: pointer;" data-column-clickable="/contact/" data-column-clickable-blank="_self" data-id="5b88c81" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div style="position:relative;" class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5b88c81" style="cursor: pointer;" data-column-clickable="/contact/" data-column-clickable-blank="_self" data-id="5b88c81" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 			
 			<div class="elementor-widget-wrap elementor-element-populated">
 				<div class="elementor-element elementor-element-12ab9a4 elementor-widget__width-inherit elementor-widget elementor-widget-qi_addons_for_elementor_text_marquee" data-id="12ab9a4" data-element_type="widget" data-widget_type="qi_addons_for_elementor_text_marquee.default">
@@ -168,7 +168,7 @@ do_action( 'woocommerce_after_main_content' );
 					</div>
 				</div>
 			</div>
-			<a style="" href="/contact"></a>
+			<a style="position:absolute;width:100%;height:100%;top:0;" href="/contact"></a>
 		</div>
 	</div>
 </section>
