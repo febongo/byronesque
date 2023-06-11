@@ -422,7 +422,7 @@ p.mobile-sidenav-menu-small{
 }
 
 #byro-search-result .editorial-search li {
-	height: 700px;
+	max-height: 700px;
 }
 
 #byro-search-result .editorial-search h4, .editorial-search p {

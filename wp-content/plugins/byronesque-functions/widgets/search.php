@@ -110,7 +110,7 @@ function search_product() {
         if (!empty($designers)) {
             $designerStr .= "<ul>";
             foreach($designers as $designer) {
-                $designerStr .= "<li><a href='#'>".$designer->name."</a></li>";
+                $designerStr .= "<li><a href='".get_permalink( $designer->ID )."'>".$designer->name."</a></li>";
             }
             $designerStr .= "</ul></div>";
         } else {
