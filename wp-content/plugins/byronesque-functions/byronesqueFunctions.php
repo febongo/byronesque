@@ -302,14 +302,10 @@ function shopFilters($attr) {
                 
                 echo "<button type='button' class='btn-filter' data-filter='*'>View All</button>";
             }
-
-        } else if(is_shop()) {
-            $shopUrl = get_permalink( wc_get_page_id( 'shop' ) );
-            echo "<a href='$shopUrl?category=new-arrivals' class='btn-filter'>New Arrival</a>";
-            echo "<a href='$shopUrl' class='btn-filter'>View All</a>";
+       
         } else {
-
-        
+            $shopUrl = get_permalink( wc_get_page_id( 'shop' ) );
+            
             $product_categories = get_terms(array(
                 'taxonomy' => 'product_cat',
                 'hide_empty' => true,
@@ -319,12 +315,15 @@ function shopFilters($attr) {
                 return $b->count - $a->count;
             });
 
+            echo "<a href='$shopUrl?category=new-arrivals' class='btn-filter'>New Arrivals</a>";
             foreach($product_categories as $key => $cat){
-                $isActive = is_product_category($cat->slug) ? 'active' : '';
-                echo "<a href='/product-category/$cat->slug' class='btn-filter $isActive'>$cat->name</a>";
 
-                if ($key > 3) break; 
+                echo "<a href='$shopUrl?category=$cat->slug' class='btn-filter'>$cat->name</a>";
+
+                if ($key > 2) break; 
             }
+            echo "<a href='$shopUrl' class='btn-filter'>View All</a>";
+
         }
         ?>
         <span class="browseBy">FILTER PRODUCTS: <span class="filter-icon"></span></span>

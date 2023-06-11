@@ -65,10 +65,12 @@ do_action( 'woocommerce_before_main_content' );
 	</div>
 </main>
 			</div>
+			<div id="contemporary-vintage">
 <?php
 // this is from custom plugin
 echo do_shortcode('[shop-filters]');
 ?>
+</div>
 
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
