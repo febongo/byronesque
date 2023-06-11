@@ -1222,4 +1222,23 @@ function custom_login_logo_url_title() {
     return 'Byronesque'; // Replace with your desired title
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
+
+function custom_product_sorting_args($args)
+{
+    // Check if on a product archive page
+    if (is_shop()) {
+        $category = get_queried_object();
+
+        // Check if the category is "New Arrivals"
+        if ($category->slug === 'new-arrivals') {
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+        }
+    }
+
+    return $args;
+}
+add_filter('woocommerce_get_catalog_ordering_args', 'custom_product_sorting_args');
+
+
 ?>
