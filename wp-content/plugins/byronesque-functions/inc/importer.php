@@ -312,9 +312,9 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             //     $locationIds[] = $locationTerm->term_id;
             // }
             // wp_set_object_terms( $product_id, $locationIds, 'location' );
-            $user = get_user_by('slug', $dataArray['location'][0] );
+            $user = get_user_by('slug', sanitize_title($dataArray['location'][0]) );
             // $vendor = get_mvx_vendor( $user->ID );
-            
+            // var_dump();
             // echo "<p>Adding Vendor {$vendor->term_id} >> $product_id</p>";
             // update_post_meta( $product_id , '_commission_per_product', floatval(str_replace(",","",$dataArray['commission'])) );
 
