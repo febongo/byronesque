@@ -316,13 +316,14 @@ function shopFilters($attr) {
             });
 
             echo "<a href='$shopUrl?category=new-arrivals' class='btn-filter'>New Arrivals</a>";
-            foreach($product_categories as $key => $cat){
+            echo "<a href='$shopUrl?category=runway' class='btn-filter'>Current Collection</a>";
+            // foreach($product_categories as $key => $cat){
 
-                if ($cat->slug != 'new-arrivals' && $cat->slug != 'contemporary-vintage') 
-                echo "<a href='$shopUrl?category=$cat->slug' class='btn-filter'>$cat->name</a>";
+            //     if ($cat->slug != 'new-arrivals' && $cat->slug != 'contemporary-vintage') 
+            //     echo "<a href='$shopUrl?category=$cat->slug' class='btn-filter'>$cat->name</a>";
 
-                if ($key > 2) break; 
-            }
+            //     if ($key > 2) break; 
+            // }
             echo "<a href='$shopUrl' class='btn-filter'>View All</a>";
 
         }
