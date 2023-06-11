@@ -16,25 +16,6 @@
 // add_menu_page('My Custom Page', 'My Custom Page', 'manage_options', 'my-top-level-slug');
 function import_products_page() {
 
-    // $test = "London";
-    // $user = get_user_by('slug', $test );
-    // $prodId = 9761;
-    // echo "<pre>";
-    // var_dump(get_post_meta($prodId));
-    // echo "</pre>";
-
-    // $product_data = array(
-    //     'ID'          => $prodId,
-    //     'post_author' => $user->ID,
-    // );
-    
-    // // Update the product post data
-    // wp_update_post($product_data);
-
-    // update_post_meta($prodId, '_wcv_product_vendor', array($user->ID));
-
-    // do_action('wcvendors_vendor_assigned_product', $user->ID, $prodId);
-
     $htmlMessage="";
 
     if ( isset( $_FILES['import_file'] ) && ! empty( $_FILES['import_file']['name'] ) ) { 
@@ -176,11 +157,9 @@ function saveDataFromCsv($dataArray){
 
     if (!$productId) {
         if (strtolower($dataArray['productType']) == 'variable') {
-            // echo "Createing variable";
             $product = new WC_Product_Variable();
         } else {
             $product = new WC_Product_Simple();
-            // echo "Createing simple";
         }
     } else {
         $product = wc_get_product( $productId );
@@ -201,13 +180,13 @@ function saveDataFromCsv($dataArray){
     $product->set_purchase_note( $dataArray['conditionNotes'] );
     $product->set_weight( $dataArray['shippingWeight'] );
 
-    $product->set_length( $dataArray['shippingBox'][0] );
-    $product->set_width( $dataArray['shippingBox'][1] );
-    $product->set_height( $dataArray['shippingBox'][2] );
-
     // shippingBox
-
-
+    if ( $dataArray['shippingBox'] && count($dataArray['shippingBox']) > 0 ) {
+        $product->set_length( $dataArray['shippingBox'][0] );
+        $product->set_width( $dataArray['shippingBox'][1] );
+        $product->set_height( $dataArray['shippingBox'][2] );
+    }
+    
     $product->save();
 
     return $product->get_id();
@@ -260,26 +239,19 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
             $wpdb->insert('QYp_aioseo_posts', array('post_id' => $product_id, 'title' => ($dataArray['seoTitle'] ? $dataArray['seoTitle'] : $dataArray['title'] ), 'description' => ($dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay'])));
         }
 
-        // if ($dataArray['seoDescription'])
-        //     update_post_meta($product_id, '_aioseo_description', $dataArray['seoDescription'] ? $dataArray['seoDescription'] : $dataArray['byroSay']);
-
-        // if ($dataArray['seoKeywords']){
-        //     $arrKeyPhrase = explode(",",$dataArray['seoKeywords']);
-        //     update_post_meta($product_id, '_aioseo_keywords', $dataArray['seoKeywords'] ? $dataArray['seoKeywords'] : $dataArray['byroSay']);
-        // }
-
         // add size variations
-        if ( sizeof($dataArray['size']) > 0 && $dataArray['productParent']) {
-            $sizeAttribute = get_taxonomy( 'Size' );
-            if ( !$sizeAttribute ) {
-                $sizeAttribute = wc_create_attribute( array(
-                    'name' => 'Size',
-                    'slug' => 'size',
-                    'type' => 'select',
-                    'order_by' => 'menu_order',
-                    'has_archives' => true,
-                ) );
-            }
+        if ( $dataArray['size'] && count($dataArray['size']) > 0 ) {
+            // $sizeAttribute = get_taxonomy( 'Size' );
+            // // var_dump($sizeAttribute);
+            // if ( !$sizeAttribute ) {
+            //     $sizeAttribute = wc_create_attribute( array(
+            //         'name' => 'Size',
+            //         'slug' => 'size',
+            //         'type' => 'select',
+            //         'order_by' => 'menu_order',
+            //         'has_archives' => true,
+            //     ) );
+            // }
 
             $attributes_data = array(
                 array(
@@ -303,21 +275,15 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
         
                         // Loop through defined attribute data options (terms values)
                         foreach( $attribute_array['options'] as $option ){
-                            if( term_exists( $option, $taxonomy ) ){
-                                // Save the possible option value for the attribute which will be used for variation later
-                                // echo "saving ";
-                                wp_set_object_terms( $product_id, $option, $taxonomy, true );
-                                // echo "saved";
-                                // Get the term ID
-                                $option_term_ids[] = get_term_by( 'name', $option, $taxonomy )->term_id;
-                            }
+                            wp_set_object_terms( $product_id, $option, $taxonomy, true );
+                            $option_term_ids[] = get_term_by( 'name', $option, $taxonomy )->term_id;
                         }
                     }
                     // Loop through defined attribute data
         
                     $attributes[$taxonomy] = array(
                         'name'          => $taxonomy,
-                        'value'         => $option_term_ids, // Need to be term IDs
+                        'value'         => 167, // Need to be term IDs
                         'position'      => $key + 1,
                         'is_visible'    => $attribute_array['visible'],
                         'is_variation'  => $attribute_array['variation'],
@@ -325,7 +291,6 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
                     );
                 }
                 // Save the meta entry for product attributes
-                // echo "<p>update post meta</p>";
                 update_post_meta( $product_id, '_product_attributes', $attributes );
             }
         }
