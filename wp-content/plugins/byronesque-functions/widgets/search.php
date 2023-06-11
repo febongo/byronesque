@@ -199,10 +199,11 @@ function search_product() {
             }
 
             if (!empty($output)) {
+                $shopUrl = get_permalink( wc_get_page_id( 'shop' ) );
                 echo $designerStr;
                 echo "<div class='product-search searchedBlock'><h3>Products</h3><ul>";
                 echo $output;
-                echo "</ul><a href='".home_url()."/shop' class='btn-search'>VIEW ALL PRODUCTS</a></div>";
+                echo "</ul><a href='$shopUrl' class='btn-search'>VIEW ALL PRODUCTS</a></div>";
                 echo $editorialStr;
             }
         }
