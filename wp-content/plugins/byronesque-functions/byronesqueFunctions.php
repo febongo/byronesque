@@ -260,7 +260,7 @@ function shopFilters($attr) {
         <div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom">
             <div class="qodef-m-inner">
                 <div class="qodef-m-content qodef-content-full-width ">
-                    <h6 class="qodef-m-title entry-title"><?= $cat->name ?></h6>
+                    <h6 class="qodef-m-title entry-title"><?= $cat && $cat->name != 'Product' ? $cat->name : 'Contemporary Vintage' ?></h6>
                 </div>
             </div>
         </div>
