@@ -1223,41 +1223,4 @@ function custom_login_logo_url_title() {
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
 
-function custom_product_sorting_args($args)
-{
-    // Check if on a product archive page
-    if (is_shop()) {
-        // Sort by 'date' (latest) if no sorting is specified
-        if (!isset($args['orderby'])) {
-            $args['orderby'] = 'date';
-            $args['order'] = 'DESC';
-        }
-
-        // Get the current category
-        // $category = get_queried_object();
-
-        // Add category sorting priority
-        if (true) {
-            $args['meta_query'] = array(
-                'relation' => 'OR',
-                array(
-                    'key' => 'new-arrivals', // Replace with your actual meta key for created date
-                    'compare' => 'NOT EXISTS'
-                ),
-                array(
-                    'key' => 'new-arrivals', // Replace with your actual meta key for created date
-                    'compare' => 'EXISTS'
-                )
-            );
-            $args['orderby'] = 'meta_value ' . $args['orderby'];
-        }
-    }
-
-    return $args;
-}
-add_filter('woocommerce_get_catalog_ordering_args', 'custom_product_sorting_args');
-
-
-
-
 ?>
