@@ -303,6 +303,10 @@ function shopFilters($attr) {
                 echo "<button type='button' class='btn-filter' data-filter='*'>View All</button>";
             }
 
+        } else if(is_shop()) {
+            $shopUrl = get_permalink( wc_get_page_id( 'shop' ) );
+            echo "<a href='$shopUrl?category=new-arrivals' class='btn-filter'>New Arrival</a>";
+            echo "<a href='$shopUrl' class='btn-filter'>View All</a>";
         } else {
 
         
