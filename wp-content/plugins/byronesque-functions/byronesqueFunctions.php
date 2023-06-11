@@ -318,6 +318,7 @@ function shopFilters($attr) {
             echo "<a href='$shopUrl?category=new-arrivals' class='btn-filter'>New Arrivals</a>";
             foreach($product_categories as $key => $cat){
 
+                if ($cat->slug != 'new-arrivals' && !$cat->slug != 'contemporary-vintage') 
                 echo "<a href='$shopUrl?category=$cat->slug' class='btn-filter'>$cat->name</a>";
 
                 if ($key > 2) break; 
