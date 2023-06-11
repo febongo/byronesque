@@ -1223,28 +1223,40 @@ function custom_login_logo_url_title() {
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
 
-function add_category_slug_first_sorting($options)
+function custom_product_sorting_args($args)
 {
-    // Get the current category
-    $category = get_queried_object();
+    // Check if on a product archive page
+    if (is_shop()) {
+        // Sort by 'date' (latest) if no sorting is specified
+        if (!isset($args['orderby'])) {
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+        }
 
-    // Create an array to hold the sorting options
-    $new_options = array();
+        // Get the current category
+        // $category = get_queried_object();
 
-    // Add the category slug as the first sorting option
-    if ($category && isset($category->slug)) {
-        $category_slug = $category->slug;
-        $new_options[$category_slug] = __('Sort by Category', 'Byronesque');
+        // Add category sorting priority
+        if (true) {
+            $args['meta_query'] = array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'new-arrivals', // Replace with your actual meta key for created date
+                    'compare' => 'NOT EXISTS'
+                ),
+                array(
+                    'key' => 'new-arrivals', // Replace with your actual meta key for created date
+                    'compare' => 'EXISTS'
+                )
+            );
+            $args['orderby'] = 'meta_value ' . $args['orderby'];
+        }
     }
 
-    // Add the existing sorting options to the array
-    foreach ($options as $key => $value) {
-        $new_options[$key] = $value;
-    }
-
-    return $new_options;
+    return $args;
 }
-add_filter('woocommerce_catalog_orderby', 'add_category_slug_first_sorting');
+add_filter('woocommerce_get_catalog_ordering_args', 'custom_product_sorting_args');
+
 
 
 
