@@ -361,6 +361,18 @@
 
         });
 
+        // NEWSLETTER POPUP
+        $(".account-pop").click(function(){
+
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+
+            // trigger click 
+            setTimeout(function(){
+                $("#bn-account-ico .menu-nav-side").trigger("click")
+            }, 300);
+
+        });
+
         // SLIDER ARROW HIDE
         $("rs-module").change(function(){
             console.log('slider changed');
