@@ -209,7 +209,7 @@ select::placeholder,
 .woocommerce-MyAccount-content .submit-btn a, 
 .editorial-page .qodef-blog.qodef--single .qodef-blog-item .editorial-button, 
 .editorial-page .qodef-qi-button.editorial-button,
-.nextBlock,
+.nextBlock
 {
 	margin-bottom: 8px;
 	width: 100%;
@@ -1555,7 +1555,7 @@ p.stock{
 .up-sells .product-description {
 	font-weight: 500;
 }
-`
+
 .qodef-product-layout--big_images div#qodef-woo-page.qodef--single .up-sells .qodef-woo-product-list {
 	padding: 36px 0 0;
 }
@@ -3010,7 +3010,7 @@ input.wpcf7-not-valid {
 #qodef-page-mobile-header .qodef-mobile-header-logo-link img, #qodef-page-mobile-header .qodef-header-logo-image.qodef--customizer {
 	width: 165px!important;
 	height: 13px;
-	max-height: unset!imporant;
+	max-height: unset!important;
 }
 
 .qodef-mobile-header-navigation {
@@ -3062,14 +3062,27 @@ input.wpcf7-not-valid {
 	margin: 0px 0px -1px 0px !important;
 }
 
-/*@media only screen and (min-width: 375px)
+/* @media only screen and (min-width: 375px)
 { 
 	.elementor-14 .elementor-element.elementor-element-dce5bfa > .elementor-widget-container{
-	padding: 0px 0px 32px 0px !important;*/
+	padding: 0px 0px 32px 0px !important;
 } 
-}
+} */
 
 .single-product div#qodef-woo-page.qodef--single .entry-summary form.cart .single_add_to_cart_button.disable-btn{
     background: #808080;
     cursor: auto;
+}
+
+.contemporary-container{
+	padding: 0px 0px 0px 0px;
+    background: #fff;
+    padding-top: 60px;
+    display: flex;
+    padding-bottom: 60px;
+    justify-content: center;
+}
+
+.contemporary-container .elementor-container{
+	max-width: 855px;
 }
