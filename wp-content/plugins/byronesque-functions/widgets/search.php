@@ -109,8 +109,9 @@ function search_product() {
         $designerStr = "<div class='designers-search searchedBlock'><h3>Designers</h3>";
         if (!empty($designers)) {
             $designerStr .= "<ul>";
+            $shopUrl = get_permalink( wc_get_page_id( 'shop' ) );
             foreach($designers as $designer) {
-                $designerStr .= "<li><a href='".get_permalink( $designer->ID )."'>".$designer->name."</a></li>";
+                $designerStr .= "<li><a href='$shopUrl?designers=$designer->slug'>".$designer->name."</a></li>";
             }
             $designerStr .= "</ul></div>";
         } else {
