@@ -1223,22 +1223,29 @@ function custom_login_logo_url_title() {
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
 
-function custom_product_sorting_args($args)
+function add_category_slug_first_sorting($options)
 {
-    // Check if on a product archive page
-    if (is_shop()) {
-        $category = get_queried_object();
+    // Get the current category
+    $category = get_queried_object();
 
-        // Check if the category is "New Arrivals"
-        if ($category->slug === 'new-arrivals') {
-            $args['orderby'] = 'date';
-            $args['order'] = 'DESC';
-        }
+    // Create an array to hold the sorting options
+    $new_options = array();
+
+    // Add the category slug as the first sorting option
+    if ($category && isset($category->slug)) {
+        $category_slug = $category->slug;
+        $new_options[$category_slug] = __('Sort by Category', 'Byronesque');
     }
 
-    return $args;
+    // Add the existing sorting options to the array
+    foreach ($options as $key => $value) {
+        $new_options[$key] = $value;
+    }
+
+    return $new_options;
 }
-add_filter('woocommerce_get_catalog_ordering_args', 'custom_product_sorting_args');
+add_filter('woocommerce_catalog_orderby', 'add_category_slug_first_sorting');
+
 
 
 ?>
