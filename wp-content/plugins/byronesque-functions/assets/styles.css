@@ -128,6 +128,8 @@
     top: 80px;
     padding : 0;
     visibility: hidden;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 #byro-search-result .product-search {
