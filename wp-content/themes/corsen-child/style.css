@@ -3086,3 +3086,19 @@ input.wpcf7-not-valid {
 .contemporary-container .elementor-container{
 	max-width: 855px;
 }
+
+.contact-marquee-container .elementor-widget-container{
+    margin: 0px 0px 0px 0px;
+    padding: 14px 0px 14px 0px;
+    background-color: #424F55;
+    transition: background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s);
+}
+
+.contact-marquee-container .elementor-widget-container .qodef-qi-text-marquee .qodef-m-text-item{
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-right: calc(72px/2);
+    padding-left: calc(72px/2);
+}
