@@ -28,44 +28,8 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 ?>
-<div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom">
-		<div class="qodef-m-inner">
-		<div class="qodef-m-content qodef-content-full-width ">
-	<h6 class="qodef-m-title entry-title">
-		Contemporary Vintage	</h6>
-	</div>
-	</div>
-	</div>
 
-<div id="qodef-page-inner" class="qodef-content-grid">
-<main id="qodef-page-content" class="qodef-grid qodef-layout--template " role="main">
-	<div class="qodef-grid-inner">
-		<div class="qodef-grid-item qodef-page-content-section qodef-col--12 qodef-col--content">
-			<div data-elementor-type="wp-page" data-elementor-id="5307" class="elementor elementor-5307">
-									<section class="contemporary-container" data-id="4952c17" data-element_type="section">
-						<div class="elementor-container elementor-column-gap-no">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e0e2581" data-id="e0e2581" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-312765a elementor-widget elementor-widget-qi_addons_for_elementor_section_title" data-id="312765a" data-element_type="widget" data-widget_type="qi_addons_for_elementor_section_title.default">
-				<div class="elementor-widget-container">
-			<div class="qodef-shortcode qodef-m  qodef-qi-section-title  qodef-decoration--italic   qodef-subtitle-icon--left">
-						<h1 class="qodef-m-title">
-		Buy it.<br>  Wear it for a long time.<br>  If you want it.<br>  We can find it.	</h1>
-			</div>
-		</div>
-				</div>
-					</div>
-		</div>
-							</div>
-		</section>
-				
-				
-							</div>
-		</div>
-	</div>
-</main>
-			</div>
-			<div id="contemporary-vintage">
+<div id="contemporary-vintage">
 <?php
 // this is from custom plugin
 echo do_shortcode('[shop-filters]');

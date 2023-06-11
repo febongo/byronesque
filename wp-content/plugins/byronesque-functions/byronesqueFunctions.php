@@ -254,7 +254,7 @@ add_action( 'woocommerce_before_add_to_cart_button', 'add_custom_button_before_a
 // CREATE FILTER SHORTCODE 
 function shopFilters($attr) {
 
-    if (is_product_category()) { 
+    if (is_product_category() || is_shop()) { 
         $cat = get_queried_object();
         ?>
         <div class="qodef-page-title qodef-m qodef-title--standard qodef-alignment--left qodef-vertical-alignment--header-bottom">
