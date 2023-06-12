@@ -28,6 +28,10 @@ if ( ! $product->is_purchasable() ) {
 	echo '<button type="button" class="single_add_to_cart_button button alt wp-element-button disable-btn" disabled>Pay</button></form>';
 	
 	return;
+} else if ( !$product->is_in_stock() ) {
+	echo '<form class="cart"><button type="button" onclick="openZendeskChat()" class="single_add_to_cart_button button alt wp-element-button">Contact for details</button></form>';
+
+	return;
 }
 
 echo wc_get_stock_html( $product ); // WPCS: XSS ok.
