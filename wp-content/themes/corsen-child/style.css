@@ -14,7 +14,7 @@ Template: corsen
 @import url("https://use.typekit.net/eqy5tfk.css");
 @import url("https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css");
 
-body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-content-only .pum-content p, .auth-content-wrap, .qodef-mobile-header-navigation ul li ul li>a{
+body, h6, .editorial-page h6.entry-title, .editorial-page .editorial-heading h6, .subscribe-label, p, .byro-mini-cart, #qodef-page-footer-bottom-area-inner .qodef-copyright-text, #byro-side-content p, a.loss-password, .qodef-m-pagination.qodef--standard .qodef-m-pagination-item, .qodef-blog.qodef--single .qodef-blog-item p, #qodef-woo-page.qodef--checkout .wc_payment_methods label, .accordion-item h2, .pum-theme-content-only .pum-content p, .auth-content-wrap, .qodef-mobile-header-navigation ul li ul li>a, #qodef-page-footer .widget .button.chat-with-us{
 	font-family: "neue-haas-unica";
 
 }
@@ -553,8 +553,11 @@ p.mobile-sidenav-menu-small{
 	font-size: 1.5em;
  }
 
-input:-internal-autofill-selected {
-	background: transparent !important;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 p.login-username, p.login-password  {
@@ -1125,13 +1128,30 @@ button[disabled] {
 	line-height: 20px;	
 }
 
-#qodef-page-footer .widget .button.chat-with-us {
+/*#qodef-page-footer .widget .button.chat-with-us {
     padding: 14px 0;
     width: 248px;
     text-align: center;
     border: 1px solid #7B7B7B;
     background-color: #fff;
     color: #111;
+	position: fixed;
+    bottom: 1%;
+    right: 52px;
+	z-index: 9999;
+}*/
+
+
+#qodef-page-footer .widget .button.chat-with-us {
+    padding: 14px 0;
+	width: 154px;
+	height: 48px;
+	letter-spacing: 3px;
+	font-size:13px;
+	text-align: center;
+    background-color: #424F55;
+    color: #fff;
+	border-radius: 120px;
 	position: fixed;
     bottom: 1%;
     right: 52px;
@@ -1343,6 +1363,7 @@ button[disabled] {
 	position: sticky;
 	top: 0;
 }
+
 
 .qodef-product-layout--big_images div#qodef-woo-page.qodef--single .entry-summary>* {
 	padding-right: 15%;
@@ -2510,6 +2531,10 @@ input.wpcf7-not-valid {
 	margin-bottom:36px !important;
 }
 
+.contact-row span.wpcf7-form-control-wrap {
+	width:100%;
+}
+
 @media only screen and (max-width: 420px){
 	
 	.contact-row {
@@ -2846,10 +2871,9 @@ input.wpcf7-not-valid {
 		padding: 32px 16px!important;
 	}
 	#qodef-page-footer .widget .button.chat-with-us {
-		width: 79px;
+		width: 75px;
 		font-size: 11px;
 		right: 12px;
-		padding: 8px 0;
 	}
 	#bn-search-wrap {
 		display: flex;
@@ -3000,6 +3024,9 @@ input.wpcf7-not-valid {
 		left: 250px;
 		bottom: 196px;
 	}
+	.slick-dotted.slick-slider {
+	margin-bottom: 30px;
+}
 
 }
 
@@ -3052,6 +3079,10 @@ input.wpcf7-not-valid {
 
 .slick-slide.slick-current{
 	opacity: 1;
+}
+
+.slick-dotted.slick-slider {
+	margin-bottom: 0;
 }
 
 .d-none{
