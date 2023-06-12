@@ -908,7 +908,7 @@
 
     $(document).on("keyup","#bn-search-value", function() {
         var query = $(this).val();
-        if (query.length >= 4) {
+        if (query.length >= 3) {
             productSearch(query);
         }
     })
