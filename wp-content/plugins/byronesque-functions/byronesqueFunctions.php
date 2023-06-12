@@ -1185,11 +1185,11 @@ add_filter('post_class', function($classes, $class, $product_id) {
     $classes = array_merge(['has-hover-image'], $classes);
 
     // get product
-    $product = wc_get_product( $product_id );
+    // $product = wc_get_product( $product_id );
 
-    if ( $product->get_sold_individually() ) {
-        $classes = array_merge(['product-sold'], $classes);
-    }
+    // if ( $product->get_sold_individually() ) {
+    //     $classes = array_merge(['product-sold'], $classes);
+    // }
     
     return $classes;
 },10,3);

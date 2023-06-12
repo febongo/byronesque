@@ -934,3 +934,17 @@
 #contemporary-items .qodef-grid-inner .qodef-grid-item:nth-child(4n+0) > .qodef-e-inner{
     /*padding-right: 0;*/
 }
+
+/* hide sold badge */
+.outofstock .qodef-out-of-stock{
+    display: none;
+}
+
+.outofstock .price .woocommerce-Price-amount{
+    display: none;
+}
+
+.outofstock .price::after{
+    content: 'SOLD';
+    display: block;
+}
