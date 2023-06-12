@@ -1153,7 +1153,7 @@ button[disabled] {
     color: #fff;
 	border-radius: 120px;
 	position: fixed;
-    bottom: 1%;
+    bottom: 2%;
     right: 52px;
 	z-index: 9999;
 }
