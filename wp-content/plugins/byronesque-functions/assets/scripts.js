@@ -704,11 +704,11 @@
         });
 
         if($(".authenticity_note")){
-            $(".authenticity_note:contains('Certificate of Appraisal')").html(function(_, html) {
-                return html.replace(/(cow)/g, '<span class="authenticity_note_tag">$1</span>');
-            });
+            // $(".authenticity_note:contains('Certificate of Appraisal')").html(function(_, html) {
+            //     return html.replace(/(cow)/g, '<span class="authenticity_note_tag">$1</span>');
+            // });
 
-            $(".authenticity_note").click(function(){
+            $(".authenticity_note span").click(function(){
                 $(".authenticity_note_pop").show()
             });
 

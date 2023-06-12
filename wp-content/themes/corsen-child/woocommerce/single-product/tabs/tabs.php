@@ -34,7 +34,7 @@ $loa_details = get_field("loa_details");
 $click_through_details = get_field("click_through_details");
 
 if ( $loa_details && $click_through_details ) {
-	echo "<div class='authenticity_note'>".$loa_details."</div>";
+	echo "<div class='authenticity_note'>Read a bit more about it <span>here<span></div>";
 	echo "<div class='authenticity_note_pop'><div class='overlay authenticity_note_pop_close'></div><div class='auth-content-wrap'><span class='authenticity_note_pop_close'>x</span>".$click_through_details."</div></div>";
 }
 
