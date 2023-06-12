@@ -43,7 +43,7 @@ get_header( 'shop' ); ?>
     </a>
   
       <a class="qodef-qi-button qodef-html--link qodef-layout--filled qodef-size--full" href="/../contact/" target="_self ">
-      <span class="qodef-m-text">Request Full Runway Look</span>
+      <span class="qodef-m-text">Request Full Look</span>
     </a>
 </div>
 	<?php
