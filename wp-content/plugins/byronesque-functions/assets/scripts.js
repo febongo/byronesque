@@ -634,12 +634,11 @@
         // $("#launcher").hide()
         
         // // Open the Zendesk Chat widget
-        function openZendeskChat() {
-            // alert();
-            if (typeof zE !== 'undefined') {
-                zE.show();
-            }
-        }
+        // function openZendeskChat() {
+        //     if (typeof zE !== 'undefined') {
+        //         zE.show();
+        //     }
+        // }
         
         // Hide the Zendesk Chat widget
         // function hideZendeskChat() {
@@ -983,6 +982,12 @@
         });
 
 
+    }
+
+    function openZendeskChat() {
+        if (typeof zE !== 'undefined') {
+            zE.show();
+        }
     }
 
     // $('rs-slide').on('stylechanged', function () {
