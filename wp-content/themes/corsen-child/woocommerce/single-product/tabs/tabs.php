@@ -173,12 +173,12 @@ if ( $loa_details && $click_through_details ) {
 
 <!-- ref  -->
 <?php if ($product->get_sku()) : ?>
-<div class="product-ref">Ref: <?= $product->get_sku() ?></div>
+<div class="product-ref" style="padding-bottom:20px;">Ref: <?= $product->get_sku() ?></div>
 <?php endif; ?>
 
 <!-- ref  -->
 <?php if ($runaway_photo_credit) : ?>
-<div class="product-ref">Runway photo credit: <?= $runaway_photo_credit ?></div>
+<div class="product-ref" style="padding-bottom:20px;">Runway photo credit: <?= $runaway_photo_credit ?></div>
 <?php endif; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
