@@ -18,7 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+global $product;
 /**
  * Filter tabs and allow third parties to add their own.
  *
@@ -172,8 +172,8 @@ if ( $loa_details && $click_through_details ) {
 
 
 <!-- ref  -->
-<?php if ($ref) : ?>
-<div class="product-ref">Ref: <?= $ref ?></div>
+<?php if ($product->get_sku()) : ?>
+<div class="product-ref">Ref: <?= $product->get_sku() ?></div>
 <?php endif; ?>
 
 <!-- ref  -->
