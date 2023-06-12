@@ -86,22 +86,58 @@ function search_product() {
         $keyword = sanitize_text_field($_POST['keyword']);
 
         // SEARCH PRODUCTS
-        $search_term_like = '%' . $wpdb->esc_like($keyword) . '%';
+        /**
+         * OLD APPROACH
+         * */ 
+        // $search_term_like = '%' . $wpdb->esc_like($keyword) . '%';
 
-        $querystr = "
-            SELECT DISTINCT {$wpdb->posts}.ID, {$wpdb->posts}.post_title, {$wpdb->posts}.post_content, {$wpdb->terms}.name AS category_name, {$wpdb->terms}.slug AS category_slug, GROUP_CONCAT(DISTINCT {$wpdb->terms}.name SEPARATOR ', ') AS tag_names, GROUP_CONCAT(DISTINCT {$wpdb->terms}.slug SEPARATOR ', ') AS tag_slugs
-            FROM {$wpdb->posts}
-            LEFT JOIN {$wpdb->term_relationships} ON ({$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id)
-            LEFT JOIN {$wpdb->term_taxonomy} ON ({$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id)
-            LEFT JOIN {$wpdb->terms} ON ({$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id)
-            WHERE {$wpdb->posts}.post_status = 'publish'
-            AND {$wpdb->posts}.post_type = 'product'
-            AND ({$wpdb->posts}.post_title LIKE '{$search_term_like}' OR {$wpdb->posts}.post_content LIKE '{$search_term_like}' OR {$wpdb->terms}.name LIKE '{$search_term_like}' OR {$wpdb->terms}.slug LIKE '{$search_term_like}' OR {$wpdb->terms}.name IN (SELECT DISTINCT {$wpdb->terms}.name FROM {$wpdb->terms} INNER JOIN {$wpdb->term_taxonomy} ON {$wpdb->terms}.term_id = {$wpdb->term_taxonomy}.term_id WHERE {$wpdb->term_taxonomy}.taxonomy = 'product_tag' AND {$wpdb->terms}.name LIKE '{$search_term_like}'))
-            GROUP BY {$wpdb->posts}.ID
-            LIMIT 4
-        ";
+        // $querystr = "
+        //     SELECT DISTINCT {$wpdb->posts}.ID, {$wpdb->posts}.post_title, {$wpdb->posts}.post_content, {$wpdb->terms}.name AS category_name, {$wpdb->terms}.slug AS category_slug, GROUP_CONCAT(DISTINCT {$wpdb->terms}.name SEPARATOR ', ') AS tag_names, GROUP_CONCAT(DISTINCT {$wpdb->terms}.slug SEPARATOR ', ') AS tag_slugs
+        //     FROM {$wpdb->posts}
+        //     LEFT JOIN {$wpdb->term_relationships} ON ({$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id)
+        //     LEFT JOIN {$wpdb->term_taxonomy} ON ({$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id)
+        //     LEFT JOIN {$wpdb->terms} ON ({$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id)
+        //     WHERE {$wpdb->posts}.post_status = 'publish'
+        //     AND {$wpdb->posts}.post_type = 'product'
+        //     AND ({$wpdb->posts}.post_title LIKE '{$search_term_like}' OR {$wpdb->posts}.post_content LIKE '{$search_term_like}' OR {$wpdb->terms}.name LIKE '{$search_term_like}' OR {$wpdb->terms}.slug LIKE '{$search_term_like}' OR {$wpdb->terms}.name IN (SELECT DISTINCT {$wpdb->terms}.name FROM {$wpdb->terms} INNER JOIN {$wpdb->term_taxonomy} ON {$wpdb->terms}.term_id = {$wpdb->term_taxonomy}.term_id WHERE {$wpdb->term_taxonomy}.taxonomy = 'product_tag' AND {$wpdb->terms}.name LIKE '{$search_term_like}'))
+        //     GROUP BY {$wpdb->posts}.ID
+        //     LIMIT 4
+        // ";
 
-        $query_results = $wpdb->get_results($querystr);
+        // $query_results = $wpdb->get_results($querystr);
+
+        /**
+         * NEW APPROACH TO IMPROVE SEARCH RESULTS
+         */
+        $searchArrayKeyword = explode($keyword," ");
+        $searchArrayKeyword[] = $keyword;
+        $args = array(
+            'post_type'      => 'product',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            's'              => 'your-search-keyword',
+            'tax_query' => array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'name',
+                    'terms' => $searchArrayKeyword, // Replace with your desired category slugs
+                ),
+                array(
+                    'taxonomy' => 'product_designer',
+                    'field' => 'name',
+                    'terms' => $searchArrayKeyword, // Replace with your desired category slugs
+                ),
+                array(
+                    'taxonomy' => 'product_tag',
+                    'field' => 'name',
+                    'terms' => $searchArrayKeyword, // Replace with your desired category slugs
+                ),
+            ),
+        );
+        
+        $query = new WC_Product_Query( $args );
+        $query_results = $query->get_products();
 
         // SEARCH DESIGNERS
         $designers = termSearch($keyword,'product_designer');
