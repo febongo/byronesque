@@ -1238,14 +1238,14 @@ function custom_loop_shop_per_page( $cols ) {
 }
 add_filter( 'loop_shop_per_page', 'custom_loop_shop_per_page', 20 );
 
-// function custom_change_price_to_sold( $price, $product ) {
-//     // Check if the product has already been sold
-//     if ( $product->get_sold_individually() ) {
-//         $price = __('Sold', 'byronesque'); 
-//     }
+// REMOVE IMAGE TITLE 
+function custom_hide_image_title( $attr, $attachment, $size ) {
 
-//     return $price;
-// }
-// add_filter( 'woocommerce_get_price_html', 'custom_change_price_to_sold', 10, 2 );
+    if ( isset( $attr['title'] ) && is_singular() ) {
+        unset( $attr['title'] );
+    }
+    return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'custom_hide_image_title', 10, 3 );
 
 ?>
