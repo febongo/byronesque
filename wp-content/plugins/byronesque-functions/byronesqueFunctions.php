@@ -228,7 +228,7 @@ function add_content_after_addtocart() {
 	// run only on simple products
 	if( is_user_logged_in() ){
         if ($product && !$product->is_type('external')) {
-            echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Pay For Your Item</a>';
+            echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt wp-element-button">Pay</a>';
         }
 		//echo '<a href="'.$checkout_url.'" class="buy-now button">Buy Now</a>';
 	} else {
@@ -241,7 +241,7 @@ function add_custom_button_before_add_to_cart() {
     global $product;
 
     if ($product->get_regular_price()) {
-        echo '<a class="single_add_to_cart_button button alt wp-element-button chat-with-us" href="javascript:$zopim.livechat.window.show()">CHAT WITH US</a>';
+        echo '<a class="single_add_to_cart_button button alt wp-element-button chat-with-us" href="javascript:$zopim.livechat.window.show()">Contact for details</a>';
     } else {
         echo '<a class="single_add_to_cart_button button alt wp-element-button chat-with-us" href="javascript:$zopim.livechat.window.show()">Contact for details</a>';
     }
