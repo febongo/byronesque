@@ -1230,4 +1230,15 @@ function custom_loop_shop_per_page( $cols ) {
     return $cols;
 }
 add_filter( 'loop_shop_per_page', 'custom_loop_shop_per_page', 20 );
+
+function custom_change_price_to_sold( $price, $product ) {
+    // Check if the product has already been sold
+    if ( $product->get_sold_individually() ) {
+        $price = __('Sold', 'byronesque'); 
+    }
+
+    return $price;
+}
+add_filter( 'woocommerce_get_price_html', 'custom_change_price_to_sold', 10, 2 );
+
 ?>
