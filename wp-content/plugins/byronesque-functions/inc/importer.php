@@ -358,6 +358,8 @@ function updateDataFromCsv($parent_product_id, $product_id, $dataArray){
                     $tagTerm = wp_insert_term($tag_name, 'product_tag');
                 }
 
+                var_dump($tagTerm);
+
                 $designIds[] = $designerTerm->term_id;
                 $tagIds[] = $tagTerm->term_id;
             }

@@ -1223,4 +1223,11 @@ function custom_login_logo_url_title() {
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
 
+function custom_loop_shop_per_page( $cols ) {
+    // Set the number of products per page to your desired value
+    $cols = 24; // Change this number to your preferred value
+
+    return $cols;
+}
+add_filter( 'loop_shop_per_page', 'custom_loop_shop_per_page', 20 );
 ?>
