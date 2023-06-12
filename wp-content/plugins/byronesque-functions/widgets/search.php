@@ -168,7 +168,7 @@ function search_product() {
 
         $editorialSearch = get_posts( $argsEditorials );
         
-        $editorialStr = "<div class='editorial-search searchedBlock'><h3>Editorials</h3>";
+        $editorialStr = "<div class='editorial-search searchedBlock' style='padding-bottom:20px'><h3>Editorials</h3>";
         if (!empty($editorialSearch)) {
             $editorialStr .= "<ul>";
             foreach($editorialSearch as $editorial) {
@@ -191,7 +191,7 @@ function search_product() {
                                         "<p>".$excerpt."</p>".
                                     "</a></li>";
             }
-            $editorialStr .= "</ul><a href='#' class='btn-search'>BROWSE EDITORIAL</a></div>";
+            $editorialStr .= "</ul></div>";
         } else {
             $editorialStr = "";
         }
