@@ -1183,6 +1183,13 @@ add_filter('post_class', function($classes, $class, $product_id) {
 
     if ($has_image)
     $classes = array_merge(['has-hover-image'], $classes);
+
+    // get product
+    $product = wc_get_product( $product_id );
+
+    if ( $product->get_sold_individually() ) {
+        $classes = array_merge(['product-sold'], $classes);
+    }
     
     return $classes;
 },10,3);
@@ -1231,14 +1238,14 @@ function custom_loop_shop_per_page( $cols ) {
 }
 add_filter( 'loop_shop_per_page', 'custom_loop_shop_per_page', 20 );
 
-function custom_change_price_to_sold( $price, $product ) {
-    // Check if the product has already been sold
-    if ( $product->get_sold_individually() ) {
-        $price = __('Sold', 'byronesque'); 
-    }
+// function custom_change_price_to_sold( $price, $product ) {
+//     // Check if the product has already been sold
+//     if ( $product->get_sold_individually() ) {
+//         $price = __('Sold', 'byronesque'); 
+//     }
 
-    return $price;
-}
-add_filter( 'woocommerce_get_price_html', 'custom_change_price_to_sold', 10, 2 );
+//     return $price;
+// }
+// add_filter( 'woocommerce_get_price_html', 'custom_change_price_to_sold', 10, 2 );
 
 ?>
