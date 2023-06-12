@@ -242,7 +242,7 @@ function search_product() {
             $shopUrl = get_permalink( wc_get_page_id( 'shop' ) );
             echo $designerStr ? $designerStr : '';
             echo "<div class='product-search searchedBlock'><h3>Products</h3><ul>";
-            echo $output;
+            echo $output ? $output : "<p>Sorry, No products found!</p>";
             echo "</ul></div>";
             echo $editorialStr ? $editorialStr : '';
         // }

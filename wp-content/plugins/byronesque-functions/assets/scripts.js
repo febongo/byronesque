@@ -488,6 +488,8 @@
                     setAddressFields("shipping", null)
                     $('.woocommerce-shipping-fields__field-wrapper').show()
                 }
+
+                // $('.shipping-calculator-button').trigger('click');
             })
 
             $(document).on("click",".nextBlock",function() {
