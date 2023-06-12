@@ -897,6 +897,8 @@
 
 .authenticity_note span{
     cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 .authenticity_note_pop{
