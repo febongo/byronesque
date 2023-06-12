@@ -898,7 +898,7 @@
         }
     });
 
-    $(document).on("click","#bn-search-close, .qodef-mobile-header-opener, .clos-all",function() {
+    $(document).on("click","#bn-search-close, .qodef-mobile-header-opener, .close-all",function() {
         hideSideNav();
         hideOverlay();
         $(".bn-search-form").removeClass('bn-show')
